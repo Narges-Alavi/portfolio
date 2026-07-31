@@ -3,7 +3,7 @@
    Desktop stylesheet
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;900&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
 :root {
   --bg: #070b13;
@@ -33,7 +33,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   overflow-x: clip;
   cursor: url('../assets/cursor.svg') 4 2, auto;
@@ -43,14 +43,34 @@ a, button, .milestone, .work-card, .nav-toggle, [onclick] {
   cursor: url('../assets/cursor.svg') 4 2, pointer;
 }
 
-/* box-level titles keep Inter per brand spec */
-.fc-title, .work-title, .modal-title { font-family: 'Inter', sans-serif; }
+/* ---------- Title font system: Inter everywhere, Poppins for headings/titles ---------- */
+.logo,
+.hero h1,
+.about-left h2,
+.contact-inner h2,
+.timeline-current h3,
+.fc-title,
+.work-title,
+.modal-title,
+.footer-name,
+.skills-col h3,
+.work-logo-mark {
+  font-family: 'Poppins', sans-serif;
+}
 
 /* ---------- Persian / RTL ---------- */
 html[dir="rtl"] body { font-family: 'Vazirmatn', sans-serif; }
+html[dir="rtl"] .logo,
+html[dir="rtl"] .hero h1,
+html[dir="rtl"] .about-left h2,
+html[dir="rtl"] .contact-inner h2,
+html[dir="rtl"] .timeline-current h3,
 html[dir="rtl"] .fc-title,
 html[dir="rtl"] .work-title,
-html[dir="rtl"] .modal-title { font-family: 'Vazirmatn', sans-serif; }
+html[dir="rtl"] .modal-title,
+html[dir="rtl"] .footer-name,
+html[dir="rtl"] .skills-col h3,
+html[dir="rtl"] .work-logo-mark { font-family: 'Vazirmatn', sans-serif; }
 html[dir="rtl"] .nav { direction: ltr; }
 html[dir="rtl"] .nav-links { direction: rtl; }
 html[dir="rtl"] .hero-inner,
@@ -93,7 +113,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .logo {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 18px;
   letter-spacing: -0.5px;
@@ -205,7 +225,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero h1 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 44px;
   letter-spacing: -2px;
@@ -213,7 +233,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero .role {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 24px;
   color: var(--text-dim);
@@ -331,7 +351,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero-visual:hover .floating-card { transform: translateY(-2px); }
 
-.fc-1 { top: 0px;   left: 66px; transform: rotate(6deg);  z-index: 1; }  /* Behfalab   — back-most */
+.fc-1 { top: 0px;   left: 66px; transform: rotate(6deg);  z-index: 1; }  /* Dota       — back-most */
 .fc-2 { top: 62px;  left: 2px;  transform: rotate(-5deg); z-index: 2; }  /* Rahafto    */
 .fc-4 { top: 128px; left: 58px; transform: rotate(5deg);  z-index: 3; }  /* Khodropack */
 .fc-3 { top: 196px; left: -6px; transform: rotate(-3deg); z-index: 4; } /* PathoFinder — front-most */
@@ -377,7 +397,7 @@ a { color: inherit; text-decoration: none; }
 .about-left { flex: 1; min-width: 0; }
 
 .about-left h2 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 34px;
   letter-spacing: -1px;
@@ -556,7 +576,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .timeline-current h3 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 16.8px;
   letter-spacing: -0.3px;
@@ -639,7 +659,7 @@ a { color: inherit; text-decoration: none; }
 .work-logo-img-sm { width: 150px; height: 90px; }
 
 .work-logo-mark {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 30px;
   letter-spacing: -0.8px;
@@ -727,7 +747,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .work-title {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 17.6px;
   letter-spacing: -0.3px;
@@ -806,7 +826,7 @@ a { color: inherit; text-decoration: none; }
 .skills-col { flex: 1; }
 
 .skills-col h3 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 17.6px;
   letter-spacing: -0.35px;
@@ -859,7 +879,7 @@ a { color: inherit; text-decoration: none; }
 .contact-inner { max-width: 520px; }
 
 .contact-inner h2 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 38px;
   letter-spacing: -1px;
@@ -981,7 +1001,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .modal-title {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 24px;
   margin: 12px 0 0;
@@ -1055,7 +1075,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .footer-name {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 14.4px;
   color: var(--text-dim);
