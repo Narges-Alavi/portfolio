@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Narges Sadat Alavi — UI/UX Designer</title>
 <meta name="description" content="Narges Sadat Alavi — UI/UX Designer turning complex AI, clinical & commerce flows into effortless user experiences.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="bg-glow"></div>
@@ -16,65 +16,64 @@
     <img src="assets/logo.svg" alt="Narges Sadat Alavi logo" class="logo-mark">
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#timeline">Career</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact" class="active">Contact</a></li>
+    <li><a href="#home" class="active" data-en="Home" data-fa="خانه">Home</a></li>
+    <li><a href="#about" data-en="About" data-fa="درباره من">About</a></li>
+    <li><a href="#timeline" data-en="Career" data-fa="مسیر شغلی">Career</a></li>
+    <li><a href="#work" data-en="Work" data-fa="نمونه‌کارها">Work</a></li>
+    <li><a href="#skills" data-en="Skills" data-fa="مهارت‌ها">Skills</a></li>
+    <li><a href="#contact" data-en="Contact" data-fa="تماس">Contact</a></li>
   </ul>
-  <a class="btn-cv" href="assets/cv.pdf" download="Narges-Sadat-Alavi-CV.pdf">↓ Download CV</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="container hero-inner">
     <div class="hero-text">
-      <div class="badge"><span class="dot"></span> Available for new projects</div>
+      <div class="badge"><span class="dot"></span> <span data-en="Available for new projects" data-fa="آماده همکاری در پروژه‌های جدید">Available for new projects</span></div>
       <h1>Narges Sadat Alavi</h1>
-      <p class="role">UI/UX Designer</p>
-      <p class="pitch"><strong>+3 years</strong> turning complex AI, clinical &amp; commerce flows into effortless user experiences.</p>
+      <p class="role" data-en="UI/UX Designer" data-fa="طراح UI/UX">UI/UX Designer</p>
+      <p class="pitch"><strong data-en="+3 years" data-fa="+۳ سال">+3 years</strong> <span data-en="turning complex AI, clinical &amp; commerce flows into effortless user experiences." data-fa="تجربه در تبدیل فرایندهای پیچیده هوش مصنوعی، درمانی و تجاری به تجربه‌های کاربری ساده و روان.">turning complex AI, clinical &amp; commerce flows into effortless user experiences.</span></p>
       <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">View case studies</a>
-        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        <a href="#work" class="btn btn-primary" data-en="View case studies" data-fa="مشاهده نمونه‌کارها">View case studies</a>
+        <a class="btn btn-secondary" href="assets/Narges-Sadat-Alavi-UIUX-Designer-CV.pdf" download="Narges-Sadat-Alavi-UIUX-Designer-CV.pdf" data-en="↓ Download CV" data-fa="↓ دانلود رزومه">↓ Download CV</a>
       </div>
     </div>
 
     <div class="hero-visual">
-      <div class="floating-card fc-1">
-        <div>
-          <div class="fc-label">MARKETPLACE</div>
-          <div class="fc-title">AutoPack</div>
+      <div class="floating-card fc-back fc-1" style="--fc-tint: 244,114,182;">
+        <div class="fc-body">
+          <div class="fc-label" data-en="B2B PROCESS" data-fa="فرایند B2B">B2B PROCESS</div>
+          <div class="fc-title">Behfalab</div>
         </div>
-        <div class="fc-stat">
-          <div class="fc-stat-row"><span>Trust Score</span><span>4.8★</span></div>
-          <div class="fc-bar"><span style="width:96%;background:var(--orange)"></span></div>
-        </div>
+        <img src="assets/logos/bahfalab.svg" alt="" class="fc-logo">
       </div>
 
-      <div class="floating-card fc-2">
-        <div>
-          <div class="fc-label">B2B PROCESS</div>
-          <div class="fc-title">Bahfalab</div>
+      <div class="floating-card fc-back fc-2" style="--fc-tint: 155,140,255;">
+        <div class="fc-body">
+          <div class="fc-label" data-en="EDTECH" data-fa="ادتک">EDTECH</div>
+          <div class="fc-title">Rahafto</div>
         </div>
-        <div class="fc-stat">
-          <div class="fc-stat-row"><span>Process Score</span><span>87%</span></div>
-          <div class="fc-bar"><span style="width:87%;background:var(--blue2)"></span></div>
-          <div class="fc-stat-row"><span>Compliance Rate</span><span>72%</span></div>
-          <div class="fc-bar"><span style="width:72%;background:var(--blue2)"></span></div>
-        </div>
+        <img src="assets/logos/rahafto.png" alt="" class="fc-logo">
       </div>
 
-      <div class="floating-card fc-3">
-        <div>
-          <div class="fc-label">MEDICAL AI</div>
+      <div class="floating-card fc-mid fc-4" style="--fc-tint: 255,157,84;">
+        <div class="fc-body">
+          <div class="fc-label" data-en="MARKETPLACE" data-fa="مارکت‌پلیس">MARKETPLACE</div>
+          <div class="fc-title">Khodropack</div>
+        </div>
+        <img src="assets/logos/khodropack.png" alt="" class="fc-logo">
+      </div>
+
+      <div class="floating-card fc-front fc-3" style="--fc-tint: 47,214,176;">
+        <div class="fc-body">
+          <div class="fc-label" data-en="MEDICAL AI" data-fa="هوش مصنوعی پزشکی">MEDICAL AI</div>
           <div class="fc-title">PathoFinder</div>
         </div>
-        <div class="fc-stat">
-          <div class="fc-stat-row"><span>AI Confidence</span><span>94.2%</span></div>
-          <div class="fc-bar"><span style="width:94%;background:var(--teal)"></span></div>
-          <div class="fc-stat-row"><span>Cobb Angle Acc.</span><span>±0.2°</span></div>
-          <div class="fc-bar"><span style="width:88%;background:var(--teal)"></span></div>
-        </div>
+        <img src="assets/logos/pathofinder.png" alt="" class="fc-logo">
       </div>
     </div>
   </div>
@@ -83,16 +82,14 @@
 <!-- ============ ABOUT ============ -->
 <section class="section" id="about">
   <div class="container">
-    <div class="eyebrow"><span>ABOUT</span><div class="rule"></div></div>
+    <div class="eyebrow"><span data-en="ABOUT" data-fa="درباره من">ABOUT</span><div class="rule"></div></div>
 
     <div class="about-grid">
       <div class="about-left">
-        <div class="avatar"><img src="assets/profile.jpg" alt="Narges Sadat Alavi"></div>
-
-        <h2>Designing clarity<br>in complex systems.</h2>
-        <p>I'm a UI/UX Designer with a Computer Engineering background, focused on transforming complex systems into intuitive, user-centered experiences.</p>
-        <p>I design products across AI, healthcare, B2B, and consumer platforms—from clinical dashboards used in 300+ surgical procedures to seamless digital experiences.</p>
-        <p>Through research-driven UX, scalable design systems, and close collaboration with engineers and stakeholders, I bridge the gap between technical complexity and human needs.</p>
+        <h2 data-en="Designing clarity<br>in complex systems." data-fa="طراحی وضوح<br>در سیستم‌های پیچیده." data-html="true">Designing clarity<br>in complex systems.</h2>
+        <p data-en="I'm a UI/UX Designer with a Computer Engineering background, focused on transforming complex systems into intuitive, user-centered experiences." data-fa="من یک طراح UI/UX با پیشینه مهندسی کامپیوتر هستم که روی تبدیل سیستم‌های پیچیده به تجربه‌های کاربرمحور و شهودی تمرکز دارم.">I'm a UI/UX Designer with a Computer Engineering background, focused on transforming complex systems into intuitive, user-centered experiences.</p>
+        <p data-en="I design products across AI, healthcare, B2B, and consumer platforms—from clinical dashboards used in 300+ surgical procedures to seamless digital experiences." data-fa="در حوزه‌های هوش مصنوعی، سلامت، B2B و پلتفرم‌های مصرف‌کننده محصول طراحی می‌کنم؛ از داشبوردهای بالینی استفاده‌شده در بیش از ۳۰۰ عمل جراحی تا تجربه‌های دیجیتال روان.">I design products across AI, healthcare, B2B, and consumer platforms—from clinical dashboards used in 300+ surgical procedures to seamless digital experiences.</p>
+        <p data-en="Through research-driven UX, scalable design systems, and close collaboration with engineers and stakeholders, I bridge the gap between technical complexity and human needs." data-fa="با تکیه بر UX مبتنی بر پژوهش، سیستم‌های طراحی مقیاس‌پذیر و همکاری نزدیک با مهندسان و ذی‌نفعان، فاصله میان پیچیدگی فنی و نیاز انسانی را پر می‌کنم.">Through research-driven UX, scalable design systems, and close collaboration with engineers and stakeholders, I bridge the gap between technical complexity and human needs.</p>
 
         <div class="pill-row">
           <span class="pill">Figma</span>
@@ -107,25 +104,16 @@
       </div>
 
       <div class="about-right">
-        <div class="about-card">
-          <div class="icon">⚕️</div>
-          <h3>Medical AI &amp; Healthtech</h3>
-          <p>Clinical-grade UX for high-stakes surgical environments. AI result transparency, bilingual RTL/LTR.</p>
-        </div>
-        <div class="about-card">
-          <div class="icon">⚙️</div>
-          <h3>B2B &amp; AI-Assisted Products</h3>
-          <p>Dashboard design, AI-assisted workflows with manual fallback, onboarding for non-enterprise users.</p>
-        </div>
-        <div class="about-card">
-          <div class="icon">🛒</div>
-          <h3>E-Commerce &amp; Marketplace</h3>
-          <p>Trust-building, pricing transparency, service discovery, availability scheduling.</p>
-        </div>
-        <div class="about-card">
-          <div class="icon">🎓</div>
-          <h3>E-Learning &amp; Consumer</h3>
-          <p>Conversion-focused course pages, checkout redesign, cultural event apps.</p>
+        <div class="avatar-large"><img src="assets/profile.jpg" alt="Narges Sadat Alavi"></div>
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-num">+3</div>
+            <div class="stat-label" data-en="Years of experience" data-fa="سال تجربه">Years of experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">+10</div>
+            <div class="stat-label" data-en="Products shipped" data-fa="محصول ارائه‌شده">Products shipped</div>
+          </div>
         </div>
       </div>
     </div>
@@ -135,43 +123,71 @@
 <!-- ============ TIMELINE ============ -->
 <section class="section" id="timeline">
   <div class="container">
-    <div class="eyebrow"><span>CAREER TIMELINE</span><div class="rule"></div></div>
+    <div class="eyebrow"><span data-en="CAREER TIMELINE" data-fa="مسیر شغلی">CAREER TIMELINE</span><div class="rule"></div></div>
 
     <div class="timeline-track">
-      <svg class="timeline-curve" viewBox="0 0 1036 200" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M 65,40 C 232.5,40 232.5,150 400,150 C 570,150 570,40 740,40 C 855.5,40 855.5,150 971,150"
+      <svg class="timeline-curve" viewBox="0 0 1036 116" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 65,34 C 232.5,34 232.5,90 400,90 C 570,90 570,34 740,34 C 855.5,34 855.5,90 971,90"
               fill="none" stroke="rgba(148,163,184,0.35)" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round"/>
       </svg>
 
-      <div class="milestone" style="--milestone-color: var(--blue)">
+      <button type="button" class="milestone active" style="--milestone-color: var(--blue)"
+        data-title="BEng Computer Engineering" data-role="Azad Rodehen University"
+        data-desc="Bachelor's degree in Computer Engineering. A foundation in software systems thinking that informs every design decision — understanding constraints, data structures, and technical feasibility from the ground up."
+        data-title-fa="کارشناسی مهندسی کامپیوتر" data-role-fa="دانشگاه آزاد رودهن"
+        data-desc-fa="مدرک کارشناسی مهندسی کامپیوتر. پایه‌ای در تفکر سیستمی نرم‌افزار که به هر تصمیم طراحی جهت می‌دهد — درک محدودیت‌ها، ساختار داده و امکان‌پذیری فنی از پایه.">
         <div class="milestone-icon">🎓</div>
-        <div class="m-date">2022 — 2025</div>
-        <div class="m-role">BEng Computer<br>Engineering</div>
-      </div>
+        <div class="m-text">
+          <div class="m-date">2022 — 2025</div>
+          <div class="m-role" data-en="BEng Computer<br>Engineering" data-fa="کارشناسی مهندسی<br>کامپیوتر" data-html="true">BEng Computer<br>Engineering</div>
+        </div>
+      <div class="m-mobile-desc"><div class="m-mobile-desc-in"><div class="role-co" data-mobile-role></div><p data-mobile-desc></p></div></div>
+      </button>
 
-      <div class="milestone dip" style="--milestone-color: var(--orange)">
+      <button type="button" class="milestone dip" style="--milestone-color: var(--orange)"
+        data-title="UI/UX Designer · Part time" data-role="Khodropack · Auto-repair Marketplace"
+        data-desc="Designed an end-to-end experience for finding and comparing trusted repair shops with transparent pricing — a comparison-focused discovery flow, direct calling and navigation integration, and mechanic availability scheduling."
+        data-title-fa="طراح UI/UX · پاره‌وقت" data-role-fa="خودروپک · مارکت‌پلیس تعمیرگاه خودرو"
+        data-desc-fa="طراحی تجربه‌ای end-to-end برای یافتن و مقایسه تعمیرگاه‌های معتبر با قیمت‌گذاری شفاف — جریان کشف مبتنی بر مقایسه، تماس مستقیم، اتصال به مسیریابی و زمان‌بندی در دسترس بودن مکانیک.">
         <div class="milestone-icon">🚗</div>
-        <div class="m-date">Apr 2024 — Jul 2025</div>
-        <div class="m-role">UI/UX Designer ·<br>Part time</div>
-      </div>
+        <div class="m-text">
+          <div class="m-date">Apr 2024 — Jul 2025</div>
+          <div class="m-role" data-en="UI/UX Designer ·<br>Part time" data-fa="طراح UI/UX ·<br>پاره‌وقت" data-html="true">UI/UX Designer ·<br>Part time</div>
+        </div>
+      <div class="m-mobile-desc"><div class="m-mobile-desc-in"><div class="role-co" data-mobile-role></div><p data-mobile-desc></p></div></div>
+      </button>
 
-      <div class="milestone" style="--milestone-color: var(--purple)">
+      <button type="button" class="milestone" style="--milestone-color: var(--purple)"
+        data-title="Product Designer · Part time" data-role="Rahafto · Education Platform"
+        data-desc="Designed the end-to-end course purchase experience, from discovery to checkout and learning access — competitor research, instructor credibility, and full/installment checkout flows."
+        data-title-fa="طراح محصول · پاره‌وقت" data-role-fa="ره‌افتو · پلتفرم آموزشی"
+        data-desc-fa="طراحی تجربه کامل خرید دوره، از کشف تا پرداخت و دسترسی به آموزش — تحقیق رقبا، اعتبار مدرس، و جریان‌های پرداخت کامل/اقساطی.">
         <div class="milestone-icon">📘</div>
-        <div class="m-date">Jun 2025 — Dec 2025</div>
-        <div class="m-role">Product Designer ·<br>Part time</div>
-      </div>
+        <div class="m-text">
+          <div class="m-date">Jun 2025 — Dec 2025</div>
+          <div class="m-role" data-en="Product Designer ·<br>Part time" data-fa="طراح محصول ·<br>پاره‌وقت" data-html="true">Product Designer ·<br>Part time</div>
+        </div>
+      <div class="m-mobile-desc"><div class="m-mobile-desc-in"><div class="role-co" data-mobile-role></div><p data-mobile-desc></p></div></div>
+      </button>
 
-      <div class="milestone dip filled" style="--milestone-color: var(--teal)">
+      <button type="button" class="milestone dip" data-newest style="--milestone-color: var(--teal)"
+        data-title="Product Designer · Full time" data-role="PathoFinder.ai · Medical AI"
+        data-desc="Sole designer on a hospital B2B platform using AI to analyze orthopedic X-rays across the spine, pelvis, knee, foot, and hand. End-to-end ownership of clinical workflows, from AI-assisted measurement tools to physician-facing reports."
+        data-title-fa="طراح محصول · تمام‌وقت" data-role-fa="پاتوفایندر · هوش مصنوعی پزشکی"
+        data-desc-fa="تنها طراح یک پلتفرم B2B بیمارستانی که از هوش مصنوعی برای تحلیل رادیوگرافی ارتوپدی ستون فقرات، لگن، زانو، پا و دست استفاده می‌کند. مالکیت کامل جریان‌های بالینی، از ابزارهای اندازه‌گیری مبتنی بر AI تا گزارش‌های پزشک.">
         <div class="milestone-icon">🩺</div>
-        <div class="m-date">Dec 2025 — Present</div>
-        <div class="m-role">Product Designer ·<br>Full time</div>
-      </div>
+        <div class="m-text">
+          <div class="m-date">Dec 2025 — Present</div>
+          <div class="m-role" data-en="Product Designer ·<br>Full time" data-fa="طراح محصول ·<br>تمام‌وقت" data-html="true">Product Designer ·<br>Full time</div>
+        </div>
+      <div class="m-mobile-desc"><div class="m-mobile-desc-in"><div class="role-co" data-mobile-role></div><p data-mobile-desc></p></div></div>
+      </button>
     </div>
 
-    <div class="timeline-current">
-      <h3>Product Designer · Full time</h3>
-      <div class="role-co">PathoFinder.ai · Medical AI</div>
-      <p>Sole designer on a hospital B2B platform using AI to analyze orthopedic X-rays across the spine, pelvis, knee, foot, and hand. End-to-end ownership of clinical workflows, from AI-assisted measurement tools to physician-facing reports.</p>
+    <div class="timeline-current" id="timelineCurrent" style="--tc-color: var(--blue)">
+      <h3 id="tcTitle" data-en="BEng Computer Engineering" data-fa="کارشناسی مهندسی کامپیوتر">BEng Computer Engineering</h3>
+      <div class="role-co" id="tcRole" data-en="Azad Rodehen University" data-fa="دانشگاه آزاد رودهن">Azad Rodehen University</div>
+      <p id="tcDesc" data-en="Bachelor's degree in Computer Engineering. A foundation in software systems thinking that informs every design decision — understanding constraints, data structures, and technical feasibility from the ground up." data-fa="مدرک کارشناسی مهندسی کامپیوتر. پایه‌ای در تفکر سیستمی نرم‌افزار که به هر تصمیم طراحی جهت می‌دهد — درک محدودیت‌ها، ساختار داده و امکان‌پذیری فنی از پایه.">Bachelor's degree in Computer Engineering. A foundation in software systems thinking that informs every design decision — understanding constraints, data structures, and technical feasibility from the ground up.</p>
     </div>
   </div>
 </section>
@@ -179,29 +195,24 @@
 <!-- ============ WORK ============ -->
 <section class="section" id="work">
   <div class="container">
-    <div class="eyebrow"><span>WORK</span><div class="rule"></div></div>
+    <div class="eyebrow"><span data-en="WORK" data-fa="نمونه‌کارها">WORK</span><div class="rule"></div></div>
 
     <div class="work-grid">
 
       <!-- PathoFinder — featured -->
-      <article class="work-card featured" style="--accent: var(--teal); --tint: rgba(47,214,176,.09)">
+      <article class="work-card featured" data-project="pathofinder" style="--accent: var(--teal); --tint: rgba(47,214,176,.09)">
         <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(47,214,176,0.24)">
-            <div class="mock-titlebar"><span></span><span></span><span></span></div>
-            <div class="mock-body">
-              <div class="mock-bar" style="width:60%;background:rgba(47,214,176,.4)"></div>
-              <div class="mock-block" style="background:rgba(47,214,176,.06); border:1px solid rgba(47,214,176,.14)"></div>
-              <div class="mock-bar short" style="background:rgba(255,255,255,.07)"></div>
-            </div>
+          <div class="work-logo">
+            <img src="assets/logos/pathofinder.png" alt="PathoFinder logo" class="work-logo-img">
           </div>
         </div>
         <div class="work-body">
           <div class="work-meta">
             <span class="work-date">Dec 2025 — Present</span>
-            <span class="work-tag-top">Medical AI</span>
+            <span class="work-tag-top" data-en="Medical AI" data-fa="هوش مصنوعی پزشکی">Medical AI</span>
           </div>
           <h3 class="work-title">PathoFinder.ai</h3>
-          <p class="work-desc">Sole designer on a hospital B2B platform using AI to analyze orthopedic X-rays across the spine, pelvis, knee, foot, and hand. +300 patients evaluated to date.</p>
+          <p class="work-desc" data-en="Sole designer on a hospital B2B platform using AI to analyze orthopedic X-rays across the spine, pelvis, knee, foot, and hand. +300 patients evaluated to date." data-fa="تنها طراح یک پلتفرم B2B بیمارستانی که با هوش مصنوعی رادیوگرافی‌های ارتوپدی ستون فقرات، لگن، زانو، پا و دست را تحلیل می‌کند. بیش از ۳۰۰ بیمار تاکنون ارزیابی شده.">Sole designer on a hospital B2B platform using AI to analyze orthopedic X-rays across the spine, pelvis, knee, foot, and hand. +300 patients evaluated to date.</p>
           <div class="work-tags">
             <span class="primary">Sole Designer</span>
             <span>Clinical UX</span>
@@ -209,231 +220,186 @@
             <span>AI Transparency</span>
             <span>Figma</span>
           </div>
-          <a href="#" class="work-link">View Case Study →</a>
+          <a href="case-studies/pathofinder.html" class="work-link" data-en="View Case Study →" data-fa="مشاهده نمونه‌کار →">View Case Study →</a>
+        </div>
+      </article>
+
+      <!-- Dota (Doota) -->
+      <article class="work-card" data-project="dota" style="--accent: #e0fa60; --tint: rgba(96,165,250,.09)">
+        <div class="work-thumb">
+          <div class="work-logo">
+            <img src="assets/logos/dota.svg" alt="Dota logo" class="work-logo-img">
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta">
+            <span class="work-date">14-day Design/Product Sprint</span>
+            <span class="work-tag-top" data-en="SaaS" data-fa="سرویس نرم‌افزاری">SaaS</span>
+          </div>
+          <h3 class="work-title">Dota</h3>
+          <p class="work-desc" data-en="Contract-builder SaaS for Persian-speaking freelancers. Step-by-step wizard for creating legally-sound agreements, with full RTL support." data-fa="سرویس نرم‌افزاری قرارداد‌ساز برای فریلنسرهای فارسی‌زبان. ویزارد گام‌به‌گام برای ساخت توافق‌نامه‌های معتبر حقوقی، با پشتیبانی کامل از راست‌به‌چپ.">Contract-builder SaaS for Persian-speaking freelancers. Step-by-step wizard for creating legally-sound agreements, with full RTL support.</p>
+          <div class="work-tags">
+            <span class="primary">RTL / Persian UI</span>
+            <span>Wizard Flow</span>
+          </div>
+          <a href="case-studies/dota.html" class="work-link" data-en="View Case Study →" data-fa="مشاهده نمونه‌کار →">View Case Study →</a>
         </div>
       </article>
 
       <!-- Rahafto -->
-      <article class="work-card tall" style="--accent: var(--purple); --tint: rgba(155,140,255,.09)">
+      <article class="work-card tall" data-project="rahafto" style="--accent: var(--purple); --tint: rgba(155,140,255,.09)">
         <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(155,140,255,0.22)">
-            <div class="mock-titlebar"><span></span><span></span><span></span></div>
-            <div class="mock-body">
-              <div class="mock-bar" style="width:70%;background:rgba(155,140,255,.38)"></div>
-              <div class="mock-block" style="background:rgba(155,140,255,.07); border:1px solid rgba(155,140,255,.14)"></div>
-              <div style="display:flex; gap:4px;">
-                <div class="mock-block" style="flex:1; height:14px; background:rgba(155,140,255,.22)"></div>
-                <div class="mock-block" style="width:36px; height:14px; background:rgba(255,255,255,.05)"></div>
-              </div>
-            </div>
+          <div class="work-logo">
+            <img src="assets/logos/rahafto.png" alt="Rahafto Academy logo" class="work-logo-img work-logo-img-sm">
           </div>
         </div>
         <div class="work-body">
           <div class="work-meta">
             <span class="work-date">Jun — Dec 2025</span>
-            <span class="work-tag-top">EdTech</span>
+            <span class="work-tag-top" data-en="EdTech" data-fa="ادتک">EdTech</span>
           </div>
           <h3 class="work-title">Rahafto Academy</h3>
-          <p class="work-desc">End-to-end UI/UX design for a Persian B2C EdTech platform, including the course page, checkout flow, student dashboard, and design system.</p>
+          <p class="work-desc" data-en="End-to-end UI/UX design for a Persian B2C EdTech platform, including the course page, checkout flow, student dashboard, and design system." data-fa="طراحی کامل UI/UX برای یک پلتفرم آموزشی فارسی B2C، شامل صفحه دوره، فرایند پرداخت، داشبورد دانشجو و سیستم طراحی.">End-to-end UI/UX design for a Persian B2C EdTech platform, including the course page, checkout flow, student dashboard, and design system.</p>
           <div class="work-tags">
             <span class="primary">Checkout UX</span>
             <span>B2C</span>
             <span>Persian UI</span>
           </div>
-          <a href="#" class="work-link">View Case Study →</a>
+          <a href="case-studies/rahafto.html" class="work-link" data-en="View Case Study →" data-fa="مشاهده نمونه‌کار →">View Case Study →</a>
         </div>
       </article>
 
       <!-- Khodropack -->
-      <article class="work-card" style="--accent: var(--orange); --tint: rgba(255,157,84,.09)">
+      <article class="work-card" data-project="khodropack" style="--accent: var(--orange); --tint: rgba(84,221,255,.09)">
         <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(255,157,84,0.28); width:90px; border-radius:18px;">
-            <div class="mock-body" style="padding-top:20px;">
-              <div class="mock-bar" style="width:55%;background:rgba(255,157,84,.42)"></div>
-              <div class="mock-block" style="background:rgba(255,157,84,.09); border:1px solid rgba(255,157,84,.16)"></div>
-              <div class="mock-block" style="background:rgba(255,255,255,.04)"></div>
-              <div class="mock-bar short" style="background:rgba(255,255,255,.06)"></div>
-            </div>
+          <div class="work-logo">
+            <img src="assets/logos/khodropack.png" alt="Khodropack logo" class="work-logo-img work-logo-img-sm">
           </div>
         </div>
         <div class="work-body">
           <div class="work-meta">
             <span class="work-date">Apr 2024 — Jul 2025</span>
-            <span class="work-tag-top">Marketplace</span>
+            <span class="work-tag-top" data-en="Marketplace" data-fa="مارکت‌پلیس">Marketplace</span>
           </div>
           <h3 class="work-title">Khodropack</h3>
-          <p class="work-desc">Auto repair marketplace for comparing trusted workshops, prices, and specialties.</p>
+          <p class="work-desc" data-en="Auto repair marketplace for comparing trusted workshops, prices, and specialties." data-fa="مارکت‌پلیس تعمیر خودرو برای مقایسه تعمیرگاه‌های معتبر، قیمت‌ها و تخصص‌ها.">Auto repair marketplace for comparing trusted workshops, prices, and specialties.</p>
           <div class="work-tags">
             <span class="primary">UI/UX Design</span>
             <span>MVP</span>
             <span>Scheduling</span>
           </div>
-          <a href="#" class="work-link">View Case Study →</a>
-        </div>
-      </article>
-
-      <!-- Saveh Concert -->
-      <article class="work-card" style="--accent: var(--pink); --tint: rgba(244,114,182,.09)">
-        <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(244,114,182,0.26); width:86px; border-radius:18px;">
-            <div class="mock-body" style="padding-top:20px;">
-              <div class="mock-block" style="height:42px;background:rgba(244,114,182,.1); border:1px solid rgba(244,114,182,.2)"></div>
-              <div class="mock-bar" style="width:60%;background:rgba(244,114,182,.42)"></div>
-              <div class="mock-bar short" style="background:rgba(255,255,255,.06)"></div>
-              <div class="mock-block" style="height:22px;background:rgba(244,114,182,.14)"></div>
-            </div>
-          </div>
-        </div>
-        <div class="work-body">
-          <div class="work-meta">
-            <span class="work-date">2023</span>
-            <span class="work-tag-top">Culture / Events</span>
-          </div>
-          <h3 class="work-title">Saveh Concert</h3>
-          <p class="work-desc">Concert &amp; cultural event app for Saveh city. Event discovery, artist profiles, venue details.</p>
-          <div class="work-tags">
-            <span class="primary">Mobile-First</span>
-            <span>Ticketing UX</span>
-            <span>Cultural</span>
-          </div>
-          <a href="#" class="work-link">View Case Study →</a>
-        </div>
-      </article>
-
-      <!-- StartUp Platform -->
-      <article class="work-card" style="--accent: var(--green); --tint: rgba(52,211,153,.09)">
-        <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(52,211,153,0.2); width:145px;">
-            <div class="mock-titlebar"><span></span><span></span><span></span></div>
-            <div class="mock-body">
-              <div style="display:flex; gap:5px;">
-                <div class="mock-block" style="width:40px;height:28px;background:rgba(52,211,153,.12); border:1px solid rgba(52,211,153,.18)"></div>
-                <div class="mock-block" style="flex:1;height:28px;background:rgba(52,211,153,.06)"></div>
-              </div>
-              <div class="mock-bar short" style="background:rgba(52,211,153,.32)"></div>
-              <div class="mock-block" style="height:28px;background:rgba(255,255,255,.03)"></div>
-            </div>
-          </div>
-        </div>
-        <div class="work-body">
-          <div class="work-meta">
-            <span class="work-date">2023 — 2024</span>
-            <span class="work-tag-top">B2B / Startup</span>
-          </div>
-          <h3 class="work-title">StartUp Platform</h3>
-          <p class="work-desc">Dashboard, onboarding, and landing page design for a B2B tool targeting Iranian founders.</p>
-          <div class="work-tags">
-            <span class="primary">Dashboard</span>
-            <span>Onboarding</span>
-            <span>B2B</span>
-          </div>
-          <a href="#" class="work-link">View Case Study →</a>
+          <a href="case-studies/khodropack.html" class="work-link" data-en="View Case Study →" data-fa="مشاهده نمونه‌کار →">View Case Study →</a>
         </div>
       </article>
 
       <!-- Bahfalab -->
-      <article class="work-card" style="--accent: var(--blue2); --tint: rgba(96,165,250,.09)">
+      <article class="work-card no-case-study" data-project="bahfalab" style="--accent: var(--blue2); --tint: rgba(96,165,250,.09)">
         <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(96,165,250,0.2); width:140px;">
-            <div class="mock-titlebar"><span></span><span></span><span></span></div>
-            <div class="mock-body">
-              <div class="mock-bar short" style="background:rgba(96,165,250,.35)"></div>
-              <div class="mock-block" style="height:38px;background:rgba(96,165,250,.08); border:1px solid rgba(96,165,250,.14)"></div>
-              <div class="mock-bar short" style="background:rgba(255,255,255,.06)"></div>
-            </div>
+          <div class="work-logo">
+            <img src="assets/logos/bahfalab.svg" alt="Bahfalab logo" class="work-logo-img">
           </div>
         </div>
         <div class="work-body">
           <div class="work-meta">
             <span class="work-date">2026</span>
-            <span class="work-tag-top">B2B / Process</span>
+            <span class="work-tag-top" data-en="B2B / Process" data-fa="B2B / فرایند">B2B / Process</span>
           </div>
           <h3 class="work-title">Bahfalab</h3>
-          <p class="work-desc">Process mining B2B platform + brand design for the "Iran Process Report" event.</p>
+          <p class="work-desc" data-en="Process mining B2B platform + brand design for the &quot;Iran Process Report&quot; event." data-fa="پلتفرم B2B پردازش‌کاوی + طراحی برند برای رویداد «گزارش فرایند ایران».">Process mining B2B platform + brand design for the "Iran Process Report" event.</p>
           <div class="work-tags">
             <span class="primary">Brand &amp; Product</span>
             <span>Process Mining</span>
           </div>
-          <a href="#" class="work-link">View Case Study →</a>
+          <span class="work-link coming-soon-link" data-en="Coming Soon" data-fa="به‌زودی">Coming Soon</span>
         </div>
       </article>
 
-      <!-- Checkout Flow -->
-      <article class="work-card" style="--accent: var(--blue2); --tint: rgba(96,165,250,.09)">
+      <!-- Saveh Concert -->
+      <article class="work-card" data-project="saveh" style="--accent: var(--pink); --tint: rgba(244,114,182,.09)">
         <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(96,165,250,0.18); width:120px;">
-            <div class="mock-body" style="padding-top:8.8px;">
-              <div class="mock-bar short" style="background:rgba(96,165,250,.32)"></div>
-              <div class="mock-block" style="height:30px;background:rgba(96,165,250,.07); border:1px solid rgba(96,165,250,.12)"></div>
-              <div class="mock-block" style="height:14px;background:rgba(96,165,250,.16)"></div>
-            </div>
+          <div class="work-logo">
+            <img src="assets/logos/saveh.svg" alt="Saveh Concert logo" class="work-logo-img">
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta">
+            <span class="work-date">2023</span>
+            <span class="work-tag-top" data-en="Culture / Events" data-fa="فرهنگ / رویداد">Culture / Events</span>
+          </div>
+          <h3 class="work-title">Saveh Concert</h3>
+          <p class="work-desc" data-en="Concert &amp; cultural event app for Saveh city. Event discovery, artist profiles, venue details." data-fa="اپلیکیشن کنسرت و رویدادهای فرهنگی برای شهر ساوه. کشف رویداد، پروفایل هنرمندان، جزئیات محل برگزاری.">Concert &amp; cultural event app for Saveh city. Event discovery, artist profiles, venue details.</p>
+          <div class="work-tags">
+            <span class="primary">Mobile-First</span>
+            <span>Ticketing UX</span>
+            <span>Cultural</span>
+          </div>
+          <a href="case-studies/saveh.html" class="work-link" data-en="View Case Study →" data-fa="مشاهده نمونه‌کار →">View Case Study →</a>
+        </div>
+      </article>
+
+      <!-- Payment Gateway — Practice -->
+      <article class="work-card" data-project="payment" style="--accent: #58a3ff; --tint: rgba(96,165,250,.09)">
+        <div class="work-thumb">
+          <div class="work-logo">
+            <img src="assets/logos/payment.svg" alt="Payment Gateway logo" class="work-logo-img">
           </div>
         </div>
         <div class="work-body">
           <div class="work-meta">
             <span class="work-date">Practice</span>
-            <span class="work-tag-top">E-Commerce</span>
+            <span class="work-tag-top" data-en="Payment UI" data-fa="رابط پرداخت">Payment UI</span>
           </div>
-          <h3 class="work-title">Checkout Flow</h3>
-          <p class="work-desc">Self-directed UI exercise exploring a multi-step checkout flow — cart review, shipping, payment.</p>
+          <h3 class="work-title">Payment Gateway</h3>
+          <p class="work-desc" data-en="Self-directed practice designing a modern one-page payment gateway." data-fa="تمرین شخصی طراحی یک درگاه پرداخت تک‌صفحه‌ای مدرن.">Self-directed practice designing a modern one-page payment gateway.</p>
           <div class="work-tags">
-            <span class="primary">Practice</span>
-            <span>Checkout UX</span>
+            <span class="primary">Payment Experience</span>
+            <span>Payment Flow</span>
           </div>
-          <a href="#" class="work-link">View Case Study →</a>
+          <a href="case-studies/payment.html" class="work-link" data-en="View Case Study →" data-fa="مشاهده نمونه‌کار →">View Case Study →</a>
         </div>
       </article>
 
       <!-- Nova Store -->
-      <article class="work-card" style="--accent: var(--purple); --tint: rgba(155,140,255,.09)">
+      <article class="work-card no-case-study" data-project="nova" style="--accent: var(--purple); --tint: rgba(155,140,255,.09)">
         <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(155,140,255,0.18); width:120px;">
-            <div class="mock-body" style="padding-top:8.8px;">
-              <div style="display:flex; gap:4px;">
-                <div class="mock-block" style="width:50px;height:26px;background:rgba(155,140,255,.1); border:1px solid rgba(155,140,255,.16)"></div>
-                <div class="mock-block" style="flex:1;height:26px;background:rgba(155,140,255,.06)"></div>
-              </div>
-              <div class="mock-bar short" style="background:rgba(155,140,255,.3)"></div>
-            </div>
+          <div class="work-logo">
+            <img src="assets/logos/nova.svg" alt="Nova Store logo" class="work-logo-img">
           </div>
         </div>
         <div class="work-body">
           <div class="work-meta">
             <span class="work-date">Learning</span>
-            <span class="work-tag-top">E-Commerce</span>
+            <span class="work-tag-top" data-en="E-Commerce" data-fa="فروشگاه آنلاین">E-Commerce</span>
           </div>
           <h3 class="work-title">Nova Store</h3>
-          <p class="work-desc">Learning project redesigning a product catalog and PDP layout — grid browsing, filters, product detail.</p>
+          <p class="work-desc" data-en="Learning project redesigning a product catalog and PDP layout — grid browsing, filters, product detail." data-fa="پروژه یادگیری بازطراحی کاتالوگ محصول و صفحه محصول — مرور شبکه‌ای، فیلترها، جزئیات محصول.">Learning project redesigning a product catalog and PDP layout — grid browsing, filters, product detail.</p>
           <div class="work-tags">
             <span class="primary">Learning</span>
             <span>Catalog UI</span>
           </div>
-          <a href="#" class="work-link">View Case Study →</a>
+          <span class="work-link coming-soon-link" data-en="Coming Soon" data-fa="به‌زودی">Coming Soon</span>
         </div>
       </article>
 
       <!-- Samin Style -->
-      <article class="work-card" style="--accent: var(--pink); --tint: rgba(244,114,182,.09)">
+      <article class="work-card no-case-study" data-project="samin" style="--accent: var(--pink); --tint: rgba(244,114,182,.09)">
         <div class="work-thumb">
-          <div class="mock-window" style="--mock-border: rgba(244,114,182,0.18); width:120px;">
-            <div class="mock-body" style="padding-top:8.8px;">
-              <div class="mock-block" style="height:30px;background:rgba(244,114,182,.09); border:1px solid rgba(244,114,182,.16)"></div>
-              <div class="mock-bar short" style="background:rgba(244,114,182,.32)"></div>
-            </div>
+          <div class="work-logo">
+            <img src="assets/logos/samin.svg" alt="Samin Style logo" class="work-logo-img">
           </div>
         </div>
         <div class="work-body">
           <div class="work-meta">
             <span class="work-date">Learning</span>
-            <span class="work-tag-top">Fashion / Consumer</span>
+            <span class="work-tag-top" data-en="Fashion / Consumer" data-fa="مد / مصرف‌کننده">Fashion / Consumer</span>
           </div>
           <h3 class="work-title">Samin Style</h3>
-          <p class="work-desc">Learning project exploring an expressive, editorial-style fashion app — lookbook, product grid, styling.</p>
+          <p class="work-desc" data-en="Learning project exploring an expressive, editorial-style fashion app — lookbook, product grid, styling." data-fa="پروژه یادگیری کاوش در اپلیکیشن مد به سبک ادیتوریال — لوک‌بوک، شبکه محصول، استایلینگ.">Learning project exploring an expressive, editorial-style fashion app — lookbook, product grid, styling.</p>
           <div class="work-tags">
             <span class="primary">Learning</span>
             <span>Editorial UI</span>
           </div>
-          <a href="#" class="work-link">View Case Study →</a>
+          <span class="work-link coming-soon-link" data-en="Coming Soon" data-fa="به‌زودی">Coming Soon</span>
         </div>
       </article>
 
@@ -444,22 +410,26 @@
 <!-- ============ SKILLS ============ -->
 <section class="section" id="skills">
   <div class="container">
-    <div class="eyebrow"><span>SKILLS</span><div class="rule"></div></div>
+    <div class="eyebrow"><span data-en="SKILLS" data-fa="مهارت‌ها">SKILLS</span><div class="rule"></div></div>
 
     <div class="skills-grid">
       <div class="skills-col">
-        <h3>Hard Skills</h3>
+        <h3 data-en="Hard Skills" data-fa="مهارت‌های فنی">Hard Skills</h3>
         <div class="tag-cloud">
           <span>Figma</span>
           <span>Design Systems</span>
           <span>Prototyping</span>
           <span>Wireframing</span>
+          <span>Responsive</span>
+          <span>Design-to-Code</span>
           <span>User Research</span>
+          <span>Mobile-First Design</span>
         </div>
 
-        <h3>Domains</h3>
+        <h3 data-en="Domains" data-fa="حوزه‌ها">Domains</h3>
         <div class="tag-cloud">
           <span>B2B</span>
+          <span>SaaS</span>
           <span>Healthtech</span>
           <span>AI-Assisted Products</span>
           <span>E-Commerce</span>
@@ -469,23 +439,26 @@
       </div>
 
       <div class="skills-col">
-        <h3>Craft Tools</h3>
+        <h3 data-en="Craft Tools" data-fa="ابزارها">Craft Tools</h3>
         <div class="tag-cloud">
           <span>Figma</span>
           <span>FigJam</span>
-          <span>Principle</span>
-          <span>Illustrator</span>
-          <span>Notion</span>
+          <span>ChatGPT</span>
+          <span>Gemini</span>
+          <span>Claude</span>
+          <span>GitHub</span>
+          <span data-en="Vibe Coding" data-fa="ویب کدینگ">Vibe Coding</span>
         </div>
 
-        <h3 style="font-size:15.2px;">Soft Skills</h3>
+        <h3 style="font-size:15.2px;" data-en="Soft Skills" data-fa="مهارت‌های نرم">Soft Skills</h3>
         <ul class="soft-list">
-          <li>Stakeholder Communication</li>
-          <li>Cross-Functional Collaboration</li>
-          <li>Ownership As Sole Designer</li>
-          <li>Iterating From Feedback</li>
-          <li>RTL/LTR Bidirectional UI</li>
-          <li>Print &amp; Brand Design</li>
+          <li data-en="Stakeholder Communication" data-fa="ارتباط با ذی‌نفعان">Stakeholder Communication</li>
+          <li data-en="Cross-Functional Collaboration" data-fa="همکاری بین‌تیمی">Cross-Functional Collaboration</li>
+          <li data-en="Ownership As Sole Designer" data-fa="مسئولیت‌پذیری به‌عنوان تنها طراح">Ownership As Sole Designer</li>
+          <li data-en="Iterating From Feedback" data-fa="بهبود مستمر بر اساس بازخورد">Iterating From Feedback</li>
+          <li data-en="RTL/LTR Bidirectional UI" data-fa="رابط کاربری دوجهته RTL/LTR">RTL/LTR Bidirectional UI</li>
+          <li data-en="Print &amp; Brand Design" data-fa="طراحی چاپ و برند">Print &amp; Brand Design</li>
+          <li data-en="Self-Directed Problem Solving" data-fa="حل مسئله مستقل">Self-Directed Problem Solving</li>
         </ul>
       </div>
     </div>
@@ -495,28 +468,28 @@
 <!-- ============ CONTACT ============ -->
 <section class="section" id="contact">
   <div class="container">
-    <div class="eyebrow"><span>CONTACT</span><div class="rule"></div></div>
+    <div class="eyebrow"><span data-en="CONTACT" data-fa="تماس">CONTACT</span><div class="rule"></div></div>
 
     <div class="contact-inner">
-      <h2>Let's build<br>something together.</h2>
-      <p>Open to full-time roles, freelance projects, and collaborations — especially in health tech, B2B products, and complex system design. Based in Tehran, available globally remote.</p>
+      <h2 data-en="Let's build<br>something together." data-fa="بیایید چیزی<br>با هم بسازیم." data-html="true">Let's build<br>something together.</h2>
+      <p data-en="Open to full-time roles, freelance projects, and collaborations — especially in health tech, B2B products, and complex system design." data-fa="آماده همکاری در نقش‌های تمام‌وقت، پروژه‌های فریلنس و همکاری‌های مشترک — به‌ویژه در حوزه سلامت دیجیتال، محصولات B2B و طراحی سیستم‌های پیچیده.">Open to full-time roles, freelance projects, and collaborations — especially in health tech, B2B products, and complex system design.</p>
 
       <div class="contact-links">
+        <span class="contact-link" style="cursor:default;">
+          <span class="ico"><img src="assets/logos/map-pin.svg" alt="" width="17" height="17"></span> <span data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</span>
+        </span>
         <a class="contact-link" href="mailto:alavi.9680@gmail.com">
-          <span class="ico">✉</span> alavi.9680@gmail.com
+          <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span> alavi.9680@gmail.com
         </a>
         <a class="contact-link" href="tel:+989026363169">
-          <span class="ico">☎</span> +98 902 636 3169
+          <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> +98 902 636 3169
         </a>
         <a class="contact-link" href="https://www.linkedin.com/in/nargessadatalavi" target="_blank" rel="noopener">
-          <span class="ico">in</span> LinkedIn
+          <span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg></span> LinkedIn
         </a>
         <a class="contact-link" href="https://dribbble.com/nargesalavi" target="_blank" rel="noopener">
-          <span class="ico">◈</span> Dribbble
+          <span class="ico"><img src="assets/logos/dribbble.svg" alt="" width="15" height="15"></span> Dribbble
         </a>
-        <span class="contact-link" style="cursor:default;">
-          <span class="ico">◎</span> Tehran, Iran
-        </span>
       </div>
     </div>
   </div>
@@ -526,14 +499,57 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-name">Narges Sadat Alavi</div>
-    <div class="footer-meta">© 2026 · UI/UX Designer · Tehran, Iran</div>
+    <div class="footer-meta">© 2026 · <span data-en="UI/UX Designer" data-fa="طراح UI/UX">UI/UX Designer</span> · <span data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</span></div>
     <div class="footer-links">
-      <a href="mailto:alavi.9680@gmail.com">Email</a>
+      <a href="mailto:alavi.9680@gmail.com" data-en="Email" data-fa="ایمیل">Email</a>
       <a href="https://www.linkedin.com/in/nargessadatalavi" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://dribbble.com/nargesalavi" target="_blank" rel="noopener">Dribbble</a>
     </div>
   </div>
 </footer>
 
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div class="modal-overlay" id="projectModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="modal-top">
+      <div class="modal-tags" id="modalTags"></div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-subtitle" id="modalSubtitle"></p>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-overview" id="modalOverview"></p>
+
+      <div class="modal-meta">
+        <div>
+          <div class="modal-meta-label">Role</div>
+          <div class="modal-meta-value" id="modalRole"></div>
+        </div>
+        <div>
+          <div class="modal-meta-label">Industry</div>
+          <div class="modal-meta-value" id="modalIndustry"></div>
+        </div>
+        <div>
+          <div class="modal-meta-label">Tools</div>
+          <div class="modal-meta-value" id="modalTools"></div>
+        </div>
+      </div>
+
+      <div class="modal-constraints" id="modalConstraintsWrap">
+        <span id="modalConstraints"></span>
+      </div>
+
+      <button type="button" class="modal-cta" id="modalCta">View Full Case Study →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>

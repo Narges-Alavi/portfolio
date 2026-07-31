@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahafto Academy — Case Study · Narges Sadat Alavi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#070b13;}
+::-webkit-scrollbar-thumb{background:#1e2d45;border-radius:4px;}
+body{font-family:'Inter',sans-serif;background:#070b13;color:#e7ecf5;overflow-x:hidden;line-height:1.6;}
+:root{--bg:#070b13;--surface:#101828;--surface2:#131f31;--border:rgba(148,163,184,0.12);--border-h:rgba(148,163,184,0.25);--text:#e7ecf5;--muted:#93a1b8;--primary:#9b8cff;--radius:14px;--rsm:8px;}
+a{color:inherit;}
+.bg-dots{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(148,163,184,0.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0;}
+.blob-wrap{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.14;animation:blobFloat 18s ease-in-out infinite;}
+.blob-1{width:520px;height:520px;background:#9b8cff;top:-120px;left:-140px;}
+.blob-2{width:440px;height:440px;background:#2fd6b0;top:38%;right:-100px;animation-delay:-6s;}
+.blob-3{width:380px;height:380px;background:#4f8cff;bottom:8%;left:18%;animation-delay:-12s;}
+@keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(28px,-38px) scale(1.05);}66%{transform:translate(-18px,24px) scale(0.96);}}
+
+.crumb-bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;padding:0 24px;height:56px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.crumb-trail{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.crumb-trail a{color:var(--muted);text-decoration:none;transition:color .2s;}
+.crumb-trail a:hover{color:var(--text);}
+.crumb-trail .sep{color:#3a4658;}
+.crumb-trail .current{color:var(--text);overflow:hidden;text-overflow:ellipsis;}
+.crumb-back{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:7px 14px;border-radius:100px;transition:all .2s;}
+.crumb-back:hover{color:var(--text);border-color:var(--primary);background:rgba(155,140,255,.08);}
+
+.cs-container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:56px 32px 120px;}
+
+.cs-title-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.cs-logo{height:76px;width:auto;flex-shrink:0;filter:drop-shadow(0 6px 18px rgba(155,140,255,.3));}
+.cs-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;margin-bottom:16px;color:var(--primary);}
+.cs-title{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:12px;}
+.cs-sub{font-size:1.05rem;color:#b4bfd4;max-width:640px;line-height:1.7;margin-bottom:32px;}
+.cs-meta{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:44px;}
+.cs-meta-row{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--border);font-size:.85rem;}
+.cs-meta-row:first-child{border-top:none;}
+.cs-meta-label{padding:12px 18px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;background:rgba(255,255,255,.015);}
+.cs-meta-val{padding:12px 18px;color:#d3dae8;display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+.cs-pill{font-size:.68rem;padding:3px 10px;border-radius:100px;font-family:'JetBrains Mono',monospace;border:1px solid var(--border);}
+.cs-pill.on{background:rgba(155,140,255,.1);color:var(--primary);border-color:rgba(155,140,255,.3);}
+
+.cs-constraint{display:flex;gap:10px;align-items:baseline;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;margin-bottom:44px;font-size:.85rem;}
+.cs-constraint b{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;flex-shrink:0;}
+.cs-constraint span{color:#b4bfd4;}
+
+.cs-block{margin:56px 0;}
+.cs-sl{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.cs-sl::before{content:'';width:22px;height:1px;background:rgba(155,140,255,.4);}
+.cs-p{font-size:.95rem;color:#b4bfd4;line-height:1.85;margin-bottom:14px;max-width:760px;}
+
+.cs-features{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;}
+.cs-feature-chip{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.03em;color:var(--muted);border:1px solid var(--border);background:rgba(255,255,255,.03);padding:6px 12px;border-radius:100px;display:flex;align-items:center;gap:6px;}
+.cs-feature-chip::before{content:'\2713';color:var(--primary);font-size:.7rem;}
+
+.discovery-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;}
+.discovery-method{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.discovery-insight{border-left:2px solid var(--primary);padding-left:16px;margin-top:14px;font-size:.92rem;color:var(--text);line-height:1.7;font-family:'Sora',sans-serif;font-weight:400;}
+
+.process-list{display:flex;flex-direction:column;gap:14px;}
+.process-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;display:grid;grid-template-columns:34px 1fr;gap:14px;}
+.process-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--primary);padding-top:2px;}
+.process-title{font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:6px;letter-spacing:-.01em;}
+.process-text{font-size:.82rem;color:var(--muted);line-height:1.7;}
+
+/* ---- gallery grid: browser-chrome mockup cards ---- */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;margin:24px 0 8px;}
+.gallery-item{
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  background:linear-gradient(165deg, rgba(22,30,46,.9), rgba(8,12,20,.96));
+  border:1px solid rgba(155,140,255,.16);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 46px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(226,232,240,.03), 0 0 34px -12px rgba(155,140,255,.16);
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.gallery-chrome{display:flex;align-items:center;gap:6px;padding:0 12px;height:28px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;}
+.gallery-chrome .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.gallery-thumb{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#0e1826;}
+.gallery-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .35s ease;}
+.gallery-tagline{display:flex;align-items:center;gap:7px;padding:14px 14px 0;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--primary);text-transform:uppercase;}
+.gallery-tagline .dot-live{width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;}
+.gallery-cap{font-size:.76rem;color:#b4bfd4;line-height:1.65;padding:6px 14px 16px;font-style:italic;flex:1;}
+
+/* hover state — lift, brand ring + soft glow, image zooms slightly */
+.gallery-item:hover{
+  transform:translateY(-4px);
+  border-color:var(--primary);
+  box-shadow:0 34px 64px -14px rgba(0,0,0,.78), 0 0 0 1px rgba(155,140,255,.55), 0 0 44px -6px rgba(155,140,255,.5);
+}
+.gallery-item:hover .gallery-thumb img{transform:scale(1.035);}
+
+@media(max-width:760px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}
+
+/* ---- modal ---- */
+.cs-modal-overlay{position:fixed;inset:0;background:rgba(4,6,12,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s ease;padding:24px;}
+.cs-modal-overlay.open{opacity:1;pointer-events:auto;}
+.cs-modal-box{position:relative;max-width:420px;width:100%;max-height:88vh;background:#0c1420;border:1px solid var(--border-h);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transform:scale(.92) translateY(14px);opacity:0;transition:transform .3s cubic-bezier(.2,.9,.25,1), opacity .3s ease;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);}
+.cs-modal-overlay.open .cs-modal-box{transform:scale(1) translateY(0);opacity:1;}
+.cs-modal-imgwrap{position:relative;width:100%;max-height:calc(88vh - 54px);background:#0e1826;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.cs-modal-imgwrap img{display:block;width:100%;height:auto;}
+.cs-modal-cap{height:54px;box-sizing:border-box;padding:14px 20px;font-size:.82rem;color:#c3ccdc;border-top:1px solid var(--border);text-align:center;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* close / prev / next are fixed to the viewport, never over the panel */
+.cs-modal-close{position:fixed;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(7,11,19,.75);border:1px solid var(--border-h);color:var(--text);font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:1100;opacity:0;pointer-events:none;}
+.cs-modal-close:hover{background:var(--primary);border-color:var(--primary);color:#0c1420;}
+.cs-modal-nav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(7,11,19,.7);border:1px solid var(--border-h);color:var(--text);font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:1100;opacity:0;pointer-events:none;}
+.cs-modal-nav:hover{background:var(--primary);border-color:var(--primary);color:#0c1420;}
+.cs-modal-prev{left:16px;}
+.cs-modal-next{right:16px;}
+.cs-modal-count{position:fixed;top:24px;left:20px;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);background:rgba(7,11,19,.7);border:1px solid var(--border);padding:4px 10px;border-radius:100px;z-index:1100;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+.cs-modal-close,.cs-modal-nav{transition:all .2s ease, opacity .2s ease;}
+.cs-modal-overlay.open .cs-modal-close,
+.cs-modal-overlay.open .cs-modal-nav,
+.cs-modal-overlay.open .cs-modal-count{opacity:1;pointer-events:auto;}
+
+@media(max-width:640px){
+  .cs-modal-box{max-width:calc(100% - 76px);}
+  .cs-modal-nav{width:38px;height:38px;font-size:1.05rem;left:8px;}
+  .cs-modal-next{right:8px;left:auto;}
+  .cs-modal-close{width:36px;height:36px;top:14px;right:14px;}
+  .cs-modal-count{top:16px;left:14px;}
+}
+
+.metric-list{display:flex;flex-direction:column;gap:10px;}
+.metric-item{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;font-size:.85rem;color:#b4bfd4;line-height:1.6;}
+.metric-item::before{content:'\2713';color:var(--primary);flex-shrink:0;font-size:.85rem;}
+
+.cs-learnings{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;}
+.learn-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.learn-item:last-child{margin-bottom:0;}
+.learn-bullet{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0;background:var(--primary);}
+.learn-text{font-size:.9rem;color:#b4bfd4;line-height:1.75;}
+
+.cs-endcap{display:flex;justify-content:center;margin-top:64px;padding-top:32px;border-top:1px solid var(--border);}
+.cs-endcap-link{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--primary);text-decoration:none;border:1px solid rgba(155,140,255,.3);padding:10px 20px;border-radius:100px;transition:all .2s;}
+.cs-endcap-link:hover{background:rgba(155,140,255,.1);border-color:var(--primary);}
+
+@media(max-width:720px){
+  .cs-container{padding:40px 20px 90px;}
+  .cs-meta-row{grid-template-columns:120px 1fr;}
+  .crumb-trail{max-width:60%;}
+}
+
+/* ---- global overrides: font system, cursor, section titles ---- */
+*{cursor:url('../assets/cursor.svg') 4 2, auto;}
+a,button,.milestone,[onclick],.lightbox-close{cursor:url('../assets/cursor.svg') 4 2, pointer;}
+body{font-family:'Sora',sans-serif;}
+.cs-title,.process-title{font-family:'Inter',sans-serif;}
+.cs-sl{font-size:.92rem;font-weight:700;color:var(--cs-accent,var(--primary));letter-spacing:.1em;}
+.crumb-bar{justify-content:flex-start;}
+.crumb-bar .crumb-back{margin-left:0;}
+.crumb-trail-bar{position:sticky;top:56px;z-index:99;padding:10px 24px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.cs-endcap-mid{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:10px 18px;border-radius:100px;transition:all .2s;}
+.cs-endcap-mid:hover{color:var(--text);border-color:var(--cs-accent,var(--primary));}
+.cs-endcap{display:flex !important;justify-content:center !important;align-items:center;gap:20px;flex-wrap:wrap;}
+
+
+.back-to-top{position:fixed;bottom:26px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid var(--border-h);background:rgba(16,24,40,.9);color:var(--text);font-size:18px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,border-color .2s ease;z-index:150;}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+.back-to-top:hover{border-color:var(--primary);color:var(--primary);}
+@media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
+
+</style>
+</head>
+<body>
+
+<div class="bg-dots"></div>
+<div class="blob-wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<div class="crumb-bar">
+  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
+</div>
+<div class="crumb-trail-bar">
+  <div class="crumb-trail">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../index.html#work">Work</a>
+    <span class="sep">/</span>
+    <span class="current">Rahafto Academy</span>
+  </div>
+</div>
+
+<main class="cs-container">
+
+  <div class="cs-tag">COURSE UX · VIDEO LICENSING</div>
+  <div class="cs-title-row">
+    <h1 class="cs-title">Rahafto Academy <span style="color:var(--muted);font-weight:400;font-size:.5em;">(Toward the Sun)</span></h1>
+    <img class="cs-logo" src="../assets/images/rahafto/rahafto-01.png" alt="Rahafto Academy logo">
+  </div>
+  <p class="cs-sub">Original design of the course page, checkout, and student dashboard for a platform whose lessons are locked behind device-based video licensing — where the real problem started after checkout, not before.</p>
+
+  <div class="cs-meta">
+    <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">UI/UX Designer — sole designer on the project</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Design + Engineering (2 implementation sprints)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">June 2025 – December 2025</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">EdTech / E-commerce</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Web (Desktop) + Mobile</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma</div></div>
+  </div>
+
+  <div class="cs-constraint"><b>Constraint —</b><span>Competitors weren't badly designed. Color, type, card layout — most were solid. Where they broke down was one specific moment: none of them clearly explained what happens to a buyer's video access right after they pay. That gap is where we focused.</span></div>
+
+  <section class="cs-block" style="margin-top:0;">
+    <div class="cs-sl">01 · Context &amp; Problem</div>
+    <p class="cs-p">Rahafto sells video courses — programming, AI, crypto — in Persian. Unlike most course platforms that unlock content the moment payment clears, Rahafto's videos are locked behind SpotPlayer, a DRM player used widely by Iranian education platforms. After paying, a buyer has to submit a license request for their specific device (Windows, Android, macOS, or Web), wait for approval, and then receive an activation code. If they later reinstall their OS or switch devices, the license breaks and they have to request a new one.</p>
+    <p class="cs-p">That mechanic has nothing in common with a normal "buy and watch" experience, and no interface had been designed for it before this project. My scope covered three areas: the purchase-decision page (course detail), the checkout and license-request flow, and the student dashboard — courses, licenses, finances, and support tickets. Because this was the first design of the system rather than a redesign, the core challenge was building a mental model from zero for something the average buyer had never encountered before.</p>
+    <div class="cs-features"><span class="cs-feature-chip">Unlocked Lesson Preview</span><span class="cs-feature-chip">Instructor Credibility Block</span><span class="cs-feature-chip">License Request Form</span><span class="cs-feature-chip">Color-Coded License Status</span><span class="cs-feature-chip">Installment Toggle</span><span class="cs-feature-chip">Separated Financial Tabs</span></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="discovery-wrap">
+      <div class="discovery-method">Audited several Persian and international course platforms · Reviewed recurring patterns in Rahafto's own support conversations</div>
+      <div class="discovery-insight">Two concerns came up constantly: before purchase, "Is this instructor actually credible?" — and after purchase, "Why can't I watch the course I just paid for?" Most competitors had solved one of the two, rarely both. A platform's course page might build trust well, or its post-purchase activation might be clear — but almost never both at once. Rahafto's design had to close both ends of that gap.</div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">03 · Process</div>
+    <div class="process-list">
+      <div class="process-item"><div class="process-num">01</div><div><div class="process-title">A real lesson, not a promotional trailer</div><div class="process-text">Instead of a short promo clip, we unlocked one full, real lesson from the course. Buyers can judge both the teaching quality and whether they connect with the instructor's style before paying — the exact hesitation that was causing drop-off.</div></div></div>
+      <div class="process-item"><div class="process-num">02</div><div><div class="process-title">Instructor block, directly under the player</div><div class="process-text">Freelance history, year they started teaching, number of enrolled students — we put this directly beneath the preview video instead of in a separate tab nobody opened.</div></div></div>
+      <div class="process-item"><div class="process-num">03</div><div><div class="process-title">Turning license status into a clear color system</div><div class="process-text">Approved (green), Under Review (yellow), and Expired (red) now sit directly next to each course in the dashboard, so a buyer doesn't have to open a support ticket just to check where their license stands.</div></div></div>
+      <div class="process-item"><div class="process-num">04</div><div><div class="process-title">Asking for the device OS at step one of the license form</div><div class="process-text">Buyers previously had no idea why a license request got rejected. Adding a device OS field (Windows / Android / macOS / Web) as the very first step of the form prevented licenses being issued for the wrong device in the first place.</div></div></div>
+      <div class="process-item"><div class="process-num">05</div><div><div class="process-title">Splitting finances into three independent tabs</div><div class="process-text">Installments, refunds, and purchase receipts used to live in one long, mixed list. Paying an installment could bury a receipt or a pending refund. Three separate tabs let each be tracked on its own.</div></div></div>
+      <div class="process-item"><div class="process-num">06</div><div><div class="process-title">A card-based mobile dashboard instead of a compressed table</div><div class="process-text">The desktop dashboard's table layout didn't compress well onto mobile. Each section — courses, licenses, financial status — became a vertical, scrollable card so it stayed readable on a small screen.</div></div></div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">04 · Solution</div>
+    <p class="cs-p">The result opens with a real, unlocked lesson, a license form that asks for the device OS at step one, and a dashboard that shows the status of every license and every installment without requiring a support ticket to find out. Click any screenshot to view it larger.</p>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">05 · Impact &amp; Results</div>
+    <div class="metric-list">
+      <div class="metric-item">Per the support team, once the color-coded license status shipped in the dashboard, the recurring "where's my license?" question dropped noticeably.</div>
+      <div class="metric-item">According to the content team, placing the instructor block directly under the open preview came through as stronger purchase confidence in review.</div>
+      <div class="metric-item">Per the finance team's feedback, splitting the financial tabs reduced mix-ups between receipts and pending refund requests.</div>
+      <div class="metric-item">The device-OS field on the license form was observed by support to reduce mismatched, rejected license requests.</div>
+    </div>
+  </section>
+
+  <section class="cs-block" style="margin-bottom:0;">
+    <div class="cs-sl">06 · Reflection</div>
+    <div class="cs-learnings">
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Designing for an unfamiliar concept like video licensing showed me that the hard part is sometimes explaining a technical mechanism in plain terms, not the visual layout itself.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Since this was a first design and not a redesign, there was no earlier version to compare against — every decision had to be justified on its own logic and testing, not by a before/after.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">The competitive audit made it clear that strong visual design isn't enough on its own — if the post-purchase path stays unclear, good visuals still lose the buyer's trust.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">If I revisited this project, I'd add a short walkthrough — a tooltip or a few-second clip — the first time a buyer encounters the license concept, instead of leaving it to trial and error.</div></div>
+    </div>
+  </section>
+
+  <div class="cs-endcap">
+    <a class="cs-endcap-link" href="dota.html">← Dota</a>
+    <a class="cs-endcap-link primary" href="khodropack.html">Khodropack →</a>
+  </div>
+
+</main>
+
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- modal -->
+<div class="cs-modal-overlay" id="modalOverlay">
+  <div class="cs-modal-count" id="modalCount"></div>
+  <div class="cs-modal-close" id="modalClose">&times;</div>
+  <div class="cs-modal-nav cs-modal-prev" id="modalPrev">&#10094;</div>
+  <div class="cs-modal-nav cs-modal-next" id="modalNext">&#10095;</div>
+  <div class="cs-modal-box">
+    <div class="cs-modal-imgwrap"><img id="modalImg" src="" alt=""></div>
+    <div class="cs-modal-cap" id="modalCap"></div>
+  </div>
+</div>
+
+<script>
+const shots = [
+  {src:"../assets/images/rahafto/rahafto-02.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Main dashboard (desktop) — three status counters (support tickets, active courses, days active) at the top of the page."},
+  {src:"../assets/images/rahafto/rahafto-03.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Course page (desktop) — unlocked preview video, instructor block under the player, installment option beside the buy button."},
+  {src:"../assets/images/rahafto/rahafto-04.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Financials (desktop) — installments, refunds, and purchase receipts in three separate tabs instead of one long list."},
+  {src:"../assets/images/rahafto/rahafto-05.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Homepage (desktop) — topic-based course categories and the featured course of the week."},
+  {src:"../assets/images/rahafto/rahafto-06.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"License request form (desktop) — device OS selected before the request is submitted."},
+  {src:"../assets/images/rahafto/rahafto-07.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Programming course list (desktop) — filterable by topic, level, format, and instructor."},
+  {src:"../assets/images/rahafto/rahafto-08.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"My Courses (desktop) — direct access to course details and the license request button from the same card."},
+  {src:"../assets/images/rahafto/rahafto-09.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Course page (mobile) — player and purchase info reachable without extra scrolling."},
+  {src:"../assets/images/rahafto/rahafto-10.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Course page, scrolled further (mobile) — curriculum, prerequisites, instructor bio, and reviews."},
+  {src:"../assets/images/rahafto/rahafto-11.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"License request form (mobile) — the same logic as desktop, condensed into a single column."},
+  {src:"../assets/images/rahafto/rahafto-12.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Transaction receipt (mobile) — tracking code and payment status shown immediately after submitting the request."},
+  {src:"../assets/images/rahafto/rahafto-13.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Student dashboard (mobile) — vertically scrollable cards instead of a compressed desktop table."}
+];
+
+const grid = document.getElementById('galleryGrid');
+shots.forEach((s, i) => {
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+  item.innerHTML = `<div class="gallery-chrome"><span class="dot" style="background:#ff5f57;"></span><span class="dot" style="background:#febc2e;"></span><span class="dot" style="background:#28c840;"></span></div><div class="gallery-thumb"><img src="${s.src}" alt="${s.cap}" loading="lazy"></div><div class="gallery-tagline"><span class="dot-live"></span>${s.tag}</div><div class="gallery-cap">${s.cap}</div>`;
+  item.addEventListener('click', () => openModal(i));
+  grid.appendChild(item);
+});
+
+const overlay = document.getElementById('modalOverlay');
+const modalImg = document.getElementById('modalImg');
+const modalCap = document.getElementById('modalCap');
+const modalCount = document.getElementById('modalCount');
+let current = 0;
+
+modalImg.style.transition = 'opacity .18s ease';
+
+function renderModal(){
+  modalImg.style.opacity = 0;
+  setTimeout(()=>{
+    modalImg.src = shots[current].src;
+    modalCap.textContent = shots[current].cap;
+    modalCount.textContent = (current+1) + ' / ' + shots.length;
+    modalImg.style.opacity = 1;
+    document.querySelector('.cs-modal-imgwrap').scrollTop = 0;
+  }, 120);
+}
+
+function openModal(i){
+  current = i;
+  renderModal();
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+document.getElementById('modalPrev').addEventListener('click', (e)=>{ e.stopPropagation(); current = (current - 1 + shots.length) % shots.length; renderModal(); });
+document.getElementById('modalNext').addEventListener('click', (e)=>{ e.stopPropagation(); current = (current + 1) % shots.length; renderModal(); });
+document.addEventListener('keydown', (e)=>{
+  if(!overlay.classList.contains('open')) return;
+  if(e.key === 'Escape') closeModal();
+  if(e.key === 'ArrowLeft') { current = (current - 1 + shots.length) % shots.length; renderModal(); }
+  if(e.key === 'ArrowRight') { current = (current + 1) % shots.length; renderModal(); }
+});
+</script>
+
+
+<script>
+(function(){
+  var btt = document.getElementById('backToTop');
+  if(!btt) return;
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 480){ btt.classList.add('visible'); } else { btt.classList.remove('visible'); }
+  });
+  btt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+
+</body>
+</html>

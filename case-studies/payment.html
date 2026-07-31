@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment — Case Study · Narges Sadat Alavi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#070b13;}
+::-webkit-scrollbar-thumb{background:#1e2d45;border-radius:4px;}
+body{font-family:'Inter',sans-serif;background:#070b13;color:#e7ecf5;overflow-x:hidden;line-height:1.6;}
+:root{--bg:#070b13;--surface:#101828;--surface2:#131f31;--border:rgba(148,163,184,0.12);--border-h:rgba(148,163,184,0.25);--text:#e7ecf5;--muted:#93a1b8;--primary:#4f8cff;--radius:14px;--rsm:8px;}
+a{color:inherit;}
+.bg-dots{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(148,163,184,0.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0;}
+.blob-wrap{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.14;animation:blobFloat 18s ease-in-out infinite;}
+.blob-1{width:520px;height:520px;background:#6a5cff;top:-120px;left:-140px;}
+.blob-2{width:440px;height:440px;background:#2fd6b0;top:38%;right:-100px;animation-delay:-6s;}
+.blob-3{width:380px;height:380px;background:#4f8cff;bottom:8%;left:18%;animation-delay:-12s;}
+@keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(28px,-38px) scale(1.05);}66%{transform:translate(-18px,24px) scale(0.96);}}
+
+.crumb-bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;padding:0 24px;height:56px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.crumb-trail{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.crumb-trail a{color:var(--muted);text-decoration:none;transition:color .2s;}
+.crumb-trail a:hover{color:var(--text);}
+.crumb-trail .sep{color:#3a4658;}
+.crumb-trail .current{color:var(--text);overflow:hidden;text-overflow:ellipsis;}
+.crumb-back{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:7px 14px;border-radius:100px;transition:all .2s;}
+.crumb-back:hover{color:var(--text);border-color:var(--cs-accent,var(--primary));background:var(--cs-accent-bg,rgba(79,140,255,.08));}
+
+.cs-container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:56px 32px 120px;}
+.cs-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;margin-bottom:16px;color:var(--cs-accent,var(--primary));}
+.cs-title{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:12px;}
+.cs-header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;}
+.cs-header-main{min-width:0;flex:1;}
+.cs-sub{font-size:1.05rem;color:#b4bfd4;max-width:640px;line-height:1.7;margin-bottom:32px;}
+.cs-meta{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:44px;}
+.cs-meta-row{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--border);font-size:.85rem;}
+.cs-meta-row:first-child{border-top:none;}
+.cs-meta-label{padding:12px 18px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;background:rgba(255,255,255,.015);}
+.cs-meta-val{padding:12px 18px;color:#d3dae8;display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+.cs-pill{font-size:.68rem;padding:3px 10px;border-radius:100px;font-family:'JetBrains Mono',monospace;border:1px solid var(--border);}
+.cs-pill.on{background:var(--cs-accent-bg,rgba(79,140,255,.1));color:var(--cs-accent,var(--primary));border-color:var(--cs-accent-br,rgba(79,140,255,.3));}
+
+.cs-constraint{display:flex;gap:10px;align-items:baseline;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;margin-bottom:44px;font-size:.85rem;}
+.cs-constraint b{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;flex-shrink:0;}
+.cs-constraint span{color:#b4bfd4;}
+
+.cs-block{margin:56px 0;}
+.cs-sl{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--cs-accent,var(--muted));text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.cs-sl::before{content:'';width:22px;height:1px;background:var(--cs-accent,var(--border-h));}
+.cs-p{font-size:.95rem;color:#b4bfd4;line-height:1.85;margin-bottom:14px;max-width:760px;}
+
+.cs-features{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;}
+.cs-feature-chip{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.03em;color:var(--muted);border:1px solid var(--border);background:rgba(255,255,255,.03);padding:6px 12px;border-radius:100px;display:flex;align-items:center;gap:6px;}
+.cs-feature-chip::before{content:'\2713';color:var(--cs-accent,var(--primary));font-size:.7rem;}
+
+.discovery-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;}
+.discovery-method{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.discovery-insight{border-left:2px solid var(--cs-accent,var(--primary));padding-left:16px;margin-top:14px;font-size:.92rem;color:var(--text);line-height:1.7;font-family:'Sora',sans-serif;font-weight:400;}
+
+.process-list{display:flex;flex-direction:column;gap:14px;}
+.process-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;display:grid;grid-template-columns:34px 1fr;gap:14px;}
+.process-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--cs-accent,var(--primary));padding-top:2px;}
+.process-title{font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:6px;letter-spacing:-.01em;}
+.process-text{font-size:.82rem;color:var(--muted);line-height:1.7;}
+
+.mockup-grid{display:flex;gap:20px;flex-wrap:wrap;margin:24px 0 8px;align-items:flex-start;}
+.mockup-slot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#0c1420;box-shadow:0 40px 90px -24px rgba(0,0,0,.75), 0 12px 34px -14px rgba(0,0,0,.55), 0 0 60px -20px rgba(106,92,255,.18);width:100%;max-width:640px;transition:transform .25s ease;}
+.mockup-chrome{display:flex;align-items:center;gap:5px;padding:0 10px;height:30px;background:#111e2e;border-bottom:1px solid rgba(255,255,255,.07);}
+.mockup-chrome .dot{width:7px;height:7px;border-radius:50%;}
+.mockup-chrome .urlbar{flex:1;height:14px;background:rgba(255,255,255,.05);border-radius:4px;margin-left:8px;}
+.shot-area{position:relative;width:100%;aspect-ratio:1399/995;background:
+  linear-gradient(45deg, rgba(255,255,255,.025) 25%, transparent 25%) -8px 0/16px 16px,
+  linear-gradient(-45deg, rgba(255,255,255,.025) 25%, transparent 25%) -8px 0/16px 16px,
+  #0e1826;}
+.shot-area img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transition:opacity .3s,transform .25s ease;z-index:2;cursor:zoom-in;}
+.shot-area img:hover{transform:scale(1.02);}
+.mockup-caption{font-size:.78rem;color:var(--muted);font-style:italic;padding:10px 14px 14px;border-top:1px solid var(--border);}
+
+.lightbox-overlay{position:fixed;inset:0;z-index:1000;background:rgba(4,7,13,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:40px 20px;opacity:0;visibility:hidden;pointer-events:none;overflow-y:auto;-webkit-overflow-scrolling:touch;transition:opacity .35s ease,visibility 0s linear .35s;}
+.lightbox-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .35s ease,visibility 0s linear 0s;}
+.lightbox-inner{position:relative;max-width:min(92vw,1100px);max-height:88vh;display:flex;flex-direction:column;align-items:center;gap:14px;margin:auto;transform:scale(.88) translateY(14px);opacity:0;transition:transform .45s cubic-bezier(.2,.9,.25,1.05),opacity .35s ease;}
+.lightbox-overlay.open .lightbox-inner{transform:scale(1) translateY(0);opacity:1;}
+.lightbox-inner img{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid var(--border-h);box-shadow:0 30px 80px -20px rgba(0,0,0,.7);}
+.lightbox-caption{font-size:.85rem;color:#d3dae8;text-align:center;font-family:'Sora',sans-serif;max-width:640px;}
+.lightbox-close{position:absolute;top:-44px;right:0;width:36px;height:36px;border-radius:50%;border:1px solid var(--border-h);background:rgba(255,255,255,.06);color:var(--text);font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.lightbox-close:hover{background:rgba(255,255,255,.14);border-color:var(--cs-accent,var(--primary));transform:rotate(90deg);}
+@media(max-width:720px){
+  .lightbox-overlay{align-items:flex-start;padding:76px 14px 30px;}
+  .lightbox-inner{max-height:none;}
+  .lightbox-inner img{max-height:none;width:100%;height:auto;}
+  .lightbox-close{top:-52px;right:0;}
+}
+
+.metric-list{display:flex;flex-direction:column;gap:10px;}
+.metric-item{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;font-size:.85rem;color:#b4bfd4;line-height:1.6;}
+.metric-item::before{content:'\2713';color:var(--cs-accent,var(--primary));flex-shrink:0;font-size:.85rem;}
+
+.cs-learnings{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;}
+.learn-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.learn-item:last-child{margin-bottom:0;}
+.learn-bullet{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0;background:var(--cs-accent,var(--primary));}
+.learn-text{font-size:.9rem;color:#b4bfd4;line-height:1.75;}
+
+.cs-endcap{display:flex;justify-content:space-between;align-items:center;margin-top:64px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+.cs-endcap-link{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:10px 18px;border-radius:100px;transition:all .2s;}
+.cs-endcap-link:hover{color:var(--text);border-color:var(--cs-accent,var(--primary));}
+.cs-endcap-link.primary{color:var(--cs-accent,var(--primary));border-color:var(--cs-accent-br,rgba(79,140,255,.3));}
+
+@media(max-width:720px){
+  .cs-container{padding:40px 20px 90px;}
+  .cs-meta-row{grid-template-columns:120px 1fr;}
+  .crumb-trail{max-width:60%;}
+  .mockup-slot{width:100%;}
+}
+
+/* ---- global overrides: font system, cursor, section titles ---- */
+*{cursor:url('../assets/cursor.svg') 4 2, auto;}
+a,button,.milestone,[onclick],.lightbox-close{cursor:url('../assets/cursor.svg') 4 2, pointer;}
+body{font-family:'Sora',sans-serif;}
+.cs-title,.process-title{font-family:'Inter',sans-serif;}
+.cs-sl{font-size:.92rem;font-weight:700;color:var(--cs-accent,var(--primary));letter-spacing:.1em;}
+.crumb-bar{justify-content:flex-start;}
+.crumb-bar .crumb-back{margin-left:0;}
+.crumb-trail-bar{position:sticky;top:56px;z-index:99;padding:10px 24px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.cs-endcap{justify-content:space-between !important;}
+.cs-endcap-mid{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:10px 18px;border-radius:100px;transition:all .2s;}
+.cs-endcap-mid:hover{color:var(--text);border-color:var(--cs-accent,var(--primary));}
+
+
+.back-to-top{position:fixed;bottom:26px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid var(--border-h);background:rgba(16,24,40,.9);color:var(--text);font-size:18px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,border-color .2s ease;z-index:150;}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+.back-to-top:hover{border-color:var(--primary);color:var(--primary);}
+@media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
+
+</style>
+</head>
+<body style="--cs-accent:#6a5cff;--cs-accent-bg:rgba(106,92,255,0.09);--cs-accent-br:rgba(106,92,255,0.28);">
+
+<div class="bg-dots"></div>
+<div class="blob-wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<div class="crumb-bar">
+  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
+</div>
+<div class="crumb-trail-bar">
+  <div class="crumb-trail">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../index.html#work">Work</a>
+    <span class="sep">/</span>
+    <span class="current">Payment</span>
+  </div>
+</div>
+
+<main class="cs-container">
+
+  <div class="cs-header-row">
+    <div class="cs-header-main">
+      <div class="cs-tag">FINTECH · PAYMENT UX</div>
+      <h1 class="cs-title">Payment</h1>
+      <p class="cs-sub">A standalone payment screen exploring how a checkout form can feel trustworthy instead of clinical — a live-updating card preview paired with a bold, glass-and-starfield visual identity.</p>
+    </div>
+  </div>
+
+  <div class="cs-meta">
+    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Solo — self-directed practice piece</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">Short-form exploration · 2024</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">Fintech / E-commerce</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma, HTML/CSS</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Desktop (Web)</div></div>
+  </div>
+
+  <div class="cs-constraint"><b>Constraint —</b><span>This is a self-initiated concept, not a live product — there's no real payment gateway or backend behind it. The brief I set myself was narrower: can a payment form give live, reassuring feedback without ever feeling less secure?</span></div>
+
+  <section class="cs-block" style="margin-top:0;">
+    <div class="cs-sl">01 · Context &amp; Problem</div>
+    <p class="cs-p">Most checkout forms are a static stack of inputs — a person types a card number and gets nothing back until the final "Pay" tap. Transaction details (who's being paid, how much, from where) also usually live outside the form entirely, so the person has to trust the page rather than verify what's in front of them. I designed a single checkout screen that tries to close both gaps at once.</p>
+    <div class="cs-features"><span class="cs-feature-chip">Live Card Preview</span><span class="cs-feature-chip">Glassmorphism on a Starfield Background</span><span class="cs-feature-chip">Transaction Summary Panel</span><span class="cs-feature-chip">Refreshable Security Code</span><span class="cs-feature-chip">Single-Page Checkout</span></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="discovery-wrap">
+      <div class="discovery-method">Reviewed checkout patterns across common payment gateways and card-entry forms</div>
+      <div class="discovery-insight">Almost none of them reflect what's being typed back to the user in a recognizable form — the card stays an abstract set of fields until submission. And the "what am I actually paying for" details (store, amount, acceptor code) are usually tucked into a separate summary the user has to scroll to find, right when they're least willing to keep reading.</div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">03 · Process</div>
+    <div class="process-list">
+      <div class="process-item"><div class="process-num">01</div><div><div class="process-title">The card had to become the confirmation, not decoration</div><div class="process-text">Every field mirrors onto a live card face the moment it's typed — number, name, expiry, CVV — in the same layout it'll actually be charged with. The card stops being an illustration and starts being the user's own proof they typed it right.</div></div></div>
+      <div class="process-item"><div class="process-num">02</div><div><div class="process-title">Keeping the transaction in view, not buried in the form</div><div class="process-text">Store name, acceptor code, site address, and the final amount sit in their own block beside the card, so the person can sanity-check what they're paying for without hunting through form fields.</div></div></div>
+      <div class="process-item"><div class="process-num">03</div><div><div class="process-title">A security code that behaves like one</div><div class="process-text">The security-code block includes a refresh control, echoing how one-time codes behave elsewhere — a small signal that this step is protected, not just another static input.</div></div></div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">04 · Solution</div>
+    <p class="cs-p">A single-screen checkout: card details on the left, a live card preview and transaction summary on the right, and one clear "Payment" action at the bottom.</p>
+    <p class="cs-p">The flagship interaction is the <b>live card preview</b> — the card fills in as the user types, in real time — paired with a <b>transaction panel</b> that keeps the store, acceptor code, and total price visible the entire time, so nothing about the payment is left for the person to take on faith.</p>
+    <div class="mockup-grid">
+      <div class="mockup-slot">
+        <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
+        <div class="shot-area">
+          <img src="../assets/images/payment/payment-01.jpg"
+               onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
+               onclick="openLightbox(this.src,'Checkout — card form, live card preview &amp; transaction summary')">
+        </div>
+        <div class="mockup-caption">Checkout — card form, live card preview &amp; transaction summary</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl">05 · Impact &amp; Results</div>
+    <p class="cs-p">No usage metrics — this is a concept piece rather than a shipped product. What I can speak to are the interactions it was built to prove out, all working end-to-end:</p>
+    <div class="metric-list">
+      <div class="metric-item">The card preview updates instantly as each field — number, name, expiry, CVV — is completed.</div>
+      <div class="metric-item">The transaction summary (store, acceptor code, site, amount) stays visible without any scrolling.</div>
+      <div class="metric-item">The security-code refresh control works as expected across repeated triggers.</div>
+      <div class="metric-item">The whole flow holds together as a single screen, with no intermediate steps before payment.</div>
+    </div>
+  </section>
+
+  <section class="cs-block" style="margin-bottom:0;">
+    <div class="cs-sl">06 · Reflection</div>
+    <div class="cs-learnings">
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Making the card itself the feedback surface mattered more than any other single decision on this screen — it's the one thing that actually replaces the anxiety of "did I type that right?"</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Next round, I'd usability-test whether the refreshable security code reads as reassuring or just confusing to someone seeing it for the first time.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">I'd also want to check the glass-and-starfield palette against contrast tools rather than my own eye alone, since a payment screen is exactly the wrong place for a legibility compromise.</div></div>
+    </div>
+  </section>
+
+  <div class="cs-endcap">
+    <a class="cs-endcap-link" href="saveh.html">← Saveh Concert</a>
+    <a class="cs-endcap-link primary" href="pathofinder.html">PathoFinder →</a>
+  </div>
+
+</main>
+
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+<script>
+function openLightbox(src, caption){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+
+<script>
+(function(){
+  var btt = document.getElementById('backToTop');
+  if(!btt) return;
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 480){ btt.classList.add('visible'); } else { btt.classList.remove('visible'); }
+  });
+  btt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+
+</body>
+</html>
