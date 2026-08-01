@@ -32,6 +32,8 @@ a{color:inherit;}
 .crumb-trail .sep{color:#3a4658;}
 .crumb-trail .current{color:var(--text);overflow:hidden;text-overflow:ellipsis;}
 .crumb-back{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:7px 14px;border-radius:100px;transition:all .2s;}
+.cs-visit-site{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.03em;color:#fff;text-decoration:none;background:var(--cs-accent,var(--primary));padding:9px 18px;border-radius:100px;margin-bottom:28px;transition:opacity .2s;}
+.cs-visit-site:hover{opacity:.85;}
 .crumb-back:hover{color:var(--text);border-color:var(--cs-accent,var(--primary));background:var(--cs-accent-bg,rgba(79,140,255,.08));}
 
 .cs-container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:56px 32px 120px;}
@@ -226,6 +228,7 @@ body{font-family:'Inter',sans-serif;}
       <div class="cs-tag">MEDICAL AI · HEALTHTECH · LIVE DEPLOYMENT</div>
       <h1 class="cs-title">PathoFinder</h1>
       <p class="cs-sub">AI-assisted radiographic measurement platform that turns hip, leg, spine and hand X-rays into clinical-grade morphology, alignment and bone-age reports — in daily use at hospitals and radiology centers in Iran.</p>
+      <a class="cs-visit-site" href="https://pathofinder.ai/" target="_blank" rel="noopener">↗ Visit Live Site</a>
     </div>
     <div class="cs-hero-logo"><img src="../assets/images/pathofinder/pathofinder-01.svg" alt="PathoFinder logo"></div>
   </div>
@@ -233,7 +236,7 @@ body{font-family:'Inter',sans-serif;}
   <div class="cs-meta">
     <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">Sole Product Designer</div></div>
     <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Solo — working directly with ML engineers and practicing radiologists</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">2023 — Present</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">Dec 2025 — Present</div></div>
     <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">Medical AI / Healthtech</span></div></div>
     <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma · FigJam</div></div>
     <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Web (Clinical Desktop)</div></div>
@@ -257,7 +260,7 @@ body{font-family:'Inter',sans-serif;}
 
   <section class="cs-block">
     <div class="cs-sl">03 · Process</div>
-    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title">The failure state came before the happy path</div><div class="process-text">I designed the "auto-detection failed" recovery flow first, not the successful case. It surfaces as an ordered checklist of the exact landmarks still needed — femoral_head_center, femoral_head_top, greater_trochanter, medial_condyle_of_femur — each tappable directly onto the film, with the alignment numbers updating live as each point lands.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title">One grid, four clinical vocabularies</div><div class="process-text">Hip morphology alone surfaces 12 distinct measurements. Rather than a bespoke layout per modality, I built one numbered-category grid — badge, clinical name, plain-language subtitle, value — and reused it for hip, leg alignment, spine and bone age. Radiologists learn the pattern once; only the content changes.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title">The report answers to someone who never opens the tool</div><div class="process-text">The dense review workspace and the printed clinical report needed to share one data model but look nothing alike. I split them deliberately: a technical, editable workspace for the radiologist, and a plain letterhead-and-table report any partner hospital can print under its own branding for the referring physician.</div></div></div></div>
+    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title">The failure state came before the happy path</div><div class="process-text">I designed the "auto-detection failed" recovery flow first, not the successful case. It surfaces as an ordered checklist of the exact landmarks still needed — femoral_head_center, femoral_head_top, greater_trochanter, medial_condyle_of_femur — each tappable directly onto the film, with the alignment numbers updating live as each point lands.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title">One grid, four clinical vocabularies</div><div class="process-text">Hip morphology alone surfaces 12 distinct measurements. Rather than a bespoke layout per modality, I built one numbered-category grid — badge, clinical name, plain-language subtitle, value — and reused it for hip, leg alignment, spine and bone age. Radiologists learn the pattern once; only the content changes.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title">The report answers to someone who never opens the tool</div><div class="process-text">The dense review workspace and the printed clinical report needed to share one data model but look nothing alike. I split them deliberately: a technical, editable workspace for the radiologist, and a plain letterhead-and-table report any partner hospital can print under its own branding for the referring physician.</div></div></div><div class="process-item"><div class="process-num">04</div><div><div class="process-title">Contrast and scale for a workspace read under time pressure</div><div class="process-text">Radiologists scan these values quickly between cases, so I kept a high contrast between label and value text in the measurement grid and sized numbers to be readable at a glance, rather than optimizing purely for information density.</div></div></div></div>
   </section>
 
   <section class="cs-block">

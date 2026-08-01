@@ -32,6 +32,8 @@ a{color:inherit;}
 .crumb-trail .sep{color:#3a4658;}
 .crumb-trail .current{color:var(--text);overflow:hidden;text-overflow:ellipsis;}
 .crumb-back{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:7px 14px;border-radius:100px;transition:all .2s;}
+.cs-visit-site{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.03em;color:#fff;text-decoration:none;background:var(--cs-accent,var(--primary));padding:9px 18px;border-radius:100px;margin-bottom:28px;transition:opacity .2s;}
+.cs-visit-site:hover{opacity:.85;}
 .crumb-back:hover{color:var(--text);border-color:var(--primary);background:rgba(155,140,255,.08);}
 
 .cs-container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:56px 32px 120px;}
@@ -206,12 +208,13 @@ body{font-family:'Inter',sans-serif;}
     <img class="cs-logo" src="../assets/images/rahafto/rahafto-01.png" alt="Rahafto Academy logo">
   </div>
   <p class="cs-sub">Original design of the course page, checkout, and student dashboard for a platform whose lessons are locked behind device-based video licensing — where the real problem started after checkout, not before.</p>
+  <a class="cs-visit-site" href="https://rahafto.org/" target="_blank" rel="noopener">↗ Visit Live Site</a>
 
   <div class="cs-meta">
     <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">UI/UX Designer — sole designer on the project</div></div>
     <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Design + Engineering (2 implementation sprints)</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">June 2025 – December 2025</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">EdTech / E-commerce</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">April 2025 – December 2025</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">E-Learning / E-commerce</span></div></div>
     <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Web (Desktop) + Mobile</div></div>
     <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma</div></div>
   </div>
@@ -241,7 +244,7 @@ body{font-family:'Inter',sans-serif;}
       <div class="process-item"><div class="process-num">03</div><div><div class="process-title">Turning license status into a clear color system</div><div class="process-text">Approved (green), Under Review (yellow), and Expired (red) now sit directly next to each course in the dashboard, so a buyer doesn't have to open a support ticket just to check where their license stands.</div></div></div>
       <div class="process-item"><div class="process-num">04</div><div><div class="process-title">Asking for the device OS at step one of the license form</div><div class="process-text">Buyers previously had no idea why a license request got rejected. Adding a device OS field (Windows / Android / macOS / Web) as the very first step of the form prevented licenses being issued for the wrong device in the first place.</div></div></div>
       <div class="process-item"><div class="process-num">05</div><div><div class="process-title">Splitting finances into three independent tabs</div><div class="process-text">Installments, refunds, and purchase receipts used to live in one long, mixed list. Paying an installment could bury a receipt or a pending refund. Three separate tabs let each be tracked on its own.</div></div></div>
-      <div class="process-item"><div class="process-num">06</div><div><div class="process-title">A card-based mobile dashboard instead of a compressed table</div><div class="process-text">The desktop dashboard's table layout didn't compress well onto mobile. Each section — courses, licenses, financial status — became a vertical, scrollable card so it stayed readable on a small screen.</div></div></div>
+      <div class="process-item"><div class="process-num">06</div><div><div class="process-title">A card-based mobile dashboard instead of a compressed table</div><div class="process-text">The desktop dashboard's table layout didn't compress well onto mobile. Each section — courses, licenses, financial status — became a vertical, scrollable card so it stayed readable on a small screen.</div></div></div><div class="process-item"><div class="process-num">07</div><div><div class="process-title">Pairing color with text, not color alone</div><div class="process-text">Approved, Under Review, and Expired each carry their own word, not just a colored dot — so a buyer who can't distinguish green from red still reads the same status as everyone else.</div></div></div>
     </div>
   </section>
 
