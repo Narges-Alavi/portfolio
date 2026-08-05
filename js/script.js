@@ -256,7 +256,8 @@ document.addEventListener('DOMContentLoaded', function () {
     rahafto: 'case-studies/rahafto.html',
     khodropack: 'case-studies/khodropack.html',
     saveh: 'case-studies/saveh.html',
-    payment: 'case-studies/payment.html'
+    payment: 'case-studies/payment.html',
+    bahfalab: 'case-studies/behfalab.html'
   };
 
   var modal = document.getElementById('projectModal');
