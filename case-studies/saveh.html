@@ -188,6 +188,7 @@ body{font-family:'Inter',sans-serif;}
 @media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
 
 </style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
 </head>
 <body style="--cs-accent:#f472b6;--cs-accent-bg:rgba(244,114,182,0.09);--cs-accent-br:rgba(244,114,182,0.28);">
 
@@ -198,26 +199,35 @@ body{font-family:'Inter',sans-serif;}
   <div class="blob blob-3"></div>
 </div>
 
-<div class="crumb-bar">
-  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
-</div>
-<div class="crumb-trail-bar">
-  <div class="crumb-trail">
-    <a href="../index.html">Home</a>
-    <span class="sep">/</span>
-    <a href="../index.html#work">Work</a>
-    <span class="sep">/</span>
-    <span class="current">Saveh Concert</span>
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="Saveh Concert" data-fa="کنسرت ساوه">Saveh Concert</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
   </div>
-</div>
+</header>
 
 <main class="cs-container">
 
   <div class="cs-hero-top">
     <div class="cs-hero-copy">
-      <div class="cs-tag">CULTURE · EVENTS · MOBILE</div>
-      <h1 class="cs-title">Saveh Concert</h1>
-      <p class="cs-sub">A mobile app for concerts and cultural events in Saveh — most users will buy their first digital ticket here.</p>
+      <div class="cs-tag" data-en="CULTURE · EVENTS · MOBILE" data-fa="فرهنگ · رویداد · موبایل">CULTURE · EVENTS · MOBILE</div>
+      <h1 class="cs-title" data-en="Saveh Concert" data-fa="Saveh Concert">Saveh Concert</h1>
+      <p class="cs-sub" data-en="A mobile app for concerts and cultural events in Saveh — most users will buy their first digital ticket here." data-fa="اپلیکیشن موبایل کنسرت‌ها و رویدادهای فرهنگی ساوه — بیشتر کاربران اولین بلیت اینترنتی زندگی‌شان را همین‌جا می‌خرند.">A mobile app for concerts and cultural events in Saveh — most users will buy their first digital ticket here.</p>
     </div>
     <div class="cs-hero-logo" aria-hidden="true">
       <svg width="175" height="44" viewBox="0 0 175 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -248,38 +258,38 @@ body{font-family:'Inter',sans-serif;}
   </div>
 
   <div class="cs-meta">
-    <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">UI/UX Designer</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Solo</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">2023</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">Culture / Events</span></div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Mobile</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Role" data-fa="نقش">Role</div><div class="cs-meta-val" data-en="UI/UX Designer" data-fa="طراح UI/UX">UI/UX Designer</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="Solo" data-fa="تک‌نفره">Solo</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Timeframe" data-fa="بازه زمانی">Timeframe</div><div class="cs-meta-val">2023</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="Culture / Events" data-fa="فرهنگ / رویداد">Culture / Events</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma" data-fa="فیگما">Figma</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Mobile" data-fa="موبایل">Mobile</div></div>
   </div>
 
-  <div class="cs-constraint"><b>Constraint —</b><span>International ticketing apps read cold and corporate. This product is cultural — Saveh has its own musical and event traditions — and had to feel warm without turning kitschy.</span></div>
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="International ticketing apps read cold and corporate. This product is cultural — Saveh has its own musical and event traditions — and had to feel warm without turning kitschy." data-fa="اپلیکیشن‌های بلیت‌فروشی خارجی سرد و شرکتی به نظر می‌رسند. این محصول فرهنگی است — ساوه سنت موسیقی و رویداد خودش را دارد — و باید صمیمی می‌بود بدون اینکه به ابتذال بیفتد.">International ticketing apps read cold and corporate. This product is cultural — Saveh has its own musical and event traditions — and had to feel warm without turning kitschy.</span></div>
 
   <section class="cs-block" style="margin-top:0;">
-    <div class="cs-sl">01 · Context &amp; Problem</div>
-    <p class="cs-p">Discovery, artist and venue profiles, and the full ticket-purchase flow. The audience skews toward older users buying digital event tickets for the first time — many have only ever used paper tickets before.</p>
-    <div class="cs-features"><span class="cs-feature-chip">Editorial Artist Pages</span><span class="cs-feature-chip">3-Step Ticket Flow</span><span class="cs-feature-chip">Explicit Confirmation States</span><span class="cs-feature-chip">Venue &amp; Seating</span></div>
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-en="Discovery, artist and venue profiles, and the full ticket-purchase flow. The audience skews toward older users buying digital event tickets for the first time — many have only ever used paper tickets before." data-fa="کشف رویداد، پروفایل هنرمند و سالن، و کل مسیر خرید بلیت. مخاطب بیشتر کاربران مسن‌تری هستند که برای اولین بار بلیت اینترنتی می‌خرند — خیلی‌هایشان تا امروز فقط بلیت کاغذی گرفته‌اند.">Discovery, artist and venue profiles, and the full ticket-purchase flow. The audience skews toward older users buying digital event tickets for the first time — many have only ever used paper tickets before.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="Editorial Artist Pages" data-fa="صفحه هنرمند با نگاه مجله‌ای">Editorial Artist Pages</span><span class="cs-feature-chip" data-en="3-Step Ticket Flow" data-fa="مسیر سه‌مرحله‌ای خرید بلیت">3-Step Ticket Flow</span><span class="cs-feature-chip" data-en="Explicit Confirmation States" data-fa="حالت‌های تأیید صریح">Explicit Confirmation States</span><span class="cs-feature-chip" data-en="Venue &amp; Seating" data-fa="سالن و انتخاب صندلی">Venue &amp; Seating</span></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
     <div class="discovery-wrap">
-      <div class="discovery-method">Conversations with older event-goers who’d only bought paper tickets before</div>
-      <div class="discovery-insight">Nobody asked me about payment security or seat-picker logic. They asked what the venue looked like, whether the singer was any good, and whether they could bring family. The app needed to answer those questions first, and treat the transaction second.</div>
+      <div class="discovery-method" data-en="Conversations with older event-goers who’d only bought paper tickets before" data-fa="گفت‌وگو با تماشاگران مسن‌تری که تا آن روز فقط بلیت کاغذی خریده بودند">Conversations with older event-goers who’d only bought paper tickets before</div>
+      <div class="discovery-insight" data-en="Nobody asked me about payment security or seat-picker logic. They asked what the venue looked like, whether the singer was any good, and whether they could bring family. The app needed to answer those questions first, and treat the transaction second." data-fa="هیچ‌کس از من درباره امنیت پرداخت یا منطق انتخاب صندلی نپرسید. پرسیدند سالن چه شکلی است، خواننده خوب می‌خواند یا نه، و می‌شود خانواده را هم برد. اپلیکیشن باید اول به این سؤال‌ها جواب می‌داد و بعد سراغ تراکنش می‌رفت.">Nobody asked me about payment security or seat-picker logic. They asked what the venue looked like, whether the singer was any good, and whether they could bring family. The app needed to answer those questions first, and treat the transaction second.</div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">03 · Process</div>
-    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title">Home structure locked before any visual pass</div><div class="process-text">The wireframe already had the carousel, then two grouped grids — a city-wide list, then a second one scoped to Vahdat Hall — split by a single promo banner. The floating three-icon nav (search, offers, home) was drawn this early too, and it's the one element that stays pinned through every other screen in the app, checkout included.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title">Capacity and full credits, not decoration</div><div class="process-text">Both the wireframe and the final event page show remaining capacity per session — "29 spots left" next to one, "sold out" next to the other — and the complete crew list down to individual musicians, not just the headliner. That was a structural call made before any type or color existed: answer "is this worth going to" before the buyer reaches a price.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title">Price filter, simplified</div><div class="process-text">The seat-map wireframe had a two-handle range slider — a minimum and a maximum price. It didn't survive to the final build; it became a single slider with one value. Two handles on a screen that narrow made the seat grid itself the thing fighting for thumb space.</div></div></div><div class="process-item"><div class="process-num">04</div><div><div class="process-title">Barcode became a QR code</div><div class="process-text">The wireframe's ticket used a plain barcode placeholder. The final ticket scans as a QR code instead — closer to how door staff actually check people in. The 4.4% online-booking fee was already its own line item at the wireframe stage, before the visual design existed to hide it in.</div></div></div></div>
+    <div class="cs-sl" data-en="03 · Process" data-fa="۰۳ · روند کار">03 · Process</div>
+    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="Home structure locked before any visual pass" data-fa="ساختار صفحه اصلی پیش از هر کار بصری قطعی شد">Home structure locked before any visual pass</div><div class="process-text" data-en="The wireframe already had the carousel, then two grouped grids — a city-wide list, then a second one scoped to Vahdat Hall — split by a single promo banner. The floating three-icon nav (search, offers, home) was drawn this early too, and it's the one element that stays pinned through every other screen in the app, checkout included." data-fa="وایرفریم از همان ابتدا اسلایدر را داشت، بعد دو شبکه گروه‌بندی‌شده — یکی در سطح شهر و دومی مخصوص تالار وحدت — که یک بنر تبلیغاتی بینشان فاصله می‌انداخت. نوار شناور سه‌آیکونی (جست‌وجو، پیشنهادها، خانه) هم همان موقع کشیده شد، و تنها عنصری است که در همه صفحات دیگر اپلیکیشن، از جمله پرداخت، ثابت می‌ماند.">The wireframe already had the carousel, then two grouped grids — a city-wide list, then a second one scoped to Vahdat Hall — split by a single promo banner. The floating three-icon nav (search, offers, home) was drawn this early too, and it's the one element that stays pinned through every other screen in the app, checkout included.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="Capacity and full credits, not decoration" data-fa="ظرفیت و عوامل کامل، نه تزئین">Capacity and full credits, not decoration</div><div class="process-text" data-en="Both the wireframe and the final event page show remaining capacity per session — &quot;29 spots left&quot; next to one, &quot;sold out&quot; next to the other — and the complete crew list down to individual musicians, not just the headliner. That was a structural call made before any type or color existed: answer &quot;is this worth going to&quot; before the buyer reaches a price." data-fa="هم وایرفریم و هم صفحه نهایی رویداد، ظرفیت باقی‌مانده هر سانس را نشان می‌دهند — کنار یکی «۲۹ جای خالی» و کنار دیگری «تکمیل ظرفیت» — و فهرست کامل عوامل تا تک‌تک نوازنده‌ها، نه فقط خواننده اصلی. این تصمیمی ساختاری بود که پیش از وجود هر تایپوگرافی و رنگی گرفته شد: اول به «ارزش رفتن دارد؟» جواب بده، بعد خریدار به قیمت برسد.">Both the wireframe and the final event page show remaining capacity per session — "29 spots left" next to one, "sold out" next to the other — and the complete crew list down to individual musicians, not just the headliner. That was a structural call made before any type or color existed: answer "is this worth going to" before the buyer reaches a price.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="Price filter, simplified" data-fa="ساده‌سازی فیلتر قیمت">Price filter, simplified</div><div class="process-text" data-en="The seat-map wireframe had a two-handle range slider — a minimum and a maximum price. It didn't survive to the final build; it became a single slider with one value. Two handles on a screen that narrow made the seat grid itself the thing fighting for thumb space." data-fa="وایرفریم نقشه صندلی یک اسلایدر دوسر داشت — حداقل و حداکثر قیمت. تا نسخه نهایی دوام نیاورد و به یک اسلایدر تک‌مقداری تبدیل شد. دو دستگیره روی صفحه‌ای به آن باریکی باعث می‌شد خود شبکه صندلی‌ها سر فضای انگشت رقابت کند.">The seat-map wireframe had a two-handle range slider — a minimum and a maximum price. It didn't survive to the final build; it became a single slider with one value. Two handles on a screen that narrow made the seat grid itself the thing fighting for thumb space.</div></div></div><div class="process-item"><div class="process-num">04</div><div><div class="process-title" data-en="Barcode became a QR code" data-fa="بارکد به کد QR تبدیل شد">Barcode became a QR code</div><div class="process-text" data-en="The wireframe's ticket used a plain barcode placeholder. The final ticket scans as a QR code instead — closer to how door staff actually check people in. The 4.4% online-booking fee was already its own line item at the wireframe stage, before the visual design existed to hide it in." data-fa="بلیت در وایرفریم یک بارکد ساده داشت. بلیت نهایی به‌جای آن با کد QR اسکن می‌شود — نزدیک‌تر به کاری که مسئول درِ سالن واقعاً انجام می‌دهد. کارمزد ۴.۴ درصدی رزرو اینترنتی هم از همان مرحله وایرفریم ردیف جدا داشت، پیش از آنکه طراحی بصری‌ای وجود داشته باشد که بتوان آن را لایش پنهان کرد.">The wireframe's ticket used a plain barcode placeholder. The final ticket scans as a QR code instead — closer to how door staff actually check people in. The 4.4% online-booking fee was already its own line item at the wireframe stage, before the visual design existed to hide it in.</div></div></div></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">04 · Wireframes</div>
-    <p class="cs-p">Low-fidelity passes for the four screens that carried the most risk — where the layout had to be argued for before any color or type got involved.</p>
+    <div class="cs-sl" data-en="04 · Wireframes" data-fa="۰۴ · وایرفریم‌ها">04 · Wireframes</div>
+    <p class="cs-p" data-en="Low-fidelity passes for the four screens that carried the most risk — where the layout had to be argued for before any color or type got involved." data-fa="طرح‌های اولیه برای چهار صفحه‌ای که بیشترین ریسک را داشتند — جایی که چیدمان باید پیش از ورود هر رنگ و تایپوگرافی توجیه می‌شد.">Low-fidelity passes for the four screens that carried the most risk — where the layout had to be argued for before any color or type got involved.</p>
 
     <div class="mockup-grid">
 
@@ -289,7 +299,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-02.jpg" alt="Wireframe — home feed layout and section order." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Wireframe — home feed layout and section order.</div>
+        <div class="mockup-caption" data-en="Wireframe — home feed layout and section order." data-fa="وایرفریم — چیدمان صفحه اصلی و ترتیب بخش‌ها.">Wireframe — home feed layout and section order.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="11">
@@ -298,7 +308,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-03.jpg" alt="Wireframe — event page, before tabs got their content." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Wireframe — event page, before tabs got their content.</div>
+        <div class="mockup-caption" data-en="Wireframe — event page, before tabs got their content." data-fa="وایرفریم — صفحه رویداد، پیش از پرشدن محتوای تب‌ها.">Wireframe — event page, before tabs got their content.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="12">
@@ -307,7 +317,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-04.jpg" alt="Wireframe — seat grid with a two-handle price range filter." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Wireframe — seat grid with a two-handle price range filter.</div>
+        <div class="mockup-caption" data-en="Wireframe — seat grid with a two-handle price range filter." data-fa="وایرفریم — شبکه صندلی‌ها با فیلتر بازه قیمت دوسر.">Wireframe — seat grid with a two-handle price range filter.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="13">
@@ -316,15 +326,15 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-05.jpg" alt="Wireframe — purchase summary and barcode placement." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Wireframe — purchase summary and barcode placement.</div>
+        <div class="mockup-caption" data-en="Wireframe — purchase summary and barcode placement." data-fa="وایرفریم — خلاصه خرید و جای بارکد.">Wireframe — purchase summary and barcode placement.</div>
       </div>
 
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">05 · Solution</div>
-    <p class="cs-p">An event page that reads like a program note before it reads like a form, a two-state seat map that shows the exact price of a seat on tap, and a final ticket designed to look like an actual paper stub, perforated edge included.</p>
+    <div class="cs-sl" data-en="05 · Solution" data-fa="۰۵ · راه‌حل">05 · Solution</div>
+    <p class="cs-p" data-en="An event page that reads like a program note before it reads like a form, a two-state seat map that shows the exact price of a seat on tap, and a final ticket designed to look like an actual paper stub, perforated edge included." data-fa="صفحه رویدادی که پیش از آنکه شبیه فرم باشد شبیه بروشور برنامه خوانده می‌شود، نقشه صندلی دوحالته که با یک ضربه قیمت دقیق هر صندلی را نشان می‌دهد، و بلیت نهایی‌ای که طراحی شده تا شبیه یک بلیت کاغذی واقعی باشد، با لبه پرفراژ.">An event page that reads like a program note before it reads like a form, a two-state seat map that shows the exact price of a seat on tap, and a final ticket designed to look like an actual paper stub, perforated edge included.</p>
 
     <div class="mockup-grid">
 
@@ -334,7 +344,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-06.jpg" alt="Second onboarding screen, before the concert list." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Second onboarding screen, before the concert list.</div>
+        <div class="mockup-caption" data-en="Second onboarding screen, before the concert list." data-fa="صفحه دوم آشناسازی، پیش از فهرست کنسرت‌ها.">Second onboarding screen, before the concert list.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="2">
@@ -343,7 +353,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-07.jpg" alt="Home feed — promo carousel, then concerts grouped by venue." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Home feed — promo carousel, then concerts grouped by venue.</div>
+        <div class="mockup-caption" data-en="Home feed — promo carousel, then concerts grouped by venue." data-fa="صفحه اصلی — اسلایدر تبلیغاتی، بعد کنسرت‌ها گروه‌بندی‌شده بر اساس سالن.">Home feed — promo carousel, then concerts grouped by venue.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="3">
@@ -352,7 +362,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-08.jpg" alt="Search with an active query chip and poster-style results." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Search with an active query chip and poster-style results.</div>
+        <div class="mockup-caption" data-en="Search with an active query chip and poster-style results." data-fa="جست‌وجو با نشان عبارت فعال و نتایج به سبک پوستر.">Search with an active query chip and poster-style results.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="4">
@@ -361,7 +371,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-09.jpg" alt="Event page — sessions, reviews, venue and photo tabs, plus the full production credits." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Event page — sessions, reviews, venue and photo tabs, plus the full production credits.</div>
+        <div class="mockup-caption" data-en="Event page — sessions, reviews, venue and photo tabs, plus the full production credits." data-fa="صفحه رویداد — تب‌های سانس، نظرات، سالن و تصاویر، به‌علاوه فهرست کامل عوامل.">Event page — sessions, reviews, venue and photo tabs, plus the full production credits.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="5">
@@ -370,7 +380,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-10.jpg" alt="Seat map — session switcher and price filter above the grid." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Seat map — session switcher and price filter above the grid.</div>
+        <div class="mockup-caption" data-en="Seat map — session switcher and price filter above the grid." data-fa="نقشه صندلی — انتخاب سانس و فیلتر قیمت بالای شبکه.">Seat map — session switcher and price filter above the grid.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="6">
@@ -379,7 +389,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-11.jpg" alt="Tap a seat, see its exact price in a small tooltip." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Tap a seat, see its exact price in a small tooltip.</div>
+        <div class="mockup-caption" data-en="Tap a seat, see its exact price in a small tooltip." data-fa="روی صندلی بزنید تا قیمت دقیقش در یک تولتیپ کوچک دیده شود.">Tap a seat, see its exact price in a small tooltip.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="7">
@@ -388,7 +398,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-12.jpg" alt="Purchase summary — QR code, booking code, print and share." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Purchase summary — QR code, booking code, print and share.</div>
+        <div class="mockup-caption" data-en="Purchase summary — QR code, booking code, print and share." data-fa="خلاصه خرید — کد QR، کد رزرو، چاپ و اشتراک‌گذاری.">Purchase summary — QR code, booking code, print and share.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="8">
@@ -397,7 +407,7 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-13.jpg" alt="Final ticket, designed to look like an actual paper stub." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Final ticket, designed to look like an actual paper stub.</div>
+        <div class="mockup-caption" data-en="Final ticket, designed to look like an actual paper stub." data-fa="بلیت نهایی، طراحی‌شده تا شبیه بلیت کاغذی واقعی باشد.">Final ticket, designed to look like an actual paper stub.</div>
       </div>
 
       <div class="mockup-slot phone" data-idx="9">
@@ -406,25 +416,26 @@ body{font-family:'Inter',sans-serif;}
           <img src="../assets/images/saveh/saveh-14.jpg" alt="Profile edit form." loading="lazy"
                onload="this.style.opacity=1" onerror="this.style.opacity=0">
         </div>
-        <div class="mockup-caption">Profile edit form.</div>
+        <div class="mockup-caption" data-en="Profile edit form." data-fa="فرم ویرایش پروفایل.">Profile edit form.</div>
       </div>
 
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">06 · Impact &amp; Results</div>
-    <div class="metric-list"><div class="metric-item">Session capacity ("29 spots left" / "sold out") visible before anyone reaches the seat map</div><div class="metric-item">QR-based ticket instead of a barcode, matching how doors actually scan people in</div><div class="metric-item">One nav bar — search, offers, home — carried across every screen, checkout included</div></div>
+    <div class="cs-sl" data-en="06 · Impact &amp; Results" data-fa="۰۶ · اثر و نتایج">06 · Impact &amp; Results</div>
+    <div class="metric-list"><div class="metric-item" data-en="Session capacity (&quot;29 spots left&quot; / &quot;sold out&quot;) visible before anyone reaches the seat map" data-fa="ظرفیت هر سانس («۲۹ جای خالی» / «تکمیل ظرفیت») پیش از رسیدن کاربر به نقشه صندلی دیده می‌شود">Session capacity ("29 spots left" / "sold out") visible before anyone reaches the seat map</div><div class="metric-item" data-en="QR-based ticket instead of a barcode, matching how doors actually scan people in" data-fa="بلیت مبتنی بر کد QR به‌جای بارکد، هماهنگ با روشی که در ورودی سالن واقعاً اسکن می‌کنند">QR-based ticket instead of a barcode, matching how doors actually scan people in</div><div class="metric-item" data-en="One nav bar — search, offers, home — carried across every screen, checkout included" data-fa="یک نوار ناوبری — جست‌وجو، پیشنهادها، خانه — در همه صفحات از جمله پرداخت ثابت می‌ماند">One nav bar — search, offers, home — carried across every screen, checkout included</div></div>
   </section>
 
   <section class="cs-block" style="margin-bottom:0;">
-    <div class="cs-sl">07 · Reflection</div>
-    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">The two-handle price filter looked reasonable on paper. On an actual seat-map screen, a single slider turned out to be easier to operate with one thumb — the seat grid needed the space more than the second handle did.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Showing the 4.4% booking fee as its own line from the first wireframe is a call I'd make again. Folding it into the total would have read as a hidden fee the moment someone reached checkout.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Sold-out sessions still take up a full row in the session list. Next pass, I'd test whether that row should collapse instead of just getting grayed out.</div></div></div>
+    <div class="cs-sl" data-en="07 · Reflection" data-fa="۰۷ · جمع‌بندی">07 · Reflection</div>
+    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The two-handle price filter looked reasonable on paper. On an actual seat-map screen, a single slider turned out to be easier to operate with one thumb — the seat grid needed the space more than the second handle did." data-fa="فیلتر قیمت دوسر روی کاغذ منطقی به نظر می‌رسید. روی صفحه واقعی نقشه صندلی، اسلایدر تک‌مقداری با یک انگشت راحت‌تر کار می‌کرد — شبکه صندلی‌ها بیشتر از دستگیره دوم به آن فضا نیاز داشت.">The two-handle price filter looked reasonable on paper. On an actual seat-map screen, a single slider turned out to be easier to operate with one thumb — the seat grid needed the space more than the second handle did.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Showing the 4.4% booking fee as its own line from the first wireframe is a call I'd make again. Folding it into the total would have read as a hidden fee the moment someone reached checkout." data-fa="نشان‌دادن کارمزد ۴.۴ درصدی رزرو به‌صورت یک ردیف جدا از همان اولین وایرفریم، تصمیمی است که دوباره هم می‌گیرم. اگر داخل مبلغ کل پنهانش می‌کردم، لحظه‌ای که کاربر به پرداخت می‌رسید مثل یک هزینه مخفی خوانده می‌شد.">Showing the 4.4% booking fee as its own line from the first wireframe is a call I'd make again. Folding it into the total would have read as a hidden fee the moment someone reached checkout.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Sold-out sessions still take up a full row in the session list. Next pass, I'd test whether that row should collapse instead of just getting grayed out." data-fa="سانس‌های تکمیل‌شده هنوز یک ردیف کامل در فهرست سانس‌ها می‌گیرند. در بازنگری بعدی تست می‌کنم که آیا آن ردیف باید جمع شود، به‌جای اینکه فقط کم‌رنگ شود.">Sold-out sessions still take up a full row in the session list. Next pass, I'd test whether that row should collapse instead of just getting grayed out.</div></div></div>
   </section>
 
   <div class="cs-endcap">
-    <a class="cs-endcap-link" href="behfalab.html">← Behfalab</a>
-    <a class="cs-endcap-link primary" href="payment.html">Payment →</a>
+    <a class="cs-endcap-link" href="khodropack.html" rel="prev" data-en="← Khodropack" data-fa="→ خودروپک">← Khodropack</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="payment.html" rel="next" data-en="Payment →" data-fa="← درگاه پرداخت">Payment →</a>
   </div>
 
 </main>
@@ -507,5 +518,6 @@ body{font-family:'Inter',sans-serif;}
 })();
 </script>
 
+<script src="cs-shared.js?v=20261011"></script>
 </body>
 </html>

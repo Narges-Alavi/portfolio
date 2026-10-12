@@ -177,6 +177,7 @@ body{font-family:'Inter',sans-serif;}
 @media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
 
 </style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
 </head>
 <body>
 
@@ -187,97 +188,107 @@ body{font-family:'Inter',sans-serif;}
   <div class="blob blob-3"></div>
 </div>
 
-<div class="crumb-bar">
-  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
-</div>
-<div class="crumb-trail-bar">
-  <div class="crumb-trail">
-    <a href="../index.html">Home</a>
-    <span class="sep">/</span>
-    <a href="../index.html#work">Work</a>
-    <span class="sep">/</span>
-    <span class="current">Rahafto Academy</span>
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="Rahafto" data-fa="ره‌افتو">Rahafto</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
   </div>
-</div>
+</header>
 
 <main class="cs-container">
 
-  <div class="cs-tag">COURSE UX · VIDEO LICENSING</div>
+  <div class="cs-tag" data-en="COURSE UX · VIDEO LICENSING" data-fa="تجربه کاربری دوره · لایسنس ویدیو">COURSE UX · VIDEO LICENSING</div>
   <div class="cs-title-row">
-    <h1 class="cs-title">Rahafto Academy <span style="color:var(--muted);font-weight:400;font-size:.5em;">(Toward the Sun)</span></h1>
+    <h1 class="cs-title">Rahafto Academy <span style="color:var(--muted);font-weight:400;font-size:.5em;" data-en="(Toward the Sun)" data-fa="(ره‌افتو)">(Toward the Sun)</span></h1>
     <img class="cs-logo" src="../assets/images/rahafto/rahafto-01.png" alt="Rahafto Academy logo">
   </div>
-  <p class="cs-sub">Original design of the course page, checkout, and student dashboard for a platform whose lessons are locked behind device-based video licensing — where the real problem started after checkout, not before.</p>
-  <a class="cs-visit-site" href="https://rahafto.org/" target="_blank" rel="noopener">↗ Visit Live Site</a>
+  <p class="cs-sub" data-en="Original design of the course page, checkout, and student dashboard for a platform whose lessons are locked behind device-based video licensing — where the real problem started after checkout, not before." data-fa="طراحی اولیه صفحه دوره، پرداخت و داشبورد دانشجو برای پلتفرمی که ویدیوهایش پشت لایسنس مبتنی بر دستگاه قفل است — جایی که مسئله واقعی بعد از پرداخت شروع می‌شود، نه قبل از آن.">Original design of the course page, checkout, and student dashboard for a platform whose lessons are locked behind device-based video licensing — where the real problem started after checkout, not before.</p>
+  <a class="cs-visit-site" href="https://rahafto.org/" target="_blank" rel="noopener" data-en="↗ Visit Live Site" data-fa="↗ مشاهده سایت">↗ Visit Live Site</a>
 
   <div class="cs-meta">
-    <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">UI/UX Designer — sole designer on the project</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Design + Engineering (2 implementation sprints)</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">April 2025 – December 2025</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">E-Learning / E-commerce</span></div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Web (Desktop) + Mobile</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Role" data-fa="نقش">Role</div><div class="cs-meta-val" data-en="UI/UX Designer — sole designer on the project" data-fa="طراح UI/UX — تنها طراح پروژه">UI/UX Designer — sole designer on the project</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="Design + Engineering (2 implementation sprints)" data-fa="طراحی + مهندسی (۲ اسپرینت پیاده‌سازی)">Design + Engineering (2 implementation sprints)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Timeframe" data-fa="بازه زمانی">Timeframe</div><div class="cs-meta-val" data-en="April 2025 – December 2025" data-fa="فروردین — آذر ۱۴۰۴">April 2025 – December 2025</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="E-Learning / E-commerce" data-fa="آموزش آنلاین / فروشگاه اینترنتی">E-Learning / E-commerce</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Web (Desktop) + Mobile" data-fa="وب (دسکتاپ) + موبایل">Web (Desktop) + Mobile</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma" data-fa="فیگما">Figma</div></div>
   </div>
 
-  <div class="cs-constraint"><b>Constraint —</b><span>Competitors weren't badly designed. Color, type, card layout — most were solid. Where they broke down was one specific moment: none of them clearly explained what happens to a buyer's video access right after they pay. That gap is where we focused.</span></div>
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="Competitors weren't badly designed. Color, type, card layout — most were solid. Where they broke down was one specific moment: none of them clearly explained what happens to a buyer's video access right after they pay. That gap is where we focused." data-fa="رقبا بد طراحی نشده بودند. رنگ، تایپوگرافی، چیدمان کارت — بیشترشان قابل قبول بود. جایی که کم می‌آوردند یک لحظه مشخص بود: هیچ‌کدام روشن نمی‌کردند بلافاصله بعد از پرداخت، دسترسی خریدار به ویدیو چه می‌شود. تمرکز ما روی همین شکاف بود.">Competitors weren't badly designed. Color, type, card layout — most were solid. Where they broke down was one specific moment: none of them clearly explained what happens to a buyer's video access right after they pay. That gap is where we focused.</span></div>
 
   <section class="cs-block" style="margin-top:0;">
-    <div class="cs-sl">01 · Context &amp; Problem</div>
-    <p class="cs-p">Rahafto sells video courses — programming, AI, crypto — in Persian. Unlike most course platforms that unlock content the moment payment clears, Rahafto's videos are locked behind SpotPlayer, a DRM player used widely by Iranian education platforms. After paying, a buyer has to submit a license request for their specific device (Windows, Android, macOS, or Web), wait for approval, and then receive an activation code. If they later reinstall their OS or switch devices, the license breaks and they have to request a new one.</p>
-    <p class="cs-p">That mechanic has nothing in common with a normal "buy and watch" experience, and no interface had been designed for it before this project. My scope covered three areas: the purchase-decision page (course detail), the checkout and license-request flow, and the student dashboard — courses, licenses, finances, and support tickets. Because this was the first design of the system rather than a redesign, the core challenge was building a mental model from zero for something the average buyer had never encountered before.</p>
-    <div class="cs-features"><span class="cs-feature-chip">Unlocked Lesson Preview</span><span class="cs-feature-chip">Instructor Credibility Block</span><span class="cs-feature-chip">License Request Form</span><span class="cs-feature-chip">Color-Coded License Status</span><span class="cs-feature-chip">Installment Toggle</span><span class="cs-feature-chip">Separated Financial Tabs</span></div>
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-en="Rahafto sells video courses — programming, AI, crypto — in Persian. Unlike most course platforms that unlock content the moment payment clears, Rahafto's videos are locked behind SpotPlayer, a DRM player used widely by Iranian education platforms. After paying, a buyer has to submit a license request for their specific device (Windows, Android, macOS, or Web), wait for approval, and then receive an activation code. If they later reinstall their OS or switch devices, the license breaks and they have to request a new one." data-fa="ره‌افتو دوره‌های ویدیویی فارسی می‌فروشد — برنامه‌نویسی، هوش مصنوعی، رمزارز. برخلاف بیشتر پلتفرم‌های آموزشی که محتوا را همان لحظه تأیید پرداخت باز می‌کنند، ویدیوهای ره‌افتو پشت اسپات‌پلیر قفل‌اند؛ پخش‌کننده‌ای با قفل دیجیتال که پلتفرم‌های آموزشی ایرانی زیاد از آن استفاده می‌کنند. خریدار بعد از پرداخت باید برای دستگاه مشخص خودش (ویندوز، اندروید، مک یا وب) درخواست لایسنس بدهد، منتظر تأیید بماند و بعد کد فعال‌سازی بگیرد. اگر بعداً سیستم‌عاملش را عوض کند یا دستگاهش را تغییر دهد، لایسنس از کار می‌افتد و باید دوباره درخواست بدهد.">Rahafto sells video courses — programming, AI, crypto — in Persian. Unlike most course platforms that unlock content the moment payment clears, Rahafto's videos are locked behind SpotPlayer, a DRM player used widely by Iranian education platforms. After paying, a buyer has to submit a license request for their specific device (Windows, Android, macOS, or Web), wait for approval, and then receive an activation code. If they later reinstall their OS or switch devices, the license breaks and they have to request a new one.</p>
+    <p class="cs-p" data-en="That mechanic has nothing in common with a normal &quot;buy and watch&quot; experience, and no interface had been designed for it before this project. My scope covered three areas: the purchase-decision page (course detail), the checkout and license-request flow, and the student dashboard — courses, licenses, finances, and support tickets. Because this was the first design of the system rather than a redesign, the core challenge was building a mental model from zero for something the average buyer had never encountered before." data-fa="این مکانیزم هیچ شباهتی به تجربه معمول «بخر و ببین» ندارد، و پیش از این پروژه هیچ رابطی برایش طراحی نشده بود. دامنه کار من سه بخش بود: صفحه تصمیم خرید (جزئیات دوره)، مسیر پرداخت و درخواست لایسنس، و داشبورد دانشجو — دوره‌ها، لایسنس‌ها، امور مالی و تیکت‌های پشتیبانی. چون این طراحی اول سیستم بود نه بازطراحی، چالش اصلی ساختن یک مدل ذهنی از صفر بود، برای چیزی که خریدار معمولی هرگز با آن روبه‌رو نشده بود.">That mechanic has nothing in common with a normal "buy and watch" experience, and no interface had been designed for it before this project. My scope covered three areas: the purchase-decision page (course detail), the checkout and license-request flow, and the student dashboard — courses, licenses, finances, and support tickets. Because this was the first design of the system rather than a redesign, the core challenge was building a mental model from zero for something the average buyer had never encountered before.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="Unlocked Lesson Preview" data-fa="پیش‌نمایش درس باز">Unlocked Lesson Preview</span><span class="cs-feature-chip" data-en="Instructor Credibility Block" data-fa="بلوک اعتبار مدرس">Instructor Credibility Block</span><span class="cs-feature-chip" data-en="License Request Form" data-fa="فرم درخواست لایسنس">License Request Form</span><span class="cs-feature-chip" data-en="Color-Coded License Status" data-fa="وضعیت لایسنس با کد رنگی">Color-Coded License Status</span><span class="cs-feature-chip" data-en="Installment Toggle" data-fa="گزینه پرداخت اقساطی">Installment Toggle</span><span class="cs-feature-chip" data-en="Separated Financial Tabs" data-fa="تب‌های مالی جداگانه">Separated Financial Tabs</span></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
     <div class="discovery-wrap">
-      <div class="discovery-method">Audited several Persian and international course platforms · Reviewed recurring patterns in Rahafto's own support conversations</div>
-      <div class="discovery-insight">Two concerns came up constantly: before purchase, "Is this instructor actually credible?" — and after purchase, "Why can't I watch the course I just paid for?" Most competitors had solved one of the two, rarely both. A platform's course page might build trust well, or its post-purchase activation might be clear — but almost never both at once. Rahafto's design had to close both ends of that gap.</div>
+      <div class="discovery-method" data-en="Audited several Persian and international course platforms · Reviewed recurring patterns in Rahafto's own support conversations" data-fa="بررسی چند پلتفرم آموزشی فارسی و خارجی · مرور الگوهای تکرارشونده در مکالمات پشتیبانی خود ره‌افتو">Audited several Persian and international course platforms · Reviewed recurring patterns in Rahafto's own support conversations</div>
+      <div class="discovery-insight" data-en="Two concerns came up constantly: before purchase, &quot;Is this instructor actually credible?&quot; — and after purchase, &quot;Why can't I watch the course I just paid for?&quot; Most competitors had solved one of the two, rarely both. A platform's course page might build trust well, or its post-purchase activation might be clear — but almost never both at once. Rahafto's design had to close both ends of that gap." data-fa="دو نگرانی مدام تکرار می‌شد: پیش از خرید، «این مدرس واقعاً معتبر است؟» — و بعد از خرید، «چرا نمی‌توانم دوره‌ای را که همین الان پولش را دادم ببینم؟» بیشتر رقبا یکی از این دو را حل کرده بودند، به‌ندرت هر دو را. صفحه دوره یک پلتفرم ممکن بود خوب اعتماد بسازد، یا فعال‌سازی بعد از خریدش روشن باشد — ولی تقریباً هیچ‌وقت هر دو با هم. طراحی ره‌افتو باید هر دو سر این شکاف را می‌بست.">Two concerns came up constantly: before purchase, "Is this instructor actually credible?" — and after purchase, "Why can't I watch the course I just paid for?" Most competitors had solved one of the two, rarely both. A platform's course page might build trust well, or its post-purchase activation might be clear — but almost never both at once. Rahafto's design had to close both ends of that gap.</div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">03 · Process</div>
+    <div class="cs-sl" data-en="03 · Process" data-fa="۰۳ · روند کار">03 · Process</div>
     <div class="process-list">
-      <div class="process-item"><div class="process-num">01</div><div><div class="process-title">A real lesson, not a promotional trailer</div><div class="process-text">Instead of a short promo clip, we unlocked one full, real lesson from the course. Buyers can judge both the teaching quality and whether they connect with the instructor's style before paying — the exact hesitation that was causing drop-off.</div></div></div>
-      <div class="process-item"><div class="process-num">02</div><div><div class="process-title">Instructor block, directly under the player</div><div class="process-text">Freelance history, year they started teaching, number of enrolled students — we put this directly beneath the preview video instead of in a separate tab nobody opened.</div></div></div>
-      <div class="process-item"><div class="process-num">03</div><div><div class="process-title">Turning license status into a clear color system</div><div class="process-text">Approved (green), Under Review (yellow), and Expired (red) now sit directly next to each course in the dashboard, so a buyer doesn't have to open a support ticket just to check where their license stands.</div></div></div>
-      <div class="process-item"><div class="process-num">04</div><div><div class="process-title">Asking for the device OS at step one of the license form</div><div class="process-text">Buyers previously had no idea why a license request got rejected. Adding a device OS field (Windows / Android / macOS / Web) as the very first step of the form prevented licenses being issued for the wrong device in the first place.</div></div></div>
-      <div class="process-item"><div class="process-num">05</div><div><div class="process-title">Splitting finances into three independent tabs</div><div class="process-text">Installments, refunds, and purchase receipts used to live in one long, mixed list. Paying an installment could bury a receipt or a pending refund. Three separate tabs let each be tracked on its own.</div></div></div>
-      <div class="process-item"><div class="process-num">06</div><div><div class="process-title">A card-based mobile dashboard instead of a compressed table</div><div class="process-text">The desktop dashboard's table layout didn't compress well onto mobile. Each section — courses, licenses, financial status — became a vertical, scrollable card so it stayed readable on a small screen.</div></div></div><div class="process-item"><div class="process-num">07</div><div><div class="process-title">Pairing color with text, not color alone</div><div class="process-text">Approved, Under Review, and Expired each carry their own word, not just a colored dot — so a buyer who can't distinguish green from red still reads the same status as everyone else.</div></div></div>
+      <div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="A real lesson, not a promotional trailer" data-fa="یک درس واقعی، نه تیزر تبلیغاتی">A real lesson, not a promotional trailer</div><div class="process-text" data-en="Instead of a short promo clip, we unlocked one full, real lesson from the course. Buyers can judge both the teaching quality and whether they connect with the instructor's style before paying — the exact hesitation that was causing drop-off." data-fa="به‌جای یک کلیپ تبلیغاتی کوتاه، یک درس کامل و واقعی از دوره را باز گذاشتیم. خریدار می‌تواند هم کیفیت تدریس را بسنجد و هم ببیند با سبک مدرس ارتباط می‌گیرد یا نه، پیش از پرداخت — یعنی دقیقاً همان تردیدی که باعث ریزش می‌شد.">Instead of a short promo clip, we unlocked one full, real lesson from the course. Buyers can judge both the teaching quality and whether they connect with the instructor's style before paying — the exact hesitation that was causing drop-off.</div></div></div>
+      <div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="Instructor block, directly under the player" data-fa="بلوک مدرس، دقیقاً زیر پخش‌کننده">Instructor block, directly under the player</div><div class="process-text" data-en="Freelance history, year they started teaching, number of enrolled students — we put this directly beneath the preview video instead of in a separate tab nobody opened." data-fa="سابقه کار آزاد، سالی که تدریس را شروع کرده، تعداد دانشجویان ثبت‌نام‌کرده — این‌ها را دقیقاً زیر ویدیوی پیش‌نمایش گذاشتیم، نه در تبی جدا که کسی بازش نمی‌کرد.">Freelance history, year they started teaching, number of enrolled students — we put this directly beneath the preview video instead of in a separate tab nobody opened.</div></div></div>
+      <div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="Turning license status into a clear color system" data-fa="تبدیل وضعیت لایسنس به یک سیستم رنگی روشن">Turning license status into a clear color system</div><div class="process-text" data-en="Approved (green), Under Review (yellow), and Expired (red) now sit directly next to each course in the dashboard, so a buyer doesn't have to open a support ticket just to check where their license stands." data-fa="تأییدشده (سبز)، در حال بررسی (زرد) و منقضی (قرمز) حالا دقیقاً کنار هر دوره در داشبورد نشسته‌اند، تا خریدار برای فهمیدن وضعیت لایسنسش مجبور نباشد تیکت پشتیبانی باز کند.">Approved (green), Under Review (yellow), and Expired (red) now sit directly next to each course in the dashboard, so a buyer doesn't have to open a support ticket just to check where their license stands.</div></div></div>
+      <div class="process-item"><div class="process-num">04</div><div><div class="process-title" data-en="Asking for the device OS at step one of the license form" data-fa="پرسیدن سیستم‌عامل دستگاه، در گام اول فرم لایسنس">Asking for the device OS at step one of the license form</div><div class="process-text" data-en="Buyers previously had no idea why a license request got rejected. Adding a device OS field (Windows / Android / macOS / Web) as the very first step of the form prevented licenses being issued for the wrong device in the first place." data-fa="خریدارها قبلاً اصلاً نمی‌دانستند چرا درخواست لایسنسشان رد شده. اضافه‌کردن فیلد سیستم‌عامل دستگاه (ویندوز / اندروید / مک / وب) به‌عنوان اولین گام فرم، از همان ابتدا جلوی صدور لایسنس برای دستگاه اشتباه را گرفت.">Buyers previously had no idea why a license request got rejected. Adding a device OS field (Windows / Android / macOS / Web) as the very first step of the form prevented licenses being issued for the wrong device in the first place.</div></div></div>
+      <div class="process-item"><div class="process-num">05</div><div><div class="process-title" data-en="Splitting finances into three independent tabs" data-fa="تفکیک امور مالی به سه تب مستقل">Splitting finances into three independent tabs</div><div class="process-text" data-en="Installments, refunds, and purchase receipts used to live in one long, mixed list. Paying an installment could bury a receipt or a pending refund. Three separate tabs let each be tracked on its own." data-fa="اقساط، بازگشت وجه و رسید خرید قبلاً در یک فهرست بلند و درهم بودند. پرداخت یک قسط می‌توانست یک رسید یا یک بازگشت وجه در انتظار را زیر خودش گم کند. سه تب جدا اجازه داد هرکدام مستقل پیگیری شود.">Installments, refunds, and purchase receipts used to live in one long, mixed list. Paying an installment could bury a receipt or a pending refund. Three separate tabs let each be tracked on its own.</div></div></div>
+      <div class="process-item"><div class="process-num">06</div><div><div class="process-title" data-en="A card-based mobile dashboard instead of a compressed table" data-fa="داشبورد موبایل کارت‌محور، به‌جای جدول فشرده">A card-based mobile dashboard instead of a compressed table</div><div class="process-text" data-en="The desktop dashboard's table layout didn't compress well onto mobile. Each section — courses, licenses, financial status — became a vertical, scrollable card so it stayed readable on a small screen." data-fa="چیدمان جدولی داشبورد دسکتاپ روی موبایل خوب جمع نمی‌شد. هر بخش — دوره‌ها، لایسنس‌ها، وضعیت مالی — به یک کارت عمودی و قابل اسکرول تبدیل شد تا روی صفحه کوچک خوانا بماند.">The desktop dashboard's table layout didn't compress well onto mobile. Each section — courses, licenses, financial status — became a vertical, scrollable card so it stayed readable on a small screen.</div></div></div><div class="process-item"><div class="process-num">07</div><div><div class="process-title" data-en="Pairing color with text, not color alone" data-fa="همراه‌کردن رنگ با متن، نه تکیه بر رنگ تنها">Pairing color with text, not color alone</div><div class="process-text" data-en="Approved, Under Review, and Expired each carry their own word, not just a colored dot — so a buyer who can't distinguish green from red still reads the same status as everyone else." data-fa="تأییدشده، در حال بررسی و منقضی هرکدام کلمه خودشان را دارند، نه فقط یک نقطه رنگی — تا خریداری که سبز و قرمز را از هم تشخیص نمی‌دهد، همان وضعیتی را بخواند که بقیه می‌خوانند.">Approved, Under Review, and Expired each carry their own word, not just a colored dot — so a buyer who can't distinguish green from red still reads the same status as everyone else.</div></div></div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">04 · Solution</div>
-    <p class="cs-p">The result opens with a real, unlocked lesson, a license form that asks for the device OS at step one, and a dashboard that shows the status of every license and every installment without requiring a support ticket to find out. Click any screenshot to view it larger.</p>
+    <div class="cs-sl" data-en="04 · Solution" data-fa="۰۴ · راه‌حل">04 · Solution</div>
+    <p class="cs-p" data-en="The result opens with a real, unlocked lesson, a license form that asks for the device OS at step one, and a dashboard that shows the status of every license and every installment without requiring a support ticket to find out. Click any screenshot to view it larger." data-fa="نتیجه با یک درس واقعیِ باز شروع می‌شود، یک فرم لایسنس که در گام اول سیستم‌عامل دستگاه را می‌پرسد، و داشبوردی که وضعیت هر لایسنس و هر قسط را بدون نیاز به تیکت پشتیبانی نشان می‌دهد. برای بزرگ‌تر دیدن هر تصویر رویش کلیک کنید.">The result opens with a real, unlocked lesson, a license form that asks for the device OS at step one, and a dashboard that shows the status of every license and every installment without requiring a support ticket to find out. Click any screenshot to view it larger.</p>
 
     <div class="gallery-grid" id="galleryGrid"></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">05 · Impact &amp; Results</div>
+    <div class="cs-sl" data-en="05 · Impact &amp; Results" data-fa="۰۵ · اثر و نتایج">05 · Impact &amp; Results</div>
     <div class="metric-list">
-      <div class="metric-item">Per the support team, once the color-coded license status shipped in the dashboard, the recurring "where's my license?" question dropped noticeably.</div>
-      <div class="metric-item">According to the content team, placing the instructor block directly under the open preview came through as stronger purchase confidence in review.</div>
-      <div class="metric-item">Per the finance team's feedback, splitting the financial tabs reduced mix-ups between receipts and pending refund requests.</div>
-      <div class="metric-item">The device-OS field on the license form was observed by support to reduce mismatched, rejected license requests.</div>
+      <div class="metric-item" data-en="Per the support team, once the color-coded license status shipped in the dashboard, the recurring &quot;where's my license?&quot; question dropped noticeably." data-fa="به گفته تیم پشتیبانی، پس از اضافه‌شدن وضعیت رنگی لایسنس به داشبورد، سؤال تکراری «لایسنس من کجاست؟» به‌طور محسوسی کم شد.">Per the support team, once the color-coded license status shipped in the dashboard, the recurring "where's my license?" question dropped noticeably.</div>
+      <div class="metric-item" data-en="According to the content team, placing the instructor block directly under the open preview came through as stronger purchase confidence in review." data-fa="به گفته تیم محتوا، قرار دادن بلوک مدرس دقیقاً زیر پیش‌نمایش باز، در بازبینی به‌صورت اطمینان بیشتر برای خرید بازتاب پیدا کرد.">According to the content team, placing the instructor block directly under the open preview came through as stronger purchase confidence in review.</div>
+      <div class="metric-item" data-en="Per the finance team's feedback, splitting the financial tabs reduced mix-ups between receipts and pending refund requests." data-fa="طبق بازخورد تیم مالی، تفکیک تب‌های مالی اشتباه‌گرفتن رسیدها با درخواست‌های بازگشت وجه در انتظار را کم کرد.">Per the finance team's feedback, splitting the financial tabs reduced mix-ups between receipts and pending refund requests.</div>
+      <div class="metric-item" data-en="The device-OS field on the license form was observed by support to reduce mismatched, rejected license requests." data-fa="پشتیبانی مشاهده کرد که فیلد سیستم‌عامل در فرم لایسنس، درخواست‌های ناهماهنگ و ردشده را کاهش داده است.">The device-OS field on the license form was observed by support to reduce mismatched, rejected license requests.</div>
     </div>
   </section>
 
   <section class="cs-block" style="margin-bottom:0;">
-    <div class="cs-sl">06 · Reflection</div>
+    <div class="cs-sl" data-en="06 · Reflection" data-fa="۰۶ · جمع‌بندی">06 · Reflection</div>
     <div class="cs-learnings">
-      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Designing for an unfamiliar concept like video licensing showed me that the hard part is sometimes explaining a technical mechanism in plain terms, not the visual layout itself.</div></div>
-      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Since this was a first design and not a redesign, there was no earlier version to compare against — every decision had to be justified on its own logic and testing, not by a before/after.</div></div>
-      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">The competitive audit made it clear that strong visual design isn't enough on its own — if the post-purchase path stays unclear, good visuals still lose the buyer's trust.</div></div>
-      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">If I revisited this project, I'd add a short walkthrough — a tooltip or a few-second clip — the first time a buyer encounters the license concept, instead of leaving it to trial and error.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Designing for an unfamiliar concept like video licensing showed me that the hard part is sometimes explaining a technical mechanism in plain terms, not the visual layout itself." data-fa="طراحی برای مفهومی ناآشنا مثل لایسنس ویدیو به من نشان داد که گاهی بخش سخت کار، توضیح‌دادن یک مکانیزم فنی به زبان ساده است، نه خود چیدمان بصری.">Designing for an unfamiliar concept like video licensing showed me that the hard part is sometimes explaining a technical mechanism in plain terms, not the visual layout itself.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Since this was a first design and not a redesign, there was no earlier version to compare against — every decision had to be justified on its own logic and testing, not by a before/after." data-fa="چون این طراحی اول بود نه بازطراحی، هیچ نسخه قبلی‌ای برای مقایسه وجود نداشت — هر تصمیم باید با منطق و تست خودش توجیه می‌شد، نه با مقایسه قبل و بعد.">Since this was a first design and not a redesign, there was no earlier version to compare against — every decision had to be justified on its own logic and testing, not by a before/after.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The competitive audit made it clear that strong visual design isn't enough on its own — if the post-purchase path stays unclear, good visuals still lose the buyer's trust." data-fa="بررسی رقبا روشن کرد که طراحی بصری قوی به‌تنهایی کافی نیست — اگر مسیر بعد از خرید مبهم بماند، ظاهر خوب هم اعتماد خریدار را از دست می‌دهد.">The competitive audit made it clear that strong visual design isn't enough on its own — if the post-purchase path stays unclear, good visuals still lose the buyer's trust.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="If I revisited this project, I'd add a short walkthrough — a tooltip or a few-second clip — the first time a buyer encounters the license concept, instead of leaving it to trial and error." data-fa="اگر دوباره سراغ این پروژه بروم، اولین باری که خریدار با مفهوم لایسنس روبه‌رو می‌شود یک راهنمای کوتاه اضافه می‌کنم — یک تولتیپ یا کلیپ چندثانیه‌ای — به‌جای اینکه به آزمون و خطا واگذارش کنم.">If I revisited this project, I'd add a short walkthrough — a tooltip or a few-second clip — the first time a buyer encounters the license concept, instead of leaving it to trial and error.</div></div>
     </div>
   </section>
 
   <div class="cs-endcap">
-    <a class="cs-endcap-link" href="dota.html">← Dota</a>
-    <a class="cs-endcap-link primary" href="khodropack.html">Khodropack →</a>
+    <a class="cs-endcap-link" href="pathofinder.html" rel="prev" data-en="← PathoFinder" data-fa="→ پاتوفایندر">← PathoFinder</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="khodropack.html" rel="next" data-en="Khodropack →" data-fa="← خودروپک">Khodropack →</a>
   </div>
 
 </main>
@@ -298,25 +309,30 @@ body{font-family:'Inter',sans-serif;}
 
 <script>
 const shots = [
-  {src:"../assets/images/rahafto/rahafto-02.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Main dashboard (desktop) — three status counters (support tickets, active courses, days active) at the top of the page."},
-  {src:"../assets/images/rahafto/rahafto-03.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Course page (desktop) — unlocked preview video, instructor block under the player, installment option beside the buy button."},
-  {src:"../assets/images/rahafto/rahafto-04.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Financials (desktop) — installments, refunds, and purchase receipts in three separate tabs instead of one long list."},
-  {src:"../assets/images/rahafto/rahafto-05.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Homepage (desktop) — topic-based course categories and the featured course of the week."},
-  {src:"../assets/images/rahafto/rahafto-06.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"License request form (desktop) — device OS selected before the request is submitted."},
-  {src:"../assets/images/rahafto/rahafto-07.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Programming course list (desktop) — filterable by topic, level, format, and instructor."},
-  {src:"../assets/images/rahafto/rahafto-08.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"My Courses (desktop) — direct access to course details and the license request button from the same card."},
-  {src:"../assets/images/rahafto/rahafto-09.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Course page (mobile) — player and purchase info reachable without extra scrolling."},
-  {src:"../assets/images/rahafto/rahafto-10.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Course page, scrolled further (mobile) — curriculum, prerequisites, instructor bio, and reviews."},
-  {src:"../assets/images/rahafto/rahafto-11.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"License request form (mobile) — the same logic as desktop, condensed into a single column."},
-  {src:"../assets/images/rahafto/rahafto-12.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Transaction receipt (mobile) — tracking code and payment status shown immediately after submitting the request."},
-  {src:"../assets/images/rahafto/rahafto-13.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Student dashboard (mobile) — vertically scrollable cards instead of a compressed desktop table."}
+  {src:"../assets/images/rahafto/rahafto-02.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Main dashboard (desktop) — three status counters (support tickets, active courses, days active) at the top of the page.", tagFa:"صفحه دسکتاپ", capFa:"داشبورد اصلی (دسکتاپ) — سه شمارنده وضعیت (تیکت پشتیبانی، دوره‌های فعال، روزهای فعالیت) در بالای صفحه."},
+  {src:"../assets/images/rahafto/rahafto-03.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Course page (desktop) — unlocked preview video, instructor block under the player, installment option beside the buy button.", tagFa:"صفحه دسکتاپ", capFa:"صفحه دوره (دسکتاپ) — ویدیوی پیش‌نمایش باز، بلوک مدرس زیر پخش‌کننده، گزینه پرداخت اقساطی کنار دکمه خرید."},
+  {src:"../assets/images/rahafto/rahafto-04.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Financials (desktop) — installments, refunds, and purchase receipts in three separate tabs instead of one long list.", tagFa:"صفحه دسکتاپ", capFa:"امور مالی (دسکتاپ) — اقساط، بازگشت وجه و رسیدهای خرید در سه تب جدا، به‌جای یک فهرست بلند."},
+  {src:"../assets/images/rahafto/rahafto-05.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Homepage (desktop) — topic-based course categories and the featured course of the week.", tagFa:"صفحه دسکتاپ", capFa:"صفحه اصلی (دسکتاپ) — دسته‌بندی موضوعی دوره‌ها و دوره منتخب هفته."},
+  {src:"../assets/images/rahafto/rahafto-06.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"License request form (desktop) — device OS selected before the request is submitted.", tagFa:"صفحه دسکتاپ", capFa:"فرم درخواست لایسنس (دسکتاپ) — انتخاب سیستم‌عامل دستگاه پیش از ثبت درخواست."},
+  {src:"../assets/images/rahafto/rahafto-07.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"Programming course list (desktop) — filterable by topic, level, format, and instructor.", tagFa:"صفحه دسکتاپ", capFa:"فهرست دوره‌های برنامه‌نویسی (دسکتاپ) — قابل فیلتر بر اساس موضوع، سطح، قالب و مدرس."},
+  {src:"../assets/images/rahafto/rahafto-08.jpg", type:"desktop", tag:"DESKTOP SCREEN", cap:"My Courses (desktop) — direct access to course details and the license request button from the same card.", tagFa:"صفحه دسکتاپ", capFa:"دوره‌های من (دسکتاپ) — دسترسی مستقیم به جزئیات دوره و دکمه درخواست لایسنس از همان کارت."},
+  {src:"../assets/images/rahafto/rahafto-09.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Course page (mobile) — player and purchase info reachable without extra scrolling.", tagFa:"صفحه موبایل", capFa:"صفحه دوره (موبایل) — پخش‌کننده و اطلاعات خرید بدون اسکرول اضافه در دسترس‌اند."},
+  {src:"../assets/images/rahafto/rahafto-10.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Course page, scrolled further (mobile) — curriculum, prerequisites, instructor bio, and reviews.", tagFa:"صفحه موبایل", capFa:"صفحه دوره، پایین‌تر (موبایل) — سرفصل‌ها، پیش‌نیازها، معرفی مدرس و نظرات."},
+  {src:"../assets/images/rahafto/rahafto-11.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"License request form (mobile) — the same logic as desktop, condensed into a single column.", tagFa:"صفحه موبایل", capFa:"فرم درخواست لایسنس (موبایل) — همان منطق دسکتاپ، جمع‌شده در یک ستون."},
+  {src:"../assets/images/rahafto/rahafto-12.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Transaction receipt (mobile) — tracking code and payment status shown immediately after submitting the request.", tagFa:"صفحه موبایل", capFa:"رسید تراکنش (موبایل) — کد پیگیری و وضعیت پرداخت، بلافاصله بعد از ثبت درخواست."},
+  {src:"../assets/images/rahafto/rahafto-13.jpg", type:"mobile", tag:"MOBILE SCREEN", cap:"Student dashboard (mobile) — vertically scrollable cards instead of a compressed desktop table.", tagFa:"صفحه موبایل", capFa:"داشبورد دانشجو (موبایل) — کارت‌های عمودی قابل اسکرول، به‌جای جدول فشرده دسکتاپ."}
 ];
+
+function shotText(s, field) {
+  var fa = document.documentElement.getAttribute('dir') === 'rtl';
+  return (fa && s[field + 'Fa']) ? s[field + 'Fa'] : s[field];
+}
 
 const grid = document.getElementById('galleryGrid');
 shots.forEach((s, i) => {
   const item = document.createElement('div');
   item.className = 'gallery-item';
-  item.innerHTML = `<div class="gallery-chrome"><span class="dot" style="background:#ff5f57;"></span><span class="dot" style="background:#febc2e;"></span><span class="dot" style="background:#28c840;"></span></div><div class="gallery-thumb"><img src="${s.src}" alt="${s.cap}" loading="lazy"></div><div class="gallery-tagline"><span class="dot-live"></span>${s.tag}</div><div class="gallery-cap">${s.cap}</div>`;
+  item.innerHTML = `<div class="gallery-chrome"><span class="dot" style="background:#ff5f57;"></span><span class="dot" style="background:#febc2e;"></span><span class="dot" style="background:#28c840;"></span></div><div class="gallery-thumb"><img src="${s.src}" alt="${shotText(s,'cap')}" loading="lazy"></div><div class="gallery-tagline"><span class="dot-live"></span>${shotText(s,'tag')}</div><div class="gallery-cap">${shotText(s,'cap')}</div>`;
   item.addEventListener('click', () => openModal(i));
   grid.appendChild(item);
 });
@@ -333,12 +349,25 @@ function renderModal(){
   modalImg.style.opacity = 0;
   setTimeout(()=>{
     modalImg.src = shots[current].src;
-    modalCap.textContent = shots[current].cap;
+    modalCap.textContent = shotText(shots[current], 'cap');
     modalCount.textContent = (current+1) + ' / ' + shots.length;
     modalImg.style.opacity = 1;
     document.querySelector('.cs-modal-imgwrap').scrollTop = 0;
   }, 120);
 }
+
+/* بازسازی زیرنویس‌ها پس از تعویض زبان */
+window.addEventListener('cs-lang-change', function () {
+  document.querySelectorAll('.gallery-item').forEach(function (el, i) {
+    var s = shots[i];
+    if (!s) return;
+    var cap = el.querySelector('.gallery-cap');
+    var tag = el.querySelector('.gallery-tagline');
+    if (cap) cap.textContent = shotText(s, 'cap');
+    if (tag) tag.innerHTML = '<span class="dot-live"></span>' + shotText(s, 'tag');
+  });
+  if (overlay && overlay.classList.contains('open')) renderModal();
+});
 
 function openModal(i){
   current = i;
@@ -374,5 +403,6 @@ document.addEventListener('keydown', (e)=>{
 })();
 </script>
 
+<script src="cs-shared.js?v=20261011"></script>
 </body>
 </html>

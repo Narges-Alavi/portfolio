@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex">
+<!-- COMING SOON: this case study is disabled. Delete the next <script> line to re-enable it. -->
+<script>location.replace("../index.html#work");</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Behfalab — Case Study · Narges Sadat Alavi</title>
@@ -94,6 +97,24 @@ a{color:inherit;}
 .mockup-slot:hover .shot-area img{transform:scale(1.06);filter:brightness(1.06);}
 .mockup-caption{font-size:.72rem;color:var(--muted);font-style:italic;padding:10px 14px 14px;border-top:1px solid var(--border);min-height:4.6em;display:flex;align-items:center;flex:1 1 auto;}
 
+/* تصاویر full-page: بلند و باریک‌اند، پس در تامبنیل بالای صفحه را با cover نشان می‌دهیم
+   (contain آن‌ها را به یک نوار نازک تبدیل می‌کرد) */
+.shot-area.pagetop{aspect-ratio:16/10;}
+.shot-area.pagetop img{object-fit:cover;object-position:top center;padding:0;}
+.shot-area.print{aspect-ratio:1/1.24;}
+.shot-area.print img{object-fit:contain;padding:10px;}
+.shot-area.wide{aspect-ratio:1.42/1;}
+.shot-area.wide img{object-fit:contain;padding:10px;}
+
+/* لایت‌باکس: برای تصاویر بلند، اسکرول عمودی به‌جای فشرده‌سازی در 76vh */
+.lightbox-overlay.tall .lightbox-inner{max-width:min(920px,94vw);}
+.lightbox-overlay.tall .lightbox-inner{max-width:min(920px,94vw);}
+.lightbox-overlay.tall .lightbox-inner img{max-height:none;width:100%;}
+@media(max-width:640px){
+  .lightbox-overlay.tall .lightbox-inner{max-width:min(920px,94vw);}
+  .lightbox-overlay.tall .lightbox-inner{max-width:100%;}
+}
+
 /* interactive flip-book embed (Iran Process Report booklet) */
 .flipbook-embed{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--cs-accent-br,rgba(96,165,250,.35));background:#0c1420;box-shadow:0 0 0 1px rgba(96,165,250,.06),0 24px 60px -22px rgba(96,165,250,.28),0 34px 80px -30px rgba(0,0,0,.65);margin:0 0 10px;}
 .flipbook-embed .mockup-chrome{background:linear-gradient(180deg,rgba(96,165,250,.08),transparent);}
@@ -126,12 +147,12 @@ a{color:inherit;}
 .fb-dot.active{width:20px;background:#60a5fa;}
 .fb-label{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted);letter-spacing:.03em;}
 
-.lightbox-overlay{position:fixed;inset:0;background:rgba(4,7,13,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s linear .28s;padding:40px 24px;}
+.lightbox-overlay{position:fixed;inset:0;background:rgba(4,7,13,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;overflow:hidden;transition:opacity .28s ease,visibility 0s linear .28s;}
 .lightbox-overlay.open{opacity:1;visibility:visible;transition:opacity .28s ease,visibility 0s linear 0s;}
 .lightbox-inner{display:flex;flex-direction:column;align-items:center;max-width:min(1100px,92vw);transform:scale(.92) translateY(10px);opacity:0;transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .32s ease;}
 .lightbox-overlay.open .lightbox-inner{transform:scale(1) translateY(0);opacity:1;}
 .lightbox-inner img{max-width:100%;max-height:76vh;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 40px 90px -20px rgba(0,0,0,.7);border:1px solid var(--border-h);background:#0c1420;transition:opacity .18s ease;}
-.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.8rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;user-select:none;-webkit-tap-highlight-color:transparent;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.8rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;user-select:none;-webkit-tap-highlight-color:transparent;}
 .lightbox-nav:hover{background:rgba(255,255,255,.14);}
 .lightbox-prev{left:26px;}
 @media (hover:hover){.lightbox-prev:hover{transform:translateY(-50%) translateX(-3px);}}
@@ -142,8 +163,11 @@ a{color:inherit;}
   .lightbox-prev{left:8px;}
   .lightbox-next{right:8px;}
 }
+.lightbox-scroll{width:100%;height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;align-items:center;justify-content:center;padding:40px 84px;}
+@media(max-width:640px){.lightbox-scroll{padding:64px 12px 40px;}}
+.lightbox-overlay.tall .lightbox-scroll{align-items:flex-start;}
 .lightbox-caption{margin-top:18px;color:#d3dae8;font-size:.85rem;text-align:center;font-style:italic;max-width:640px;}
-.lightbox-close{position:fixed;top:22px;right:26px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;}
+.lightbox-close{position:absolute;top:22px;right:26px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;}
 .lightbox-close:hover{background:rgba(255,255,255,.14);transform:rotate(90deg);}
 
 .metric-list{display:flex;flex-direction:column;gap:10px;}
@@ -194,7 +218,20 @@ body{font-family:'Inter',sans-serif;}
 .back-to-top:hover{border-color:var(--primary);color:var(--primary);}
 @media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
 
+
+/* FA: flipbook chrome stays LTR (it mimics a physical booklet); pseudo-element labels translated */
+html[dir="rtl"] .fb-nav,html[dir="rtl"] .fb-viewport-wrap,html[dir="rtl"] .fb-body{direction:ltr;}
+html[dir="rtl"] .fb-label,html[dir="rtl"] .fb-nav-btn{font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;direction:rtl;}
+html[dir="rtl"] .flipbook-note{direction:rtl;text-align:right;}
+html[dir="rtl"] .flipbook-note::before{content:'● پیش‌نمایش تعاملی: برای ورق زدن روی نقطه یا فلش کلیک کنید';font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;font-size:.7rem;}
+
+/* equal-size cards: same image box + same caption box in every grid */
+.mockup-grid .shot-area.wide,.mockup-grid .shot-area.print,.mockup-grid .shot-area.pagetop{aspect-ratio:1/1.15;}
+.mockup-grid .shot-area.pagetop img{object-fit:cover;object-position:top center;}
+.mockup-grid .mockup-caption{min-height:7.2em;align-items:flex-start;line-height:1.7;}
+html[dir="rtl"] .mockup-grid .mockup-caption{font-style:normal;font-size:.8rem;line-height:1.9;}
 </style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
 </head>
 <body style="--cs-accent:#60a5fa;--cs-accent-bg:rgba(96,165,250,0.09);--cs-accent-br:rgba(96,165,250,0.28);">
 
@@ -205,105 +242,76 @@ body{font-family:'Inter',sans-serif;}
   <div class="blob blob-3"></div>
 </div>
 
-<div class="crumb-bar">
-  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
-</div>
-<div class="crumb-trail-bar">
-  <div class="crumb-trail">
-    <a href="../index.html">Home</a>
-    <span class="sep">/</span>
-    <a href="../index.html#work">Work</a>
-    <span class="sep">/</span>
-    <span class="current">Behfalab</span>
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="Behfalab" data-fa="بهفالب">Behfalab</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
   </div>
-</div>
+</header>
 
 <main class="cs-container">
 
   <div class="cs-header-row">
     <div class="cs-header-left">
-      <div class="cs-tag">B2B · PROCESS MINING · ENTERPRISE DASHBOARD &amp; BRAND</div>
-      <h1 class="cs-title">Behfalab</h1>
-      <p class="cs-sub">UI/UX design across Behfalab's core process-mining platform and a dedicated analytics dashboard for a national B2B client — plus creative direction for "Iran Process Report," the company's flagship process-management publication.</p>
-      <a class="cs-visit-site" href="https://behfalab.com/" target="_blank" rel="noopener">↗ Visit Live Site</a>
+      <div class="cs-tag" data-en="B2B · PROCESS MINING · ENTERPRISE DASHBOARD &amp; BRAND" data-fa="B2B · فرایندکاوی · داشبورد سازمانی و برند">B2B · PROCESS MINING · ENTERPRISE DASHBOARD &amp; BRAND</div>
+      <h1 class="cs-title" data-en="Behfalab" data-fa="Behfalab">Behfalab</h1>
+      <p class="cs-sub" data-en="UI/UX design across Behfalab's core process-mining platform and a dedicated analytics dashboard for a national B2B client — plus the full brand system for &quot;Iran Process Report&quot; — Behfalab's flagship process-management publication, its campaign website, and its print and event collateral." data-fa="طراحی UI/UX روی پلتفرم اصلی فرایندکاوی بهفالب و یک داشبورد تحلیلی اختصاصی برای یک مشتری سازمانی ملی — به‌علاوه کل سیستم برند «گزارش فرآیند ایران»، نشریه شاخص بهفالب در حوزه مدیریت فرایند، سایت کمپین آن، و اقلام چاپی و رویدادش.">UI/UX design across Behfalab's core process-mining platform and a dedicated analytics dashboard for a national B2B client — plus the full brand system for "Iran Process Report" — Behfalab's flagship process-management publication, its campaign website, and its print and event collateral.</p>
+      <a class="cs-visit-site" href="https://behfalab.com/" target="_blank" rel="noopener" data-en="↗ Visit Live Site" data-fa="↗ مشاهده سایت">↗ Visit Live Site</a>
     </div>
     <div class="cs-hero-logo"><img src="../assets/logos/bahfalab.svg" alt="Behfalab logo"></div>
   </div>
 
   <div class="cs-meta">
-    <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">UI/UX Designer · Full time</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">In-house product designer, working alongside Behfalab's engineering team</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">Mar 2026 — Present</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">B2B / Process Mining</span></div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Web (Enterprise Dashboard)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Role" data-fa="نقش">Role</div><div class="cs-meta-val" data-en="UI/UX Designer · Full time" data-fa="طراح UI/UX · تمام‌وقت">UI/UX Designer · Full time</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="In-house product designer, working alongside Behfalab's engineering team" data-fa="طراح محصول درون‌سازمانی، در کنار تیم مهندسی بهفالب">In-house product designer, working alongside Behfalab's engineering team</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Timeframe" data-fa="بازه زمانی">Timeframe</div><div class="cs-meta-val" data-en="Apr 2026 — Present" data-fa="فروردین ۱۴۰۵ — تاکنون">Apr 2026 — Present</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="B2B / Process Mining" data-fa="B2B / فرایندکاوی">B2B / Process Mining</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma" data-fa="فیگما">Figma</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Web (Enterprise Dashboard)" data-fa="وب (داشبورد سازمانی)">Web (Enterprise Dashboard)</div></div>
   </div>
 
-  <div class="cs-constraint"><b>Constraint —</b><span>The client dashboard had to work as a standalone deliverable for one named enterprise account, while staying close enough to Behfalab's core platform that it could later be folded back in as a reusable module rather than a one-off.</span></div>
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="The client dashboard had to work as a standalone deliverable for one named enterprise account, while staying close enough to Behfalab's core platform that it could later be folded back in as a reusable module rather than a one-off." data-fa="داشبورد مشتری باید به‌تنهایی برای یک حساب سازمانی مشخص قابل تحویل می‌بود، و همزمان آن‌قدر به پلتفرم اصلی بهفالب نزدیک می‌ماند که بعداً بتواند به‌عنوان یک ماژول قابل استفاده دوباره به آن برگردد، نه یک کار یک‌بارمصرف.">The client dashboard had to work as a standalone deliverable for one named enterprise account, while staying close enough to Behfalab's core platform that it could later be folded back in as a reusable module rather than a one-off.</span></div>
 
   <section class="cs-block" style="margin-top:0;">
-    <div class="cs-sl">01 · Context &amp; Problem</div>
-    <p class="cs-p">Behfalab's core platform reconstructs how a company's processes actually run from raw event-log data, checks that behavior against the process the company designed on paper — conformance checking — and predicts where a running case is likely headed next. My scope covers three connected surfaces: a dedicated analytics dashboard built for one of Behfalab's national B2B clients (KPI cards, comparative bar charts, and province-level rankings over that client's event-log data), the conformance-checking and prediction views inside the core platform, and, outside the software entirely, creative direction for <b>Iran Process Report</b> — Behfalab's process-management publication and event.</p>
-    <div class="cs-features"><span class="cs-feature-chip">KPI Dashboard</span><span class="cs-feature-chip">Conformance Checking Views</span><span class="cs-feature-chip">Prediction Module</span><span class="cs-feature-chip">Province-Level Rankings</span><span class="cs-feature-chip">Event Brand Direction</span></div>
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-html="true" data-en="Behfalab's core platform reconstructs how a company's processes actually run from raw event-log data, checks that behavior against the process the company designed on paper — conformance checking — and predicts where a running case is likely headed next. My scope covers three connected surfaces: a dedicated analytics dashboard built for one of Behfalab's national B2B clients (KPI cards, comparative bar charts, and province-level rankings over that client's event-log data), the conformance-checking and prediction views inside the core platform, and, outside the software entirely, creative direction for <b>Iran Process Report</b> — Behfalab's process-management publication and event." data-fa="پلتفرم اصلی بهفالب از روی داده خام لاگ رویدادها بازسازی می‌کند که فرایندهای یک شرکت در عمل چطور اجرا می‌شوند، این رفتار را با فرایندی که شرکت روی کاغذ طراحی کرده مقایسه می‌کند — همان بررسی انطباق — و پیش‌بینی می‌کند پرونده‌ای که در جریان است احتمالاً به کجا می‌رسد. کار من سه سطح به‌هم‌پیوسته را در بر می‌گیرد: یک داشبورد تحلیلی اختصاصی برای یکی از مشتریان سازمانی ملی بهفالب (کارت‌های شاخص، نمودارهای میله‌ای مقایسه‌ای و رتبه‌بندی استان‌ها روی لاگ رویدادهای همان مشتری)، نماهای بررسی انطباق و پیش‌بینی داخل پلتفرم اصلی، و بیرون از نرم‌افزار، هدایت خلاقه <b>گزارش فرآیند ایران</b> — نشریه و رویداد بهفالب در حوزه مدیریت فرایند.">Behfalab's core platform reconstructs how a company's processes actually run from raw event-log data, checks that behavior against the process the company designed on paper — conformance checking — and predicts where a running case is likely headed next. My scope covers three connected surfaces: a dedicated analytics dashboard built for one of Behfalab's national B2B clients (KPI cards, comparative bar charts, and province-level rankings over that client's event-log data), the conformance-checking and prediction views inside the core platform, and, outside the software entirely, creative direction for <b>Iran Process Report</b> — Behfalab's process-management publication and event.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="KPI Dashboard" data-fa="داشبورد شاخص‌ها">KPI Dashboard</span><span class="cs-feature-chip" data-en="Conformance Checking Views" data-fa="نماهای بررسی انطباق">Conformance Checking Views</span><span class="cs-feature-chip" data-en="Prediction Module" data-fa="ماژول پیش‌بینی">Prediction Module</span><span class="cs-feature-chip" data-en="Province-Level Rankings" data-fa="رتبه‌بندی استانی">Province-Level Rankings</span><span class="cs-feature-chip" data-en="Event Brand Direction" data-fa="هدایت برند رویداد">Event Brand Direction</span><span class="cs-feature-chip" data-en="Responsive RTL Campaign Site" data-fa="سایت کمپین واکنش‌گرا و راست‌به‌چپ">Responsive RTL Campaign Site</span><span class="cs-feature-chip" data-en="Sponsorship Tier System" data-fa="سیستم سطوح حامیان">Sponsorship Tier System</span><span class="cs-feature-chip" data-en="Print &amp; Event Collateral" data-fa="اقلام چاپی و رویداد">Print &amp; Event Collateral</span></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
     <div class="discovery-wrap">
-      <div class="discovery-method">Discovery here doubled as data modeling — before a single screen, I mapped what the client's raw event log actually contained: case IDs, activity timestamps, province, and the conformance rules the process was supposed to follow.</div>
-      <div class="discovery-insight">The dashboard's structure came from the data model, not from a persona. Once I understood which fields the log exposed, the KPI cards, the comparative charts, and the province ranking table followed almost directly from that — the design problem was choosing which relationships in the data deserved a chart versus a number.</div>
+      <div class="discovery-method" data-en="Discovery here doubled as data modeling — before a single screen, I mapped what the client's raw event log actually contained: case IDs, activity timestamps, province, and the conformance rules the process was supposed to follow." data-fa="اینجا مرحله کشف در عمل همان مدل‌سازی داده بود — پیش از طراحی حتی یک صفحه، مشخص کردم لاگ خام رویدادهای مشتری واقعاً چه چیزی دارد: شناسه پرونده، زمان فعالیت‌ها، استان، و قواعد انطباقی که فرایند باید از آن‌ها پیروی می‌کرد.">Discovery here doubled as data modeling — before a single screen, I mapped what the client's raw event log actually contained: case IDs, activity timestamps, province, and the conformance rules the process was supposed to follow.</div>
+      <div class="discovery-insight" data-en="The dashboard's structure came from the data model, not from a persona. Once I understood which fields the log exposed, the KPI cards, the comparative charts, and the province ranking table followed almost directly from that — the design problem was choosing which relationships in the data deserved a chart versus a number." data-fa="ساختار داشبورد از مدل داده درآمد، نه از پرسونا. وقتی فهمیدم لاگ چه فیلدهایی در اختیار می‌گذارد، کارت‌های شاخص، نمودارهای مقایسه‌ای و جدول رتبه‌بندی استان‌ها تقریباً مستقیم از همان بیرون آمدند — مسئله طراحی این بود که کدام رابطه در داده ارزش نمودار دارد و کدام یک عدد ساده کافی است.">The dashboard's structure came from the data model, not from a persona. Once I understood which fields the log exposed, the KPI cards, the comparative charts, and the province ranking table followed almost directly from that — the design problem was choosing which relationships in the data deserved a chart versus a number.</div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">03 · Process</div>
-    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title">Persian-first, not Persian-retrofitted</div><div class="process-text">The dashboard was built RTL from the first frame, using Vazirmatn for every numeral and label and Figma Auto Layout throughout, so the KPI cards, bar charts, and ranking table would reflow correctly rather than being mirrored after the fact.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title">One card grammar across dashboard and platform</div><div class="process-text">I designed the client dashboard and the core platform's conformance-checking and prediction views to share the same card, chart, and grid patterns, so a client-specific deliverable could still fold back into Behfalab's core product later without a redesign.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title">Treating the report booklet as its own artifact</div><div class="process-text">Iran Process Report needed to work as a standalone publication, read by people who have never opened Behfalab's software. I designed it as a page-by-page booklet — cover, leadership commitment gap, budget, knowledge gap, productivity, action, transformation, and process-maturity indicators — rather than reusing dashboard components.</div></div></div></div>
+    <div class="cs-sl" data-en="03 · Process" data-fa="۰۳ · روند کار">03 · Process</div>
+    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="One card grammar across dashboard and platform" data-fa="یک دستور زبان کارت، مشترک بین داشبورد و پلتفرم">One card grammar across dashboard and platform</div><div class="process-text" data-en="I designed the client dashboard and the core platform's conformance-checking and prediction views to share the same card, chart, and grid patterns, so a client-specific deliverable could still fold back into Behfalab's core product later without a redesign." data-fa="داشبورد مشتری و نماهای بررسی انطباق و پیش‌بینی پلتفرم اصلی را طوری طراحی کردم که الگوی کارت، نمودار و شبکه مشترکی داشته باشند، تا خروجی مخصوص یک مشتری بتواند بعداً بدون بازطراحی به محصول اصلی بهفالب برگردد.">I designed the client dashboard and the core platform's conformance-checking and prediction views to share the same card, chart, and grid patterns, so a client-specific deliverable could still fold back into Behfalab's core product later without a redesign.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="Turning sponsorship into something a company can actually compare" data-fa="تبدیل حامی‌گری به چیزی که یک شرکت واقعاً بتواند مقایسه‌اش کند">Turning sponsorship into something a company can actually compare</div><div class="process-text" data-en="Sponsorship is usually explained in a PDF sent on request. I designed it as three pages of a public campaign site instead — a landing page that carries the report’s credibility through past editions and named speaker testimonials, a sponsorship page where all five tiers sit side by side with their price and remaining slots, and a survey page that leads with last year’s findings so an organisation sees the value before being asked to contribute data. The survey page is live; the rest of the set followed the same RTL layout rules." data-fa="حامی‌گری معمولاً در یک PDF توضیح داده می‌شود که در صورت درخواست ارسال می‌شود. من به‌جایش آن را به‌شکل سه صفحه از یک سایت کمپین عمومی طراحی کردم — یک صفحه فرود که اعتبار گزارش را از طریق دوره‌های گذشته و نقل‌قول سخنرانان منتقل می‌کند، یک صفحه حامیان که هر پنج سطح با قیمت و ظرفیت باقی‌مانده کنار هم نشسته‌اند، و یک صفحه پرسشنامه که با یافته‌های سال گذشته شروع می‌شود تا سازمان پیش از آنکه از او داده بخواهند، ارزش کار را ببیند. صفحه پرسشنامه اکنون فعال است؛ بقیه مجموعه از همان قواعد چیدمان راست‌به‌چپ پیروی می‌کنند.">Sponsorship is usually explained in a PDF sent on request. I designed it as three pages of a public campaign site instead — a landing page that carries the report’s credibility through past editions and named speaker testimonials, a sponsorship page where all five tiers sit side by side with their price and remaining slots, and a survey page that leads with last year’s findings so an organisation sees the value before being asked to contribute data. The survey page is live; the rest of the set followed the same RTL layout rules.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="One visual system across screen and print" data-fa="یک سیستم بصری واحد، از صفحه تا چاپ">One visual system across screen and print</div><div class="process-text" data-en="The stippled Iran map from the report cover became the through-line: it carries across the poster, the sponsor brochure, the five-year retrospective sheet, the launch announcement and the site itself. Since the collateral is what reaches people who never open the software, keeping the deep-crimson palette and the map motif identical everywhere mattered more than varying the layouts." data-fa="نقشه نقطه‌چین ایران روی جلد گزارش به رشته اتصال کار تبدیل شد: همان موتیف روی پوستر، بروشور حامیان، برگه مرور پنج‌ساله، پوستر رونمایی و خود سایت تکرار می‌شود. چون همین اقلام است که به دست کسانی می‌رسد که هیچ‌وقت وارد نرم‌افزار نمی‌شوند، یکسان نگه‌داشتن پالت زرشکی تیره و موتیف نقشه در همه‌جا مهم‌تر از متنوع کردن چیدمان‌ها بود.">The stippled Iran map from the report cover became the through-line: it carries across the poster, the sponsor brochure, the five-year retrospective sheet, the launch announcement and the site itself. Since the collateral is what reaches people who never open the software, keeping the deep-crimson palette and the map motif identical everywhere mattered more than varying the layouts.</div></div></div></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">04 · Solution</div>
-    <p class="cs-p">The client-facing dashboard and the core platform's conformance and prediction views share one visual language, while <b>Iran Process Report</b> stands apart as a dedicated brand deliverable — an interactive, page-flipping report booklet built to carry Behfalab's process-mining narrative outside the product itself.</p>
+    <div class="cs-sl" data-en="04 · Solution" data-fa="۰۴ · راه‌حل">04 · Solution</div>
+    <p class="cs-p" data-html="true" data-en="The client-facing dashboard and the core platform's conformance and prediction views share one visual language, while <b>Iran Process Report</b> stands apart as a dedicated brand system — the report booklet itself, a three-page responsive campaign site for the 1404 edition, and the print and event collateral around it, all built to carry Behfalab's process-mining narrative to people who never open the product. Click any frame to view it full size." data-fa="داشبورد مشتری و نماهای بررسی انطباق و پیش‌بینی پلتفرم اصلی یک زبان بصری مشترک دارند، اما <b>گزارش فرآیند ایران</b> یک سیستم برند جداگانه است — خودِ نشریه، یک سایت کمپین سه‌صفحه‌ای واکنش‌گرا برای دوره ۱۴۰۴، و اقلام چاپی و رویدادی اطراف آن — که همه برای این ساخته شدند تا روایت فرایندکاوی بهفالب به دست کسانی برسد که هیچ‌وقت محصول را باز نمی‌کنند. برای دیدن هر قاب در اندازه کامل، روی آن کلیک کنید.">The client-facing dashboard and the core platform's conformance and prediction views share one visual language, while <b>Iran Process Report</b> stands apart as a dedicated brand system — the report booklet itself, a three-page responsive campaign site for the 1404 edition, and the print and event collateral around it, all built to carry Behfalab's process-mining narrative to people who never open the product. Click any frame to view it full size.</p>
 
-    <div class="mockup-section-label">Client dashboard &amp; platform views</div>
-    <div class="mockup-grid"><div class="mockup-slot browser">
-      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
-      <div class="shot-area">
-        <div class="shot-placeholder">
-          <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
-          <code>behfalab-dashboard-kpi.png</code>
-        </div>
-        <img src="../assets/images/behfalab/behfalab-01.png" alt="Client dashboard — KPI cards and province-level rankings over process event-log data." loading="lazy"
-             onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
-      </div>
-      <div class="mockup-caption">Client dashboard — KPI cards and province-level rankings over process event-log data.</div>
-    </div><div class="mockup-slot browser">
-      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
-      <div class="shot-area">
-        <div class="shot-placeholder">
-          <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
-          <code>behfalab-conformance.png</code>
-        </div>
-        <img src="../assets/images/behfalab/behfalab-02.png" alt="Core platform — conformance-checking view comparing designed process against actual behavior." loading="lazy"
-             onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
-      </div>
-      <div class="mockup-caption">Core platform — conformance-checking view comparing designed process against actual behavior.</div>
-    </div><div class="mockup-slot browser">
-      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
-      <div class="shot-area">
-        <div class="shot-placeholder">
-          <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
-          <code>behfalab-prediction.png</code>
-        </div>
-        <img src="../assets/images/behfalab/behfalab-03.png" alt="Core platform — prediction module estimating where a running case is headed next." loading="lazy"
-             onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
-      </div>
-      <div class="mockup-caption">Core platform — prediction module estimating where a running case is headed next.</div>
-    </div></div>
-
-    <div class="mockup-section-label">Iran Process Report — interactive booklet</div>
+    <!-- HIDDEN FOR NOW (booklet to be updated) — restore by deleting this comment wrapper
+<div class="mockup-section-label" data-en="Iran Process Report — interactive booklet" data-fa="گزارش فرآیند ایران — نشریه تعاملی">Iran Process Report — interactive booklet</div>
     <div class="flipbook-embed">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="fb-body">
@@ -313,27 +321,30 @@ body{font-family:'Inter',sans-serif;}
           </div>
         </div>
         <div class="fb-nav">
-          <button type="button" class="fb-nav-btn" id="fbPrev" aria-label="Previous page">‹ Prev</button>
+          <button type="button" class="fb-nav-btn" id="fbPrev" aria-label="Previous page" data-en="‹ Prev" data-fa="‹ قبلی">‹ Prev</button>
           <div class="fb-dots" id="fbDots"></div>
-          <button type="button" class="fb-nav-btn" id="fbNext" aria-label="Next page">Next ›</button>
+          <button type="button" class="fb-nav-btn" id="fbNext" aria-label="Next page" data-en="Next ›" data-fa="بعدی ›">Next ›</button>
         </div>
         <div class="fb-label" id="fbLabel"></div>
       </div>
-      <div class="flipbook-note">A page-flip preview of the report booklet — click a dot or Prev/Next to turn the page. Covers the cover, leadership commitment gap, budget, knowledge gap, productivity, action, transformation, and process-maturity indicators.</div>
+      <div class="flipbook-note" data-en="A page-flip preview of the report booklet — click a dot or Prev/Next to turn the page. Covers the cover, leadership commitment gap, budget, knowledge gap, productivity, action, transformation, and process-maturity indicators." data-fa="پیش‌نمایش ورق‌خور نشریه گزارش — برای ورق زدن روی نقطه‌ها یا دکمه قبلی/بعدی بزنید. شامل جلد، شکاف تعهد مدیریت، بودجه، شکاف دانش، بهره‌وری، اقدام، تحول و شاخص‌های بلوغ فرایند.">A page-flip preview of the report booklet — click a dot or Prev/Next to turn the page. Covers the cover, leadership commitment gap, budget, knowledge gap, productivity, action, transformation, and process-maturity indicators.</div>
     </div>
     <script>
     (function(){
       var PAGES = [
-        { src: '../assets/images/behfalab/flipbook/cover.jpg', label: 'جلد · Cover' },
-        { src: '../assets/images/behfalab/flipbook/418.jpg',   label: 'شکاف رهبری' },
-        { src: '../assets/images/behfalab/flipbook/427.jpg',   label: 'پارادوکس' },
-        { src: '../assets/images/behfalab/flipbook/428.jpg',   label: 'بودجه' },
-        { src: '../assets/images/behfalab/flipbook/424.jpg',   label: 'شکاف دانش' },
-        { src: '../assets/images/behfalab/flipbook/439.jpg',   label: 'بهره‌وری' },
-        { src: '../assets/images/behfalab/flipbook/444.jpg',   label: 'اقدام' },
-        { src: '../assets/images/behfalab/flipbook/440.jpg',   label: 'تحول' },
-        { src: '../assets/images/behfalab/flipbook/450.jpg',   label: 'شاخص‌ها' }
+        { src: '../assets/images/behfalab/flipbook/cover.jpg', en: 'Cover',              fa: 'جلد' },
+        { src: '../assets/images/behfalab/flipbook/418.jpg',   en: 'Leadership gap',     fa: 'شکاف رهبری' },
+        { src: '../assets/images/behfalab/flipbook/427.jpg',   en: 'Paradox',            fa: 'پارادوکس' },
+        { src: '../assets/images/behfalab/flipbook/428.jpg',   en: 'Budget',             fa: 'بودجه' },
+        { src: '../assets/images/behfalab/flipbook/424.jpg',   en: 'Knowledge gap',      fa: 'شکاف دانش' },
+        { src: '../assets/images/behfalab/flipbook/439.jpg',   en: 'Productivity',       fa: 'بهره‌وری' },
+        { src: '../assets/images/behfalab/flipbook/444.jpg',   en: 'Action',             fa: 'اقدام' },
+        { src: '../assets/images/behfalab/flipbook/440.jpg',   en: 'Transformation',     fa: 'تحول' },
+        { src: '../assets/images/behfalab/flipbook/450.jpg',   en: 'Indicators',         fa: 'شاخص‌ها' }
       ];
+      function isFa(){ return window.csLang === 'fa'; }
+      function lbl(p){ return isFa() ? p.fa : p.en; }
+      function num(n){ return isFa() ? String(n).replace(/\d/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'.charAt(d); }) : String(n); }
       var viewport = document.getElementById('fbViewport');
       var staticImg = document.getElementById('fbStaticImg');
       var dotsWrap = document.getElementById('fbDots');
@@ -347,7 +358,7 @@ body{font-family:'Inter',sans-serif;}
         var d = document.createElement('button');
         d.type = 'button';
         d.className = 'fb-dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('aria-label', p.label);
+        d.setAttribute('aria-label', lbl(p)); d.__p = p;
         d.addEventListener('click', function(){ goTo(i); });
         dotsWrap.appendChild(d);
       });
@@ -356,7 +367,8 @@ body{font-family:'Inter',sans-serif;}
         Array.prototype.forEach.call(dotsWrap.children, function(d, i){
           d.classList.toggle('active', i === current);
         });
-        labelEl.textContent = PAGES[current].label + '  ·  ' + (current + 1) + ' / ' + PAGES.length;
+        labelEl.textContent = lbl(PAGES[current]) + '  ·  ' + num(current + 1) + ' / ' + num(PAGES.length);
+        Array.prototype.forEach.call(dotsWrap.children, function(d){ if (d.__p) d.setAttribute('aria-label', lbl(d.__p)); });
         prevBtn.disabled = animating || current === 0;
         nextBtn.disabled = animating || current === PAGES.length - 1;
       }
@@ -397,23 +409,80 @@ body{font-family:'Inter',sans-serif;}
       prevBtn.addEventListener('click', function(){ goTo(current - 1); });
       nextBtn.addEventListener('click', function(){ goTo(current + 1); });
       updateChrome();
+      window.addEventListener('cs-lang-change', updateChrome);
     })();
     </script>
+
+    
+-->
+    <div class="mockup-section-label" data-en="Iran Process Report — campaign site" data-fa="گزارش فرآیند ایران — سایت کمپین">Iran Process Report — campaign site</div>
+    <div class="mockup-grid">
+      <div class="mockup-slot">
+        <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
+        <div class="shot-area pagetop">
+          <img src="../assets/images/behfalab/report/report-survey-page.jpg" alt="Iran Process Report survey page — hero, 1403 headline findings, why the report is needed, objectives, and the survey invitation." loading="lazy"
+               onload="this.style.opacity=1" onerror="this.style.opacity=0">
+        </div>
+        <div class="mockup-caption" data-en="Survey page for the 1404 edition — last year&#39;s headline findings first, then why the report is needed, its objectives and the reasons to take part, before the invitation to complete it. Click to read the whole page." data-fa="صفحه پرسشنامه دوره ۱۴۰۴ — اول یافته‌های شاخص سال گذشته، بعد ضرورت گزارش، اهداف آن و دلایل مشارکت، و در انتها دعوت به تکمیل. برای خواندن کل صفحه کلیک کنید.">Survey page for the 1404 edition — last year&#39;s headline findings first, then why the report is needed, its objectives and the reasons to take part, before the invitation to complete it. Click to read the whole page.</div>
+      </div>
+    </div>
+    <a class="cs-visit-site" href="https://behfalab.com/iran-process-report-survey/" target="_blank" rel="noopener" data-en="↗ View the live survey page" data-fa="↗ مشاهده صفحه پرسشنامه">↗ View the live survey page</a>
+
+    <div class="mockup-section-label" data-en="Iran Process Report — print &amp; campaign collateral" data-fa="گزارش فرآیند ایران — اقلام چاپی و کمپین">Iran Process Report — print &amp; campaign collateral</div>
+    <div class="mockup-grid"><!-- HIDDEN FOR NOW (cover + booklet mockup)
+<div class="mockup-slot">
+      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
+      <div class="shot-area wide">
+        <img src="../assets/images/behfalab/report/report-stack.png" alt="Cover and booklet mockup for the 1404 edition — the stippled Iran map that carries the report’s identity across every surface." loading="lazy"
+             onload="this.style.opacity=1" onerror="this.style.opacity=0">
+      </div>
+      <div class="mockup-caption" data-en="Cover and booklet mockup for the 1404 edition — the stippled Iran map that carries the report’s identity across every surface." data-fa="ماکاپ جلد و نشریه دوره ۱۴۰۴ — نقشه نقطه‌چین ایران که هویت گزارش را روی همه سطوح حمل می‌کند.">Cover and booklet mockup for the 1404 edition — the stippled Iran map that carries the report’s identity across every surface.</div>
+    </div>
+--><div class="mockup-slot">
+      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
+      <div class="shot-area print">
+        <img src="../assets/images/behfalab/report/report-poster.jpg" alt="Event poster (A4) — the five dimensions the national survey measures, above a bar of partner and endorsing-body marks." loading="lazy"
+             onload="this.style.opacity=1" onerror="this.style.opacity=0">
+      </div>
+      <div class="mockup-caption" data-en="Event poster (A4) — the five dimensions the national survey measures, above a bar of partner and endorsing-body marks." data-fa="پوستر رویداد (A4) — پنج بُعدی که پایش ملی می‌سنجد، بالای نواری از نشان نهادهای همکار و تأییدکننده.">Event poster (A4) — the five dimensions the national survey measures, above a bar of partner and endorsing-body marks.</div>
+    </div><!-- --><div class="mockup-slot">
+      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
+      <div class="shot-area print">
+        <img src="../assets/images/behfalab/report/report-brochure.jpg" alt="Sponsor brochure (A4) — launch-event photography, past speakers with their titles, the sponsor value proposition, and a QR code per past edition." loading="lazy"
+             onload="this.style.opacity=1" onerror="this.style.opacity=0">
+      </div>
+      <div class="mockup-caption" data-en="Sponsor brochure (A4) — launch-event photography, past speakers with their titles, the sponsor value proposition, and a QR code per past edition." data-fa="بروشور حامیان (A4) — عکس‌های رویداد رونمایی، سخنرانان دوره‌های گذشته با سمتشان، ارزش پیشنهادی برای حامی، و یک کد QR برای هر دوره گذشته.">Sponsor brochure (A4) — launch-event photography, past speakers with their titles, the sponsor value proposition, and a QR code per past edition.</div>
+    </div><!-- --><div class="mockup-slot">
+      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
+      <div class="shot-area wide">
+        <img src="../assets/images/behfalab/report/report-timeline-a4.jpg" alt="Five-year retrospective (A4 landscape) — one row per edition from 1400 to 1404, each with its participation count, findings and a QR to the published report." loading="lazy"
+             onload="this.style.opacity=1" onerror="this.style.opacity=0">
+      </div>
+      <div class="mockup-caption" data-en="Five-year retrospective (A4 landscape) — one row per edition from 1400 to 1404, each with its participation count, findings and a QR to the published report." data-fa="مرور پنج‌ساله (A4 افقی) — یک ردیف برای هر دوره از ۱۴۰۰ تا ۱۴۰۴، هرکدام با تعداد مشارکت‌کننده، یافته‌ها و یک کد QR به گزارش منتشرشده.">Five-year retrospective (A4 landscape) — one row per edition from 1400 to 1404, each with its participation count, findings and a QR to the published report.</div>
+    </div><!-- --><div class="mockup-slot">
+      <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
+      <div class="shot-area print">
+        <img src="../assets/images/behfalab/report/report-announcement.jpg" alt="Launch announcement — the &quot;coming soon&quot; piece carrying date, venue and partner marks for the fifth-edition unveiling event." loading="lazy"
+             onload="this.style.opacity=1" onerror="this.style.opacity=0">
+      </div>
+      <div class="mockup-caption" data-en="Launch announcement — the &quot;coming soon&quot; piece carrying date, venue and partner marks for the fifth-edition unveiling event." data-fa="پوستر اطلاع‌رسانی — قطعه «به‌زودی» که تاریخ، محل برگزاری و نشان نهادهای همکار رویداد رونمایی دوره پنجم را در خود دارد.">Launch announcement — the "coming soon" piece carrying date, venue and partner marks for the fifth-edition unveiling event.</div>
+    </div></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">05 · Impact &amp; Results</div>
-    <div class="metric-list"><div class="metric-item">One shared card, chart, and grid language now spans a client-specific dashboard and the core platform's conformance and prediction views, instead of two disconnected visual systems</div><div class="metric-item">The client dashboard was built RTL-first with Vazirmatn and Auto Layout throughout — no post-hoc mirroring or font substitution needed</div><div class="metric-item">Iran Process Report became Behfalab's first stand-alone brand publication, designed to be read on its own by people outside the product</div></div>
+    <div class="cs-sl" data-en="05 · Impact &amp; Results" data-fa="۰۵ · اثر و نتایج">05 · Impact &amp; Results</div>
+    <div class="metric-list"><div class="metric-item" data-en="One shared card, chart, and grid language now spans a client-specific dashboard and the core platform's conformance and prediction views, instead of two disconnected visual systems" data-fa="یک زبان مشترک کارت، نمودار و شبکه، حالا هم داشبورد اختصاصی مشتری و هم نماهای انطباق و پیش‌بینی پلتفرم اصلی را پوشش می‌دهد، به‌جای دو سیستم بصری بی‌ارتباط">One shared card, chart, and grid language now spans a client-specific dashboard and the core platform's conformance and prediction views, instead of two disconnected visual systems</div></div>
   </section>
 
   <section class="cs-block" style="margin-bottom:0;">
-    <div class="cs-sl">06 · Reflection</div>
-    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">A province-level ranking only means something once you understand how the underlying conformance metric is actually computed — I had to learn enough process-mining vocabulary to argue about chart choice, not just copy a chart type from another dashboard.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Keeping the client dashboard and the core platform's own views visually consistent meant resisting the pull to give the paying enterprise client something more custom — the harder, more useful discipline was building one system both could live in.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Designing a report meant to stand entirely on its own, outside the software, was a different exercise from product UI — page rhythm and narrative order mattered more than component reuse.</div></div></div>
+    <div class="cs-sl" data-en="06 · Reflection" data-fa="۰۶ · جمع‌بندی">06 · Reflection</div>
+    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="A province-level ranking only means something once you understand how the underlying conformance metric is actually computed — I had to learn enough process-mining vocabulary to argue about chart choice, not just copy a chart type from another dashboard." data-fa="رتبه‌بندی استانی فقط وقتی معنا دارد که بدانی شاخص انطباق زیرینش دقیقاً چطور محاسبه می‌شود — باید آن‌قدر واژگان فرایندکاوی یاد می‌گرفتم که بتوانم سر انتخاب نوع نمودار بحث کنم، نه اینکه صرفاً نموداری را از داشبورد دیگری کپی کنم.">A province-level ranking only means something once you understand how the underlying conformance metric is actually computed — I had to learn enough process-mining vocabulary to argue about chart choice, not just copy a chart type from another dashboard.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Keeping the client dashboard and the core platform's own views visually consistent meant resisting the pull to give the paying enterprise client something more custom — the harder, more useful discipline was building one system both could live in." data-fa="یکدست نگه‌داشتن داشبورد مشتری و نماهای خود پلتفرم یعنی مقاومت در برابر این کشش که به مشتری سازمانیِ پول‌دهنده چیز خاص‌تری بدهی — نظم سخت‌تر و مفیدتر این بود که یک سیستم بسازم که هر دو در آن جا شوند.">Keeping the client dashboard and the core platform's own views visually consistent meant resisting the pull to give the paying enterprise client something more custom — the harder, more useful discipline was building one system both could live in.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Designing a report meant to stand entirely on its own, outside the software, was a different exercise from product UI — page rhythm and narrative order mattered more than component reuse." data-fa="طراحی گزارشی که قرار است کاملاً مستقل و بیرون از نرم‌افزار بایستد، تمرین متفاوتی از رابط محصول بود — ریتم صفحه و ترتیب روایت بیشتر از استفاده دوباره از کامپوننت‌ها اهمیت داشت.">Designing a report meant to stand entirely on its own, outside the software, was a different exercise from product UI — page rhythm and narrative order mattered more than component reuse.</div></div></div>
   </section>
 
   <div class="cs-endcap">
-    <a class="cs-endcap-link" href="khodropack.html">← Khodropack</a>
-    <a class="cs-endcap-link primary" href="saveh.html">Saveh Concert →</a>
+    <a class="cs-endcap-link" href="samin.html" rel="prev" data-en="← Samin Style" data-fa="→ سمین استایل">← Samin Style</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="dota.html" rel="next" data-en="Dota →" data-fa="← دوتا">Dota →</a>
   </div>
 
 </main>
@@ -424,9 +493,11 @@ body{font-family:'Inter',sans-serif;}
   <div class="lightbox-close" id="lightboxClose" aria-label="Close">✕</div>
   <div class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</div>
   <div class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">›</div>
+  <div class="lightbox-scroll" id="lightboxScroll">
   <div class="lightbox-inner">
     <img id="lightboxImg" src="" alt="">
     <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
   </div>
 </div>
 
@@ -440,12 +511,15 @@ body{font-family:'Inter',sans-serif;}
   var nextBtn = document.getElementById('lightboxNext');
 
   var items = [];
+  var pending = [];
   document.querySelectorAll('.mockup-slot').forEach(function(slot){
     var img = slot.querySelector('.shot-area img');
     var cap = slot.querySelector('.mockup-caption');
-    if(img && img.getAttribute('src')){
-      items.push({ src: img.getAttribute('src'), caption: cap ? cap.textContent : '' });
-    }
+    if(!(img && img.getAttribute('src'))) return;
+    // ایندکس را به همان اسلات می‌بندیم تا هیچ‌وقت جابه‌جا نشود
+    var idx = items.length;
+    items.push({ src: img.getAttribute('src'), caption: cap ? cap.textContent : '' });
+    pending.push([slot, img, idx]);
   });
 
   var currentIndex = -1;
@@ -454,6 +528,11 @@ body{font-family:'Inter',sans-serif;}
     var item = items[currentIndex];
     lbImg.style.opacity = 0;
     setTimeout(function(){
+      lbImg.onload = function(){
+        var ratio = lbImg.naturalHeight / (lbImg.naturalWidth || 1);
+        overlay.classList.toggle('tall', ratio > 1.7);
+        var sc = document.getElementById('lightboxScroll'); if (sc) sc.scrollTop = 0;
+      };
       lbImg.src = item.src;
       lbCap.textContent = item.caption || '';
       lbImg.style.opacity = 1;
@@ -472,9 +551,12 @@ body{font-family:'Inter',sans-serif;}
   function showPrev(){ currentIndex = (currentIndex - 1 + items.length) % items.length; render(); }
   function showNext(){ currentIndex = (currentIndex + 1) % items.length; render(); }
 
-  document.querySelectorAll('.mockup-slot').forEach(function(slot, i){
+  pending.forEach(function(entry){
+    var slot = entry[0], img = entry[1], idx = entry[2];
     slot.addEventListener('click', function(){
-      openLightbox(i);
+      // اسلات‌های خالی (تصویر لود نشده) نباید لایت‌باکس بشکسته باز کنند
+      if(img.naturalWidth === 0) return;
+      openLightbox(idx);
     });
   });
 
@@ -505,5 +587,6 @@ body{font-family:'Inter',sans-serif;}
 })();
 </script>
 
+<script src="cs-shared.js?v=20261011"></script>
 </body>
 </html>

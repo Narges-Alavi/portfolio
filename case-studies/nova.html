@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Store — Case Study · Narges Sadat Alavi</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#070b13;}
+::-webkit-scrollbar-thumb{background:#1e2d45;border-radius:4px;}
+body{font-family:'Inter',sans-serif;background:#070b13;color:#e7ecf5;overflow-x:hidden;line-height:1.6;}
+:root{--bg:#070b13;--surface:#101828;--surface2:#131f31;--border:rgba(148,163,184,0.12);--border-h:rgba(148,163,184,0.25);--text:#e7ecf5;--muted:#93a1b8;--primary:#f0a191;--radius:14px;--rsm:8px;}
+a{color:inherit;}
+.bg-dots{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(148,163,184,0.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0;}
+.blob-wrap{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.14;animation:blobFloat 18s ease-in-out infinite;}
+.blob-1{width:520px;height:520px;background:#9b8cff;top:-120px;left:-140px;}
+.blob-2{width:440px;height:440px;background:#2fd6b0;top:38%;right:-100px;animation-delay:-6s;}
+.blob-3{width:380px;height:380px;background:#4f8cff;bottom:8%;left:18%;animation-delay:-12s;}
+@keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(28px,-38px) scale(1.05);}66%{transform:translate(-18px,24px) scale(0.96);}}
+
+.crumb-bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;padding:0 24px;height:56px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.crumb-trail{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.crumb-trail a{color:var(--muted);text-decoration:none;transition:color .2s;}
+.crumb-trail a:hover{color:var(--text);}
+.crumb-trail .sep{color:#3a4658;}
+.crumb-trail .current{color:var(--text);overflow:hidden;text-overflow:ellipsis;}
+.crumb-back{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:7px 14px;border-radius:100px;transition:all .2s;}
+.cs-visit-site{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.03em;color:#fff;text-decoration:none;background:var(--cs-accent,var(--primary));padding:9px 18px;border-radius:100px;margin-bottom:28px;transition:opacity .2s;}
+.cs-visit-site:hover{opacity:.85;}
+.crumb-back:hover{color:var(--text);border-color:var(--primary);background:rgba(240,161,145,.08);}
+
+.cs-container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:56px 32px 120px;}
+
+.cs-title-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.cs-logo{height:76px;width:auto;flex-shrink:0;filter:drop-shadow(0 6px 18px rgba(240,161,145,.3));}
+@media(max-width:720px){.cs-title-row{flex-direction:column-reverse;align-items:flex-start;gap:12px;}}
+.cs-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;margin-bottom:16px;color:var(--primary);}
+.cs-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:12px;}
+.cs-sub{font-size:1.05rem;color:#b4bfd4;max-width:640px;line-height:1.7;margin-bottom:32px;}
+.cs-meta{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:44px;}
+.cs-meta-row{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--border);font-size:.85rem;}
+.cs-meta-row:first-child{border-top:none;}
+.cs-meta-label{padding:12px 18px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;background:rgba(255,255,255,.015);}
+.cs-meta-val{padding:12px 18px;color:#d3dae8;display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+.cs-pill{font-size:.68rem;padding:3px 10px;border-radius:100px;font-family:'JetBrains Mono',monospace;border:1px solid var(--border);}
+.cs-pill.on{background:rgba(240,161,145,.1);color:var(--primary);border-color:rgba(240,161,145,.3);}
+
+.cs-constraint{display:flex;gap:10px;align-items:baseline;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;margin-bottom:44px;font-size:.85rem;}
+.cs-constraint b{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;flex-shrink:0;}
+.cs-constraint span{color:#b4bfd4;}
+
+.cs-block{margin:56px 0;}
+.cs-sl{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.cs-sl::before{content:'';width:22px;height:1px;background:rgba(240,161,145,.4);}
+.cs-p{font-size:.95rem;color:#b4bfd4;line-height:1.85;margin-bottom:14px;max-width:760px;}
+
+.cs-features{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;}
+.cs-feature-chip{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.03em;color:var(--muted);border:1px solid var(--border);background:rgba(255,255,255,.03);padding:6px 12px;border-radius:100px;display:flex;align-items:center;gap:6px;}
+.cs-feature-chip::before{content:'\2713';color:var(--primary);font-size:.7rem;}
+
+.discovery-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;}
+.discovery-method{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.discovery-insight{border-left:2px solid var(--primary);padding-left:16px;margin-top:14px;font-size:.92rem;color:var(--text);line-height:1.7;font-family:'Inter',sans-serif;font-weight:400;}
+
+.process-list{display:flex;flex-direction:column;gap:14px;}
+.process-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;display:grid;grid-template-columns:34px 1fr;gap:14px;}
+.process-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--primary);padding-top:2px;}
+.process-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:6px;letter-spacing:-.01em;}
+.process-text{font-size:.82rem;color:var(--muted);line-height:1.7;}
+
+/* ---- gallery grid: browser-chrome mockup cards ---- */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;margin:24px 0 8px;}
+.gallery-item{
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  background:linear-gradient(165deg, rgba(22,30,46,.9), rgba(8,12,20,.96));
+  border:1px solid rgba(240,161,145,.16);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 46px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(226,232,240,.03), 0 0 34px -12px rgba(240,161,145,.16);
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.gallery-chrome{display:flex;align-items:center;gap:6px;padding:0 12px;height:28px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;}
+.gallery-chrome .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.gallery-thumb{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#0e1826;}
+.gallery-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .35s ease;}
+.gallery-tagline{display:flex;align-items:center;gap:7px;padding:14px 14px 0;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--primary);text-transform:uppercase;}
+.gallery-tagline .dot-live{width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;}
+.gallery-cap{font-size:.76rem;color:#b4bfd4;line-height:1.65;padding:6px 14px 16px;font-style:italic;flex:1;}
+
+/* hover state — lift, brand ring + soft glow, image zooms slightly */
+.gallery-item:hover{
+  transform:translateY(-4px);
+  border-color:var(--primary);
+  box-shadow:0 34px 64px -14px rgba(0,0,0,.78), 0 0 0 1px rgba(240,161,145,.55), 0 0 44px -6px rgba(240,161,145,.5);
+}
+.gallery-item:hover .gallery-thumb img{transform:scale(1.035);}
+
+@media(max-width:760px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}
+
+/* ---- modal ---- */
+.cs-modal-overlay{position:fixed;inset:0;background:rgba(4,6,12,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s ease;padding:24px;}
+.cs-modal-overlay.open{opacity:1;pointer-events:auto;}
+.cs-modal-box{position:relative;max-width:420px;width:100%;max-height:88vh;background:#0c1420;border:1px solid var(--border-h);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transform:scale(.92) translateY(14px);opacity:0;transition:transform .3s cubic-bezier(.2,.9,.25,1), opacity .3s ease;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);}
+.cs-modal-overlay.open .cs-modal-box{transform:scale(1) translateY(0);opacity:1;}
+.cs-modal-imgwrap{position:relative;width:100%;max-height:calc(88vh - 54px);background:#0e1826;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.cs-modal-imgwrap img{display:block;width:100%;height:auto;}
+.cs-modal-cap{height:54px;box-sizing:border-box;padding:14px 20px;font-size:.82rem;color:#c3ccdc;border-top:1px solid var(--border);text-align:center;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* close / prev / next are fixed to the viewport, never over the panel */
+.cs-modal-close{position:fixed;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(7,11,19,.75);border:1px solid var(--border-h);color:var(--text);font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:1100;opacity:0;pointer-events:none;}
+.cs-modal-close:hover{background:var(--primary);border-color:var(--primary);color:#0c1420;}
+.cs-modal-nav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(7,11,19,.7);border:1px solid var(--border-h);color:var(--text);font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:1100;opacity:0;pointer-events:none;}
+.cs-modal-nav:hover{background:var(--primary);border-color:var(--primary);color:#0c1420;}
+.cs-modal-prev{left:16px;}
+.cs-modal-next{right:16px;}
+.cs-modal-count{position:fixed;top:24px;left:20px;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);background:rgba(7,11,19,.7);border:1px solid var(--border);padding:4px 10px;border-radius:100px;z-index:1100;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+.cs-modal-close,.cs-modal-nav{transition:all .2s ease, opacity .2s ease;}
+.cs-modal-overlay.open .cs-modal-close,
+.cs-modal-overlay.open .cs-modal-nav,
+.cs-modal-overlay.open .cs-modal-count{opacity:1;pointer-events:auto;}
+
+@media(max-width:640px){
+  .cs-modal-box{max-width:calc(100% - 76px);}
+  .cs-modal-nav{width:38px;height:38px;font-size:1.05rem;left:8px;}
+  .cs-modal-next{right:8px;left:auto;}
+  .cs-modal-close{width:36px;height:36px;top:14px;right:14px;}
+  .cs-modal-count{top:16px;left:14px;}
+}
+
+.metric-list{display:flex;flex-direction:column;gap:10px;}
+.metric-item{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;font-size:.85rem;color:#b4bfd4;line-height:1.6;}
+.metric-item::before{content:'\2713';color:var(--primary);flex-shrink:0;font-size:.85rem;}
+
+.cs-learnings{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;}
+.learn-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.learn-item:last-child{margin-bottom:0;}
+.learn-bullet{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0;background:var(--primary);}
+.learn-text{font-size:.9rem;color:#b4bfd4;line-height:1.75;}
+
+.cs-endcap{display:flex;justify-content:center;margin-top:64px;padding-top:32px;border-top:1px solid var(--border);}
+.cs-endcap-link{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--primary);text-decoration:none;border:1px solid rgba(240,161,145,.3);padding:10px 20px;border-radius:100px;transition:all .2s;}
+.cs-endcap-link:hover{background:rgba(240,161,145,.1);border-color:var(--primary);}
+
+@media(max-width:720px){
+  .cs-container{padding:40px 20px 90px;}
+  .cs-meta-row{grid-template-columns:120px 1fr;}
+  .crumb-trail{max-width:60%;}
+}
+
+/* ---- global overrides: font system, cursor, section titles ---- */
+*{cursor:url('../assets/cursor.svg') 4 2, auto;}
+a,button,.milestone,[onclick],.lightbox-close{cursor:url('../assets/cursor.svg') 4 2, pointer;}
+body{font-family:'Inter',sans-serif;}
+.cs-title,.process-title{font-family:'Poppins',sans-serif;}
+.cs-sl{font-size:.92rem;font-weight:700;color:var(--cs-accent,var(--primary));letter-spacing:.1em;}
+.crumb-bar{justify-content:flex-start;}
+.crumb-bar .crumb-back{margin-left:0;}
+.crumb-trail-bar{position:sticky;top:56px;z-index:99;padding:10px 24px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.cs-endcap-mid{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:10px 18px;border-radius:100px;transition:all .2s;}
+.cs-endcap-mid:hover{color:var(--text);border-color:var(--cs-accent,var(--primary));}
+.cs-endcap{display:flex !important;justify-content:space-between !important;align-items:center;gap:16px;flex-wrap:wrap;}
+
+
+.back-to-top{position:fixed;bottom:26px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid var(--border-h);background:rgba(16,24,40,.9);color:var(--text);font-size:18px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,border-color .2s ease;z-index:150;}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+.back-to-top:hover{border-color:var(--primary);color:var(--primary);}
+@media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
+
+</style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
+</head>
+<body>
+
+<div class="bg-dots"></div>
+<div class="blob-wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="Nova Store" data-fa="نوا استور">Nova Store</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
+  </div>
+</header>
+
+<main class="cs-container">
+
+  <div class="cs-tag" data-en="BEAUTY E-COMMERCE · PRODUCT PAGE" data-fa="فروشگاه لوازم آرایشی · صفحه محصول">BEAUTY E-COMMERCE · PRODUCT PAGE</div>
+  <div class="cs-title-row">
+    <h1 class="cs-title">Nova Store <span style="color:var(--muted);font-weight:400;font-size:.5em;">(نوا استور)</span></h1>
+    <img class="cs-logo" src="../assets/logos/nova.svg" alt="Nova Store logo">
+  </div>
+  <p class="cs-sub" data-en="A self-directed practice project: one product page for a cosmetics shop, built around the questions a beauty buyer asks that a clothing buyer never has to — will this shade look like the swatch, what is actually in it, and will it suit my skin?" data-fa="یک پروژه تمرینی شخصی: یک صفحه محصول برای فروشگاه لوازم آرایشی، ساخته‌شده حول سؤال‌هایی که خریدار آرایشی می‌پرسد و خریدار لباس هرگز نمی‌پرسد — آیا این رنگ همان رنگ سواچ خواهد بود، واقعاً چه چیزی در آن هست، و به پوست من می‌آید؟">A self-directed practice project: one product page for a cosmetics shop, built around the questions a beauty buyer asks that a clothing buyer never has to — will this shade look like the swatch, what is actually in it, and will it suit my skin?</p>
+
+  <div class="cs-meta">
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Role" data-fa="نقش">Role</div><div class="cs-meta-val" data-en="Self-directed practice project — sole designer" data-fa="پروژه تمرینی شخصی — تنها طراح">Self-directed practice project — sole designer</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="Solo" data-fa="تک‌نفره">Solo</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Scope" data-fa="دامنه کار">Scope</div><div class="cs-meta-val" data-en="One desktop product detail page (PDP)" data-fa="یک صفحه محصول دسکتاپ">One desktop product detail page (PDP)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="Beauty &amp; Personal Care / E-Commerce" data-fa="زیبایی و مراقبت شخصی / فروشگاه اینترنتی">Beauty &amp; Personal Care / E-Commerce</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Desktop (Web) · RTL Persian" data-fa="دسکتاپ (وب) · فارسی راست‌به‌چپ">Desktop (Web) · RTL Persian</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma" data-fa="فیگما">Figma</div></div>
+  </div>
+
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="This is a practice exercise, not client work — there is no brief, no real inventory, and no users behind it. I kept the scope to a single page on purpose: one page is small enough to actually finish and specific enough that the decisions have to be defensible." data-fa="این یک تمرین است، نه کار سفارشی — هیچ بریفی، هیچ موجودی واقعی و هیچ کاربری پشتش نیست. دامنه را عمداً روی یک صفحه نگه داشتم: یک صفحه آن‌قدر کوچک هست که واقعاً تمام شود، و آن‌قدر مشخص که تصمیم‌هایش قابل دفاع باشند.">This is a practice exercise, not client work — there is no brief, no real inventory, and no users behind it. I kept the scope to a single page on purpose: one page is small enough to actually finish and specific enough that the decisions have to be defensible.</span></div>
+
+  <section class="cs-block" style="margin-top:0;">
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-en="A cosmetics product page carries more of the purchase decision than most retail pages do. A lipstick cannot be tried on, the colour on a screen is not reliably the colour on a lip, and a single line in the ingredient list — a paraben, a known allergen — can end the decision outright." data-fa="صفحه محصول لوازم آرایشی بار تصمیم خرید را بیشتر از بیشتر صفحات فروشگاهی به دوش می‌کشد. رژ لب را نمی‌شود امتحان کرد، رنگ روی صفحه لزوماً رنگ روی لب نیست، و یک خط از فهرست ترکیبات — یک پارابن، یک آلرژن شناخته‌شده — می‌تواند تصمیم را یکسره تمام کند.">A cosmetics product page carries more of the purchase decision than most retail pages do. A lipstick cannot be tried on, the colour on a screen is not reliably the colour on a lip, and a single line in the ingredient list — a paraben, a known allergen — can end the decision outright.</p>
+    <p class="cs-p" data-en="On the Persian beauty pages I looked at, all of that information was present but flattened: shade, ingredients, longevity and skin suitability mixed into one long description or pushed into a spec block far below the fold. The buyer has to read the whole page to find the one fact that decides it. The brief I set myself was to give each of those questions a named, reachable place on the page." data-fa="در صفحات آرایشی فارسی که بررسی کردم، همه این اطلاعات وجود داشت ولی درهم و بی‌سلسله‌مراتب: رنگ، ترکیبات، ماندگاری و تناسب با پوست، همه در یک توضیح بلند قاطی شده بودند یا در یک جدول مشخصات خیلی پایین‌تر از دید اولیه گم شده بودند. خریدار باید کل صفحه را بخواند تا آن یک نکته تعیین‌کننده را پیدا کند. کاری که برای خودم تعریف کردم این بود که هر کدام از این سؤال‌ها یک جای نام‌دار و قابل دسترس در صفحه داشته باشد.">On the Persian beauty pages I looked at, all of that information was present but flattened: shade, ingredients, longevity and skin suitability mixed into one long description or pushed into a spec block far below the fold. The buyer has to read the whole page to find the one fact that decides it. The brief I set myself was to give each of those questions a named, reachable place on the page.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="Shade Swatch Selector" data-fa="انتخابگر سواچ رنگ">Shade Swatch Selector</span><span class="cs-feature-chip" data-en="Named Shade" data-fa="نام رنگ انتخاب‌شده">Named Shade</span><span class="cs-feature-chip" data-en="Discount &amp; Stock in Buy Box" data-fa="تخفیف و موجودی در باکس خرید">Discount &amp; Stock in Buy Box</span><span class="cs-feature-chip" data-en="Anchored Section Tabs" data-fa="تب‌های لنگرشده بخش‌ها">Anchored Section Tabs</span><span class="cs-feature-chip" data-en="Two-Column Spec Table" data-fa="جدول مشخصات دوستونی">Two-Column Spec Table</span><span class="cs-feature-chip" data-en="Usage Steps" data-fa="مراحل مصرف">Usage Steps</span><span class="cs-feature-chip" data-en="Reviews with Helpfulness Voting" data-fa="دیدگاه‌ها با رأی مفید بودن">Reviews with Helpfulness Voting</span><span class="cs-feature-chip" data-en="Customer Q&amp;A" data-fa="پرسش و پاسخ مشتریان">Customer Q&amp;A</span><span class="cs-feature-chip" data-en="Related Products Carousel" data-fa="اسلایدر محصولات مرتبط">Related Products Carousel</span></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
+    <div class="discovery-wrap">
+      <div class="discovery-method" data-en="No user research — a pattern review of Persian beauty storefronts and the cosmetics sections of general marketplaces" data-fa="بدون تحقیق کاربری — بررسی الگو در فروشگاه‌های آرایشی فارسی و بخش لوازم آرایشی مارکت‌پلیس‌های عمومی">No user research — a pattern review of Persian beauty storefronts and the cosmetics sections of general marketplaces</div>
+      <div class="discovery-insight" data-en="The most useful thing I found was not in the page designs but in their customer Q&amp;A sections, where the same question kept reappearing in different words: is the colour on the site the colour I will get? The pages were rarely built to answer it. That pushed me toward treating this as a structural problem — where information lives and how reachable it is — rather than a visual one." data-fa="مفیدترین چیزی که پیدا کردم در خود طراحی صفحات نبود، در بخش پرسش و پاسخ مشتریانشان بود؛ جایی که یک سؤال مدام با کلمات مختلف تکرار می‌شد: آیا رنگ روی سایت همان رنگی است که به دستم می‌رسد؟ صفحات به‌ندرت برای پاسخ به آن ساخته شده بودند. همین باعث شد مسئله را ساختاری ببینم — اینکه اطلاعات کجا می‌نشیند و چقدر در دسترس است — نه بصری.">The most useful thing I found was not in the page designs but in their customer Q&amp;A sections, where the same question kept reappearing in different words: is the colour on the site the colour I will get? The pages were rarely built to answer it. That pushed me toward treating this as a structural problem — where information lives and how reachable it is — rather than a visual one.</div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="03 · Process" data-fa="۰۳ · روند کار">03 · Process</div>
+    <div class="process-list">
+      <div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="Shade selection as a real control, named in text" data-fa="انتخاب رنگ به‌عنوان یک کنترل واقعی، با نام نوشته‌شده">Shade selection as a real control, named in text</div><div class="process-text" data-en="Five swatches sit directly under the title, and the selected one is also written out (آلبالویی / cherry). Colour alone cannot carry the choice — someone who cannot separate two dark reds still needs to read which one they picked." data-fa="پنج سواچ دقیقاً زیر عنوان می‌نشینند، و رنگ انتخاب‌شده به‌صورت متن هم نوشته می‌شود (آلبالویی). رنگ به‌تنهایی نمی‌تواند بار انتخاب را ببرد — کسی که دو قرمز تیره را از هم تشخیص نمی‌دهد، باز هم باید بخواند کدام را انتخاب کرده.">Five swatches sit directly under the title, and the selected one is also written out (آلبالویی / cherry). Colour alone cannot carry the choice — someone who cannot separate two dark reds still needs to read which one they picked.</div></div></div>
+      <div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="A buy box that answers &quot;should I&quot;, not just &quot;buy&quot;" data-fa="باکس خریدی که به «بخرم؟» جواب می‌دهد، نه فقط «بخر»">A buy box that answers "should I", not just "buy"</div><div class="process-text" data-en="Original price, discount percentage, final price and remaining stock are grouped in one panel, with the three guarantees — 7-day returns, authenticity, free shipping above a threshold — stacked immediately beneath it instead of in the footer. Price and risk get read in the same glance." data-fa="قیمت اصلی، درصد تخفیف، قیمت نهایی و موجودی باقی‌مانده در یک پنل جمع شده‌اند، و سه ضمانت — بازگشت ۷ روزه، اصالت کالا، ارسال رایگان بالای یک سقف — بلافاصله زیرش چیده شده‌اند، نه در فوتر. قیمت و ریسک در یک نگاه خوانده می‌شوند.">Original price, discount percentage, final price and remaining stock are grouped in one panel, with the three guarantees — 7-day returns, authenticity, free shipping above a threshold — stacked immediately beneath it instead of in the footer. Price and risk get read in the same glance.</div></div></div>
+      <div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="Breaking one long page into five addressable sections" data-fa="شکستن یک صفحه بلند به پنج بخش قابل دسترس">Breaking one long page into five addressable sections</div><div class="process-text" data-en="Introduction, specifications, how to use, reviews and Q&amp;A each got an anchor in a tab bar under the gallery. A buyer who only wants the ingredient list jumps straight to it rather than scrolling past everything else." data-fa="معرفی، مشخصات، نحوه مصرف، دیدگاه‌ها و پرسش و پاسخ هرکدام یک لنگر در نوار تب زیر گالری گرفتند. خریداری که فقط فهرست ترکیبات را می‌خواهد مستقیم به آن می‌پرد، به‌جای اینکه از روی بقیه رد شود.">Introduction, specifications, how to use, reviews and Q&amp;A each got an anchor in a tab bar under the gallery. A buyer who only wants the ingredient list jumps straight to it rather than scrolling past everything else.</div></div></div>
+      <div class="process-item"><div class="process-num">04</div><div><div class="process-title" data-en="Pulling suitability facts out of the prose and into a table" data-fa="بیرون کشیدن اطلاعات تناسب از متن و بردنشان به جدول">Pulling suitability facts out of the prose and into a table</div><div class="process-text" data-en="Texture, longevity, coverage, what it is free from, and who it suits became labelled rows in a two-column table. An allergy check should be a glance, not a careful read of a marketing paragraph." data-fa="بافت، ماندگاری، میزان پوشش، فاقد چه موادی است، و مناسب چه کسانی — همه به ردیف‌های برچسب‌دار در یک جدول دوستونی تبدیل شدند. بررسی حساسیت باید یک نگاه باشد، نه خواندن دقیق یک پاراگراف تبلیغاتی.">Texture, longevity, coverage, what it is free from, and who it suits became labelled rows in a two-column table. An allergy check should be a glance, not a careful read of a marketing paragraph.</div></div></div>
+      <div class="process-item"><div class="process-num">05</div><div><div class="process-title" data-en="Letting the Q&amp;A do work the description cannot" data-fa="سپردن کاری به پرسش و پاسخ که از توضیح محصول برنمی‌آید">Letting the Q&amp;A do work the description cannot</div><div class="process-text" data-en="The Q&amp;A block sits as a peer of the specs rather than an afterthought, and it includes the shade-accuracy question answered plainly — the final colour may differ slightly depending on natural lip tone. An honest answer there is worth more than another line of product copy." data-fa="بلوک پرسش و پاسخ هم‌رتبه جدول مشخصات نشسته، نه در حاشیه، و سؤال دقت رنگ را صریح جواب می‌دهد — رنگ نهایی بسته به رنگ طبیعی لب ممکن است کمی متفاوت باشد. یک جواب صادقانه آنجا از یک خط دیگر متن تبلیغاتی ارزشمندتر است.">The Q&amp;A block sits as a peer of the specs rather than an afterthought, and it includes the shade-accuracy question answered plainly — the final colour may differ slightly depending on natural lip tone. An honest answer there is worth more than another line of product copy.</div></div></div>
+      <div class="process-item"><div class="process-num">06</div><div><div class="process-title" data-en="Reviews weighted by usefulness, not just recency" data-fa="وزن‌دهی دیدگاه‌ها بر اساس مفید بودن، نه فقط تازگی">Reviews weighted by usefulness, not just recency</div><div class="process-text" data-en="Each review carries a rating, a date and helpful / not-helpful counts, with pagination instead of an endless list — so a long, specific review can visibly outrank a two-word one." data-fa="هر دیدگاه امتیاز، تاریخ و شمارش مفید / غیرمفید دارد، با صفحه‌بندی به‌جای فهرست بی‌پایان — تا یک نظر بلند و مشخص بتواند آشکارا از یک نظر دو کلمه‌ای بالاتر بایستد.">Each review carries a rating, a date and helpful / not-helpful counts, with pagination instead of an endless list — so a long, specific review can visibly outrank a two-word one.</div></div></div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="04 · Solution" data-fa="۰۴ · راه‌حل">04 · Solution</div>
+    <p class="cs-p" data-en="The page below is a single continuous product page; the frames after the first one are sections of that same page, pulled out so each decision is readable on its own. Click any frame to view it full size." data-fa="آنچه در ادامه می‌بینید یک صفحه محصول پیوسته است؛ فریم‌های بعد از اولی، برش‌هایی از همان صفحه‌اند که جدا شده‌اند تا هر تصمیم مستقل خوانده شود. برای دیدن هر فریم در اندازه کامل رویش کلیک کنید.">The page below is a single continuous product page; the frames after the first one are sections of that same page, pulled out so each decision is readable on its own. Click any frame to view it full size.</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="05 · Impact &amp; Results" data-fa="۰۵ · اثر و نتایج">05 · Impact &amp; Results</div>
+    <p class="cs-p" data-en="No metrics. This was never built or shipped and no one has used it, so there is nothing to measure. What I can point to is what the page structurally does:" data-fa="هیچ متریکی در کار نیست. این هیچ‌وقت ساخته یا منتشر نشد و کسی از آن استفاده نکرده، پس چیزی برای اندازه‌گیری وجود ندارد. چیزی که می‌توانم به آن اشاره کنم این است که صفحه از نظر ساختاری چه می‌کند:">No metrics. This was never built or shipped and no one has used it, so there is nothing to measure. What I can point to is what the page structurally does:</p>
+    <div class="metric-list">
+      <div class="metric-item" data-en="Each purchase-blocking question — shade, ingredients, suitability, longevity, returns — has a named location on the page instead of living inside a paragraph." data-fa="هر سؤالی که جلوی خرید را می‌گیرد — رنگ، ترکیبات، تناسب، ماندگاری، بازگشت کالا — یک جای نام‌دار در صفحه دارد، به‌جای اینکه داخل یک پاراگراف زندگی کند.">Each purchase-blocking question — shade, ingredients, suitability, longevity, returns — has a named location on the page instead of living inside a paragraph.</div>
+      <div class="metric-item" data-en="The buy box keeps price, discount, stock and the three guarantees together as one unit, so cost and risk are read at the same moment." data-fa="باکس خرید قیمت، تخفیف، موجودی و سه ضمانت را به‌عنوان یک واحد کنار هم نگه می‌دارد، تا هزینه و ریسک همزمان خوانده شوند.">The buy box keeps price, discount, stock and the three guarantees together as one unit, so cost and risk are read at the same moment.</div>
+      <div class="metric-item" data-en="The tab bar makes all five sections reachable without scrolling through the ones the buyer does not need." data-fa="نوار تب هر پنج بخش را در دسترس می‌گذارد، بدون اینکه خریدار مجبور باشد از روی بخش‌هایی که لازم ندارد رد شود.">The tab bar makes all five sections reachable without scrolling through the ones the buyer does not need.</div>
+      <div class="metric-item" data-en="Shade choice is communicated twice — swatch and written name — so it does not depend on colour perception alone." data-fa="انتخاب رنگ دو بار منتقل می‌شود — سواچ و نام نوشته‌شده — تا فقط به درک رنگ متکی نباشد.">Shade choice is communicated twice — swatch and written name — so it does not depend on colour perception alone.</div>
+    </div>
+  </section>
+
+  <section class="cs-block" style="margin-bottom:0;">
+    <div class="cs-sl" data-en="06 · Reflection" data-fa="۰۶ · جمع‌بندی">06 · Reflection</div>
+    <div class="cs-learnings">
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Limiting myself to one page was the right call. A whole store would have let me stay vague; a single page forced every element to justify why it was there." data-fa="محدود کردن خودم به یک صفحه تصمیم درستی بود. یک فروشگاه کامل اجازه می‌داد کلی‌گو بمانم؛ یک صفحه مجبورم کرد هر عنصر دلیل بودنش را توجیه کند.">Limiting myself to one page was the right call. A whole store would have let me stay vague; a single page forced every element to justify why it was there.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The thing I would change first: I designed five flat swatch circles and never checked whether they read as &quot;shades of this product&quot; to someone seeing the page cold. A small swatch shown on a lip would probably beat a plain circle." data-fa="اولین چیزی که عوض می‌کنم: پنج دایره تخت سواچ طراحی کردم و هیچ‌وقت بررسی نکردم که برای کسی که صفحه را برای اولین بار می‌بیند، به‌عنوان «رنگ‌های این محصول» خوانده می‌شوند یا نه. یک سواچ کوچک روی لب احتمالاً بهتر از یک دایره ساده جواب می‌داد.">The thing I would change first: I designed five flat swatch circles and never checked whether they read as "shades of this product" to someone seeing the page cold. A small swatch shown on a lip would probably beat a plain circle.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="I wrote the spec table from what I thought a lipstick page should contain, not from what buyers actually ask. Even five conversations would likely have reordered the rows, and possibly cut some." data-fa="جدول مشخصات را بر اساس تصور خودم از آنچه یک صفحه رژ لب باید داشته باشد نوشتم، نه بر اساس آنچه خریدارها واقعاً می‌پرسند. حتی پنج گفت‌وگو هم احتمالاً ترتیب ردیف‌ها را عوض می‌کرد و شاید بعضی را حذف.">I wrote the spec table from what I thought a lipstick page should contain, not from what buyers actually ask. Even five conversations would likely have reordered the rows, and possibly cut some.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="There is no mobile layout. On a page this dense — buy box, tab bar, paginated reviews — the reflow is the hard part, so skipping it means the design is only half-proven." data-fa="نسخه موبایل ندارد. در صفحه‌ای به این تراکم — باکس خرید، نوار تب، دیدگاه‌های صفحه‌بندی‌شده — بخش سخت کار همان بازچینش است، پس نادیده گرفتنش یعنی طراحی فقط نیمه‌اثبات‌شده است.">There is no mobile layout. On a page this dense — buy box, tab bar, paginated reviews — the reflow is the hard part, so skipping it means the design is only half-proven.</div></div>
+    </div>
+  </section>
+
+  <div class="cs-endcap">
+    <a class="cs-endcap-link" href="payment.html" rel="prev" data-en="← Payment" data-fa="→ درگاه پرداخت">← Payment</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="samin.html" rel="next" data-en="Samin Style →" data-fa="← سمین استایل">Samin Style →</a>
+  </div>
+
+</main>
+
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- modal -->
+<div class="cs-modal-overlay" id="modalOverlay">
+  <div class="cs-modal-count" id="modalCount"></div>
+  <div class="cs-modal-close" id="modalClose">&times;</div>
+  <div class="cs-modal-nav cs-modal-prev" id="modalPrev">&#10094;</div>
+  <div class="cs-modal-nav cs-modal-next" id="modalNext">&#10095;</div>
+  <div class="cs-modal-box">
+    <div class="cs-modal-imgwrap"><img id="modalImg" src="" alt=""></div>
+    <div class="cs-modal-cap" id="modalCap"></div>
+  </div>
+</div>
+
+<script>
+const shots = [
+  {src:"../assets/images/nova/nova-01.jpg", type:"desktop", tag:"FULL PAGE", cap:"The complete product page in one view — gallery and buy box, then introduction, specifications, usage, reviews, Q&amp;A and related products.", tagFa:"کل صفحه", capFa:"کل صفحه محصول در یک نما — گالری و باکس خرید، بعد معرفی، مشخصات، نحوه مصرف، دیدگاه‌ها، پرسش و پاسخ و محصولات مرتبط."},
+  {src:"../assets/images/nova/nova-02.jpg", type:"desktop", tag:"GALLERY &amp; BUY BOX", cap:"Top of the page — image gallery with a thumbnail rail, five shade swatches with the selected shade named, and the buy box carrying discount, final price, stock count and the three guarantees.", tagFa:"گالری و باکس خرید", capFa:"بالای صفحه — گالری تصاویر با نوار بندانگشتی، پنج سواچ رنگ با نام رنگ انتخاب‌شده، و باکس خرید شامل تخفیف، قیمت نهایی، موجودی و سه ضمانت."},
+  {src:"../assets/images/nova/nova-03.jpg", type:"desktop", tag:"SECTION TABS &amp; INTRO", cap:"The tab bar that anchors the page's five sections, followed by the product introduction block.", tagFa:"نوار تب‌ها و معرفی", capFa:"نوار تبی که پنج بخش صفحه را لنگر می‌کند، و بعد از آن بلوک معرفی محصول."},
+  {src:"../assets/images/nova/nova-04.jpg", type:"desktop", tag:"SPECIFICATIONS &amp; USAGE", cap:"Specifications as a two-column labelled table — texture, longevity, what it is free from, suitability, coverage, country of origin — with application steps underneath.", tagFa:"مشخصات و نحوه مصرف", capFa:"مشخصات به‌صورت جدول برچسب‌دار دوستونی — بافت، ماندگاری، فاقد چه موادی است، تناسب، میزان پوشش، کشور سازنده — و مراحل استفاده در زیرش."},
+  {src:"../assets/images/nova/nova-05.jpg", type:"desktop", tag:"REVIEWS", cap:"Customer reviews with per-review rating, date and helpful / not-helpful counts, paginated rather than infinite, and a panel to add a new one.", tagFa:"دیدگاه‌ها", capFa:"دیدگاه‌های مشتریان با امتیاز، تاریخ و شمارش مفید / غیرمفید برای هر دیدگاه، صفحه‌بندی‌شده به‌جای بی‌پایان، و پنلی برای افزودن دیدگاه تازه."},
+  {src:"../assets/images/nova/nova-06.jpg", type:"desktop", tag:"CUSTOMER Q&amp;A", tagFa:"پرسش و پاسخ مشتریان", cap:"Questions answered by the shop, including the shade-accuracy question that kept recurring in the pages I reviewed.", capFa:"سؤال‌هایی که فروشگاه جواب داده، از جمله همان سؤال دقت رنگ که در صفحات بررسی‌شده مدام تکرار می‌شد."},
+  {src:"../assets/images/nova/nova-07.jpg", type:"desktop", tag:"RELATED PRODUCTS", cap:"Related products carousel — each card showing its own shade dots, discount badge and price.", tagFa:"محصولات مرتبط", capFa:"اسلایدر محصولات مرتبط — هر کارت با نقطه‌های رنگ، نشان تخفیف و قیمت خودش."},
+];
+
+function shotText(s, field) {
+  var fa = document.documentElement.getAttribute('dir') === 'rtl';
+  return (fa && s[field + 'Fa']) ? s[field + 'Fa'] : s[field];
+}
+
+const grid = document.getElementById('galleryGrid');
+shots.forEach((s, i) => {
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+  item.innerHTML = `<div class="gallery-chrome"><span class="dot" style="background:#ff5f57;"></span><span class="dot" style="background:#febc2e;"></span><span class="dot" style="background:#28c840;"></span></div><div class="gallery-thumb"><img src="${s.src}" alt="${shotText(s,'cap')}" loading="lazy"></div><div class="gallery-tagline"><span class="dot-live"></span>${shotText(s,'tag')}</div><div class="gallery-cap">${shotText(s,'cap')}</div>`;
+  item.addEventListener('click', () => openModal(i));
+  grid.appendChild(item);
+});
+
+const overlay = document.getElementById('modalOverlay');
+const modalImg = document.getElementById('modalImg');
+const modalCap = document.getElementById('modalCap');
+const modalCount = document.getElementById('modalCount');
+let current = 0;
+
+modalImg.style.transition = 'opacity .18s ease';
+
+function renderModal(){
+  modalImg.style.opacity = 0;
+  setTimeout(()=>{
+    modalImg.src = shots[current].src;
+    modalCap.textContent = shotText(shots[current], 'cap');
+    modalCount.textContent = (current+1) + ' / ' + shots.length;
+    modalImg.style.opacity = 1;
+    document.querySelector('.cs-modal-imgwrap').scrollTop = 0;
+  }, 120);
+}
+
+/* بازسازی زیرنویس‌ها پس از تعویض زبان */
+window.addEventListener('cs-lang-change', function () {
+  document.querySelectorAll('.gallery-item').forEach(function (el, i) {
+    var s = shots[i];
+    if (!s) return;
+    var cap = el.querySelector('.gallery-cap');
+    var tag = el.querySelector('.gallery-tagline');
+    if (cap) cap.textContent = shotText(s, 'cap');
+    if (tag) tag.innerHTML = '<span class="dot-live"></span>' + shotText(s, 'tag');
+  });
+  if (overlay && overlay.classList.contains('open')) renderModal();
+});
+
+function openModal(i){
+  current = i;
+  renderModal();
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+document.getElementById('modalPrev').addEventListener('click', (e)=>{ e.stopPropagation(); current = (current - 1 + shots.length) % shots.length; renderModal(); });
+document.getElementById('modalNext').addEventListener('click', (e)=>{ e.stopPropagation(); current = (current + 1) % shots.length; renderModal(); });
+document.addEventListener('keydown', (e)=>{
+  if(!overlay.classList.contains('open')) return;
+  if(e.key === 'Escape') closeModal();
+  if(e.key === 'ArrowLeft') { current = (current - 1 + shots.length) % shots.length; renderModal(); }
+  if(e.key === 'ArrowRight') { current = (current + 1) % shots.length; renderModal(); }
+});
+</script>
+
+
+<script>
+(function(){
+  var btt = document.getElementById('backToTop');
+  if(!btt) return;
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 480){ btt.classList.add('visible'); } else { btt.classList.remove('visible'); }
+  });
+  btt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+
+<script src="cs-shared.js?v=20261011"></script>
+</body>
+</html>

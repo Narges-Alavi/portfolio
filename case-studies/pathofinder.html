@@ -123,12 +123,12 @@ a{color:inherit;}
 @media(max-width:640px){.mockup-grid-hero{grid-template-columns:1fr;}}
 .mockup-caption{font-size:.72rem;color:var(--muted);font-style:italic;padding:10px 14px 14px;border-top:1px solid var(--border);min-height:4.6em;display:flex;align-items:center;flex:1 1 auto;}
 
-.lightbox-overlay{position:fixed;inset:0;background:rgba(4,7,13,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s linear .28s;padding:40px 24px;}
+.lightbox-overlay{position:fixed;inset:0;background:rgba(4,7,13,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;overflow:hidden;transition:opacity .28s ease,visibility 0s linear .28s;}
 .lightbox-overlay.open{opacity:1;visibility:visible;transition:opacity .28s ease,visibility 0s linear 0s;}
 .lightbox-inner{display:flex;flex-direction:column;align-items:center;max-width:min(1100px,92vw);transform:scale(.92) translateY(10px);opacity:0;transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .32s ease;}
 .lightbox-overlay.open .lightbox-inner{transform:scale(1) translateY(0);opacity:1;}
 .lightbox-inner img{max-width:100%;max-height:76vh;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 40px 90px -20px rgba(0,0,0,.7);border:1px solid var(--border-h);background:#0c1420;transition:opacity .18s ease;}
-.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.8rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;user-select:none;-webkit-tap-highlight-color:transparent;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.8rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;user-select:none;-webkit-tap-highlight-color:transparent;}
 .lightbox-nav:hover{background:rgba(255,255,255,.14);}
 .lightbox-prev{left:26px;}
 @media (hover:hover){.lightbox-prev:hover{transform:translateY(-50%) translateX(-3px);}}
@@ -139,8 +139,11 @@ a{color:inherit;}
   .lightbox-prev{left:8px;}
   .lightbox-next{right:8px;}
 }
+.lightbox-scroll{width:100%;height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;align-items:center;justify-content:center;padding:40px 84px;}
+@media(max-width:640px){.lightbox-scroll{padding:64px 12px 40px;}}
+.lightbox-overlay.tall .lightbox-scroll{align-items:flex-start;}
 .lightbox-caption{margin-top:18px;color:#d3dae8;font-size:.85rem;text-align:center;font-style:italic;max-width:640px;}
-.lightbox-close{position:fixed;top:22px;right:26px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;}
+.lightbox-close{position:absolute;top:22px;right:26px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border-h);color:#e7ecf5;font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1001;}
 .lightbox-close:hover{background:rgba(255,255,255,.14);transform:rotate(90deg);}
 
 .metric-list{display:flex;flex-direction:column;gap:10px;}
@@ -197,7 +200,160 @@ body{font-family:'Inter',sans-serif;}
 .back-to-top:hover{border-color:var(--primary);color:var(--primary);}
 @media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
 
+/* ===== Mentor-feedback additions: stakeholders, affinity map, IA, user flow, metrics ===== */
+.sh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:6px;}
+.sh-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 16px 15px;display:flex;flex-direction:column;gap:6px;}
+.sh-role{font-family:'Sora',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:-.01em;}
+.sh-need{font-size:.78rem;color:var(--muted);line-height:1.65;}
+.sh-tag{align-self:flex-start;margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.04em;color:var(--cs-accent,var(--primary));border:1px solid var(--cs-accent-br,rgba(79,140,255,.3));background:var(--cs-accent-bg,rgba(79,140,255,.08));padding:2px 9px;border-radius:100px;}
+
+.aff-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted);margin:0 0 16px;}
+.aff-flow i{font-style:normal;color:#3a4658;}
+.aff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.aff-cluster{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 16px 18px;}
+.aff-cluster h4{font-family:'Sora',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:-.01em;margin-bottom:2px;}
+.aff-root{font-size:.7rem;color:var(--muted);margin-bottom:13px;font-family:'JetBrains Mono',monospace;letter-spacing:.02em;}
+.aff-notes{display:flex;flex-direction:column;gap:8px;}
+.aff-note{font-size:.76rem;line-height:1.5;color:#18202f;padding:9px 12px;border-radius:3px;box-shadow:0 8px 14px -9px rgba(0,0,0,.75);}
+.aff-note:nth-child(odd){transform:rotate(-.55deg);}
+.aff-note:nth-child(even){transform:rotate(.45deg);}
+.aff-cluster.c1 .aff-note{background:#bcd4ff;}
+.aff-cluster.c2 .aff-note{background:#ffd0d4;}
+.aff-cluster.c3 .aff-note{background:#d6cfff;}
+.aff-cluster.c4 .aff-note{background:#aeeedd;}
+.aff-source{font-size:.74rem;color:var(--muted);margin-top:14px;font-style:italic;}
+
+.ia-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px 24px;}
+.ia-root{position:relative;width:max-content;max-width:100%;margin:0 auto;font-family:'Sora',sans-serif;font-weight:700;font-size:.92rem;padding:10px 24px;border-radius:100px;border:1px solid var(--cs-accent-br);background:var(--cs-accent-bg);color:var(--cs-accent);}
+.ia-root::after{content:'';position:absolute;left:50%;top:100%;width:1px;height:22px;background:var(--border-h);}
+.ia-branches{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;padding-top:22px;}
+.ia-branches::before{content:'';position:absolute;top:0;left:calc((100% - 36px)/6);right:calc((100% - 36px)/6);height:1px;background:var(--border-h);}
+.ia-branch{position:relative;background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 14px 16px;}
+.ia-branch::before{content:'';position:absolute;top:-22px;left:50%;width:1px;height:22px;background:var(--border-h);}
+.ia-title{font-family:'Sora',sans-serif;font-weight:700;font-size:.84rem;letter-spacing:-.01em;margin-bottom:2px;}
+.ia-desc{font-size:.72rem;color:var(--muted);line-height:1.55;margin-bottom:11px;}
+.ia-leaves{display:flex;flex-wrap:wrap;gap:6px;}
+.ia-leaf{font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:4px 9px;border-radius:100px;border:1px solid var(--border);color:#c3ccdc;background:rgba(255,255,255,.03);}
+.ia-leaf.hl{border-color:var(--cs-accent-br);color:var(--cs-accent);background:var(--cs-accent-bg);}
+.ia-leaf.warn{border-color:rgba(255,122,133,.38);color:#ff8d97;background:rgba(255,122,133,.08);}
+.ia-leaf.dim{color:var(--muted);border-style:dashed;}
+.ia-sub{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--muted);margin:12px 0 7px;}
+
+.ws-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:center;margin-top:6px;}
+.ws-wire{position:relative;background:#0c1420;border:1px solid var(--cs-accent-br,var(--border-h));border-radius:12px;overflow:hidden;box-shadow:0 20px 50px -18px rgba(47,214,176,.25),0 30px 60px -30px rgba(0,0,0,.6);}
+.ws-bar{display:flex;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.07);background:#111e2e;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);}
+.ws-bar .st{margin-left:auto;color:#ff8d97;border:1px solid rgba(255,122,133,.38);background:rgba(255,122,133,.08);padding:1px 8px;border-radius:100px;}
+.ws-body{display:grid;grid-template-columns:1.55fr 1fr;gap:10px;padding:12px;}
+.ws-film{position:relative;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:radial-gradient(ellipse at 50% 45%,#16263a 0%,#0a121d 75%);min-height:210px;display:flex;align-items:center;justify-content:center;}
+.ws-film svg{width:92%;height:auto;}
+.ws-side{display:flex;flex-direction:column;gap:8px;}
+.ws-box{position:relative;border:1px solid var(--border-h);border-radius:7px;padding:8px 9px;background:rgba(255,255,255,.02);font-size:.62rem;color:var(--muted);line-height:1.5;}
+.ws-box b{display:block;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.56rem;letter-spacing:.05em;color:#c3ccdc;margin-bottom:5px;}
+.ws-row{display:flex;justify-content:space-between;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:#93a1b8;padding:2px 0;}
+.ws-row em{font-style:normal;color:var(--cs-accent);}
+.ws-box.fail{border-color:rgba(255,122,133,.4);background:rgba(255,122,133,.05);}
+.ws-box.fail .ok{color:var(--cs-accent);}
+.ws-box.fail .todo{color:#ff8d97;}
+.ws-confirm{margin-top:auto;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:8px;border-radius:7px;background:var(--cs-accent-bg);border:1px solid var(--cs-accent-br);color:var(--cs-accent);position:relative;}
+.ws-n{position:absolute;top:-8px;left:-8px;width:18px;height:18px;border-radius:50%;background:var(--cs-accent);color:#04201a;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.6rem;display:flex;align-items:center;justify-content:center;z-index:3;}
+.ws-film .ws-n{top:6px;left:6px;}
+.ws-legend{display:flex;flex-direction:column;gap:14px;}
+.ws-legend-item{display:grid;grid-template-columns:24px 1fr;gap:10px;}
+.ws-legend-n{width:20px;height:20px;border-radius:50%;background:var(--cs-accent-bg);border:1px solid var(--cs-accent-br);color:var(--cs-accent);font-family:'JetBrains Mono',monospace;font-size:.62rem;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.ws-legend-t{font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:2px;}
+.ws-legend-d{font-size:.78rem;color:var(--muted);line-height:1.65;}
+
+.fl-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px 14px;}
+.fl-scroll{overflow-x:auto;}
+.fl-svg{display:block;width:100%;min-width:780px;height:auto;}
+.fl-svg text{font-family:'Inter',sans-serif;}
+.fl-n{fill:#131f31;stroke-width:1.2;}
+.fl-n.staff{stroke:#2fd6b0;}
+.fl-n.ai{stroke:#9b8cff;}
+.fl-n.sys{stroke:#93a1b8;}
+.fl-n.fail{stroke:#ff7a85;}
+.fl-n.done{fill:rgba(47,214,176,.14);stroke:#2fd6b0;}
+.fl-t1{font-size:12.5px;font-weight:600;fill:#e7ecf5;}
+.fl-t2{font-size:10.5px;fill:#93a1b8;}
+.fl-lbl{font-size:10.5px;fill:#93a1b8;font-family:'JetBrains Mono',monospace !important;}
+.fl-note{font-size:10.5px;fill:#2fd6b0;font-family:'JetBrains Mono',monospace !important;}
+.fl-line{stroke:#6b7a93;stroke-width:1.4;fill:none;}
+.fl-line.fail{stroke:#ff7a85;}
+.fl-dec{fill:#131f31;stroke:#4f8cff;stroke-width:1.2;}
+.fl-legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;padding:0 4px;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);}
+.fl-legend span{display:flex;align-items:center;gap:7px;}
+.fl-legend i{width:10px;height:10px;border-radius:3px;border:1.5px solid;display:inline-block;}
+.fl-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+.fl-notes div{background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 16px;}
+.fl-notes b{display:block;font-family:'Sora',sans-serif;font-size:.82rem;margin-bottom:5px;letter-spacing:-.01em;}
+.fl-notes p{font-size:.76rem;color:var(--muted);line-height:1.65;}
+
+.mt-funnel{display:flex;flex-direction:column;gap:6px;}
+.mt-step{display:grid;grid-template-columns:230px 1fr 190px;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;}
+.mt-head{display:flex;gap:12px;align-items:flex-start;}
+.mt-idx{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--cs-accent);padding-top:2px;}
+.mt-name{font-family:'Sora',sans-serif;font-weight:700;font-size:.84rem;letter-spacing:-.01em;}
+.mt-hint{font-size:.7rem;color:var(--muted);line-height:1.5;margin-top:2px;}
+.mt-bar{height:22px;border-radius:6px;background:rgba(255,255,255,.03);overflow:hidden;border:1px dashed rgba(148,163,184,.28);}
+.mt-bar.live{border-style:solid;border-color:var(--border);}
+.mt-bar i{display:block;height:100%;background:linear-gradient(90deg,rgba(47,214,176,.55),rgba(47,214,176,.9));border-radius:5px;}
+.mt-vals{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mt-vals small{display:block;font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.mt-vals b{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.86rem;color:#c3ccdc;}
+.mt-vals .cur b{color:var(--cs-accent);}
+.mt-conv{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted);padding:2px 0 2px 22px;}
+.fill{display:inline-block;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.6rem;letter-spacing:.04em;color:#ffcf70;border:1px dashed rgba(255,207,112,.55);background:rgba(255,207,112,.07);padding:3px 9px;border-radius:100px;}
+.mt-table-wrap{overflow-x:auto;}
+.impact-table tr.grp td{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.025);padding:9px 16px;}
+.impact-table .kpi-name{color:#e7ecf5;font-weight:500;}
+.impact-table .kpi-hint{font-size:.72rem;color:var(--muted);margin-top:2px;}
+.impact-table .after.txt{font-family:'Inter',sans-serif;font-weight:500;}
+.mt-note{font-size:.76rem;color:var(--muted);line-height:1.7;margin-top:14px;max-width:760px;}
+
+@media(max-width:860px){
+  .mt-step{grid-template-columns:1fr;gap:10px;}
+  .ws-wrap{grid-template-columns:1fr;}
+  .fl-notes{grid-template-columns:1fr;}
+}
+@media(max-width:720px){
+  .aff-grid{grid-template-columns:1fr;}
+  .ia-branches{grid-template-columns:1fr;padding-top:0;margin-top:30px;}
+  .ia-branches::before,.ia-branch::before{display:none;}
+  .ia-root::after{height:18px;}
+  .ia-root{margin-bottom:0;}
+  .ia-branches{margin-top:18px;}
+}
+/* ===== language blocks (flows) ===== */
+.l-en,.l-fa{margin:0;}
+html[lang="fa"] .l-en{display:none;}
+html:not([lang="fa"]) .l-fa{display:none;}
+.fl-svg.fa text{direction:rtl;unicode-bidi:embed;}
+.fl-svg.fa text,.fl-svg.fa .fl-lbl,.fl-svg.fa .fl-note{font-family:'Shabnam','Shabnam',Tahoma,sans-serif !important;}
+.fl-svg.fa .fl-t1{font-size:13px;}
+.fl-svg.fa .fl-t2{font-size:11px;}
+.fl-svg.fa .fl-lbl,.fl-svg.fa .fl-note{font-size:11px;}
+@media(max-width:720px){.fl-wrap{padding:14px 10px 12px;}}
+/* ===== RTL (فارسی) ===== */
+html[dir="rtl"] .aff-cluster h4,html[dir="rtl"] .ia-title,html[dir="rtl"] .ia-root,html[dir="rtl"] .ws-legend-t,html[dir="rtl"] .process-title,html[dir="rtl"] .impact-table .kpi-name{font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;}
+html[dir="rtl"] .aff-cluster h4{line-height:1.7;font-size:.92rem;}
+html[dir="rtl"] .aff-note{line-height:1.9;font-size:.84rem;}
+html[dir="rtl"] .ia-desc,html[dir="rtl"] .ws-legend-d{line-height:1.9;}
+html[dir="rtl"] .ia-leaf,html[dir="rtl"] .ia-sub,html[dir="rtl"] .fl-legend,html[dir="rtl"] .cs-sl,html[dir="rtl"] .cs-feature-chip,html[dir="rtl"] .discovery-method,html[dir="rtl"] .cs-meta-label,html[dir="rtl"] .cs-constraint b,html[dir="rtl"] .cs-pill,html[dir="rtl"] .mockup-section-label,html[dir="rtl"] .impact-table th{font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;text-transform:none;}
+html[dir="rtl"] .ia-leaf{font-size:.74rem;}
+html[dir="rtl"] .fl-legend{font-size:.74rem;}
+html[dir="rtl"] .ia-sub{font-size:.7rem;}
+html[dir="rtl"] .discovery-insight{border-left:0;padding-left:0;border-right:2px solid var(--cs-accent,var(--primary));padding-right:16px;}
+html[dir="rtl"] .impact-table th{text-align:right;}
+html[dir="rtl"] .impact-table .after{font-family:'Shabnam','Shabnam',sans-serif;}
+/* the product wireframe is an LTR screenshot-like object: keep it LTR */
+html[dir="rtl"] .ws-wire{direction:ltr;text-align:left;}
+html[dir="rtl"] .ws-wire .ws-bar span,html[dir="rtl"] .ws-wire b,html[dir="rtl"] .ws-confirm{font-family:'Shabnam','Shabnam','JetBrains Mono',sans-serif;}
+html[dir="rtl"] .ws-wrap{direction:rtl;}
+html[dir="rtl"] .mockup-grid-hero .mockup-caption::before{content:'● صفحه‌ی زنده‌ی محصول';font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;font-size:.7rem;}
+html[dir="rtl"] .mockup-grid-hero .mockup-caption{display:block;height:auto;white-space:normal;}
+html[dir="rtl"] .mockup-grid-hero .mockup-caption::before{margin-bottom:6px;}
 </style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
 </head>
 <body style="--cs-accent:#2fd6b0;--cs-accent-bg:rgba(47,214,176,0.09);--cs-accent-br:rgba(47,214,176,0.28);">
 
@@ -208,215 +364,467 @@ body{font-family:'Inter',sans-serif;}
   <div class="blob blob-3"></div>
 </div>
 
-<div class="crumb-bar">
-  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
-</div>
-<div class="crumb-trail-bar">
-  <div class="crumb-trail">
-    <a href="../index.html">Home</a>
-    <span class="sep">/</span>
-    <a href="../index.html#work">Work</a>
-    <span class="sep">/</span>
-    <span class="current">PathoFinder</span>
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="PathoFinder" data-fa="پاتوفایندر">PathoFinder</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
   </div>
-</div>
+</header>
 
 <main class="cs-container">
 
   <div class="cs-header-row">
     <div class="cs-header-left">
-      <div class="cs-tag">MEDICAL AI · HEALTHTECH · LIVE DEPLOYMENT</div>
-      <h1 class="cs-title">PathoFinder</h1>
-      <p class="cs-sub">AI-assisted radiographic measurement platform that turns hip, leg, spine and hand X-rays into clinical-grade morphology, alignment and bone-age reports — in daily use at hospitals and radiology centers in Iran.</p>
-      <a class="cs-visit-site" href="https://pathofinder.ai/" target="_blank" rel="noopener">↗ Visit Live Site</a>
+      <div class="cs-tag" data-en="MEDICAL AI · HEALTHTECH · B2B · LIVE DEPLOYMENT" data-fa="هوش مصنوعی پزشکی · سلامت دیجیتال · B2B · در حال استفاده">MEDICAL AI · HEALTHTECH · B2B · LIVE DEPLOYMENT</div>
+      <h1 class="cs-title" data-en="PathoFinder" data-fa="PathoFinder">PathoFinder</h1>
+      <p class="cs-sub" data-en="A B2B platform for hospitals and radiology centers. AI places landmarks on hip, leg, spine and hand X-rays, and PathoFinder turns them into clinical measurements, alignment and bone-age reports — in daily use in Iran." data-fa="پلتفرم B2B برای بیمارستان‌ها و مراکز رادیولوژی. هوش مصنوعی روی تصاویر X-ray لگن، پا، ستون فقرات و دست لندمارک می‌گذارد و پاتوفایندر آن‌ها را به اندازه‌گیری بالینی، راستا و گزارش سن استخوانی تبدیل می‌کند. این محصول هم‌اکنون در ایران به‌صورت روزانه استفاده می‌شود.">A B2B platform for hospitals and radiology centers. AI places landmarks on hip, leg, spine and hand X-rays, and PathoFinder turns them into clinical measurements, alignment and bone-age reports — in daily use in Iran.</p>
+      <a class="cs-visit-site" href="https://pathofinder.ai/" target="_blank" rel="noopener" data-en="↗ Visit Live Site" data-fa="↗ مشاهده سایت">↗ Visit Live Site</a>
     </div>
     <div class="cs-hero-logo"><img src="../assets/images/pathofinder/pathofinder-01.svg" alt="PathoFinder logo"></div>
   </div>
 
   <div class="cs-meta">
-    <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">Sole Product Designer</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Solo — working directly with ML engineers and practicing radiologists</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">Dec 2025 — Present</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">Medical AI / Healthtech</span></div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma · FigJam</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Web (Clinical Desktop)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Role" data-fa="نقش">Role</div><div class="cs-meta-val" data-en="Sole Product Designer" data-fa="تنها طراح محصول">Sole Product Designer</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="Solo — working directly with ML engineers and doctors" data-fa="تک‌نفره، در ارتباط مستقیم با مهندسان یادگیری ماشین و پزشکان">Solo — working directly with ML engineers and doctors</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Timeframe" data-fa="بازه زمانی">Timeframe</div><div class="cs-meta-val" data-en="Dec 2025 — Sep 2026" data-fa="آذر ۱۴۰۴ — مهر ۱۴۰۵">Dec 2025 — Sep 2026</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="B2B" data-fa="B2B">B2B</span><span class="cs-pill on" data-en="Medical AI / Healthtech" data-fa="هوش مصنوعی پزشکی / سلامت دیجیتال">Medical AI / Healthtech</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma · FigJam" data-fa="فیگما · فیگ‌جم">Figma · FigJam</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Web (Clinical Desktop)" data-fa="وب (دسکتاپ بالینی)">Web (Clinical Desktop)</div></div>
   </div>
 
-  <div class="cs-constraint"><b>Constraint —</b><span>Every AI-generated measurement can shape a real clinical decision. Nothing is allowed to become final silently — a radiologist has to explicitly confirm each landmark before a study counts as reviewed.</span></div>
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="Every AI-generated measurement can shape a real clinical decision. Nothing is allowed to become final silently — a radiologist has to explicitly confirm each landmark before a study counts as reviewed." data-fa="هر عددی که هوش مصنوعی تولید می‌کند می‌تواند روی یک تصمیم درمانی واقعی اثر بگذارد. هیچ‌چیز نباید بی‌صدا قطعی شود — رادیولوژیست باید هر نقطه آناتومیک را صریحاً تأیید کند تا آن مطالعه «بررسی‌شده» حساب شود.">Every AI-generated measurement can shape a real clinical decision. Nothing is allowed to become final silently — a radiologist has to explicitly confirm each landmark before a study counts as reviewed.</span></div>
 
   <section class="cs-block" style="margin-top:0;">
-    <div class="cs-sl">01 · Context &amp; Problem</div>
-    <p class="cs-p">PathoFinder reads a plain radiograph and returns the exact measurements a radiologist would otherwise calculate by hand — Tönnis angle, LCEA and CCD angle on a hip film, CPAK zone and full-leg alignment on a scanogram, curvature angles on a spine series, and a Greulich–Pyle bone-age stage on a hand X-ray. When auto-detection lands, the radiologist reviews and confirms it. When it fails — which happens often enough on real, noisy clinical films — the radiologist has to manually place the anatomical landmarks themselves before the study can move forward. My scope was that entire review layer: the four per-modality measurement workspaces, the manual-correction flow after a failed detection, the printable clinical report, and the study-list operations view radiologists and hospital staff use to triage hundreds of cases.</p>
-    <div class="cs-features"><span class="cs-feature-chip">Landmark Recovery Flow</span><span class="cs-feature-chip">CPAK Classification Panel</span><span class="cs-feature-chip">GP Atlas Bone-Age Compare</span><span class="cs-feature-chip">Confirm-Before-Final Pattern</span><span class="cs-feature-chip">Printable Clinical Report</span></div>
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-en="PathoFinder is a B2B platform for hospitals and radiology centers. An AI model places landmarks on X-ray images, and the platform uses them to calculate the measurements radiologists would otherwise do by hand: hip angles, leg alignment and CPAK zone, spine curvature, and bone age. When the AI misses or misplaces a landmark, which happens on noisy real-world films, the radiologist marks where it should be, and its number is filled in. At the client's request, I collected the requirements of radiologists and doctors and designed around them: a measurement screen for each type of X-ray, the flow for fixing landmarks, the printable report, and the study list hospital staff work from." data-fa="پاتوفایندر یک پلتفرم B2B برای بیمارستان‌ها و مراکز رادیولوژی است. یک مدل هوش مصنوعی روی تصاویر X-ray لندمارک می‌گذارد و پلتفرم با آن‌ها اندازه‌هایی را محاسبه می‌کند که رادیولوژیست در غیر این صورت باید دستی حساب کند: زاویه‌های لگن، راستای اندام و ناحیه CPAK، انحنای ستون فقرات و سن استخوانی. وقتی هوش مصنوعی لندمارکی را جا می‌اندازد یا اشتباه می‌گذارد، که روی تصاویر پرنویز واقعی پیش می‌آید، رادیولوژیست محل درست آن را مشخص می‌کند و عددش پر می‌شود. به درخواست مشتری، نیازهای رادیولوژیست‌ها و پزشکان را جمع کردم و طراحی را بر پایه‌ی آن‌ها ساختم: یک صفحه‌ی اندازه‌گیری برای هر نوع X-ray، مسیر اصلاح لندمارک‌ها، گزارش قابل چاپ و فهرست مطالعاتی که کارکنان بیمارستان از آن کار می‌کنند.">PathoFinder is a B2B platform for hospitals and radiology centers. An AI model places landmarks on X-ray images, and the platform uses them to calculate the measurements radiologists would otherwise do by hand: hip angles, leg alignment and CPAK zone, spine curvature, and bone age. When the AI misses or misplaces a landmark, which happens on noisy real-world films, the radiologist marks where it should be, and its number is filled in. At the client's request, I collected the requirements of radiologists and doctors and designed around them: a measurement screen for each type of X-ray, the flow for fixing landmarks, the printable report, and the study list hospital staff work from.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="Landmark Recovery Flow" data-fa="مسیر جبران نقاط آناتومیک">Landmark Recovery Flow</span><span class="cs-feature-chip" data-en="CPAK Classification Panel" data-fa="پنل طبقه‌بندی CPAK">CPAK Classification Panel</span><span class="cs-feature-chip" data-en="GP Atlas Bone-Age Compare" data-fa="مقایسه سن استخوانی با اطلس GP">GP Atlas Bone-Age Compare</span><span class="cs-feature-chip" data-en="Confirm-Before-Final Pattern" data-fa="الگوی تأیید پیش از نهایی‌شدن">Confirm-Before-Final Pattern</span><span class="cs-feature-chip" data-en="Printable Clinical Report" data-fa="گزارش بالینی قابل چاپ">Printable Clinical Report</span></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
     <div class="discovery-wrap">
-      <div class="discovery-method">Reviewed real failed-detection cases with radiologists at Erfan Niayesh Hospital · Mapped each clinical protocol (Tönnis, CCD, CPAK, Greulich–Pyle) to its own measurement vocabulary before touching a single screen</div>
-      <div class="discovery-insight">The hard problem was never "make the AI more accurate." It was that four completely different diagnostic protocols had to live inside one product without radiologists having to relearn the interface every time they switched from a hip film to a hand film.</div>
+      <div class="discovery-method" data-en="Interviews and feedback from doctors and radiology centers · Mapped each clinical protocol (Tönnis, CCD, CPAK, Greulich–Pyle) to its own measurement vocabulary before touching a single screen" data-fa="مصاحبه و بازخورد از پزشکان و مراکز رادیولوژی · تطبیق هر پروتکل بالینی (Tönnis، CCD، CPAK، Greulich–Pyle) با واژگان اندازه‌گیری خودش، پیش از طراحی حتی یک صفحه">Interviews and feedback from doctors and radiology centers · Mapped each clinical protocol (Tönnis, CCD, CPAK, Greulich–Pyle) to its own measurement vocabulary before touching a single screen</div>
+      <div class="discovery-insight" data-en="The problem was never making the AI more accurate. There were two others. Four different diagnostic protocols had to live in one product, without radiologists having to relearn the interface every time they moved from a hip film to a hand film. And when the AI placed a landmark in the wrong spot, or missed it on a noisy X-ray, the radiologist needed a way to fix it and keep working instead of starting over." data-fa="مشکل هیچ‌وقت دقیق‌تر کردن هوش مصنوعی نبود. دو مشکل دیگر وجود داشت. چهار پروتکل تشخیصی متفاوت باید در یک محصول کنار هم قرار می‌گرفتند، بدون اینکه رادیولوژیست هر بار از تصویر لگن به تصویر دست می‌رود مجبور شود رابط را از نو یاد بگیرد. و وقتی هوش مصنوعی لندمارکی را در جای اشتباه می‌گذاشت یا روی یک X-ray پرنویز جا می‌انداخت، رادیولوژیست باید راهی می‌داشت که آن را اصلاح کند و کارش را ادامه دهد، نه اینکه از اول شروع کند.">The problem was never making the AI more accurate. There were two others. Four different diagnostic protocols had to live in one product, without radiologists having to relearn the interface every time they moved from a hip film to a hand film. And when the AI placed a landmark in the wrong spot, or missed it on a noisy X-ray, the radiologist needed a way to fix it and keep working instead of starting over.</div>
+    </div>
+    <p class="cs-p" style="margin-top:28px;" data-en="I wrote each piece of feedback from doctors and radiology centers on its own sticky note, then grouped the notes by what caused the problem." data-fa="بازخورد پزشکان و مراکز رادیولوژی را هر کدام روی یک استیکر نوشتم و بر اساس علت مشکل گروه‌بندی کردم.">I wrote each piece of feedback from doctors and radiology centers on its own sticky note, then grouped the notes by what caused the problem.</p>
+    <div class="aff-grid">
+      <div class="aff-cluster c1">
+        <h4 data-en="I can't verify this number" data-fa="من این عدد را نمی‌توانم راستی‌آزمایی کنم">I can't verify this number</h4>
+        <div class="aff-notes">
+          <div class="aff-note" data-en="Won't act on a measurement they can't check or correct" data-fa="به اندازه‌گیری‌ای که نتوانند بررسی یا اصلاحش کنند اعتماد نمی‌کنند">Won't act on a measurement they can't check or correct</div>
+          <div class="aff-note" data-en="Wants to see which landmarks the number came from" data-fa="می‌خواهند ببینند عدد از روی کدام لندمارک‌ها آمده">Wants to see which landmarks the number came from</div>
+          <div class="aff-note" data-en="A wrong landmark should be fixable on the X-ray itself" data-fa="لندمارک اشتباه باید روی خود X-ray قابل اصلاح باشد">A wrong landmark should be fixable on the X-ray itself</div>
+        </div>
+      </div>
+      <div class="aff-cluster c2">
+        <h4 data-en="The AI missed a landmark" data-fa="هوش مصنوعی یک لندمارک را جا انداخته">The AI missed a landmark</h4>
+        <div class="aff-notes">
+          <div class="aff-note" data-en="A missed landmark must not block the whole study" data-fa="لندمارک جاافتاده نباید کل مطالعه را متوقف کند">A missed landmark must not block the whole study</div>
+          <div class="aff-note" data-en="Needs to know exactly which landmarks are still missing" data-fa="باید دقیقاً بدانند کدام لندمارک‌ها هنوز مانده">Needs to know exactly which landmarks are still missing</div>
+          <div class="aff-note" data-en="After marking the missing landmark, its number should fill in by itself" data-fa="بعد از مشخص کردن لندمارک جاافتاده، عددش خودکار پر شود">After marking the missing landmark, its number should fill in by itself</div>
+        </div>
+      </div>
+      <div class="aff-cluster c3">
+        <h4 data-en="Hard to read during a long day" data-fa="خواندنش در یک روز طولانی سخت است">Hard to read during a long day</h4>
+        <div class="aff-notes">
+          <div class="aff-note" data-en="Bright screens tire the eyes in dark reading rooms" data-fa="صفحه‌ی روشن در اتاق تاریک خواندن، چشم را خسته می‌کند">Bright screens tire the eyes in dark reading rooms</div>
+          <div class="aff-note" data-en="Right-side and left-side numbers must be read quickly and without mistakes" data-fa="اعداد سمت راست و چپ بدن باید سریع و بدون خطا خوانده شوند">Right-side and left-side numbers must be read quickly and without mistakes</div>
+          <div class="aff-note" data-en="Numbers should stand out from the text around them" data-fa="اعداد باید از متن اطرافشان جدا و واضح باشند">Numbers should stand out from the text around them</div>
+        </div>
+      </div>
+      <div class="aff-cluster c4">
+        <h4 data-en="The report has to travel" data-fa="گزارش باید دست‌به‌دست شود">The report has to travel</h4>
+        <div class="aff-notes">
+          <div class="aff-note" data-en="Referring doctors need a clean printout, not a screenshot of the workspace" data-fa="پزشک ارجاع‌دهنده چاپ تمیز می‌خواهد، نه اسکرین‌شات محیط کار">Referring doctors need a clean printout, not a screenshot of the workspace</div>
+          <div class="aff-note" data-en="Hospitals want their own letterhead on it" data-fa="بیمارستان‌ها سربرگ خودشان را روی آن می‌خواهند">Hospitals want their own letterhead on it</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="cs-block">
-    <div class="cs-sl">03 · Process</div>
-    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title">The failure state came before the happy path</div><div class="process-text">I designed the "auto-detection failed" recovery flow first, not the successful case. It surfaces as an ordered checklist of the exact landmarks still needed — femoral_head_center, femoral_head_top, greater_trochanter, medial_condyle_of_femur — each tappable directly onto the film, with the alignment numbers updating live as each point lands.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title">One grid, four clinical vocabularies</div><div class="process-text">Hip morphology alone surfaces 12 distinct measurements. Rather than a bespoke layout per modality, I built one numbered-category grid — badge, clinical name, plain-language subtitle, value — and reused it for hip, leg alignment, spine and bone age. Radiologists learn the pattern once; only the content changes.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title">The report answers to someone who never opens the tool</div><div class="process-text">The dense review workspace and the printed clinical report needed to share one data model but look nothing alike. I split them deliberately: a technical, editable workspace for the radiologist, and a plain letterhead-and-table report any partner hospital can print under its own branding for the referring physician.</div></div></div><div class="process-item"><div class="process-num">04</div><div><div class="process-title">Contrast and scale for a workspace read under time pressure</div><div class="process-text">Radiologists scan these values quickly between cases, so I kept a high contrast between label and value text in the measurement grid and sized numbers to be readable at a glance, rather than optimizing purely for information density.</div></div></div></div>
+  <section class="cs-block" id="information-architecture">
+    <div class="cs-sl" data-en="03 · Information Architecture" data-fa="۰۳ · معماری اطلاعات">03 · Information Architecture</div>
+    <p class="cs-p" data-en="Radiologists move between hip, leg, spine and hand films all day, so the structure couldn't change every time the anatomy did. The product has three top-level areas: a study list to triage from, one workspace per anatomy, and a printable report. Everything inside a workspace follows the same layout." data-fa="رادیولوژیست‌ها در طول روز بین تصاویر لگن، پا، ستون فقرات و دست جابه‌جا می‌شوند، پس ساختار نباید با هر تغییر آناتومی عوض می‌شد. محصول سه بخش اصلی دارد: فهرست مطالعات برای اولویت‌بندی، یک فضای کاری برای هر آناتومی و یک گزارش قابل چاپ. هر چیزی داخل فضای کاری از یک چیدمان پیروی می‌کند.">Radiologists move between hip, leg, spine and hand films all day, so the structure couldn't change every time the anatomy did. The product has three top-level areas: a study list to triage from, one workspace per anatomy, and a printable report. Everything inside a workspace follows the same layout.</p>
+    <div class="ia-wrap">
+      <div class="ia-root">PathoFinder</div>
+      <div class="ia-branches">
+        <div class="ia-branch">
+          <div class="ia-title" data-en="Study list" data-fa="فهرست مطالعات">Study list</div>
+          <div class="ia-desc" data-en="Home. Studies and their X-rays are loaded by the system, and staff triage hundreds of cases here." data-fa="صفحه‌ی اصلی. مطالعات و X-rayهایشان توسط سیستم بارگذاری می‌شوند و کارکنان صدها پرونده را از همین‌جا اولویت‌بندی می‌کنند.">Home. Studies and their X-rays are loaded by the system, and staff triage hundreds of cases here.</div>
+          <div class="ia-leaves"><span class="ia-leaf" data-en="Search" data-fa="جستجو">Search</span><span class="ia-leaf" data-en="Filter" data-fa="فیلتر">Filter</span></div>
+          <div class="ia-sub" data-en="Status on every row" data-fa="وضعیت در هر ردیف">Status on every row</div>
+          <div class="ia-leaves"><span class="ia-leaf warn" data-en="Failed" data-fa="ناموفق">Failed</span><span class="ia-leaf" data-en="Analyzed" data-fa="تحلیل‌شده">Analyzed</span><span class="ia-leaf hl" data-en="Confirmed" data-fa="تأییدشده">Confirmed</span></div>
+        </div>
+        <div class="ia-branch">
+          <div class="ia-title" data-en="Study workspace" data-fa="فضای کاری مطالعه">Study workspace</div>
+          <div class="ia-desc" data-en="One workspace per anatomy, with the same layout in each." data-fa="یک فضای کاری برای هر آناتومی، با چیدمان یکسان.">One workspace per anatomy, with the same layout in each.</div>
+          <div class="ia-leaves"><span class="ia-leaf hl" data-en="Hip" data-fa="لگن">Hip</span><span class="ia-leaf hl" data-en="Leg alignment · CPAK" data-fa="راستای پا · CPAK">Leg alignment · CPAK</span><span class="ia-leaf hl" data-en="Spine AP/LAT" data-fa="ستون فقرات AP/LAT">Spine AP/LAT</span><span class="ia-leaf hl" data-en="Bone age" data-fa="سن استخوانی">Bone age</span></div>
+          <div class="ia-sub" data-en="Same pattern, report output" data-fa="همان الگو، خروجی گزارش">Same pattern, report output</div>
+          <div class="ia-leaves"><span class="ia-leaf dim" data-en="Knee" data-fa="زانو">Knee</span><span class="ia-leaf dim" data-en="Foot &amp; ankle" data-fa="پا و مچ پا">Foot &amp; ankle</span></div>
+        </div>
+        <div class="ia-branch">
+          <div class="ia-title" data-en="Clinical report" data-fa="گزارش بالینی">Clinical report</div>
+          <div class="ia-desc" data-en="Printable A4, kept apart from the workspace on purpose." data-fa="گزارش قابل چاپ A4 که عمداً از فضای کاری جدا نگه داشته شده است.">Printable A4, kept apart from the workspace on purpose.</div>
+          <div class="ia-leaves"><span class="ia-leaf" data-en="Hospital letterhead" data-fa="سربرگ بیمارستان">Hospital letterhead</span><span class="ia-leaf" data-en="Patient details" data-fa="مشخصات بیمار">Patient details</span><span class="ia-leaf" data-en="Measurement table" data-fa="جدول اندازه‌گیری">Measurement table</span><span class="ia-leaf" data-en="Print" data-fa="چاپ">Print</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mockup-section-label" style="margin-top:34px;" data-en="Inside every workspace" data-fa="داخل هر فضای کاری">Inside every workspace</div>
+    <div class="ws-wrap">
+      <div class="ws-wire" aria-hidden="true">
+        <div class="ws-bar"><span data-en="Patient · Leg alignment" data-fa="بیمار · راستای پا">Patient · Leg alignment</span><span class="st" data-en="Failed" data-fa="ناموفق">Failed</span></div>
+        <div class="ws-body">
+          <div class="ws-film">
+            <span class="ws-n">1</span>
+            <svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg">
+              <path d="M110 14 V132" stroke="#3a4b63" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+              <path d="M110 40 L110 74 L110 108" stroke="#2fd6b0" stroke-width="1.2" stroke-dasharray="4 4" fill="none"/>
+              <circle cx="110" cy="40" r="5" fill="#2fd6b0"/>
+              <circle cx="110" cy="74" r="5" fill="#2fd6b0"/>
+              <circle cx="110" cy="108" r="5.5" fill="none" stroke="#ff7a85" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+              <text x="124" y="111" fill="#ff8d97" font-size="8" font-family="JetBrains Mono,Shabnam,monospace" data-en="missing" data-fa="جاافتاده">missing</text>
+            </svg>
+          </div>
+          <div class="ws-side">
+            <div class="ws-box"><span class="ws-n">2</span><b data-en="MEASUREMENTS" data-fa="اندازه‌گیری‌ها">MEASUREMENTS</b><div class="ws-row"><span>HKA</span><em>—</em></div><div class="ws-row"><span>mLDFA</span><em>—</em></div><div class="ws-row"><span>MAD</span><em>—</em></div></div>
+            <div class="ws-box fail"><span class="ws-n">3</span><b data-en="LANDMARKS LEFT" data-fa="لندمارک‌های باقی‌مانده">LANDMARKS LEFT</b><div class="ws-row"><span class="ok">✓ femoral_head_center</span></div><div class="ws-row"><span class="todo">○ medial_condyle</span></div></div>
+            <div class="ws-confirm"><span class="ws-n">4</span><span data-en="Confirm" data-fa="تأیید">Confirm</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ws-legend">
+        <div class="ws-legend-item"><div class="ws-legend-n">1</div><div><div class="ws-legend-t" data-en="Film canvas" data-fa="بوم تصویر">Film canvas</div><div class="ws-legend-d" data-en="The film with landmark overlays. It's what the radiologist is actually judging, so it gets the most space." data-fa="تصویر X-ray همراه با لایه‌ی لندمارک‌ها. رادیولوژیست در واقع همین را ارزیابی می‌کند، برای همین بیشترین فضا را می‌گیرد.">The film with landmark overlays. It's what the radiologist is actually judging, so it gets the most space.</div></div></div>
+        <div class="ws-legend-item"><div class="ws-legend-n">2</div><div><div class="ws-legend-t" data-en="Numbered measurement grid" data-fa="شبکه‌ی شماره‌دار اندازه‌گیری">Numbered measurement grid</div><div class="ws-legend-d" data-en="Badge, clinical name, plain-language subtitle, value. Identical in every modality; only the content changes." data-fa="نشان، نام بالینی، زیرعنوان به زبان ساده و مقدار. در همه‌ی انواع تصویر یکسان است و فقط محتوا عوض می‌شود.">Badge, clinical name, plain-language subtitle, value. Identical in every modality; only the content changes.</div></div></div>
+        <div class="ws-legend-item"><div class="ws-legend-n">3</div><div><div class="ws-legend-t" data-en="Landmark checklist" data-fa="چک‌لیست لندمارک">Landmark checklist</div><div class="ws-legend-d" data-en="Only present when auto-detection fails. It lists what's still missing and goes away once the last landmark is marked." data-fa="فقط وقتی تشخیص خودکار شکست می‌خورد ظاهر می‌شود. آنچه هنوز مانده را فهرست می‌کند و با مشخص شدن آخرین لندمارک ناپدید می‌شود.">Only present when auto-detection fails. It lists what's still missing and goes away once the last landmark is marked.</div></div></div>
+        <div class="ws-legend-item"><div class="ws-legend-n">4</div><div><div class="ws-legend-t" data-en="Confirm" data-fa="تأیید">Confirm</div><div class="ws-legend-d" data-en="The one action that makes a study final." data-fa="تنها کاری که یک مطالعه را نهایی می‌کند.">The one action that makes a study final.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-block" id="user-flow">
+    <div class="cs-sl" data-en="04 · User Flow" data-fa="۰۴ · یوزر فلو">04 · User Flow</div>
+    <div class="l-en">
+    <p class="cs-p">The main flow follows one study from arrival to sign-off. The branch I spent the most time on is the one where the AI misses or misplaces a landmark: it isn't an error screen, it's a second route through the same product that ends at the same review and the same confirmation.</p>
+    <div class="fl-wrap">
+      <div class="fl-scroll"><svg class="fl-svg" viewBox="0 0 1000 320" role="img" aria-label="User flow: the system loads a study, AI places landmarks, if all landmarks are found the radiologist reviews and confirms; if it fails the study is marked Failed, a landmark checklist appears, the radiologist marks each missing landmark on the X-ray, its number fills in, and the study returns to review.">
+          <defs>
+            <marker id="flArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6b7a93"/></marker>
+            <marker id="flArrF" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff7a85"/></marker>
+          </defs>
+
+          <!-- main row -->
+          <rect class="fl-n sys" x="16" y="72" width="124" height="56" rx="10"/>
+          <text class="fl-t1" x="78" y="97" text-anchor="middle">Study arrives</text>
+          <text class="fl-t2" x="78" y="114" text-anchor="middle">loaded by system</text>
+
+          <rect class="fl-n ai" x="172" y="72" width="132" height="56" rx="10"/>
+          <text class="fl-t1" x="238" y="97" text-anchor="middle">AI landmarks</text>
+          <text class="fl-t2" x="238" y="114" text-anchor="middle">on X-ray + measures</text>
+
+          <polygon class="fl-dec" points="340,100 396,60 452,100 396,140"/>
+          <text class="fl-t1" x="396" y="97" text-anchor="middle">Found?</text>
+          <text class="fl-t2" x="396" y="112" text-anchor="middle">all landmarks</text>
+
+          <rect class="fl-n staff" x="500" y="72" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="565" y="97" text-anchor="middle">Review</text>
+          <text class="fl-t2" x="565" y="114" text-anchor="middle">overlay + numbers</text>
+
+          <rect class="fl-n staff" x="670" y="72" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="735" y="97" text-anchor="middle">Confirm</text>
+          <text class="fl-t2" x="735" y="114" text-anchor="middle">explicit sign-off</text>
+          <text class="fl-note" x="735" y="58" text-anchor="middle">nothing is final silently</text>
+
+          <rect class="fl-n done" x="840" y="72" width="144" height="56" rx="10"/>
+          <text class="fl-t1" x="912" y="97" text-anchor="middle">Confirmed</text>
+          <text class="fl-t2" x="912" y="114" text-anchor="middle">print clinical report</text>
+
+          <!-- main arrows -->
+          <path class="fl-line" d="M140 100 H168" marker-end="url(#flArr)"/>
+          <path class="fl-line" d="M304 100 H336" marker-end="url(#flArr)"/>
+          <path class="fl-line" d="M452 100 H496" marker-end="url(#flArr)"/>
+          <text class="fl-lbl" x="474" y="90" text-anchor="middle">yes</text>
+          <path class="fl-line" d="M630 100 H666" marker-end="url(#flArr)"/>
+          <path class="fl-line" d="M800 100 H836" marker-end="url(#flArr)"/>
+
+          <!-- failure branch -->
+          <path class="fl-line fail" d="M396 140 V228" marker-end="url(#flArrF)"/>
+          <text class="fl-lbl" x="408" y="188">no</text>
+
+          <rect class="fl-n fail" x="336" y="232" width="120" height="56" rx="10"/>
+          <text class="fl-t1" x="396" y="257" text-anchor="middle">Marked Failed</text>
+          <text class="fl-t2" x="396" y="274" text-anchor="middle">shows in study list</text>
+
+          <rect class="fl-n fail" x="500" y="232" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="565" y="257" text-anchor="middle">Landmark checklist</text>
+          <text class="fl-t2" x="565" y="274" text-anchor="middle">what's still missing</text>
+
+          <rect class="fl-n staff" x="670" y="232" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="735" y="257" text-anchor="middle">Mark landmark</text>
+          <text class="fl-t2" x="735" y="274" text-anchor="middle">its number fills in</text>
+
+          <path class="fl-line fail" d="M456 260 H496" marker-end="url(#flArrF)"/>
+          <path class="fl-line fail" d="M630 260 H666" marker-end="url(#flArrF)"/>
+          <path class="fl-line fail" d="M735 232 V190 H565 V132" marker-end="url(#flArrF)"/>
+          <text class="fl-lbl" x="650" y="182" text-anchor="middle">all landmarks marked</text>
+        </svg></div>
+      <div class="fl-legend">
+        <span><i style="border-color:#2fd6b0"></i>Radiologist / staff action</span>
+        <span><i style="border-color:#93a1b8"></i>System</span>
+        <span><i style="border-color:#9b8cff"></i>AI step</span>
+        <span><i style="border-color:#4f8cff"></i>Decision</span>
+        <span><i style="border-color:#ff7a85"></i>Failure path</span>
+      </div>
+    </div>
+  </div>
+  <div class="l-fa" lang="fa" dir="rtl">
+    <p class="cs-p">فلو کاربر یک مطالعه را از ورودش تا امضای نهایی دنبال می‌کند. مسیری که بیشترین وقت را رویش گذاشتم جایی بود که هوش مصنوعی لندمارکی را جا انداخته یا اشتباه گذاشته است. این یک صفحه‌ی خطا نیست، مسیر دومی داخل همان محصول است که به همان بررسی و همان تأیید می‌رسد.</p>
+    <div class="fl-wrap">
+      <div class="fl-scroll" dir="ltr"><svg class="fl-svg fa" viewBox="0 0 1000 320" role="img" aria-label="یوزر فلو: مطالعه توسط سیستم وارد می‌شود، هوش مصنوعی روی X-ray لندمارک می‌زند. اگر همه لندمارک‌ها پیدا شوند، رادیولوژیست بررسی و تأیید می‌کند. اگر نه، مطالعه ناموفق علامت می‌خورد، چک‌لیست لندمارک نشان داده می‌شود، رادیولوژیست لندمارک جاافتاده را مشخص می‌کند، عددش پر می‌شود و مطالعه به مرحله‌ی بررسی برمی‌گردد.">
+          <defs>
+            <marker id="flArrFa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6b7a93"/></marker>
+            <marker id="flArrFaF" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff7a85"/></marker>
+          </defs>
+          <rect class="fl-n sys" x="860" y="72" width="124" height="56" rx="10"/>
+          <text class="fl-t1" x="922" y="97" text-anchor="middle">ورود مطالعه</text>
+          <text class="fl-t2" x="922" y="114" text-anchor="middle">بارگذاری توسط سیستم</text>
+          <rect class="fl-n ai" x="696" y="72" width="132" height="56" rx="10"/>
+          <text class="fl-t1" x="762" y="97" text-anchor="middle">لندمارک توسط AI</text>
+          <text class="fl-t2" x="762" y="114" text-anchor="middle">روی X-ray + اندازه‌گیری</text>
+          <polygon class="fl-dec" points="660,100 604,60 548,100 604,140"/>
+          <text class="fl-t1" x="604" y="97" text-anchor="middle">پیدا شد؟</text>
+          <text class="fl-t2" x="604" y="112" text-anchor="middle">همه لندمارک‌ها</text>
+          <rect class="fl-n staff" x="370" y="72" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="435" y="97" text-anchor="middle">بررسی</text>
+          <text class="fl-t2" x="435" y="114" text-anchor="middle">تصویر و اعداد</text>
+          <rect class="fl-n staff" x="200" y="72" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="265" y="97" text-anchor="middle">تأیید</text>
+          <text class="fl-t2" x="265" y="114" text-anchor="middle">امضای صریح</text>
+          <text class="fl-note" x="265" y="58" text-anchor="middle">هیچ‌چیز بی‌تأیید نهایی نمی‌شود</text>
+          <rect class="fl-n done" x="16" y="72" width="144" height="56" rx="10"/>
+          <text class="fl-t1" x="88" y="97" text-anchor="middle">تأیید شد</text>
+          <text class="fl-t2" x="88" y="114" text-anchor="middle">چاپ گزارش بالینی</text>
+          <path class="fl-line" d="M860 100 H832" marker-end="url(#flArrFa)"/>
+          <path class="fl-line" d="M696 100 H664" marker-end="url(#flArrFa)"/>
+          <path class="fl-line" d="M548 100 H504" marker-end="url(#flArrFa)"/>
+          <text class="fl-lbl" x="526" y="90" text-anchor="middle">بله</text>
+          <path class="fl-line" d="M370 100 H334" marker-end="url(#flArrFa)"/>
+          <path class="fl-line" d="M200 100 H164" marker-end="url(#flArrFa)"/>
+          <path class="fl-line fail" d="M604 140 V228" marker-end="url(#flArrFaF)"/>
+          <text class="fl-lbl" x="592" y="188" text-anchor="middle">خیر</text>
+          <rect class="fl-n fail" x="544" y="232" width="120" height="56" rx="10"/>
+          <text class="fl-t1" x="604" y="257" text-anchor="middle">ناموفق</text>
+          <text class="fl-t2" x="604" y="274" text-anchor="middle">در لیست دیده می‌شود</text>
+          <rect class="fl-n fail" x="370" y="232" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="435" y="257" text-anchor="middle">چک‌لیست لندمارک</text>
+          <text class="fl-t2" x="435" y="274" text-anchor="middle">آنچه هنوز مانده</text>
+          <rect class="fl-n staff" x="200" y="232" width="130" height="56" rx="10"/>
+          <text class="fl-t1" x="265" y="257" text-anchor="middle">مشخص کردن لندمارک</text>
+          <text class="fl-t2" x="265" y="274" text-anchor="middle">عددش پر می‌شود</text>
+          <path class="fl-line fail" d="M544 260 H504" marker-end="url(#flArrFaF)"/>
+          <path class="fl-line fail" d="M370 260 H334" marker-end="url(#flArrFaF)"/>
+          <path class="fl-line fail" d="M265 232 V190 H435 V132" marker-end="url(#flArrFaF)"/>
+          <text class="fl-lbl" x="350" y="182" text-anchor="middle">همه لندمارک‌ها مشخص شد</text>
+        </svg></div>
+      <div class="fl-legend">
+        <span><i style="border-color:#2fd6b0"></i>اقدام رادیولوژیست / کارمند</span>
+        <span><i style="border-color:#93a1b8"></i>سیستم</span>
+        <span><i style="border-color:#9b8cff"></i>مرحله‌ی AI</span>
+        <span><i style="border-color:#4f8cff"></i>تصمیم</span>
+        <span><i style="border-color:#ff7a85"></i>مسیر شکست</span>
+      </div>
+    </div>
+  </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">04 · Solution</div>
-    <p class="cs-p">Four measurement workspaces sharing one interaction pattern: the film with landmark overlays in the center, a numbered category grid for that modality's clinical values, and — whenever auto-detection fails — a clear recovery flow that hands control back to the radiologist. Every workspace collapses into the same printable clinical report format, and a study only becomes <b>Confirmed</b> once a radiologist has explicitly signed off on it.</p>
-    <div class="mockup-section-label">Workspace — desktop review screens</div>
+    <div class="cs-sl" data-en="05 · Process" data-fa="۰۵ · روند کار">05 · Process</div>
+    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="The failure state came before the happy path" data-fa="حالت شکست، پیش از مسیر موفق طراحی شد">The failure state came before the happy path</div><div class="process-text" data-html="true" data-en="I designed the &quot;auto-detection failed&quot; recovery flow first, not the successful case. It surfaces as an ordered checklist of the exact landmarks still needed — femoral_head_center, femoral_head_top, greater_trochanter, medial_condyle_of_femur. The radiologist only marks on the film where each missing landmark is, and its number is filled in." data-fa="اول مسیر جبران شکستِ تشخیص خودکار را طراحی کردم، نه حالت موفق را. این مسیر به‌شکل چک‌لیستی مرتب از همان لندمارک‌هایی که هنوز لازم است ظاهر می‌شود: &lt;bdi&gt;femoral_head_center&lt;/bdi&gt;، &lt;bdi&gt;femoral_head_top&lt;/bdi&gt;، &lt;bdi&gt;greater_trochanter&lt;/bdi&gt;، &lt;bdi&gt;medial_condyle_of_femur&lt;/bdi&gt;. رادیولوژیست فقط روی تصویر مشخص می‌کند هر لندمارک جاافتاده کجاست و عددش پر می‌شود.">I designed the "auto-detection failed" recovery flow first, not the successful case. It surfaces as an ordered checklist of the exact landmarks still needed — femoral_head_center, femoral_head_top, greater_trochanter, medial_condyle_of_femur. The radiologist only marks on the film where each missing landmark is, and its number is filled in.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="One grid, four clinical vocabularies" data-fa="یک شبکه، چهار واژگان بالینی">One grid, four clinical vocabularies</div><div class="process-text" data-en="Hip alone surfaces 12 distinct measurements. Rather than a bespoke layout per modality, I built one numbered-category grid — badge, clinical name, plain-language subtitle, value — and reused it for hip, leg alignment, spine and bone age. Radiologists learn the pattern once; only the content changes." data-fa="فقط لگن ۱۲ اندازه‌گیری مجزا دارد. به‌جای یک چیدمان اختصاصی برای هر نوع تصویر، یک شبکه‌ی دسته‌بندی‌شده و شماره‌دار ساختم (نشان، نام بالینی، زیرعنوان به زبان ساده، مقدار) و همان را برای لگن، راستای اندام، ستون فقرات و سن استخوانی به کار بردم. رادیولوژیست الگو را یک بار یاد می‌گیرد و فقط محتوا عوض می‌شود.">Hip alone surfaces 12 distinct measurements. Rather than a bespoke layout per modality, I built one numbered-category grid — badge, clinical name, plain-language subtitle, value — and reused it for hip, leg alignment, spine and bone age. Radiologists learn the pattern once; only the content changes.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="The report answers to someone who never opens the tool" data-fa="گزارش برای کسی نوشته می‌شود که هیچ‌وقت وارد نرم‌افزار نمی‌شود">The report answers to someone who never opens the tool</div><div class="process-text" data-en="The dense review workspace and the printed clinical report needed to share one data model but look nothing alike. I split them deliberately: a technical, editable workspace for the radiologist, and a plain letterhead-and-table report any partner hospital can print under its own branding for the referring physician." data-fa="فضای کاری متراکم بررسی و گزارش چاپی بالینی باید یک مدل داده مشترک داشته باشند ولی هیچ شباهتی به هم نداشته باشند. عمداً جدایشان کردم: یک فضای کاری فنی و قابل ویرایش برای رادیولوژیست، و یک گزارش ساده سربرگ‌دار و جدولی که هر بیمارستان همکار بتواند با برند خودش برای پزشک ارجاع‌دهنده چاپ کند.">The dense review workspace and the printed clinical report needed to share one data model but look nothing alike. I split them deliberately: a technical, editable workspace for the radiologist, and a plain letterhead-and-table report any partner hospital can print under its own branding for the referring physician.</div></div></div></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="06 · Solution" data-fa="۰۶ · راه‌حل">06 · Solution</div>
+    <p class="cs-p" data-html="true" data-en="Four measurement workspaces sharing one interaction pattern: the film with landmark overlays in the center, a numbered category grid for that modality's clinical values, and — whenever auto-detection fails — a clear recovery flow that hands control back to the radiologist. Every workspace collapses into the same printable clinical report format, and a study only becomes &lt;b&gt;Confirmed&lt;/b&gt; once a radiologist has explicitly signed off on it." data-fa="چهار فضای کاری اندازه‌گیری با یک الگوی تعامل مشترک: تصویر همراه با لایه‌ی لندمارک‌ها در مرکز، یک شبکه‌ی دسته‌بندی‌شده و شماره‌دار برای مقادیر بالینی همان نوع تصویر، و هر وقت تشخیص خودکار شکست بخورد، یک مسیر جبران روشن که کنترل را به رادیولوژیست برمی‌گرداند. هر فضای کاری به همان قالب گزارش بالینی قابل چاپ ختم می‌شود و یک مطالعه فقط وقتی &lt;b&gt;تأییدشده&lt;/b&gt; حساب می‌شود که رادیولوژیست صریحاً آن را امضا کرده باشد.">Four measurement workspaces sharing one interaction pattern: the film with landmark overlays in the center, a numbered category grid for that modality's clinical values, and — whenever auto-detection fails — a clear recovery flow that hands control back to the radiologist. Every workspace collapses into the same printable clinical report format, and a study only becomes <b>Confirmed</b> once a radiologist has explicitly signed off on it.</p>
+    <div class="mockup-section-label" data-en="Workspace — desktop review screens" data-fa="فضای کاری — صفحات بررسی دسکتاپ">Workspace — desktop review screens</div>
     <div class="mockup-grid mockup-grid-hero"><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>Dashboard.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-02.png" alt="Study list — Failed / Analyzed / Confirmed status at a glance across hundreds of studies." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Study list — Failed / Analyzed / Confirmed status at a glance across hundreds of studies.</div>
+      <div class="mockup-caption" data-en="Study list — Failed / Analyzed / Confirmed status at a glance across hundreds of studies." data-fa="فهرست مطالعات — وضعیت شکست‌خورده / تحلیل‌شده / تأییدشده، در یک نگاه روی صدها مطالعه.">Study list — Failed / Analyzed / Confirmed status at a glance across hundreds of studies.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>LLA.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-03.png" alt="Leg alignment (CPAK) workspace — recovering from a failed auto-landmark detection." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Leg alignment (CPAK) workspace — recovering from a failed auto-landmark detection.</div>
+      <div class="mockup-caption" data-en="Leg alignment (CPAK) workspace — recovering from a failed auto-landmark detection." data-fa="فضای کاری راستای اندام (CPAK) — جبران پس از شکست تشخیص خودکار نقاط آناتومیک.">Leg alignment (CPAK) workspace — recovering from a failed auto-landmark detection.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>panel__AP.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-04.png" alt="Spine AP/LAT — curvature angles measured across two synchronized views." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Spine AP/LAT — curvature angles measured across two synchronized views.</div>
+      <div class="mockup-caption" data-en="Spine AP/LAT — curvature angles measured across two synchronized views." data-fa="ستون فقرات AP/LAT — اندازه‌گیری زوایای انحنا روی دو نمای هماهنگ‌شده.">Spine AP/LAT — curvature angles measured across two synchronized views.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>panel__AP-1.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-05.png" alt="Bone age — patient X-ray compared stage-by-stage against the Greulich–Pyle atlas." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Bone age — patient X-ray compared stage-by-stage against the Greulich–Pyle atlas.</div>
+      <div class="mockup-caption" data-en="Bone age — patient X-ray compared stage-by-stage against the Greulich–Pyle atlas." data-fa="سن استخوانی — مقایسه مرحله‌به‌مرحله رادیوگرافی بیمار با اطلس Greulich–Pyle.">Bone age — patient X-ray compared stage-by-stage against the Greulich–Pyle atlas.</div>
     </div></div>
-<div class="mockup-section-label">Printable clinical reports — A4</div>
+<div class="mockup-section-label" data-en="Printable clinical reports — A4" data-fa="گزارش‌های بالینی قابل چاپ — A4">Printable clinical reports — A4</div>
     <div class="mockup-grid"><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area a4">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>A4_-__report_HIP.png</code>
         </div>
-        <img src="../assets/images/pathofinder/pathofinder-06.png" alt="Printable clinical report — 12-category hip morphology breakdown, hospital-letterhead ready." loading="lazy"
+        <img src="../assets/images/pathofinder/pathofinder-06.png" alt="Printable clinical report — 12-category hip measurement breakdown, hospital-letterhead ready." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Printable clinical report — 12-category hip morphology breakdown, hospital-letterhead ready.</div>
+      <div class="mockup-caption" data-en="Printable clinical report — 12-category hip measurement breakdown, hospital-letterhead ready." data-fa="گزارش بالینی قابل چاپ، تفکیک ۱۲ دسته‌ای اندازه‌گیری‌های لگن، آماده چاپ روی سربرگ بیمارستان.">Printable clinical report — 12-category hip measurement breakdown, hospital-letterhead ready.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area a4">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>A4_-__report-1.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-07.png" alt="Printable report — leg alignment (MAD, HKA, mLDFA) and CPAK classification zone." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Printable report — leg alignment (MAD, HKA, mLDFA) and CPAK classification zone.</div>
+      <div class="mockup-caption" data-en="Printable report — leg alignment (MAD, HKA, mLDFA) and CPAK classification zone." data-fa="گزارش قابل چاپ — راستای اندام (MAD، HKA، mLDFA) و ناحیه طبقه‌بندی CPAK.">Printable report — leg alignment (MAD, HKA, mLDFA) and CPAK classification zone.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area a4">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>A4_-__report_foot_ap.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-08.png" alt="Printable report — foot & ankle alignment and hallux valgus deformity measurements." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Printable report — foot & ankle alignment and hallux valgus deformity measurements.</div>
+      <div class="mockup-caption" data-en="Printable report — foot &amp; ankle alignment and hallux valgus deformity measurements." data-fa="گزارش قابل چاپ — راستای پا و مچ پا و اندازه‌گیری دفورمیتی هالوکس والگوس.">Printable report — foot & ankle alignment and hallux valgus deformity measurements.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area a4">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>A4_-__report_KNEE_ap.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-09.png" alt="Printable report — knee coronal alignment, joint space width and KL osteoarthritis grade." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Printable report — knee coronal alignment, joint space width and KL osteoarthritis grade.</div>
+      <div class="mockup-caption" data-en="Printable report — knee coronal alignment, joint space width and KL osteoarthritis grade." data-fa="گزارش قابل چاپ — راستای کرونال زانو، عرض فضای مفصلی و درجه آرتروز KL.">Printable report — knee coronal alignment, joint space width and KL osteoarthritis grade.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area a4">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>A4_-__report.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-10.png" alt="Printable report — GP bone-age result with SDS score and growth-remaining estimate." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Printable report — GP bone-age result with SDS score and growth-remaining estimate.</div>
+      <div class="mockup-caption" data-en="Printable report — GP bone-age result with SDS score and growth-remaining estimate." data-fa="گزارش قابل چاپ — نتیجه سن استخوانی GP همراه با نمره SDS و برآورد رشد باقی‌مانده.">Printable report — GP bone-age result with SDS score and growth-remaining estimate.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area a4">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>A4_-__report_LAT.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-11.png" alt="Printable report — whole-spine AP &amp; LAT curve analysis, Cobb angles and coronal/sagittal balance." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Printable report — whole-spine AP &amp; LAT curve analysis, Cobb angles and coronal/sagittal balance.</div>
+      <div class="mockup-caption" data-en="Printable report — whole-spine AP &amp; LAT curve analysis, Cobb angles and coronal/sagittal balance." data-fa="گزارش قابل چاپ — تحلیل انحنای کل ستون فقرات در نمای AP و LAT، زوایای کاب و تعادل کرونال/ساژیتال.">Printable report — whole-spine AP &amp; LAT curve analysis, Cobb angles and coronal/sagittal balance.</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area a4">
         <div class="shot-placeholder">
           <span class="mp-icon">&#128444;</span>
-          <span class="mp-hint">Drop mockup screenshot here</span>
+          <span class="mp-hint" data-en="Drop mockup screenshot here" data-fa="اسکرین‌شات ماکاپ اینجا قرار می‌گیرد">Drop mockup screenshot here</span>
           <code>LAT-print_report_a5.png</code>
         </div>
         <img src="../assets/images/pathofinder/pathofinder-12.png" alt="Printable report — lateral (LAT) spine alignment: thoracic, lumbar, cervical and sagittal balance parameters." loading="lazy"
              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'" onerror="this.style.opacity=0">
       </div>
-      <div class="mockup-caption">Printable report — lateral (LAT) spine alignment: thoracic, lumbar, cervical and sagittal balance parameters.</div>
+      <div class="mockup-caption" data-en="Printable report — lateral (LAT) spine alignment: thoracic, lumbar, cervical and sagittal balance parameters." data-fa="گزارش قابل چاپ — راستای ستون فقرات در نمای جانبی (LAT): پارامترهای توراسیک، لومبار، سرویکال و تعادل ساژیتال.">Printable report — lateral (LAT) spine alignment: thoracic, lumbar, cervical and sagittal balance parameters.</div>
     </div></div>
+  
+  </section>
+
+  <section class="cs-block" id="success-metrics">
+    <div class="cs-sl" data-en="07 · Success Metrics" data-fa="۰۷ · معیارهای موفقیت">07 · Success Metrics</div>
+    <p class="cs-p" data-en="PathoFinder was designed from scratch, so there was nothing to compare it against. Before it, radiologists measured angles by hand on the film and nobody tracked it. That's why the baseline is a dash." data-fa="پاتوفایندر از صفر طراحی شد، پس چیزی برای مقایسه وجود نداشت. پیش از آن رادیولوژیست‌ها زاویه‌ها را دستی روی فیلم اندازه می‌گرفتند و هیچ‌کس آن را ثبت نمی‌کرد. برای همین خط پایه خط تیره است.">PathoFinder was designed from scratch, so there was nothing to compare it against. Before it, radiologists measured angles by hand on the film and nobody tracked it. That's why the baseline is a dash.</p>
+    <div class="mt-table-wrap"><table class="impact-table">
+      <thead><tr><th data-en="Metric" data-fa="معیار">Metric</th><th data-en="Baseline" data-fa="خط پایه">Baseline</th><th data-en="Now" data-fa="اکنون">Now</th></tr></thead>
+      <tbody>
+        <tr><td><div class="kpi-name" data-en="Patients evaluated" data-fa="بیماران ارزیابی‌شده">Patients evaluated</div></td><td class="before">—</td><td class="after" data-en="+300" data-fa="بیش از ۳۰۰">+300</td></tr>
+        <tr><td><div class="kpi-name" data-en="Clinical use" data-fa="استفاده بالینی">Clinical use</div></td><td class="before">—</td><td class="after txt" data-en="Erfan Niayesh Hospital and partner radiology centers" data-fa="بیمارستان عرفان نیایش و مراکز رادیولوژی همکار">Erfan Niayesh Hospital and partner radiology centers</td></tr>
+      </tbody>
+    </table></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">05 · Impact &amp; Results</div>
-    <div class="metric-list"><div class="metric-item">In active clinical use at Erfan Niayesh Hospital and partner radiology centers in Iran</div><div class="metric-item">+300 patients evaluated to date, with clinical decisions supported by measurements generated through the platform</div><div class="metric-item">Four diagnostic modules — hip morphology, leg alignment (CPAK), spinal curvature, bone age — shipped under one shared design system</div><div class="metric-item">The confirm-before-final pattern was adopted as the standard review step across every module, not just the one it launched with</div></div>
+    <div class="cs-sl" data-en="08 · Impact &amp; Results" data-fa="۰۸ · اثر و نتایج">08 · Impact &amp; Results</div>
+    <div class="metric-list"><div class="metric-item" data-en="In active clinical use at Erfan Niayesh Hospital and partner radiology centers in Iran" data-fa="در استفاده فعال بالینی در بیمارستان عرفان نیایش و مراکز رادیولوژی همکار در ایران">In active clinical use at Erfan Niayesh Hospital and partner radiology centers in Iran</div><div class="metric-item" data-en="+300 patients evaluated to date, with clinical decisions supported by measurements generated through the platform" data-fa="تا امروز بیش از ۳۰۰ بیمار ارزیابی شده‌اند و تصمیم‌های درمانی بر پایه اندازه‌گیری‌های همین پلتفرم گرفته می‌شود">+300 patients evaluated to date, with clinical decisions supported by measurements generated through the platform</div><div class="metric-item" data-en="Four diagnostic modules — hip, leg alignment (CPAK), spinal curvature, bone age — shipped under one shared design system" data-fa="چهار ماژول تشخیصی (لگن، راستای اندام (CPAK)، انحنای ستون فقرات، سن استخوانی) زیر یک دیزاین سیستم مشترک منتشر شدند">Four diagnostic modules — hip, leg alignment (CPAK), spinal curvature, bone age — shipped under one shared design system</div><div class="metric-item" data-en="The confirm-before-final pattern was adopted as the standard review step across every module, not just the one it launched with" data-fa="الگوی تأیید پیش از نهایی‌شدن، به‌عنوان گام استاندارد بررسی در همه ماژول‌ها پذیرفته شد، نه فقط ماژولی که با آن شروع شده بود">The confirm-before-final pattern was adopted as the standard review step across every module, not just the one it launched with</div></div>
   </section>
 
   <section class="cs-block" style="margin-bottom:0;">
-    <div class="cs-sl">06 · Reflection</div>
-    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">The failure state, not the happy path, turned out to be the real design surface. A radiologist has to be willing to put their name on a number the model produced — that changes what "good UX" even means in a clinical tool.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Reusing one numbered-category grid across four unrelated clinical protocols kept the product learnable, but it meant resisting the temptation to redesign the layout every time a new measurement type shipped.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Working alone, directly with radiologists and ML engineers with no PM between us, taught me to bring a specific mock into every review, not an open question — a blank page went nowhere with clinicians, a concrete draft they could correct always did.</div></div></div>
+    <div class="cs-sl" data-en="09 · Reflection" data-fa="۰۹ · جمع‌بندی">09 · Reflection</div>
+    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The failure state, not the happy path, turned out to be the real design surface. A radiologist has to be willing to put their name on a number the model produced — that changes what &quot;good UX&quot; even means in a clinical tool." data-fa="سطح واقعی طراحی، حالت شکست بود نه مسیر موفق. رادیولوژیست باید حاضر باشد پای عددی که مدل تولید کرده اسمش را بگذارد — و همین، معنای «تجربه کاربری خوب» را در یک ابزار بالینی عوض می‌کند.">The failure state, not the happy path, turned out to be the real design surface. A radiologist has to be willing to put their name on a number the model produced — that changes what "good UX" even means in a clinical tool.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Reusing one numbered-category grid across four unrelated clinical protocols kept the product learnable, but it meant resisting the temptation to redesign the layout every time a new measurement type shipped." data-fa="استفاده دوباره از یک شبکه دسته‌بندی‌شده در چهار پروتکل بالینی بی‌ربط، محصول را قابل یادگیری نگه داشت، ولی یعنی باید جلوی وسوسه بازطراحی چیدمان را هر بار که نوع اندازه‌گیری تازه‌ای اضافه می‌شد می‌گرفتم.">Reusing one numbered-category grid across four unrelated clinical protocols kept the product learnable, but it meant resisting the temptation to redesign the layout every time a new measurement type shipped.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Working alone, directly with radiologists and ML engineers with no PM between us, taught me to bring a specific mock into every review, not an open question — a blank page went nowhere with clinicians, a concrete draft they could correct always did." data-fa="کار تنها و مستقیم با رادیولوژیست‌ها و مهندسان یادگیری ماشین، بدون هیچ مدیر محصولی در میان، به من یاد داد که به هر جلسه یک ماکاپ مشخص ببرم نه یک سؤال باز — صفحه خالی با پزشک به جایی نمی‌رسید، ولی یک پیش‌نویس ملموس که بتوانند اصلاحش کنند همیشه می‌رسید.">Working alone, directly with radiologists and ML engineers with no PM between us, taught me to bring a specific mock into every review, not an open question — a blank page went nowhere with clinicians, a concrete draft they could correct always did.</div></div></div>
   </section>
 
   <div class="cs-endcap">
-    <a class="cs-endcap-link" href="payment.html">← Payment</a>
-    <a class="cs-endcap-link primary" href="dota.html">Dota →</a>
+    <a class="cs-endcap-link" href="dota.html" rel="prev" data-en="← Dota" data-fa="→ دوتا">← Dota</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="rahafto.html" rel="next" data-en="Rahafto →" data-fa="← ره‌افتو">Rahafto →</a>
   </div>
 
 </main>
@@ -427,9 +835,11 @@ body{font-family:'Inter',sans-serif;}
   <div class="lightbox-close" id="lightboxClose" aria-label="Close">✕</div>
   <div class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</div>
   <div class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">›</div>
+  <div class="lightbox-scroll" id="lightboxScroll">
   <div class="lightbox-inner">
     <img id="lightboxImg" src="" alt="">
     <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
   </div>
 </div>
 
@@ -508,5 +918,17 @@ body{font-family:'Inter',sans-serif;}
 })();
 </script>
 
+<script>
+(function(){
+  function fix(){
+    if (window.csLang !== 'fa') return;
+    document.querySelectorAll('.l-fa .fl-scroll, .l-fa .flow-wrap').forEach(function(el){ el.scrollLeft = el.scrollWidth; });
+  }
+  window.addEventListener('cs-lang-change', function(){ setTimeout(fix, 60); });
+  window.addEventListener('load', function(){ setTimeout(fix, 60); });
+  window.addEventListener('resize', fix);
+})();
+</script>
+<script src="cs-shared.js?v=20261011"></script>
 </body>
 </html>

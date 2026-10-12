@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samin Style — Case Study · Narges Sadat Alavi</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#070b13;}
+::-webkit-scrollbar-thumb{background:#1e2d45;border-radius:4px;}
+body{font-family:'Inter',sans-serif;background:#070b13;color:#e7ecf5;overflow-x:hidden;line-height:1.6;}
+:root{--bg:#070b13;--surface:#101828;--surface2:#131f31;--border:rgba(148,163,184,0.12);--border-h:rgba(148,163,184,0.25);--text:#e7ecf5;--muted:#93a1b8;--primary:#4ade80;--radius:14px;--rsm:8px;}
+a{color:inherit;}
+.bg-dots{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(148,163,184,0.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0;}
+.blob-wrap{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.14;animation:blobFloat 18s ease-in-out infinite;}
+.blob-1{width:520px;height:520px;background:#9b8cff;top:-120px;left:-140px;}
+.blob-2{width:440px;height:440px;background:#2fd6b0;top:38%;right:-100px;animation-delay:-6s;}
+.blob-3{width:380px;height:380px;background:#4f8cff;bottom:8%;left:18%;animation-delay:-12s;}
+@keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(28px,-38px) scale(1.05);}66%{transform:translate(-18px,24px) scale(0.96);}}
+
+.crumb-bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;padding:0 24px;height:56px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.crumb-trail{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.crumb-trail a{color:var(--muted);text-decoration:none;transition:color .2s;}
+.crumb-trail a:hover{color:var(--text);}
+.crumb-trail .sep{color:#3a4658;}
+.crumb-trail .current{color:var(--text);overflow:hidden;text-overflow:ellipsis;}
+.crumb-back{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:7px 14px;border-radius:100px;transition:all .2s;}
+.cs-visit-site{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.03em;color:#fff;text-decoration:none;background:var(--cs-accent,var(--primary));padding:9px 18px;border-radius:100px;margin-bottom:28px;transition:opacity .2s;}
+.cs-visit-site:hover{opacity:.85;}
+.crumb-back:hover{color:var(--text);border-color:var(--primary);background:rgba(74,222,128,.08);}
+
+.cs-container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:56px 32px 120px;}
+
+.cs-title-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.cs-logo{height:76px;width:auto;flex-shrink:0;filter:drop-shadow(0 6px 18px rgba(74,222,128,.3));}
+@media(max-width:720px){.cs-title-row{flex-direction:column-reverse;align-items:flex-start;gap:12px;}}
+.cs-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;margin-bottom:16px;color:var(--primary);}
+.cs-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:12px;}
+.cs-sub{font-size:1.05rem;color:#b4bfd4;max-width:640px;line-height:1.7;margin-bottom:32px;}
+.cs-meta{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:44px;}
+.cs-meta-row{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--border);font-size:.85rem;}
+.cs-meta-row:first-child{border-top:none;}
+.cs-meta-label{padding:12px 18px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;background:rgba(255,255,255,.015);}
+.cs-meta-val{padding:12px 18px;color:#d3dae8;display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+.cs-pill{font-size:.68rem;padding:3px 10px;border-radius:100px;font-family:'JetBrains Mono',monospace;border:1px solid var(--border);}
+.cs-pill.on{background:rgba(74,222,128,.1);color:var(--primary);border-color:rgba(74,222,128,.3);}
+
+.cs-constraint{display:flex;gap:10px;align-items:baseline;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;margin-bottom:44px;font-size:.85rem;}
+.cs-constraint b{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;flex-shrink:0;}
+.cs-constraint span{color:#b4bfd4;}
+
+.cs-block{margin:56px 0;}
+.cs-sl{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.cs-sl::before{content:'';width:22px;height:1px;background:rgba(74,222,128,.4);}
+.cs-p{font-size:.95rem;color:#b4bfd4;line-height:1.85;margin-bottom:14px;max-width:760px;}
+
+.cs-features{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;}
+.cs-feature-chip{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.03em;color:var(--muted);border:1px solid var(--border);background:rgba(255,255,255,.03);padding:6px 12px;border-radius:100px;display:flex;align-items:center;gap:6px;}
+.cs-feature-chip::before{content:'\2713';color:var(--primary);font-size:.7rem;}
+
+.discovery-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;}
+.discovery-method{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.discovery-insight{border-left:2px solid var(--primary);padding-left:16px;margin-top:14px;font-size:.92rem;color:var(--text);line-height:1.7;font-family:'Inter',sans-serif;font-weight:400;}
+
+.process-list{display:flex;flex-direction:column;gap:14px;}
+.process-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;display:grid;grid-template-columns:34px 1fr;gap:14px;}
+.process-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--primary);padding-top:2px;}
+.process-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:6px;letter-spacing:-.01em;}
+.process-text{font-size:.82rem;color:var(--muted);line-height:1.7;}
+
+/* ---- gallery grid: browser-chrome mockup cards ---- */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;margin:24px 0 8px;}
+.gallery-item{
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  background:linear-gradient(165deg, rgba(22,30,46,.9), rgba(8,12,20,.96));
+  border:1px solid rgba(74,222,128,.16);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 46px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(226,232,240,.03), 0 0 34px -12px rgba(74,222,128,.16);
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.gallery-chrome{display:flex;align-items:center;gap:6px;padding:0 12px;height:28px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;}
+.gallery-chrome .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.gallery-thumb{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#0e1826;}
+.gallery-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .35s ease;}
+.gallery-tagline{display:flex;align-items:center;gap:7px;padding:14px 14px 0;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--primary);text-transform:uppercase;}
+.gallery-tagline .dot-live{width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;}
+.gallery-cap{font-size:.76rem;color:#b4bfd4;line-height:1.65;padding:6px 14px 16px;font-style:italic;flex:1;}
+
+/* hover state — lift, brand ring + soft glow, image zooms slightly */
+.gallery-item:hover{
+  transform:translateY(-4px);
+  border-color:var(--primary);
+  box-shadow:0 34px 64px -14px rgba(0,0,0,.78), 0 0 0 1px rgba(74,222,128,.55), 0 0 44px -6px rgba(74,222,128,.5);
+}
+.gallery-item:hover .gallery-thumb img{transform:scale(1.035);}
+
+@media(max-width:760px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}
+
+/* ---- modal ---- */
+.cs-modal-overlay{position:fixed;inset:0;background:rgba(4,6,12,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s ease;padding:24px;}
+.cs-modal-overlay.open{opacity:1;pointer-events:auto;}
+.cs-modal-box{position:relative;max-width:420px;width:100%;max-height:88vh;background:#0c1420;border:1px solid var(--border-h);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transform:scale(.92) translateY(14px);opacity:0;transition:transform .3s cubic-bezier(.2,.9,.25,1), opacity .3s ease;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);}
+.cs-modal-overlay.open .cs-modal-box{transform:scale(1) translateY(0);opacity:1;}
+.cs-modal-imgwrap{position:relative;width:100%;max-height:calc(88vh - 54px);background:#0e1826;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.cs-modal-imgwrap img{display:block;width:100%;height:auto;}
+.cs-modal-cap{height:54px;box-sizing:border-box;padding:14px 20px;font-size:.82rem;color:#c3ccdc;border-top:1px solid var(--border);text-align:center;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* close / prev / next are fixed to the viewport, never over the panel */
+.cs-modal-close{position:fixed;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(7,11,19,.75);border:1px solid var(--border-h);color:var(--text);font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:1100;opacity:0;pointer-events:none;}
+.cs-modal-close:hover{background:var(--primary);border-color:var(--primary);color:#0c1420;}
+.cs-modal-nav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(7,11,19,.7);border:1px solid var(--border-h);color:var(--text);font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:1100;opacity:0;pointer-events:none;}
+.cs-modal-nav:hover{background:var(--primary);border-color:var(--primary);color:#0c1420;}
+.cs-modal-prev{left:16px;}
+.cs-modal-next{right:16px;}
+.cs-modal-count{position:fixed;top:24px;left:20px;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);background:rgba(7,11,19,.7);border:1px solid var(--border);padding:4px 10px;border-radius:100px;z-index:1100;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+.cs-modal-close,.cs-modal-nav{transition:all .2s ease, opacity .2s ease;}
+.cs-modal-overlay.open .cs-modal-close,
+.cs-modal-overlay.open .cs-modal-nav,
+.cs-modal-overlay.open .cs-modal-count{opacity:1;pointer-events:auto;}
+
+@media(max-width:640px){
+  .cs-modal-box{max-width:calc(100% - 76px);}
+  .cs-modal-nav{width:38px;height:38px;font-size:1.05rem;left:8px;}
+  .cs-modal-next{right:8px;left:auto;}
+  .cs-modal-close{width:36px;height:36px;top:14px;right:14px;}
+  .cs-modal-count{top:16px;left:14px;}
+}
+
+.metric-list{display:flex;flex-direction:column;gap:10px;}
+.metric-item{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 18px;font-size:.85rem;color:#b4bfd4;line-height:1.6;}
+.metric-item::before{content:'\2713';color:var(--primary);flex-shrink:0;font-size:.85rem;}
+
+.cs-learnings{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;}
+.learn-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.learn-item:last-child{margin-bottom:0;}
+.learn-bullet{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0;background:var(--primary);}
+.learn-text{font-size:.9rem;color:#b4bfd4;line-height:1.75;}
+
+.cs-endcap{display:flex;justify-content:center;margin-top:64px;padding-top:32px;border-top:1px solid var(--border);}
+.cs-endcap-link{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--primary);text-decoration:none;border:1px solid rgba(74,222,128,.3);padding:10px 20px;border-radius:100px;transition:all .2s;}
+.cs-endcap-link:hover{background:rgba(74,222,128,.1);border-color:var(--primary);}
+
+@media(max-width:720px){
+  .cs-container{padding:40px 20px 90px;}
+  .cs-meta-row{grid-template-columns:120px 1fr;}
+  .crumb-trail{max-width:60%;}
+}
+
+/* ---- global overrides: font system, cursor, section titles ---- */
+*{cursor:url('../assets/cursor.svg') 4 2, auto;}
+a,button,.milestone,[onclick],.lightbox-close{cursor:url('../assets/cursor.svg') 4 2, pointer;}
+body{font-family:'Inter',sans-serif;}
+.cs-title,.process-title{font-family:'Poppins',sans-serif;}
+.cs-sl{font-size:.92rem;font-weight:700;color:var(--cs-accent,var(--primary));letter-spacing:.1em;}
+.crumb-bar{justify-content:flex-start;}
+.crumb-bar .crumb-back{margin-left:0;}
+.crumb-trail-bar{position:sticky;top:56px;z-index:99;padding:10px 24px;background:rgba(7,11,19,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.cs-endcap-mid{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.04em;color:var(--muted);text-decoration:none;border:1px solid var(--border-h);padding:10px 18px;border-radius:100px;transition:all .2s;}
+.cs-endcap-mid:hover{color:var(--text);border-color:var(--cs-accent,var(--primary));}
+.cs-endcap{display:flex !important;justify-content:space-between !important;align-items:center;gap:16px;flex-wrap:wrap;}
+
+
+.back-to-top{position:fixed;bottom:26px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid var(--border-h);background:rgba(16,24,40,.9);color:var(--text);font-size:18px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,border-color .2s ease;z-index:150;}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+.back-to-top:hover{border-color:var(--primary);color:var(--primary);}
+@media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
+
+</style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
+</head>
+<body>
+
+<div class="bg-dots"></div>
+<div class="blob-wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="Samin Style" data-fa="سمین استایل">Samin Style</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
+  </div>
+</header>
+
+<main class="cs-container">
+
+  <div class="cs-tag" data-en="FASHION E-COMMERCE · CHECKOUT FLOW" data-fa="فروشگاه مد · فرایند پرداخت">FASHION E-COMMERCE · CHECKOUT FLOW</div>
+  <div class="cs-title-row">
+    <h1 class="cs-title">Samin Style <span style="color:var(--muted);font-weight:400;font-size:.5em;">(سمین استایل)</span></h1>
+    <img class="cs-logo" src="../assets/logos/samin.svg" alt="Samin Style logo">
+  </div>
+  <p class="cs-sub" data-en="A practice project covering a whole fashion storefront — homepage through a three-step checkout. The interesting problem turned out not to be the product pages but the seams between them, where a buyer gets stuck mid-purchase." data-fa="یک پروژه تمرینی که کل یک فروشگاه مد را پوشش می‌دهد — از صفحه اصلی تا پرداخت سه‌مرحله‌ای. مسئله جالب در نهایت خودِ صفحات محصول نبود، درزهای بینشان بود؛ جایی که خریدار وسط خرید گیر می‌کند.">A practice project covering a whole fashion storefront — homepage through a three-step checkout. The interesting problem turned out not to be the product pages but the seams between them, where a buyer gets stuck mid-purchase.</p>
+
+  <div class="cs-meta">
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Role" data-fa="نقش">Role</div><div class="cs-meta-val" data-en="Self-directed practice project — sole designer" data-fa="پروژه تمرینی شخصی — تنها طراح">Self-directed practice project — sole designer</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="Solo" data-fa="تک‌نفره">Solo</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Scope" data-fa="دامنه کار">Scope</div><div class="cs-meta-val" data-en="11 desktop screens — home, category, listing &amp; filters, product page, cart, address, payment, about, contact" data-fa="۱۱ صفحه دسکتاپ — خانه، دسته‌بندی، فهرست و فیلترها، صفحه محصول، سبد خرید، آدرس، پرداخت، درباره ما، تماس">11 desktop screens — home, category, listing &amp; filters, product page, cart, address, payment, about, contact</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="Fashion &amp; Apparel / E-Commerce" data-fa="مد و پوشاک / فروشگاه اینترنتی">Fashion &amp; Apparel / E-Commerce</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Desktop (Web) · RTL Persian" data-fa="دسکتاپ (وب) · فارسی راست‌به‌چپ">Desktop (Web) · RTL Persian</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma" data-fa="فیگما">Figma</div></div>
+  </div>
+
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="A practice project — no client, no users, no analytics. I set the scope myself, and I made it wide on purpose: enough screens that they have to work as a flow rather than as eleven separate compositions." data-fa="یک پروژه تمرینی — بدون کارفرما، بدون کاربر، بدون داده تحلیلی. دامنه را خودم تعیین کردم و عمداً گسترده گرفتم: به‌قدری صفحه که مجبور باشند به‌عنوان یک مسیر کار کنند، نه یازده چیدمان جدا.">A practice project — no client, no users, no analytics. I set the scope myself, and I made it wide on purpose: enough screens that they have to work as a flow rather than as eleven separate compositions.</span></div>
+
+  <section class="cs-block" style="margin-top:0;">
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-en="A fashion storefront is easy to design one screen at a time and easy to break as a sequence. The individual pages hold up fine in isolation — a homepage, a product grid, a product page. The failures happen in the seams: a buyer picks a size that is not stocked, reaches a payment screen without an address, or taps a &quot;continue&quot; button that does nothing and does not say why." data-fa="طراحی یک فروشگاه مد صفحه‌به‌صفحه آسان است، و خراب‌کردنش به‌عنوان یک توالی هم آسان. صفحات جدا از هم خوب کار می‌کنند — یک صفحه اصلی، یک شبکه محصول، یک صفحه محصول. شکست در درزها اتفاق می‌افتد: خریدار سایزی را انتخاب می‌کند که موجود نیست، بدون آدرس به صفحه پرداخت می‌رسد، یا دکمه «ادامه» را می‌زند که هیچ کاری نمی‌کند و نمی‌گوید چرا.">A fashion storefront is easy to design one screen at a time and easy to break as a sequence. The individual pages hold up fine in isolation — a homepage, a product grid, a product page. The failures happen in the seams: a buyer picks a size that is not stocked, reaches a payment screen without an address, or taps a "continue" button that does nothing and does not say why.</p>
+    <p class="cs-p" data-en="So I built the full path rather than a few hero screens, specifically so those seams were forced into view instead of staying hypothetical." data-fa="پس به‌جای چند صفحه شاخص، کل مسیر را ساختم؛ دقیقاً برای اینکه آن درزها به‌جای فرضی ماندن، به چشم بیایند.">So I built the full path rather than a few hero screens, specifically so those seams were forced into view instead of staying hypothetical.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="3-Step Checkout Stepper" data-fa="نوار سه‌مرحله‌ای پرداخت">3-Step Checkout Stepper</span><span class="cs-feature-chip" data-en="Progressive Validation" data-fa="اعتبارسنجی تدریجی">Progressive Validation</span><span class="cs-feature-chip" data-en="Faceted Filter Panel" data-fa="پنل فیلتر چندوجهی">Faceted Filter Panel</span><span class="cs-feature-chip" data-en="Colour &amp; Size Variants" data-fa="تنوع رنگ و سایز">Colour &amp; Size Variants</span><span class="cs-feature-chip" data-en="Inline Stock Limits" data-fa="سقف موجودی در همان ردیف">Inline Stock Limits</span><span class="cs-feature-chip" data-en="Persistent Order Summary" data-fa="خلاصه سفارش ثابت">Persistent Order Summary</span><span class="cs-feature-chip" data-en="Coupon Field" data-fa="فیلد کد تخفیف">Coupon Field</span><span class="cs-feature-chip" data-en="Spec &amp; Review Tabs" data-fa="تب‌های مشخصات و نظرات">Spec &amp; Review Tabs</span><span class="cs-feature-chip" data-en="Repeated Trust Row" data-fa="نوار اعتماد تکرارشونده">Repeated Trust Row</span></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
+    <div class="discovery-wrap">
+      <div class="discovery-method" data-en="No user research — a review of checkout and listing patterns across Persian fashion stores and general marketplaces" data-fa="بدون تحقیق کاربری — بررسی الگوهای پرداخت و فهرست محصول در فروشگاه‌های مد فارسی و مارکت‌پلیس‌های عمومی">No user research — a review of checkout and listing patterns across Persian fashion stores and general marketplaces</div>
+      <div class="discovery-insight" data-en="Listing and product pages were largely a solved problem: filters, swatches and size chips were conventional almost everywhere. Checkout was where the pages actually diverged. Some let you reach payment with an incomplete address and only failed at the end; others disabled the next step correctly but never said which field was missing. The pattern worth designing around was not &quot;make checkout shorter&quot; — it was &quot;never let the buyer advance into an error.&quot;" data-fa="صفحات فهرست و محصول تقریباً مسئله حل‌شده‌ای بودند: فیلترها، سواچ‌ها و چیپ‌های سایز تقریباً همه‌جا متعارف بودند. جایی که صفحات واقعاً از هم فاصله می‌گرفتند، پرداخت بود. بعضی اجازه می‌دادند با آدرس ناقص به پرداخت برسی و فقط آخر کار شکست بخوری؛ بعضی دیگر درست مرحله بعد را می‌بستند ولی هیچ‌وقت نمی‌گفتند کدام فیلد کم است. الگویی که ارزش طراحی‌کردن داشت «کوتاه‌کردن پرداخت» نبود — «نگذار خریدار وارد خطا شود» بود.">Listing and product pages were largely a solved problem: filters, swatches and size chips were conventional almost everywhere. Checkout was where the pages actually diverged. Some let you reach payment with an incomplete address and only failed at the end; others disabled the next step correctly but never said which field was missing. The pattern worth designing around was not "make checkout shorter" — it was "never let the buyer advance into an error."</div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="03 · Process" data-fa="۰۳ · روند کار">03 · Process</div>
+    <div class="process-list">
+      <div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="A three-step stepper, visible on all three steps" data-fa="نوار سه‌مرحله‌ای، در هر سه مرحله دیده می‌شود">A three-step stepper, visible on all three steps</div><div class="process-text" data-en="Cart → address and delivery → payment, with the stepper pinned to the top of each. The remaining work is visible from the cart, so the commitment is known up front rather than revealed one screen at a time." data-fa="سبد خرید ← آدرس و ارسال ← پرداخت، با نوار مرحله‌ها ثابت در بالای هر سه. کار باقی‌مانده از همان سبد خرید دیده می‌شود، پس میزان تعهد از ابتدا معلوم است، نه اینکه صفحه‌به‌صفحه رو شود.">Cart → address and delivery → payment, with the stepper pinned to the top of each. The remaining work is visible from the cart, so the commitment is known up front rather than revealed one screen at a time.</div></div></div>
+      <div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="Blocking the step instead of failing at the end" data-fa="بستن مرحله، به‌جای شکست در انتها">Blocking the step instead of failing at the end</div><div class="process-text" data-en="On the address step the continue button stays disabled while a banner names the problem — required fields are incomplete. The payment step does the same for an unselected payment method. The buyer gets stopped where the fix is, not after submitting." data-fa="در مرحله آدرس، دکمه ادامه غیرفعال می‌ماند و یک بنر مشکل را نام می‌برد — فیلدهای ضروری ناقص‌اند. مرحله پرداخت همین کار را برای شیوه پرداخت انتخاب‌نشده می‌کند. خریدار همان‌جا که راه‌حل هست متوقف می‌شود، نه بعد از ثبت.">On the address step the continue button stays disabled while a banner names the problem — required fields are incomplete. The payment step does the same for an unselected payment method. The buyer gets stopped where the fix is, not after submitting.</div></div></div>
+      <div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="Stock limits stated at the point of the mistake" data-fa="اعلام سقف موجودی، دقیقاً همان‌جا که اشتباه رخ می‌دهد">Stock limits stated at the point of the mistake</div><div class="process-text" data-en="Raising a quantity past what is stocked shows the ceiling inline, next to that line item, so the wrong number and the message about it occupy the same place. The cart also warns that adding an item is not a reservation." data-fa="بالا بردن تعداد بیشتر از موجودی، سقف را همان‌جا کنار همان ردیف نشان می‌دهد، تا عدد اشتباه و پیام مربوط به آن در یک جا باشند. سبد خرید همچنین هشدار می‌دهد که افزودن کالا به معنی رزرو آن نیست.">Raising a quantity past what is stocked shows the ceiling inline, next to that line item, so the wrong number and the message about it occupy the same place. The cart also warns that adding an item is not a reservation.</div></div></div>
+      <div class="process-item"><div class="process-num">04</div><div><div class="process-title" data-en="An order summary that persists across the whole checkout" data-fa="خلاصه سفارشی که در کل مسیر پرداخت باقی می‌ماند">An order summary that persists across the whole checkout</div><div class="process-text" data-en="Item count, cart subtotal, saving and total sit in a fixed panel on every step, along with the coupon field — so the price never disappears at the moment the buyer is deciding whether to keep going." data-fa="تعداد اقلام، جمع سبد، میزان صرفه‌جویی و مبلغ کل در یک پنل ثابت در همه مراحل می‌نشینند، همراه با فیلد کد تخفیف — تا قیمت درست همان لحظه‌ای که خریدار دارد تصمیم می‌گیرد ادامه بدهد یا نه، ناپدید نشود.">Item count, cart subtotal, saving and total sit in a fixed panel on every step, along with the coupon field — so the price never disappears at the moment the buyer is deciding whether to keep going.</div></div></div>
+      <div class="process-item"><div class="process-num">05</div><div><div class="process-title" data-en="Filters as toggles plus facets, resolved in place" data-fa="فیلترها به‌صورت کلید و وجه، بدون خروج از صفحه">Filters as toggles plus facets, resolved in place</div><div class="process-text" data-en="The listing page pairs three quick toggles — in stock, newest, most popular — with checkbox facets for garment type and style and a two-handle price range. Filtering does not navigate away, so comparing the filtered result against the unfiltered one is the same screen." data-fa="صفحه فهرست، سه کلید سریع — موجود، جدیدترین، محبوب‌ترین — را با فیلترهای تیک‌دار نوع و مدل لباس و یک بازه قیمت دوسر کنار هم می‌گذارد. فیلتر کردن کاربر را از صفحه بیرون نمی‌برد، پس مقایسه نتیجه فیلترشده با فیلترنشده در همان صفحه انجام می‌شود.">The listing page pairs three quick toggles — in stock, newest, most popular — with checkbox facets for garment type and style and a two-handle price range. Filtering does not navigate away, so comparing the filtered result against the unfiltered one is the same screen.</div></div></div>
+      <div class="process-item"><div class="process-num">06</div><div><div class="process-title" data-en="Variants that communicate availability, not just options" data-fa="تنوعی که موجود بودن را منتقل می‌کند، نه فقط گزینه‌ها را">Variants that communicate availability, not just options</div><div class="process-text" data-en="Colour swatches and size chips on the product page show which combinations exist, so an unavailable size reads as unavailable rather than failing after &quot;add to cart&quot;." data-fa="سواچ‌های رنگ و چیپ‌های سایز در صفحه محصول نشان می‌دهند کدام ترکیب‌ها وجود دارند، تا سایز ناموجود همان‌جا ناموجود خوانده شود، نه اینکه بعد از «افزودن به سبد» شکست بخورد.">Colour swatches and size chips on the product page show which combinations exist, so an unavailable size reads as unavailable rather than failing after "add to cart".</div></div></div>
+      <div class="process-item"><div class="process-num">07</div><div><div class="process-title" data-en="One trust row, deliberately repeated" data-fa="یک نوار اعتماد، عمداً تکرارشده">One trust row, deliberately repeated</div><div class="process-text" data-en="Fast delivery, 14-day returns, authenticity — the same three-badge row appears at the foot of the listing, product and cart pages, so the reassurance is present at each hesitation point instead of only on the homepage." data-fa="ارسال سریع، بازگشت ۱۴ روزه، اصالت کالا — همان نوار سه‌نشانی در پای صفحات فهرست، محصول و سبد خرید تکرار می‌شود، تا این اطمینان در هر نقطه تردید حاضر باشد، نه فقط در صفحه اصلی.">Fast delivery, 14-day returns, authenticity — the same three-badge row appears at the foot of the listing, product and cart pages, so the reassurance is present at each hesitation point instead of only on the homepage.</div></div></div>
+    </div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="04 · Solution" data-fa="۰۴ · راه‌حل">04 · Solution</div>
+    <p class="cs-p" data-en="The screens below follow the buyer's path in order — homepage, category, listing with and without filters, product page, cart, address, payment — followed by the supporting pages. Click any screen to view it full size." data-fa="صفحات زیر به ترتیب مسیر خریدار می‌آیند — خانه، دسته‌بندی، فهرست با و بدون فیلتر، صفحه محصول، سبد خرید، آدرس، پرداخت — و بعد صفحات پشتیبان. برای دیدن هر صفحه در اندازه کامل رویش کلیک کنید.">The screens below follow the buyer's path in order — homepage, category, listing with and without filters, product page, cart, address, payment — followed by the supporting pages. Click any screen to view it full size.</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="05 · Impact &amp; Results" data-fa="۰۵ · اثر و نتایج">05 · Impact &amp; Results</div>
+    <p class="cs-p" data-en="No metrics — nothing here was built or used, so there is nothing to measure. What the flow does structurally:" data-fa="هیچ متریکی در کار نیست — چیزی اینجا ساخته یا استفاده نشده، پس چیزی برای اندازه‌گیری وجود ندارد. آنچه این مسیر از نظر ساختاری انجام می‌دهد:">No metrics — nothing here was built or used, so there is nothing to measure. What the flow does structurally:</p>
+    <div class="metric-list">
+      <div class="metric-item" data-en="Each checkout step is reachable only when its own requirements are met, and a blocked step names the requirement that is missing." data-fa="هر مرحله پرداخت فقط وقتی در دسترس است که شرط‌های خودش برآورده شده باشند، و مرحله بسته‌شده نام شرطی را که کم است می‌گوید.">Each checkout step is reachable only when its own requirements are met, and a blocked step names the requirement that is missing.</div>
+      <div class="metric-item" data-en="Quantity and stock conflicts surface in the cart, beside the affected line, before the buyer ever reaches payment." data-fa="تناقض تعداد و موجودی در سبد خرید و کنار همان ردیف ظاهر می‌شود، پیش از آنکه خریدار اصلاً به پرداخت برسد.">Quantity and stock conflicts surface in the cart, beside the affected line, before the buyer ever reaches payment.</div>
+      <div class="metric-item" data-en="The order total and coupon field stay visible on all three checkout steps without scrolling." data-fa="مبلغ کل سفارش و فیلد کد تخفیف در هر سه مرحله پرداخت و بدون اسکرول دیده می‌شوند.">The order total and coupon field stay visible on all three checkout steps without scrolling.</div>
+      <div class="metric-item" data-en="The listing page resolves filtered and unfiltered states on the same screen, so nothing about the result set has to be held in memory." data-fa="صفحه فهرست، حالت فیلترشده و فیلترنشده را در یک صفحه حل می‌کند، تا لازم نباشد چیزی از نتایج در ذهن نگه داشته شود.">The listing page resolves filtered and unfiltered states on the same screen, so nothing about the result set has to be held in memory.</div>
+    </div>
+  </section>
+
+  <section class="cs-block" style="margin-bottom:0;">
+    <div class="cs-sl" data-en="06 · Reflection" data-fa="۰۶ · جمع‌بندی">06 · Reflection</div>
+    <div class="cs-learnings">
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Designing the whole path rather than a few hero screens changed what I noticed. Almost every decision I am happy with here is about a transition between screens, not the composition of one." data-fa="طراحی کل مسیر به‌جای چند صفحه شاخص، چیزی را که می‌دیدم عوض کرد. تقریباً هر تصمیمی که اینجا از آن راضی‌ام، درباره گذار بین صفحات است، نه چیدمان یکی از آن‌ها.">Designing the whole path rather than a few hero screens changed what I noticed. Almost every decision I am happy with here is about a transition between screens, not the composition of one.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Every error and empty state in this project is one I imagined. A real store would have a list of the ones that actually happen, and it would not match mine." data-fa="هر حالت خطا و حالت خالی در این پروژه، حالتی است که خودم تصور کرده‌ام. یک فروشگاه واقعی فهرستی از حالت‌هایی دارد که واقعاً اتفاق می‌افتند، و آن فهرست با مال من یکی نخواهد بود.">Every error and empty state in this project is one I imagined. A real store would have a list of the ones that actually happen, and it would not match mine.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The homepage is the weakest screen. It is long and stacks a lot of merchandising bands, and I never established which of them earn their place — that is a question about the business, and I did not have one to ask." data-fa="صفحه اصلی ضعیف‌ترین صفحه است. بلند است و نوارهای تبلیغاتی زیادی روی هم چیده، و هیچ‌وقت مشخص نکردم کدامشان جایشان را حق دارند — این سؤالی درباره کسب‌وکار است، و من کسب‌وکاری نداشتم که از آن بپرسم.">The homepage is the weakest screen. It is long and stacks a lot of merchandising bands, and I never established which of them earn their place — that is a question about the business, and I did not have one to ask.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="No mobile designs. For an apparel store, where a large share of browsing happens on a phone, that is the biggest hole in the project rather than a nice-to-have." data-fa="نسخه موبایل ندارد. برای یک فروشگاه پوشاک که بخش بزرگی از مرورش روی گوشی انجام می‌شود، این بزرگ‌ترین حفره پروژه است، نه یک قابلیت اضافه.">No mobile designs. For an apparel store, where a large share of browsing happens on a phone, that is the biggest hole in the project rather than a nice-to-have.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The product photography is placeholder imagery from other brands, and it quietly does a lot of the visual work here. A real version would have to hold up with the client's own shots." data-fa="عکس‌های محصول، تصاویر جایگزین از برندهای دیگرند و بی‌سروصدا بخش زیادی از کار بصری را انجام می‌دهند. یک نسخه واقعی باید با عکس‌های خود کارفرما هم سرپا بماند.">The product photography is placeholder imagery from other brands, and it quietly does a lot of the visual work here. A real version would have to hold up with the client's own shots.</div></div>
+    </div>
+  </section>
+
+  <div class="cs-endcap">
+    <a class="cs-endcap-link" href="nova.html" rel="prev" data-en="← Nova Store" data-fa="→ نوا استور">← Nova Store</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="dota.html" rel="next" data-en="Dota →" data-fa="← دوتا">Dota →</a>
+  </div>
+
+</main>
+
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- modal -->
+<div class="cs-modal-overlay" id="modalOverlay">
+  <div class="cs-modal-count" id="modalCount"></div>
+  <div class="cs-modal-close" id="modalClose">&times;</div>
+  <div class="cs-modal-nav cs-modal-prev" id="modalPrev">&#10094;</div>
+  <div class="cs-modal-nav cs-modal-next" id="modalNext">&#10095;</div>
+  <div class="cs-modal-box">
+    <div class="cs-modal-imgwrap"><img id="modalImg" src="" alt=""></div>
+    <div class="cs-modal-cap" id="modalCap"></div>
+  </div>
+</div>
+
+<script>
+const shots = [
+  {src:"../assets/images/samin/samin-01.jpg", type:"desktop", tag:"HOMEPAGE", cap:"Homepage — hero carousel, category tiles, best sellers and newest arrivals, seasonal campaign bands, editorial blog row and brand strip.", tagFa:"صفحه اصلی", capFa:"صفحه اصلی — اسلایدر اصلی، کاشی‌های دسته‌بندی، پرفروش‌ها و جدیدترین‌ها، نوارهای کمپین فصلی، ردیف مجله و نوار برندها."},
+  {src:"../assets/images/samin/samin-02.jpg", type:"desktop", tag:"CATEGORY — WOMEN", cap:"Women's landing page — editorial banner, sub-category tiles, then campaign blocks leading into individual collections.", tagFa:"دسته‌بندی — زنانه", capFa:"صفحه فرود زنانه — بنر مجله‌ای، کاشی‌های زیردسته، و بعد بلوک‌های کمپین که به کالکشن‌های جداگانه می‌رسند."},
+  {src:"../assets/images/samin/samin-03.jpg", type:"desktop", tag:"LISTING — UNFILTERED", cap:"Product listing with the filter panel open but nothing applied — the baseline result set, with a scoped search field above the grid.", tagFa:"فهرست — بدون فیلتر", capFa:"فهرست محصولات با پنل فیلتر باز ولی بدون اعمال چیزی — نتایج پایه، با یک فیلد جست‌وجوی محدود بالای شبکه."},
+  {src:"../assets/images/samin/samin-04.jpg", type:"desktop", tag:"LISTING — FILTERED", cap:"The same screen with facets applied — garment type, style and a price range — so the filtered and unfiltered states can be compared without navigating away.", tagFa:"فهرست — فیلترشده", capFa:"همان صفحه با فیلترهای اعمال‌شده — نوع لباس، مدل و بازه قیمت — تا حالت فیلترشده و فیلترنشده بدون خروج از صفحه قابل مقایسه باشند."},
+  {src:"../assets/images/samin/samin-05.jpg", type:"desktop", tag:"PRODUCT PAGE — SPECS", cap:"Product page — colour swatches, size chips, quantity stepper and buy box, with the specifications tab open across general, design, stitching and washing details.", tagFa:"صفحه محصول — مشخصات", capFa:"صفحه محصول — سواچ رنگ، چیپ سایز، شمارنده تعداد و باکس خرید، با تب مشخصات باز روی جزئیات کلی، طراحی، دوخت و شست‌وشو."},
+  {src:"../assets/images/samin/samin-06.jpg", type:"desktop", tag:"PRODUCT PAGE — REVIEWS", cap:"The same product page with the reviews tab open — per-review rating, date and free-text feedback, and the trust row beneath.", tagFa:"صفحه محصول — نظرات", capFa:"همان صفحه محصول با تب نظرات باز — امتیاز، تاریخ و متن آزاد هر نظر، و نوار اعتماد در زیرش."},
+  {src:"../assets/images/samin/samin-07.jpg", type:"desktop", tag:"CART — STEP 1", cap:"Cart — per-line size, colour and product code, a quantity stepper with the stock ceiling stated inline, and the persistent invoice panel with coupon field.", tagFa:"سبد خرید — مرحله ۱", capFa:"سبد خرید — سایز، رنگ و کد کالا برای هر ردیف، شمارنده تعداد با سقف موجودی در همان خط، و پنل ثابت فاکتور با فیلد کد تخفیف."},
+  {src:"../assets/images/samin/samin-08.jpg", type:"desktop", tag:"ADDRESS &amp; DELIVERY — STEP 2", tagFa:"آدرس و ارسال — مرحله ۲", cap:"Address and delivery — province and city selectors, postal details, and two delivery speeds with their prices. The continue button stays disabled until the required fields are complete.", tagFa:"آدرس و ارسال — مرحله ۲", capFa:"آدرس و ارسال — انتخاب استان و شهر، جزئیات پستی، و دو سرعت ارسال با قیمتشان. دکمه ادامه تا کامل‌شدن فیلدهای ضروری غیرفعال می‌ماند."},
+  {src:"../assets/images/samin/samin-09.jpg", type:"desktop", tag:"PAYMENT — STEP 3", cap:"Payment — online gateway or cash on delivery, with the order summary, chosen address, delivery window and cart contents all still in view.", tagFa:"پرداخت — مرحله ۳", capFa:"پرداخت — درگاه اینترنتی یا پرداخت درب منزل، در حالی که خلاصه سفارش، آدرس انتخابی، بازه ارسال و محتویات سبد همچنان دیده می‌شوند."},
+  {src:"../assets/images/samin/samin-10.jpg", type:"desktop", tag:"ABOUT", cap:"About — brand banner, positioning copy, the three stated values, and a plain list of reasons to buy.", tagFa:"درباره ما", capFa:"درباره ما — بنر برند، متن جایگاه‌یابی، سه ارزش اعلام‌شده، و یک فهرست ساده از دلایل خرید."},
+  {src:"../assets/images/samin/samin-11.jpg", type:"desktop", tag:"CONTACT", cap:"Contact — map, address, phone and email, plus a form that takes an order number so an enquiry can be tied to a purchase.", tagFa:"تماس با ما", capFa:"تماس با ما — نقشه، آدرس، تلفن و ایمیل، به‌علاوه فرمی که شماره سفارش می‌گیرد تا پیگیری به یک خرید وصل شود."},
+];
+
+function shotText(s, field) {
+  var fa = document.documentElement.getAttribute('dir') === 'rtl';
+  return (fa && s[field + 'Fa']) ? s[field + 'Fa'] : s[field];
+}
+
+const grid = document.getElementById('galleryGrid');
+shots.forEach((s, i) => {
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+  item.innerHTML = `<div class="gallery-chrome"><span class="dot" style="background:#ff5f57;"></span><span class="dot" style="background:#febc2e;"></span><span class="dot" style="background:#28c840;"></span></div><div class="gallery-thumb"><img src="${s.src}" alt="${shotText(s,'cap')}" loading="lazy"></div><div class="gallery-tagline"><span class="dot-live"></span>${shotText(s,'tag')}</div><div class="gallery-cap">${shotText(s,'cap')}</div>`;
+  item.addEventListener('click', () => openModal(i));
+  grid.appendChild(item);
+});
+
+const overlay = document.getElementById('modalOverlay');
+const modalImg = document.getElementById('modalImg');
+const modalCap = document.getElementById('modalCap');
+const modalCount = document.getElementById('modalCount');
+let current = 0;
+
+modalImg.style.transition = 'opacity .18s ease';
+
+function renderModal(){
+  modalImg.style.opacity = 0;
+  setTimeout(()=>{
+    modalImg.src = shots[current].src;
+    modalCap.textContent = shotText(shots[current], 'cap');
+    modalCount.textContent = (current+1) + ' / ' + shots.length;
+    modalImg.style.opacity = 1;
+    document.querySelector('.cs-modal-imgwrap').scrollTop = 0;
+  }, 120);
+}
+
+/* بازسازی زیرنویس‌ها پس از تعویض زبان */
+window.addEventListener('cs-lang-change', function () {
+  document.querySelectorAll('.gallery-item').forEach(function (el, i) {
+    var s = shots[i];
+    if (!s) return;
+    var cap = el.querySelector('.gallery-cap');
+    var tag = el.querySelector('.gallery-tagline');
+    if (cap) cap.textContent = shotText(s, 'cap');
+    if (tag) tag.innerHTML = '<span class="dot-live"></span>' + shotText(s, 'tag');
+  });
+  if (overlay && overlay.classList.contains('open')) renderModal();
+});
+
+function openModal(i){
+  current = i;
+  renderModal();
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+document.getElementById('modalPrev').addEventListener('click', (e)=>{ e.stopPropagation(); current = (current - 1 + shots.length) % shots.length; renderModal(); });
+document.getElementById('modalNext').addEventListener('click', (e)=>{ e.stopPropagation(); current = (current + 1) % shots.length; renderModal(); });
+document.addEventListener('keydown', (e)=>{
+  if(!overlay.classList.contains('open')) return;
+  if(e.key === 'Escape') closeModal();
+  if(e.key === 'ArrowLeft') { current = (current - 1 + shots.length) % shots.length; renderModal(); }
+  if(e.key === 'ArrowRight') { current = (current + 1) % shots.length; renderModal(); }
+});
+</script>
+
+
+<script>
+(function(){
+  var btt = document.getElementById('backToTop');
+  if(!btt) return;
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 480){ btt.classList.add('visible'); } else { btt.classList.remove('visible'); }
+  });
+  btt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+
+<script src="cs-shared.js?v=20261011"></script>
+</body>
+</html>

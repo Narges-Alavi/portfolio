@@ -1,0 +1,188 @@
+@font-face { font-family:'Shabnam'; src:url('../assets/fonts/Shabnam-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Shabnam'; src:url('../assets/fonts/Shabnam-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Shabnam'; src:url('../assets/fonts/Shabnam-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Shabnam'; src:url('../assets/fonts/Shabnam-Bold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+@font-face { font-family:'Shabnam'; src:url('../assets/fonts/Shabnam-Bold.woff2') format('woff2'); font-weight:700; font-display:swap; }
+/* =========================================================
+   Case studies — هدر مشترک، دکمه تم و تم روشن
+   یک بار اینجا تعریف می‌شود، به‌جای تکرار در ۹ فایل
+   ========================================================= */
+
+
+/* بلاب‌های تیره روی زمینه روشن، لکه‌های کدر می‌شدند */
+/* اسکرین‌شات‌ها و ماکاپ‌ها برای زمینه تیره ساخته شده‌اند */
+/* =========================================================
+   هدر یکپارچه — همان ساختار صفحه اصلی
+   ========================================================= */
+.cs-nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 32px;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.cs-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--text);
+  font-family: 'Poppins', 'Shabnam', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.4px;
+  flex-shrink: 0;
+}
+
+.cs-nav-logo img { height: 22px; width: auto; display: block; }
+.cs-nav-sep {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.cs-nav-trail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.cs-nav-trail a { color: var(--muted); text-decoration: none; transition: color 0.2s ease; white-space: nowrap; }
+.cs-nav-trail a:hover { color: var(--text); }
+.cs-nav-trail .sep { opacity: 0.45; }
+.cs-nav-trail .current {
+  color: var(--cs-accent, var(--primary));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cs-nav-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 13px;
+  border-radius: 100px;
+  border: 1px solid var(--border-h);
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.cs-btn:hover { border-color: var(--muted); background: color-mix(in srgb, var(--text) 9%, transparent); }
+.cs-btn.icon-only { width: 36px; padding: 0; }
+.cs-btn svg { width: 15px; height: 15px; display: block; flex-shrink: 0; }
+
+.cs-btn.back { border-color: var(--cs-accent, var(--primary)); color: var(--cs-accent, var(--primary)); }
+.cs-btn.back:hover { background: color-mix(in srgb, var(--cs-accent, var(--primary)) 14%, transparent); }
+
+@media (max-width: 720px) {
+  .cs-nav { padding: 11px 16px; gap: 12px; }
+  .cs-nav-logo span { display: none; }
+  .cs-nav-trail a, .cs-nav-trail .sep { display: none; }
+  .cs-nav-trail .current { font-size: 11px; }
+  .cs-btn.back .cs-btn-text { display: none; }
+  .cs-btn.back { width: 36px; padding: 0; }
+}
+
+/* انتقال نرم هنگام تعویض زبان */
+body { transition: opacity 0.2s ease; }
+body.lang-switching { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
+
+/* RTL: هدر و محتوا قرینه می‌شوند، ولی نام پروژه لاتین می‌ماند */
+html[dir="rtl"] .cs-back-arrow { transform: scaleX(-1); }
+html[dir="rtl"] .cs-container { direction: rtl; text-align: right; }
+html[dir="rtl"] .cs-title,
+html[dir="rtl"] .cs-tag { direction: ltr; text-align: right; }
+html[dir="rtl"] body { font-family: 'Shabnam', 'Shabnam', sans-serif; }
+
+/* هدر کیس‌استادی هم با تعویض زبان جابه‌جا نمی‌شود */
+html[dir="rtl"] .cs-nav { direction: ltr; }
+html[dir="rtl"] .cs-nav-trail,
+html[dir="rtl"] .cs-btn { direction: rtl; }
+/* فونت دکمه‌های داخل صفحه با بقیه سایت هماهنگ شود */
+.cs-visit-site { font-family: 'Poppins', 'Shabnam', 'Shabnam', sans-serif !important; font-size: .82rem !important; font-weight: 600 !important; letter-spacing: 0 !important; }
+
+/* =========================================================
+   Endcap: prev / all / next
+   ========================================================= */
+.cs-endcap { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.cs-endcap-link, .cs-endcap-mid {
+  font-family:'JetBrains Mono','Shabnam',monospace; font-size:.75rem; letter-spacing:.04em; text-decoration:none;
+  border:1px solid var(--border-h); padding:10px 18px; border-radius:100px; transition:all .2s; white-space:nowrap;
+}
+.cs-endcap-link { color:var(--muted); }
+.cs-endcap-mid { color:var(--muted); }
+.cs-endcap-link.primary { color:var(--cs-accent,var(--primary)); border-color:var(--cs-accent-br,rgba(79,140,255,.3)); }
+.cs-endcap-link:hover, .cs-endcap-mid:hover { color:var(--text); border-color:var(--cs-accent,var(--primary)); }
+@media (max-width:600px){
+  .cs-endcap-link { flex:1 1 calc(50% - 6px); text-align:center; padding:10px 8px; }
+  .cs-endcap-mid { order:3; flex:1 1 100%; text-align:center; }
+}
+html[dir="rtl"] .cs-endcap-link, html[dir="rtl"] .cs-endcap-mid { font-family:'Shabnam','Shabnam',sans-serif; letter-spacing:0; font-size:.82rem; }
+
+/* =========================================================
+   RTL (Persian) — shared fixes for every case study
+   ========================================================= */
+html[dir="rtl"] .cs-sl, html[dir="rtl"] .cs-tag, html[dir="rtl"] .cs-feature-chip, html[dir="rtl"] .cs-pill,
+html[dir="rtl"] .cs-meta-label, html[dir="rtl"] .cs-constraint b, html[dir="rtl"] .discovery-method,
+html[dir="rtl"] .mockup-section-label, html[dir="rtl"] .mockup-group-label, html[dir="rtl"] .mockup-caption,
+html[dir="rtl"] .impact-table th, html[dir="rtl"] .process-title, html[dir="rtl"] .cs-sub,
+html[dir="rtl"] .cs-visit-site { font-family:'Shabnam','Shabnam',sans-serif; letter-spacing:0; text-transform:none; }
+html[dir="rtl"] .cs-sl { font-size:.95rem; }
+html[dir="rtl"] .cs-p, html[dir="rtl"] .process-text, html[dir="rtl"] .learn-text, html[dir="rtl"] .metric-item,
+html[dir="rtl"] .discovery-insight { line-height:2; }
+html[dir="rtl"] .cs-title { font-family:'Shabnam','Poppins',sans-serif; letter-spacing:0; }
+html[dir="rtl"] .cs-title[data-fa="Dota"], html[dir="rtl"] .cs-title[data-fa="PathoFinder"] { font-family:'Poppins',sans-serif; letter-spacing:-.03em; }
+html[dir="rtl"] .discovery-insight { border-left:0; padding-left:0; border-right:2px solid var(--cs-accent,var(--primary)); padding-right:16px; }
+html[dir="rtl"] .impact-table th { text-align:right; }
+html[dir="rtl"] .impact-table .after { font-family:'Shabnam','Shabnam',sans-serif; }
+html[dir="rtl"] .cs-sl::before { order:0; }
+html[dir="rtl"] .cs-endcap { direction:rtl; }
+html[dir="rtl"] .cs-meta-val, html[dir="rtl"] .cs-meta-label { text-align:right; }
+html[dir="rtl"] .lightbox-caption { font-family:'Shabnam','Shabnam',sans-serif; font-style:normal; }
+
+/* =========================================================
+   "Visit site" button: outline style (readable on dark, uses each project's accent)
+   ========================================================= */
+.cs-visit-site {
+  background: transparent !important;
+  color: var(--cs-accent, var(--primary)) !important;
+  border: 1.5px solid var(--cs-accent, var(--primary)) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  padding: 9px 20px !important;
+  border-radius: 100px !important;
+  opacity: 1 !important;
+  transition: background .2s ease, color .2s ease, transform .2s ease !important;
+}
+.cs-visit-site:hover {
+  background: color-mix(in srgb, var(--cs-accent, var(--primary)) 16%, transparent) !important;
+  color: var(--text, #e7ecf5) !important;
+  transform: translateY(-1px);
+  opacity: 1 !important;
+}
+.cs-visit-site:focus-visible { outline: 2px solid var(--cs-accent, var(--primary)); outline-offset: 3px; }

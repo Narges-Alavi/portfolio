@@ -106,6 +106,9 @@ a{color:inherit;}
 .lightbox-inner{position:relative;max-width:min(92vw,1100px);max-height:88vh;display:flex;flex-direction:column;align-items:center;gap:14px;transform:scale(.9) translateY(10px);opacity:0;transition:transform .4s cubic-bezier(.2,.9,.25,1.05),opacity .35s ease;}
 .lightbox-overlay.open .lightbox-inner{transform:scale(1) translateY(0);opacity:1;}
 .lightbox-inner img{max-width:100%;max-height:78vh;width:auto;height:auto;border-radius:10px;border:1px solid var(--border-h);box-shadow:0 30px 80px -20px rgba(0,0,0,.7);}
+.lightbox-scroll{width:100%;height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;align-items:center;justify-content:center;padding:40px 84px;}
+@media(max-width:640px){.lightbox-scroll{padding:64px 12px 40px;}}
+.lightbox-overlay.tall .lightbox-scroll{align-items:flex-start;}
 .lightbox-caption{font-size:.85rem;color:#d3dae8;text-align:center;font-family:'Inter',sans-serif;}
 .lightbox-close{position:absolute;top:-44px;right:0;width:36px;height:36px;border-radius:50%;border:1px solid var(--border-h);background:rgba(255,255,255,.06);color:var(--text);font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--border-h);background:rgba(255,255,255,.06);color:var(--text);font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:5;-webkit-tap-highlight-color:transparent;}
@@ -163,7 +166,56 @@ body{font-family:'Inter',sans-serif;}
 .back-to-top:hover{border-color:var(--primary);color:var(--primary);}
 @media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
 
+
+/* ===== Mentor-feedback additions: affinity map, IA, user flow, hero mockup ===== */
+.l-en,.l-fa{margin:0;}
+html[lang="fa"] .l-en{display:none;}
+html:not([lang="fa"]) .l-fa{display:none;}
+.mockup-grid-desktop .mockup-slot:first-child{grid-column:1/-1;border-color:var(--cs-accent,#f0b429);box-shadow:0 0 0 1px rgba(240,180,41,.25),0 30px 80px -24px rgba(240,180,41,.25);}
+.mockup-grid-desktop .mockup-slot:first-child .shot-area{height:auto;aspect-ratio:4160/2292;}
+.feat-badge{position:absolute;top:4px;right:12px;z-index:3;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cs-accent,#f0b429);border:1px solid var(--cs-accent,#f0b429);background:rgba(240,180,41,.1);padding:3px 10px;border-radius:100px;}
+.aff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+.aff-cluster{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;}
+.aff-title{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.aff-sticky{border-radius:4px;padding:10px 12px;margin-bottom:8px;font-size:.8rem;line-height:1.45;color:#1a2233;font-weight:500;box-shadow:0 6px 14px -8px rgba(0,0,0,.6);}
+.aff-sticky:last-child{margin-bottom:0;}
+.aff-sticky.s1{background:#bcd4ff;}
+.aff-sticky.s2{background:#ffd0d4;}
+.aff-sticky.s3{background:#d6cfff;}
+.aff-note{font-size:.72rem;color:var(--muted);margin-top:12px;font-style:italic;}
+.ia{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;}
+.ia-root{font-family:'Poppins',sans-serif;font-weight:700;font-size:.9rem;color:var(--cs-accent,var(--primary));margin-bottom:10px;}
+.ia ul{list-style:none;margin:0 0 0 6px;padding:0;border-left:1px solid var(--border-h);}
+.ia li{position:relative;padding:6px 0 6px 20px;font-size:.85rem;color:#c3ccdc;}
+.ia li::before{content:'';position:absolute;left:0;top:17px;width:14px;height:1px;background:var(--border-h);}
+.ia-l1>li>.ia-node{font-weight:600;color:var(--text);}
+.ia-note{display:block;font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted);margin-top:2px;}
+.ia-steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.ia-step{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted);border:1px solid var(--border);background:rgba(255,255,255,.03);padding:4px 10px;border-radius:100px;}
+.flow-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.flow-wrap svg{display:block;width:100%;min-width:700px;height:auto;}
+.flow-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted);}
+.flow-legend span{display:flex;align-items:center;gap:6px;}
+.flow-legend i{width:12px;height:12px;border-radius:3px;border:1.5px solid;display:inline-block;}
+.flow-hint{display:none;font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--muted);margin-top:10px;}
+@media(max-width:720px){.aff-grid{grid-template-columns:1fr;}.flow-hint{display:block;}}
+/* RTL (فارسی) */
+html[dir="rtl"] .aff-title,html[dir="rtl"] .aff-note,html[dir="rtl"] .ia-note,html[dir="rtl"] .ia-step,html[dir="rtl"] .flow-legend,html[dir="rtl"] .flow-hint,html[dir="rtl"] .feat-badge{font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;text-transform:none;}
+html[dir="rtl"] .aff-title{font-size:.8rem;font-weight:600;}
+html[dir="rtl"] .aff-sticky{font-size:.86rem;line-height:1.75;}
+html[dir="rtl"] .ia ul{margin:0 6px 0 0;border-left:0;border-right:1px solid var(--border-h);}
+html[dir="rtl"] .ia li{padding:6px 20px 6px 0;}
+html[dir="rtl"] .ia li::before{left:auto;right:0;}
+html[dir="rtl"] .ia-root{font-family:'Shabnam','Shabnam',sans-serif;}
+html[dir="rtl"] .feat-badge{right:auto;left:12px;}
+html[dir="rtl"] .discovery-insight{border-left:0;padding-left:0;border-right:2px solid var(--cs-accent,var(--primary));padding-right:16px;}
+html[dir="rtl"] .impact-table th{text-align:right;}
+html[dir="rtl"] .impact-table th,html[dir="rtl"] .impact-table td{font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;text-transform:none;}
+html[dir="rtl"] .impact-table .after{font-family:'Shabnam','Shabnam',sans-serif;}
+html[dir="rtl"] .cs-sl,html[dir="rtl"] .cs-feature-chip,html[dir="rtl"] .discovery-method,html[dir="rtl"] .cs-meta-label,html[dir="rtl"] .cs-constraint b,html[dir="rtl"] .cs-pill,html[dir="rtl"] .mockup-section-label{font-family:'Shabnam','Shabnam',sans-serif;letter-spacing:0;text-transform:none;}
+html[dir="rtl"] .process-title,html[dir="rtl"] .cs-title.fa{font-family:'Shabnam','Shabnam',sans-serif;}
 </style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
 </head>
 <body style="--cs-accent:#f0b429;--cs-accent-bg:rgba(240,180,41,0.09);--cs-accent-br:rgba(240,180,41,0.28);">
 
@@ -174,77 +226,142 @@ body{font-family:'Inter',sans-serif;}
   <div class="blob blob-3"></div>
 </div>
 
-<div class="crumb-bar">
-  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
-</div>
-<div class="crumb-trail-bar">
-  <div class="crumb-trail">
-    <a href="../index.html">Home</a>
-    <span class="sep">/</span>
-    <a href="../index.html#work">Work</a>
-    <span class="sep">/</span>
-    <span class="current">Dota</span>
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="Dota" data-fa="دوتا">Dota</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
   </div>
-</div>
+</header>
 
 <main class="cs-container">
 
   <div class="cs-header-row">
     <div class="cs-header-main">
-      <div class="cs-tag">LEGALTECH · WIZARD UX</div>
-      <h1 class="cs-title">Dota</h1>
-      <p class="cs-sub">For Iranian freelancers, Dota solves the pain of working without a contract — ready-made Persian templates paired with an installment payment tracker.</p>
-      <a class="cs-visit-site" href="https://contract-maker-silk.vercel.app/" target="_blank" rel="noopener">↗ Visit Live Site</a>
+      <div class="cs-tag" data-en="LEGALTECH · WIZARD UX" data-fa="فناوری حقوقی · تجربه کاربری گام‌به‌گام">LEGALTECH · WIZARD UX</div>
+      <h1 class="cs-title" data-en="Dota" data-fa="Dota">Dota</h1>
+      <p class="cs-sub" data-en="For Iranian freelancers, Dota solves the pain of working without a contract — ready-made Persian templates paired with an installment payment tracker." data-fa="دوتا برای فریلنسرهای ایرانی، دردِ کار کردن بدون قرارداد را حل می‌کند — قالب‌های آماده فارسی، همراه با پیگیری پرداخت اقساطی.">For Iranian freelancers, Dota solves the pain of working without a contract — ready-made Persian templates paired with an installment payment tracker.</p>
+      <a class="cs-visit-site" href="https://contract-maker-silk.vercel.app/" target="_blank" rel="noopener" data-en="↗ Visit Live Site" data-fa="↗ مشاهده سایت">↗ Visit Live Site</a>
     </div>
     <img class="cs-logo-corner" src="../assets/images/dota/dota-01.svg" alt="Dota logo">
   </div>
 
   <div class="cs-meta">
-    <div class="cs-meta-row"><div class="cs-meta-label">Role</div><div class="cs-meta-val">UI/UX Designer — Sole Design Lead</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Design (Solo) + Engineering (React / TypeScript)</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">14 Days · 2026</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">LegalTech</span></div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma, Gemini Pro, Claude</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Mobile &amp; Desktop (RTL)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Role" data-fa="نقش">Role</div><div class="cs-meta-val" data-en="UI/UX Designer — Sole Design Lead" data-fa="طراح UI/UX — تنها مسئول طراحی">UI/UX Designer — Sole Design Lead</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="Design (Solo) + Engineering (React / TypeScript)" data-fa="طراحی (تک‌نفره) + مهندسی (React / TypeScript)">Design (Solo) + Engineering (React / TypeScript)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Timeframe" data-fa="بازه زمانی">Timeframe</div><div class="cs-meta-val" data-en="14 Days · 2026" data-fa="۱۴ روز · ۱۴۰۴">14 Days · 2026</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="LegalTech" data-fa="فناوری حقوقی">LegalTech</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma, Gemini Pro, Claude" data-fa="فیگما، Gemini Pro، Claude">Figma, Gemini Pro, Claude</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Mobile &amp; Desktop (RTL)" data-fa="موبایل و دسکتاپ (راست‌به‌چپ)">Mobile &amp; Desktop (RTL)</div></div>
   </div>
 
-  <div class="cs-constraint"><b>Constraint —</b><span>The output has to be legally enforceable. Anything I simplified in the interface, I couldn’t simplify in the underlying contract — complexity had to be hidden, not removed.</span></div>
-
-  <div class="cs-constraint" style="margin-top:-24px;"><b>Constraint —</b><span>The goal was a real, shippable product in 14 days, not a prototype. I led design end-to-end solo — using Figma, Gemini Pro, and Claude — and we shipped a working MVP.</span></div>
-
-  <div class="cs-constraint" style="margin-top:-24px;"><b>Constraint —</b><span>The desktop contract form and its live preview went through heavy trial-and-error before they held up — same for the contract-creation form itself. Getting a two-pane layout to stay legible and error-free at desktop width took several failed passes.</span></div>
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="The goal was a real product in 14 days, not a prototype — built with AI tools and shipped as an MVP." data-fa="هدف یک محصول واقعی در ۱۴ روز بود، نه یک نمونه اولیه. با ابزارهای هوش مصنوعی ساخته شد و به‌صورت MVP منتشر شد.">The goal was a real product in 14 days, not a prototype — built with AI tools and shipped as an MVP.</span></div>
 
   <section class="cs-block" style="margin-top:0;">
-    <div class="cs-sl">01 · Context &amp; Problem</div>
-    <p class="cs-p">Dota is a self-service contract builder for Iranian freelancers, founders, and small businesses. Most freelancers here work entirely without a contract — deals get agreed over DM, which opens the door to scope creep, non-payment, and "just make one small change." Since AI made building things cheap, clients increasingly assume revisions are free too — turning the revision-round clause from a minor legal detail into arguably the most critical clause in a freelance contract. I led the design end-to-end, solo — dashboard, templates library, contract wizard, financial/payment tracking, and settings — and we shipped a working MVP.</p>
-    <div class="cs-features"><span class="cs-feature-chip">Conversational Wizard</span><span class="cs-feature-chip">Split-Screen Live Preview &amp; Live Focus</span><span class="cs-feature-chip">Conditional Branching</span><span class="cs-feature-chip">Plain-Language Legal Copy</span><span class="cs-feature-chip">Legal Capacity Checks</span><span class="cs-feature-chip">Revision-Round Limits</span><span class="cs-feature-chip">Termination Conditions</span><span class="cs-feature-chip">Payment Tracker (Lump-Sum &amp; Installments)</span><span class="cs-feature-chip">Templates Library</span><span class="cs-feature-chip">Dashboard</span><span class="cs-feature-chip">Settings</span></div>
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-en="Dota is a Persian contract builder for freelancers. Many freelancers in Iran agree on work in DMs and never write a contract. I designed Dota from zero, on desktop and mobile: dashboard, contracts, templates, installment tracker and settings. I led the design alone, and we shipped the MVP in 14 days." data-fa="دوتا یک قرارداد‌ساز فارسی برای فریلنسرهاست. بسیاری از فریلنسرها در ایران توافق کار را در دایرکت انجام می‌دهند و هیچ‌وقت قرارداد نمی‌نویسند. من دوتا را از صفر طراحی کردم، هم برای دسکتاپ و هم برای موبایل: داشبورد، قراردادها، قالب‌ها، پیگیری اقساط و تنظیمات. طراحی را تنهایی پیش بردم و MVP را در ۱۴ روز منتشر کردیم.">Dota is a Persian contract builder for freelancers. Many freelancers in Iran agree on work in DMs and never write a contract. I designed Dota from zero, on desktop and mobile: dashboard, contracts, templates, installment tracker and settings. I led the design alone, and we shipped the MVP in 14 days.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="Live Preview &amp; Live Focus" data-fa="پیش‌نمایش زنده و تمرکز زنده">Live Preview &amp; Live Focus</span><span class="cs-feature-chip" data-en="Revision-Round Limit" data-fa="سقف تعداد بازنگری">Revision-Round Limit</span><span class="cs-feature-chip" data-en="Termination Conditions" data-fa="شرایط فسخ">Termination Conditions</span><span class="cs-feature-chip" data-en="One Payment or Installments" data-fa="پرداخت یکجا یا اقساطی">One Payment or Installments</span><span class="cs-feature-chip" data-en="Payment Tracker" data-fa="پیگیری پرداخت">Payment Tracker</span><span class="cs-feature-chip" data-en="Templates" data-fa="قالب‌ها">Templates</span><span class="cs-feature-chip" data-en="Contract Archive" data-fa="آرشیو قراردادها">Contract Archive</span><span class="cs-feature-chip" data-en="PDF Download" data-fa="دانلود PDF">PDF Download</span><span class="cs-feature-chip" data-en="Dashboard" data-fa="داشبورد">Dashboard</span><span class="cs-feature-chip" data-en="Settings" data-fa="تنظیمات">Settings</span></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
     <div class="discovery-wrap">
-      <div class="discovery-method">Talked to freelancers about how they actually agree work</div>
-      <div class="discovery-insight">Almost none of them used a written contract at all — deals happen over DM. That's exactly what opens the door to scope creep, "just one small change," and clients who never pay. And since AI made building things faster and cheaper, clients increasingly assume revisions are free — so the revision-round clause, usually a throwaway line, needed to become the clause the whole product was built around.</div>
+      <div class="discovery-method" data-en="Where the problem starts: agreeing on work over DM" data-fa="ریشه‌ی مسئله: توافق کار در دایرکت">Where the problem starts: agreeing on work over DM</div>
+      <div class="discovery-insight" data-en="The main problem wasn't the contract itself. It was that the deal lives in a DM, where nothing is limited and nothing is tracked. Two real problems come from that: revisions never end, and payments slip. Since AI made building cheap, clients assume changes are free, so the number of revision rounds became the most important clause." data-fa="مشکل اصلی خودِ قرارداد نبود. این بود که توافق در دایرکت انجام می‌شود، جایی که هیچ‌چیز محدود و پیگیری نمی‌شود. از همین‌جا دو مشکل واقعی بیرون می‌آید: بازنگری‌ها تمام نمی‌شوند و پرداخت‌ها عقب می‌افتند. از وقتی هوش مصنوعی ساختن را ارزان کرده، کارفرماها فرض می‌کنند تغییرات رایگان است؛ برای همین تعداد دفعات بازنگری مهم‌ترین بند شد.">The main problem wasn't the contract itself. It was that the deal lives in a DM, where nothing is limited and nothing is tracked. Two real problems come from that: revisions never end, and payments slip. Since AI made building cheap, clients assume changes are free, so the number of revision rounds became the most important clause.</div>
+    </div>
+    <div class="aff-grid">
+      <div class="aff-cluster"><div class="aff-title" data-en="A DM is faster than a contract" data-fa="دایرکت از قرارداد سریع‌تر است">A DM is faster than a contract</div>
+        <div class="aff-sticky s1" data-en="Deals are agreed in DMs" data-fa="توافق‌ها در دایرکت بسته می‌شوند">Deals are agreed in DMs</div>
+        <div class="aff-sticky s1" data-en="Many freelancers work with no contract" data-fa="بسیاری از فریلنسرها بدون قرارداد کار می‌کنند">Many freelancers work with no contract</div>
+        <div class="aff-sticky s1" data-en="Wants a contract in under 5 minutes" data-fa="می‌خواهد در کمتر از ۵ دقیقه قرارداد بسازد">Wants a contract in under 5 minutes</div></div>
+      <div class="aff-cluster"><div class="aff-title" data-en="The scope has no limit" data-fa="دامنه‌ی کار حدی ندارد">The scope has no limit</div>
+        <div class="aff-sticky s2" data-en="Scope creep" data-fa="گسترش بی‌پایان کار">Scope creep</div>
+        <div class="aff-sticky s2" data-en="“Just one small change”" data-fa="«فقط یک تغییر کوچک هم بده»">“Just one small change”</div>
+        <div class="aff-sticky s2" data-en="Clients assume revisions are free now that AI makes building cheap" data-fa="از وقتی هوش مصنوعی ساختن را ارزان کرده، کارفرما فکر می‌کند اصلاح رایگان است">Clients assume revisions are free now that AI makes building cheap</div></div>
+      <div class="aff-cluster"><div class="aff-title" data-en="Payments have no schedule" data-fa="پرداخت‌ها برنامه ندارند">Payments have no schedule</div>
+        <div class="aff-sticky s3" data-en="Clients don't pay" data-fa="کارفرما پول نمی‌دهد">Clients don't pay</div>
+        <div class="aff-sticky s3" data-en="Splits a project's payment into installments" data-fa="پرداخت پروژه را اقساطی می‌کند">Splits a project's payment into installments</div>
+        <div class="aff-sticky s3" data-en="Wants to see which installments are overdue" data-fa="می‌خواهد ببیند کدام قسط‌ها عقب افتاده‌اند">Wants to see which installments are overdue</div></div>
+    </div>
+    <div class="aff-note" data-en="Pain points and needs, grouped by root cause." data-fa="دردها و نیازها، گروه‌بندی‌شده بر اساس علت ریشه‌ای.">Pain points and needs, grouped by root cause.</div>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="03 · Information Architecture" data-fa="۰۳ · معماری اطلاعات">03 · Information Architecture</div>
+    <div class="ia">
+      <div class="ia-root">Dota</div>
+      <ul class="ia-l1">
+        <li><span class="ia-node"><span data-en="Dashboard" data-fa="داشبورد">Dashboard</span></span></li>
+        <li><span class="ia-node"><span data-en="Contracts" data-fa="قراردادها">Contracts</span></span>
+          <ul class="ia-l2">
+            <li><span class="ia-node"><span data-en="Archive" data-fa="آرشیو">Archive</span></span><span class="ia-note" data-en="All · Overdue · Active · Completed · Draft" data-fa="همه · معوق · فعال · تکمیل‌شده · پیش‌نویس">All · Overdue · Active · Completed · Draft</span></li>
+            <li><span class="ia-node"><span data-en="New contract" data-fa="قرارداد جدید">New contract</span></span>
+              <div class="ia-steps"><span class="ia-step" data-en="1 Template" data-fa="۱ قالب">1 Template</span><span class="ia-step" data-en="2 Basic info" data-fa="۲ اطلاعات پایه">2 Basic info</span><span class="ia-step" data-en="3 Amounts &amp; installments" data-fa="۳ مبلغ و اقساط">3 Amounts &amp; installments</span><span class="ia-step" data-en="4 Miscellaneous clauses" data-fa="۴ بندهای متفرقه">4 Miscellaneous clauses</span><span class="ia-step" data-en="5 Review &amp; finalize" data-fa="۵ بازبینی و نهایی‌سازی">5 Review &amp; finalize</span></div>
+            </li>
+          </ul>
+        </li>
+        <li><span class="ia-node"><span data-en="Templates" data-fa="قالب‌ها">Templates</span></span>
+          <ul class="ia-l2">
+            <li><span class="ia-node"><span data-en="Freelance services" data-fa="ارائه خدمات فریلنسری">Freelance services</span></span></li>
+            <li><span class="ia-node"><span data-en="Web &amp; software development" data-fa="توسعه وب‌سایت و نرم‌افزار">Web &amp; software development</span></span></li>
+            <li><span class="ia-node"><span data-en="UI/UX &amp; graphic design" data-fa="طراحی UI/UX و گرافیک">UI/UX &amp; graphic design</span></span></li>
+            <li><span class="ia-node"><span data-en="Confidentiality (NDA)" data-fa="محرمانگی (NDA)">Confidentiality (NDA)</span></span></li>
+          </ul>
+        </li>
+        <li><span class="ia-node"><span data-en="Installment tracker" data-fa="پیگیری اقساط">Installment tracker</span></span>
+          <ul class="ia-l2"><li><span class="ia-node"><span data-en="Installment details" data-fa="جزئیات قسط">Installment details</span></span></li></ul>
+        </li>
+        <li><span class="ia-node"><span data-en="Settings" data-fa="تنظیمات">Settings</span></span></li>
+      </ul>
+    </div>
+    <p class="cs-p" style="margin-top:14px;" data-en="Inside the builder, the stepper sits on top and the form sits beside a live preview of the contract. On mobile, the two become tabs: Edit form and Preview." data-fa="داخل قرارداد‌ساز، نوار مراحل بالای صفحه قرار دارد و فرم کنار پیش‌نمایش زنده‌ی قرارداد می‌نشیند. در موبایل این دو به دو تب تبدیل می‌شوند: ویرایش فرم و پیش‌نمایش.">Inside the builder, the stepper sits on top and the form sits beside a live preview of the contract. On mobile, the two become tabs: Edit form and Preview.</p>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="04 · User Flow" data-fa="۰۴ · یوزر فلو">04 · User Flow</div>
+    <div class="l-en">
+    <div class="flow-wrap"><svg viewBox="0 0 880 420" role="img" aria-label="User flow for creating a contract and tracking its installments, with exception paths" font-family="Inter, sans-serif" xmlns="http://www.w3.org/2000/svg"><defs><marker id="dota-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6b7a93"/></marker><marker id="dota-ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff7a85"/></marker></defs><rect x="10" y="30" width="110" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><text x="65.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Open</text><text x="65.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5">New contract</text><rect x="140" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><text x="202.0" y="61.0" text-anchor="middle" font-size="12" fill="#e7ecf5">1 Template</text><rect x="284" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><text x="346.0" y="61.0" text-anchor="middle" font-size="12" fill="#e7ecf5">2 Basic info</text><rect x="428" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><text x="490.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5">3 Amount &amp;</text><text x="490.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5">installments</text><rect x="572" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><text x="634.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5">4 Miscellaneous</text><text x="634.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5">clauses</text><rect x="716" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><text x="778.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5">5 Review &amp;</text><text x="778.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5">finalize</text><path d="M120 57 H138" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><path d="M264 57 H282" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><path d="M408 57 H426" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><path d="M552 57 H570" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><path d="M696 57 H714" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><rect x="425" y="140" width="130" height="54" rx="10" fill="#2a1820" stroke="#ff7a85" stroke-width="1.5"/><text x="490.0" y="164.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Installments don't</text><text x="490.0" y="178.0" text-anchor="middle" font-size="12" fill="#e7ecf5">add up to 100%</text><path d="M470 84 V138" fill="none" stroke="#ff7a85" stroke-width="1.5" marker-end="url(#dota-ahr)"/><path d="M510 140 V86" fill="none" stroke="#ff7a85" stroke-width="1.5" marker-end="url(#dota-ahr)"/><text x="490" y="210" font-size="10" fill="#ff7a85" text-anchor="middle" font-family="JetBrains Mono, monospace">running total shows what's assigned</text><rect x="572" y="140" width="124" height="54" rx="10" fill="#131f31" stroke="#93a1b8" stroke-width="1.5" stroke-dasharray="5 4"/><text x="634.0" y="164.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Saved as draft,</text><text x="634.0" y="178.0" text-anchor="middle" font-size="12" fill="#e7ecf5">stays in archive</text><path d="M634 84 V138" fill="none" stroke="#93a1b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#dota-ah)"/><text x="642" y="116" font-size="10" fill="#93a1b8" text-anchor="start" font-family="JetBrains Mono, monospace">leaves midway</text><path d="M778 84 V226 H72 V248" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><rect x="10" y="250" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><text x="72.0" y="281.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Download PDF</text><rect x="154" y="250" width="124" height="54" rx="10" fill="#131f31" stroke="#93a1b8" stroke-width="1.5"/><text x="216.0" y="274.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Client receives</text><text x="216.0" y="288.0" text-anchor="middle" font-size="12" fill="#e7ecf5">the PDF</text><rect x="298" y="250" width="124" height="54" rx="10" fill="#131f31" stroke="#93a1b8" stroke-width="1.5"/><text x="360.0" y="274.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Installments</text><text x="360.0" y="288.0" text-anchor="middle" font-size="12" fill="#e7ecf5">tracked</text><path d="M134 277 H152" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><path d="M278 277 H296" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><path d="M422 277 H463" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><polygon points="520,239 575,277 520,315 465,277" fill="#131f31" stroke="#4f8cff" stroke-width="1.5"/><text x="520" y="274" text-anchor="middle" font-size="12" fill="#e7ecf5">Installment</text><text x="520" y="288" text-anchor="middle" font-size="12" fill="#e7ecf5">status</text><path d="M575 277 H640" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah)"/><text x="607" y="267" font-size="10" fill="#93a1b8" text-anchor="middle" font-family="JetBrains Mono, monospace">all paid</text><rect x="642" y="250" width="124" height="54" rx="10" fill="#2b2410" stroke="#f0b429" stroke-width="2"/><text x="704.0" y="274.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Contract</text><text x="704.0" y="288.0" text-anchor="middle" font-size="12" fill="#e7ecf5">completed</text><path d="M520 315 V348" fill="none" stroke="#ff7a85" stroke-width="1.5" marker-end="url(#dota-ahr)"/><text x="530" y="336" font-size="10" fill="#ff7a85" text-anchor="start" font-family="JetBrains Mono, monospace">due date passes unpaid</text><rect x="445" y="350" width="150" height="54" rx="10" fill="#2a1820" stroke="#ff7a85" stroke-width="1.5"/><text x="520.0" y="374.0" text-anchor="middle" font-size="12" fill="#e7ecf5">Marked overdue</text><text x="520.0" y="388.0" text-anchor="middle" font-size="12" fill="#e7ecf5">in tracker &amp; archive</text></svg></div>
+    <div class="flow-hint">Swipe sideways to see the whole flow →</div>
+    <div class="flow-legend"><span><i style="border-color:#f0b429"></i>Freelancer action</span><span><i style="border-color:#93a1b8"></i>System / client</span><span><i style="border-color:#4f8cff"></i>Decision</span><span><i style="border-color:#ff7a85;background:#2a1820"></i>Failure path</span><span><i style="border-color:#f0b429;background:#2b2410"></i>Final step</span></div>
+    </div>
+    <div class="l-fa" lang="fa" dir="rtl">
+    <div class="flow-wrap" dir="ltr"><svg viewBox="0 0 880 420" role="img" aria-label="فلو کاربر برای ساخت قرارداد و پیگیری اقساط، همراه با مسیرهای شکست" font-family="Shabnam, Tahoma, sans-serif" xmlns="http://www.w3.org/2000/svg"><defs><marker id="dota-ah-fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6b7a93"/></marker><marker id="dota-ahr-fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff7a85"/></marker></defs><g transform="translate(880 0) scale(-1 1)"><rect x="10" y="30" width="110" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><rect x="140" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><rect x="284" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><rect x="428" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><rect x="572" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><rect x="716" y="30" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><path d="M120 57 H138" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><path d="M264 57 H282" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><path d="M408 57 H426" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><path d="M552 57 H570" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><path d="M696 57 H714" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><rect x="425" y="140" width="130" height="54" rx="10" fill="#2a1820" stroke="#ff7a85" stroke-width="1.5"/><path d="M470 84 V138" fill="none" stroke="#ff7a85" stroke-width="1.5" marker-end="url(#dota-ahr-fa)"/><path d="M510 140 V86" fill="none" stroke="#ff7a85" stroke-width="1.5" marker-end="url(#dota-ahr-fa)"/><rect x="572" y="140" width="124" height="54" rx="10" fill="#131f31" stroke="#93a1b8" stroke-width="1.5" stroke-dasharray="5 4"/><path d="M634 84 V138" fill="none" stroke="#93a1b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#dota-ah-fa)"/><path d="M778 84 V226 H72 V248" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><rect x="10" y="250" width="124" height="54" rx="10" fill="#131f31" stroke="#f0b429" stroke-width="1.5"/><rect x="154" y="250" width="124" height="54" rx="10" fill="#131f31" stroke="#93a1b8" stroke-width="1.5"/><rect x="298" y="250" width="124" height="54" rx="10" fill="#131f31" stroke="#93a1b8" stroke-width="1.5"/><path d="M134 277 H152" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><path d="M278 277 H296" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><path d="M422 277 H463" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><polygon points="520,239 575,277 520,315 465,277" fill="#131f31" stroke="#4f8cff" stroke-width="1.5"/><path d="M575 277 H640" fill="none" stroke="#6b7a93" stroke-width="1.5" marker-end="url(#dota-ah-fa)"/><rect x="642" y="250" width="124" height="54" rx="10" fill="#2b2410" stroke="#f0b429" stroke-width="2"/><path d="M520 315 V348" fill="none" stroke="#ff7a85" stroke-width="1.5" marker-end="url(#dota-ahr-fa)"/><rect x="445" y="350" width="150" height="54" rx="10" fill="#2a1820" stroke="#ff7a85" stroke-width="1.5"/></g><text x="815.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧ساخت⁩</text><text x="815.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧قرارداد جدید⁩</text><text x="678.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧۱ قالب⁩</text><text x="678.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧قراردادها⁩</text><text x="534.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧۲ مشخصات⁩</text><text x="534.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧اولیه⁩</text><text x="390.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧۳ مبالغ⁩</text><text x="390.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧و اقساط⁩</text><text x="246.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧۴ بندهای⁩</text><text x="246.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧متفرقه⁩</text><text x="102.0" y="54.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧۵ بازبینی و⁩</text><text x="102.0" y="68.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧نهایی‌سازی⁩</text><text x="390.0" y="164.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧جمع درصد اقساط⁩</text><text x="390.0" y="178.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧۱۰۰٪ نمی‌شه⁩</text><text x="390" y="210" font-size="10.5" fill="#ff7a85" text-anchor="middle" style="direction:rtl;unicode-bidi:embed">⁧جمع کل نشون می‌ده چقدر تخصیص داده شده⁩</text><text x="246.0" y="164.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧پیش‌نویس می‌شه،⁩</text><text x="246.0" y="178.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧تو آرشیو می‌مونه⁩</text><text x="190" y="116" font-size="10.5" fill="#93a1b8" text-anchor="middle" style="direction:rtl;unicode-bidi:embed">⁧نیمه‌کاره رها می‌شه⁩</text><text x="808.0" y="281.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧دانلود PDF⁩</text><text x="664.0" y="274.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧کارفرما PDF⁩</text><text x="664.0" y="288.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧رو می‌گیره⁩</text><text x="520.0" y="274.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧اقساط پیگیری⁩</text><text x="520.0" y="288.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧می‌شن⁩</text><text x="360" y="274" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧وضعیت⁩</text><text x="360" y="288" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧قسط⁩</text><text x="273" y="267" font-size="10.5" fill="#93a1b8" text-anchor="middle" style="direction:rtl;unicode-bidi:embed">⁧پرداخت شد⁩</text><text x="176.0" y="274.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧قرارداد⁩</text><text x="176.0" y="288.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧تمام‌شده⁩</text><text x="288" y="336" font-size="10.5" fill="#ff7a85" text-anchor="middle" style="direction:rtl;unicode-bidi:embed">⁧سررسید گذشته، پرداخت نشده⁩</text><text x="360.0" y="374.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧معوق می‌شه، تو ردیاب⁩</text><text x="360.0" y="388.0" text-anchor="middle" font-size="12" fill="#e7ecf5" style="direction:rtl;unicode-bidi:embed">⁧و آرشیو دیده می‌شه⁩</text></svg></div>
+    <div class="flow-hint">برای دیدن کل فلو، افقی بکشید</div>
+    <div class="flow-legend"><span><i style="border-color:#f0b429"></i>اقدام فریلنسر</span><span><i style="border-color:#93a1b8"></i>سیستم / کارفرما</span><span><i style="border-color:#4f8cff"></i>تصمیم</span><span><i style="border-color:#ff7a85;background:#2a1820"></i>مسیر شکست</span><span><i style="border-color:#f0b429;background:#2b2410"></i>مرحله‌ی نهایی</span></div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">03 · Process</div>
-    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title">There was no template to redesign — the habit was no contract at all</div><div class="process-text">The competitor wasn't a clunkier contract tool, it was the DM. So the wizard had to be faster and less intimidating than typing out a deal in a chat thread, or freelancers would just keep doing what they already do.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title">Split-screen with a real preview</div><div class="process-text">Questions on one side, the actual live-compiling contract on the other. Every answer highlights the clause it just wrote (live focus). The preview isn't a summary — it's the real document, which matters when the whole point is trust.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title">Making the revision-round clause the centerpiece, not an afterthought</div><div class="process-text">Since AI made "just tweak it a bit" free to ask for, the number-of-revision-rounds clause moved from a legal footnote to the single highest-leverage line in the contract. I designed it as its own explicit step, alongside termination conditions, rather than burying both in boilerplate.</div></div></div><div class="process-item"><div class="process-num">04</div><div><div class="process-title">Cutting entire sections with conditional branching</div><div class="process-text">I modeled a cognitive-load score per wizard step and used it to justify cutting whole paths, not just individual questions. If a contract has no IP transfer, the user never sees the IP screens — those steps disappear from the wizard entirely.</div></div></div><div class="process-item"><div class="process-num">05</div><div><div class="process-title">The desktop form and preview took several failed passes</div><div class="process-text">Getting the two-pane layout — form on one side, compiling contract on the other — to stay legible and error-free at desktop width took repeated trial-and-error, and the contract-creation form itself needed the same amount of rework.</div></div></div><div class="process-item"><div class="process-num">06</div><div><div class="process-title">Legal text at a readable size, not shrunk to fit</div><div class="process-text">The compiled contract and the plain-language wizard copy stay at a readable body size on both panes. This is the document a freelancer actually has to read, not skim, so I resisted the usual instinct to shrink legal text just to make it fit.</div></div></div></div>
+    <div class="cs-sl" data-en="05 · Process" data-fa="۰۵ · روند کار">05 · Process</div>
+    <div class="process-list"><div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="There was no template to redesign" data-fa="قالبی برای بازطراحی وجود نداشت">There was no template to redesign</div><div class="process-text" data-en="The habit was no contract at all, so the real competitor was the DM. The builder had to feel faster than typing the deal into a chat." data-fa="عادت رایج اصلاً نداشتن قرارداد بود، پس رقیب واقعی دایرکت بود. قرارداد‌ساز باید سریع‌تر از تایپ کردن توافق در یک چت حس می‌شد.">The habit was no contract at all, so the real competitor was the DM. The builder had to feel faster than typing the deal into a chat.</div></div></div><div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="Form and live preview side by side" data-fa="فرم و پیش‌نمایش زنده، کنار هم">Form and live preview side by side</div><div class="process-text" data-en="The contract builds up next to the form, so the freelancer sees the real document while answering. Live focus highlights the clause each answer changes." data-fa="قرارداد کنار فرم ساخته می‌شود، پس فریلنسر هنگام پاسخ دادن سند واقعی را می‌بیند. تمرکز زنده بندی را که هر پاسخ تغییر می‌دهد برجسته می‌کند.">The contract builds up next to the form, so the freelancer sees the real document while answering. Live focus highlights the clause each answer changes.</div></div></div><div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="Revision limit and termination conditions as real clauses" data-fa="سقف بازنگری و شرایط فسخ، به‌عنوان بندهای واقعی">Revision limit and termination conditions as real clauses</div><div class="process-text" data-en="The number of revision rounds is its own clause, with a number the freelancer sets (Article 5 in the freelance services template). Termination conditions are part of the contract too." data-fa="تعداد دفعات بازنگری یک بند مستقل است و عدد آن را خود فریلنسر تعیین می‌کند (ماده ۵ در قالب خدمات فریلنسری). شرایط فسخ هم بخشی از قرارداد است.">The number of revision rounds is its own clause, with a number the freelancer sets (Article 5 in the freelance services template). Termination conditions are part of the contract too.</div></div></div><div class="process-item"><div class="process-num">04</div><div><div class="process-title" data-en="One payment or installments" data-fa="پرداخت یکجا یا اقساطی">One payment or installments</div><div class="process-text" data-en="A switch picks a single payment or installments. Each installment has a title, a percent, a due date and an amount, and a running total shows how much of 100% is assigned. The payment tracker follows these installments afterwards." data-fa="یک کلید بین پرداخت یکجا و اقساطی انتخاب می‌کند. هر قسط عنوان، درصد، سررسید و مبلغ دارد و یک جمع جاری نشان می‌دهد چند درصد از ۱۰۰٪ تخصیص داده شده است. پیگیری پرداخت بعداً همین اقساط را دنبال می‌کند.">A switch picks a single payment or installments. Each installment has a title, a percent, a due date and an amount, and a running total shows how much of 100% is assigned. The payment tracker follows these installments afterwards.</div></div></div><div class="process-item"><div class="process-num">05</div><div><div class="process-title" data-en="Mobile: two tabs instead of two panes" data-fa="موبایل: دو تب به‌جای دو ستون">Mobile: two tabs instead of two panes</div><div class="process-text" data-en="There is no room for the form and the preview side by side on a phone, so they become two tabs: Edit form and Preview." data-fa="روی گوشی جایی برای فرم و پیش‌نمایش در کنار هم نیست، پس به دو تب تبدیل می‌شوند: ویرایش فرم و پیش‌نمایش.">There is no room for the form and the preview side by side on a phone, so they become two tabs: Edit form and Preview.</div></div></div><div class="process-item"><div class="process-num">06</div><div><div class="process-title" data-en="The desktop form and preview took several failed passes" data-fa="فرم و پیش‌نمایش دسکتاپ چند بار شکست خورد">The desktop form and preview took several failed passes</div><div class="process-text" data-en="Keeping the two panes readable and error-free at desktop width took repeated trial and error. The contract creation form needed the same amount of rework." data-fa="خوانا و بی‌خطا نگه داشتن دو ستون در عرض دسکتاپ چند بار آزمون و خطا خواست. فرم ساخت قرارداد هم به همان اندازه بازکاری لازم داشت.">Keeping the two panes readable and error-free at desktop width took repeated trial and error. The contract creation form needed the same amount of rework.</div></div></div></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">04 · Solution</div>
-    <p class="cs-p">A wizard flow with one plain-language question per step, a live preview showing the contract compile as the user goes, and conditional branches that skip whole sections when they don’t apply.</p>
-    <p class="cs-p">The flagship feature was the pairing of <b>live preview + live focus</b> — each answer highlights the exact clause it just generated — alongside a <b>payment tracker</b> that lets freelancers follow every contract's payments, whether a single lump sum or an installment schedule.</p>
+    <div class="cs-sl" data-en="06 · Solution" data-fa="۰۶ · راه‌حل">06 · Solution</div>
+    <p class="cs-p" data-en="A five-step builder: template, basic info, amounts and installments, miscellaneous clauses, and review. The core feature is the live preview with live focus: the contract builds up next to the form, and the clause each answer changes is highlighted. Once the contract is done, the payment tracker follows every installment, whether it is one payment or several." data-fa="یک قرارداد‌ساز پنج‌مرحله‌ای: قالب، اطلاعات پایه، مبلغ و اقساط، بندهای متفرقه و بازبینی. قابلیت اصلی، پیش‌نمایش زنده همراه با تمرکز زنده است: قرارداد کنار فرم ساخته می‌شود و بندی که هر پاسخ تغییر می‌دهد برجسته می‌شود. بعد از تکمیل قرارداد، پیگیری پرداخت همه‌ی اقساط را دنبال می‌کند، چه یک پرداخت باشد و چه چند پرداخت.">A five-step builder: template, basic info, amounts and installments, miscellaneous clauses, and review. The core feature is the live preview with live focus: the contract builds up next to the form, and the clause each answer changes is highlighted. Once the contract is done, the payment tracker follows every installment, whether it is one payment or several.</p>
     <div class="mockup-grid mockup-grid-desktop"><div class="mockup-slot browser">
+      <span class="feat-badge" data-en="Core feature" data-fa="قابلیت اصلی">Core feature</span>
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
         <img src="../assets/images/dota/dota-02.png" alt="Wizard step with split-screen live preview." loading="lazy"
              onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
-             class="lb-trigger" data-caption="Wizard question + live preview" onclick="openLightbox(this)">
+             class="lb-trigger" data-caption="Live preview — the contract builds up next to the form" onclick="openLightbox(this)">
       </div>
-      <div class="mockup-caption">Wizard question + live preview</div>
+      <div class="mockup-caption" data-en="Live preview — the contract builds up next to the form" data-fa="پیش‌نمایش زنده: قرارداد کنار فرم ساخته می‌شود">Live preview — the contract builds up next to the form</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
@@ -252,7 +369,7 @@ body{font-family:'Inter',sans-serif;}
              onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
              class="lb-trigger" data-caption="Installment setup — desktop" onclick="openLightbox(this)">
       </div>
-      <div class="mockup-caption">Installment setup — desktop</div>
+      <div class="mockup-caption" data-en="Installment setup — desktop" data-fa="تنظیم اقساط — دسکتاپ">Installment setup — desktop</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
@@ -260,7 +377,7 @@ body{font-family:'Inter',sans-serif;}
              onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
              class="lb-trigger" data-caption="Final review — ready to publish" onclick="openLightbox(this)">
       </div>
-      <div class="mockup-caption">Final review — ready to publish</div>
+      <div class="mockup-caption" data-en="Final review — ready to publish" data-fa="بازبینی نهایی — آماده انتشار">Final review — ready to publish</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
@@ -268,7 +385,7 @@ body{font-family:'Inter',sans-serif;}
              onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
              class="lb-trigger" data-caption="Dashboard — all contracts, filterable" onclick="openLightbox(this)">
       </div>
-      <div class="mockup-caption">Dashboard — all contracts, filterable</div>
+      <div class="mockup-caption" data-en="Dashboard — all contracts, filterable" data-fa="داشبورد — همه قراردادها، قابل فیلتر">Dashboard — all contracts, filterable</div>
     </div><div class="mockup-slot browser">
       <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
       <div class="shot-area">
@@ -276,7 +393,7 @@ body{font-family:'Inter',sans-serif;}
              onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
              class="lb-trigger" data-caption="Payment tracker — overdue &amp; completed" onclick="openLightbox(this)">
       </div>
-      <div class="mockup-caption">Payment tracker — overdue &amp; completed</div>
+      <div class="mockup-caption" data-en="Payment tracker — overdue &amp; completed" data-fa="پیگیری پرداخت — معوق و تسویه‌شده">Payment tracker — overdue &amp; completed</div>
     </div></div>
   </div><div class="mockup-grid mockup-grid-phone"><div class="mockup-slot phone">
       <div class="mockup-chrome phone-chrome"><div class="notch"></div></div>
@@ -285,7 +402,7 @@ body{font-family:'Inter',sans-serif;}
              onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
              class="lb-trigger" data-caption="Installment setup — mobile" onclick="openLightbox(this)">
       </div>
-      <div class="mockup-caption">Installment setup — mobile</div>
+      <div class="mockup-caption" data-en="Installment setup — mobile" data-fa="تنظیم اقساط — موبایل">Installment setup — mobile</div>
     </div><div class="mockup-slot phone">
       <div class="mockup-chrome phone-chrome"><div class="notch"></div></div>
       <div class="shot-area">
@@ -293,29 +410,32 @@ body{font-family:'Inter',sans-serif;}
              onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
              class="lb-trigger" data-caption="Final review — mobile, PDF download" onclick="openLightbox(this)">
       </div>
-      <div class="mockup-caption">Final review — mobile, PDF download</div>
+      <div class="mockup-caption" data-en="Final review — mobile, PDF download" data-fa="بازبینی نهایی — موبایل، دانلود PDF">Final review — mobile, PDF download</div>
     </div></div></section>
 
   <section class="cs-block">
-    <div class="cs-sl">05 · Impact &amp; Results</div>
-    <p class="cs-p">No usage metrics yet — the MVP is fresh. What I can speak to are the core scenarios the product was built to handle, all working end-to-end today:</p>
+    <div class="cs-sl" data-en="07 · Success Metrics" data-fa="۰۷ · معیارهای موفقیت">07 · Success Metrics</div>
+    <table class="impact-table"><thead><tr><th data-en="Metric" data-fa="معیار">Metric</th><th data-en="Baseline" data-fa="خط پایه">Baseline</th><th data-en="Result" data-fa="نتیجه">Result</th></tr></thead><tbody><tr><td data-en="MVP build time" data-fa="زمان ساخت MVP">MVP build time</td><td class="before">—</td><td class="after" data-en="14 days" data-fa="۱۴ روز">14 days</td></tr><tr><td data-en="Core scenarios working end to end" data-fa="سناریوهای اصلی که از ابتدا تا انتها کار می‌کنند">Core scenarios working end to end</td><td class="before">—</td><td class="after" data-en="5 of 5" data-fa="۵ از ۵">5 of 5</td></tr></tbody></table>
+    <p class="cs-p" style="margin-top:14px;" data-en="The baseline is a dash because Dota was designed from zero, so there was no earlier flow to measure. Usage numbers like conversion, drop-off and time on task aren't available yet." data-fa="خط پایه خط تیره است چون دوتا از صفر طراحی شد و جریان قبلی‌ای برای اندازه‌گیری وجود نداشت. اعداد استفاده، مثل نرخ تبدیل، ریزش و زمان انجام کار، هنوز در دسترس نیستند.">The baseline is a dash because Dota was designed from zero, so there was no earlier flow to measure. Usage numbers like conversion, drop-off and time on task aren't available yet.</p>
+  </section>
+
+  <section class="cs-block">
+    <div class="cs-sl" data-en="08 · Impact &amp; Results" data-fa="۰۸ · اثر و نتایج">08 · Impact &amp; Results</div>
+    <p class="cs-p" data-en="The MVP is shipped. These are the core scenarios it was built for, all working end to end:" data-fa="MVP منتشر شده است. این‌ها سناریوهای اصلی‌ای هستند که محصول برای آن‌ها ساخته شد و همه از ابتدا تا انتها کار می‌کنند:">The MVP is shipped. These are the core scenarios it was built for, all working end to end:</p>
     <div class="metric-list">
-      <div class="metric-item">A freelancer can generate a website-design contract for a client in under 5 minutes.</div>
-      <div class="metric-item">A freelancer can split a project's payment into 3 installments, and the system tracks payment timing on its own.</div>
-      <div class="metric-item">The client receives and downloads the contract as a PDF.</div>
-      <div class="metric-item">A freelancer can see the list of their active contracts.</div>
-      <div class="metric-item">A freelancer can see which installments are overdue.</div>
+      <div class="metric-item" data-en="A freelancer can generate a website-design contract for a client in under 5 minutes." data-fa="یک فریلنسر می‌تواند در کمتر از ۵ دقیقه قرارداد طراحی سایت برای کارفرمایش بسازد.">A freelancer can generate a website-design contract for a client in under 5 minutes.</div><div class="metric-item" data-en="A freelancer can split a project's payment into 3 installments, and the system tracks payment timing on its own." data-fa="یک فریلنسر می‌تواند پرداخت پروژه را به ۳ قسط تقسیم کند، و سیستم خودش زمان‌بندی پرداخت‌ها را پیگیری می‌کند.">A freelancer can split a project's payment into 3 installments, and the system tracks payment timing on its own.</div><div class="metric-item" data-en="The client receives and downloads the contract as a PDF." data-fa="کارفرما قرارداد را به‌صورت PDF دریافت و دانلود می‌کند.">The client receives and downloads the contract as a PDF.</div><div class="metric-item" data-en="A freelancer can see the list of their active contracts." data-fa="یک فریلنسر می‌تواند فهرست قراردادهای فعالش را ببیند.">A freelancer can see the list of their active contracts.</div><div class="metric-item" data-en="A freelancer can see which installments are overdue." data-fa="یک فریلنسر می‌تواند ببیند کدام اقساط معوق شده‌اند.">A freelancer can see which installments are overdue.</div>
     </div>
   </section>
 
   <section class="cs-block" style="margin-bottom:0;">
-    <div class="cs-sl">06 · Reflection</div>
-    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Showing the real document being built was the highest-value decision on this project. Every cheaper preview alternative I tested left the anxiety intact.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Conditional branching is presented as an efficiency feature in most wizards. Here it was the main lever on completion rate — a shorter path just means more people finish.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">I'd usability-test the revision-round step in isolation next round. It's the clause carrying the most weight in the whole contract, and I never quite closed the loop on whether freelancers actually understand what they're committing to when they set a number there.</div></div></div>
+    <div class="cs-sl" data-en="09 · Reflection" data-fa="۰۹ · جمع‌بندی">09 · Reflection</div>
+    <div class="cs-learnings"><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The revision-round clause turned out to be the clause that carries the most weight. Next time I'd test that step on its own with freelancers, to check they understand what a number there commits them to." data-fa="بند تعداد بازنگری سنگین‌ترین بند قرارداد از آب درآمد. دفعه بعد این گام را جداگانه با فریلنسرها آزمایش می‌کنم تا مطمئن شوم می‌فهمند عددی که آنجا می‌گذارند به چه چیزی متعهدشان می‌کند.">The revision-round clause turned out to be the clause that carries the most weight. Next time I'd test that step on its own with freelancers, to check they understand what a number there commits them to.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="The two-pane form and live preview took the most rework of the whole build." data-fa="فرم دوستونه و پیش‌نمایش زنده بیشترین بازکاری را در کل پروژه داشت.">The two-pane form and live preview took the most rework of the whole build.</div></div><div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="With the MVP out, the missing piece is usage data. The metrics section stays at baseline until there is real data." data-fa="حالا که MVP منتشر شده، تکه‌ی گمشده داده‌ی استفاده است. بخش متریک‌ها تا رسیدن داده‌ی واقعی روی خط پایه می‌ماند.">With the MVP out, the missing piece is usage data. The metrics section stays at baseline until there is real data.</div></div></div>
   </section>
 
   <div class="cs-endcap">
-    <a class="cs-endcap-link" href="pathofinder.html">← PathoFinder</a>
-    <a class="cs-endcap-link primary" href="rahafto.html">Rahafto Academy →</a>
+    <a class="cs-endcap-link" href="samin.html" rel="prev" data-en="← Samin Style" data-fa="→ سمین استایل">← Samin Style</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="pathofinder.html" rel="next" data-en="PathoFinder →" data-fa="← پاتوفایندر">PathoFinder →</a>
   </div>
 
 </main>
@@ -323,6 +443,7 @@ body{font-family:'Inter',sans-serif;}
 <button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
 <div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-scroll" id="lightboxScroll">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
     <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="Previous">&#10094;</button>
@@ -340,7 +461,8 @@ function showLbAt(index){
   lbIndex = (index + items.length) % items.length;
   var el = items[lbIndex];
   document.getElementById('lightbox-img').src = el.src;
-  document.getElementById('lightbox-caption').textContent = el.getAttribute('data-caption') || '';
+  var slot = el.closest('.mockup-slot'); var capEl = slot && slot.querySelector('.mockup-caption');
+  document.getElementById('lightbox-caption').textContent = capEl ? capEl.textContent : (el.getAttribute('data-caption') || '');
 }
 function openLightbox(imgEl){
   var items = getLbItems();
@@ -376,5 +498,17 @@ document.addEventListener('keydown', function(e){
 })();
 </script>
 
+<script>
+(function(){
+  function fix(){
+    if (window.csLang !== 'fa') return;
+    document.querySelectorAll('.l-fa .fl-scroll, .l-fa .flow-wrap').forEach(function(el){ el.scrollLeft = el.scrollWidth; });
+  }
+  window.addEventListener('cs-lang-change', function(){ setTimeout(fix, 60); });
+  window.addEventListener('load', function(){ setTimeout(fix, 60); });
+  window.addEventListener('resize', fix);
+})();
+</script>
+<script src="cs-shared.js?v=20261011"></script>
 </body>
 </html>

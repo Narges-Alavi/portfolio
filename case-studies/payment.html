@@ -89,6 +89,9 @@ a{color:inherit;}
 .lightbox-inner{position:relative;max-width:min(92vw,1100px);max-height:88vh;display:flex;flex-direction:column;align-items:center;gap:14px;margin:auto;transform:scale(.88) translateY(14px);opacity:0;transition:transform .45s cubic-bezier(.2,.9,.25,1.05),opacity .35s ease;}
 .lightbox-overlay.open .lightbox-inner{transform:scale(1) translateY(0);opacity:1;}
 .lightbox-inner img{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid var(--border-h);box-shadow:0 30px 80px -20px rgba(0,0,0,.7);}
+.lightbox-scroll{width:100%;height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;align-items:center;justify-content:center;padding:40px 84px;}
+@media(max-width:640px){.lightbox-scroll{padding:64px 12px 40px;}}
+.lightbox-overlay.tall .lightbox-scroll{align-items:flex-start;}
 .lightbox-caption{font-size:.85rem;color:#d3dae8;text-align:center;font-family:'Inter',sans-serif;max-width:640px;}
 .lightbox-close{position:absolute;top:-44px;right:0;width:36px;height:36px;border-radius:50%;border:1px solid var(--border-h);background:rgba(255,255,255,.06);color:var(--text);font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .lightbox-close:hover{background:rgba(255,255,255,.14);border-color:var(--cs-accent,var(--primary));transform:rotate(90deg);}
@@ -141,6 +144,7 @@ body{font-family:'Inter',sans-serif;}
 @media (max-width:600px){.back-to-top{bottom:16px;right:16px;width:40px;height:40px;}}
 
 </style>
+<link rel="stylesheet" href="cs-shared.css?v=20261011">
 </head>
 <body style="--cs-accent:#6a5cff;--cs-accent-bg:rgba(106,92,255,0.09);--cs-accent-br:rgba(106,92,255,0.28);">
 
@@ -151,66 +155,75 @@ body{font-family:'Inter',sans-serif;}
   <div class="blob blob-3"></div>
 </div>
 
-<div class="crumb-bar">
-  <a class="crumb-back" href="../index.html">← Back to Portfolio</a>
-</div>
-<div class="crumb-trail-bar">
-  <div class="crumb-trail">
-    <a href="../index.html">Home</a>
-    <span class="sep">/</span>
-    <a href="../index.html#work">Work</a>
-    <span class="sep">/</span>
-    <span class="current">Payment</span>
+<header class="cs-nav">
+  <a class="cs-nav-logo" href="../index.html">
+    <img src="../assets/logo.svg" alt="">
+    <span data-en="Narges Sadat Alavi" data-fa="نرگس سادات علوی">Narges Sadat Alavi</span>
+  </a>
+  <nav class="cs-nav-trail" aria-label="Breadcrumb">
+    <a href="../index.html" data-en="Home" data-fa="خانه">Home</a><span class="sep">/</span>
+    <a href="../index.html#work" data-en="Work" data-fa="نمونه‌کارها">Work</a><span class="sep">/</span>
+    <span class="current" data-en="Payment" data-fa="درگاه پرداخت">Payment</span>
+  </nav>
+  <div class="cs-nav-actions">
+    <button type="button" class="cs-btn" id="csLang" aria-label="Switch language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+      <span id="csLangLabel" data-en="FA" data-fa="EN">FA</span>
+    </button>
+    <a class="cs-btn back" href="../index.html#work">
+      <svg class="cs-back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="cs-btn-text" data-en="Back to Portfolio" data-fa="بازگشت به پورتفولیو">Back to Portfolio</span>
+    </a>
   </div>
-</div>
+</header>
 
 <main class="cs-container">
 
   <div class="cs-header-row">
     <div class="cs-header-main">
-      <div class="cs-tag">FINTECH · PAYMENT UX</div>
-      <h1 class="cs-title">Payment</h1>
-      <p class="cs-sub">A standalone payment screen exploring how a checkout form can feel trustworthy instead of clinical — a live-updating card preview paired with a bold, glass-and-starfield visual identity.</p>
+      <div class="cs-tag" data-en="FINTECH · PAYMENT UX" data-fa="فین‌تک · تجربه کاربری پرداخت">FINTECH · PAYMENT UX</div>
+      <h1 class="cs-title" data-en="Payment" data-fa="Payment">Payment</h1>
+      <p class="cs-sub" data-en="A standalone payment screen exploring how a checkout form can feel trustworthy instead of clinical — a live-updating card preview paired with a bold, glass-and-starfield visual identity." data-fa="یک صفحه پرداخت مستقل، برای بررسی اینکه فرم پرداخت چطور می‌تواند به‌جای خشک و اداری، قابل اعتماد به نظر برسد — پیش‌نمایش زنده کارت، همراه با هویت بصری شیشه‌ای روی زمینه ستاره‌ای.">A standalone payment screen exploring how a checkout form can feel trustworthy instead of clinical — a live-updating card preview paired with a bold, glass-and-starfield visual identity.</p>
     </div>
   </div>
 
   <div class="cs-meta">
-    <div class="cs-meta-row"><div class="cs-meta-label">Team</div><div class="cs-meta-val">Solo — self-directed practice piece</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Timeframe</div><div class="cs-meta-val">Short-form exploration · 2024</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Industry</div><div class="cs-meta-val"><span class="cs-pill on">Fintech / E-commerce</span></div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma, HTML/CSS</div></div>
-    <div class="cs-meta-row"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Desktop (Web)</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Team" data-fa="تیم">Team</div><div class="cs-meta-val" data-en="Solo — self-directed practice piece" data-fa="تک‌نفره — پروژه تمرینی شخصی">Solo — self-directed practice piece</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Timeframe" data-fa="بازه زمانی">Timeframe</div><div class="cs-meta-val" data-en="Short-form exploration · 2024" data-fa="کاوش کوتاه · ۱۴۰۳">Short-form exploration · 2024</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Industry" data-fa="حوزه">Industry</div><div class="cs-meta-val"><span class="cs-pill on" data-en="Fintech / E-commerce" data-fa="فین‌تک / فروشگاه اینترنتی">Fintech / E-commerce</span></div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Tools" data-fa="ابزار">Tools</div><div class="cs-meta-val" data-en="Figma, HTML/CSS" data-fa="فیگما، HTML/CSS">Figma, HTML/CSS</div></div>
+    <div class="cs-meta-row"><div class="cs-meta-label" data-en="Platform" data-fa="پلتفرم">Platform</div><div class="cs-meta-val" data-en="Desktop (Web)" data-fa="دسکتاپ (وب)">Desktop (Web)</div></div>
   </div>
 
-  <div class="cs-constraint"><b>Constraint —</b><span>This is a self-initiated concept, not a live product — there's no real payment gateway or backend behind it. The brief I set myself was narrower: can a payment form give live, reassuring feedback without ever feeling less secure?</span></div>
+  <div class="cs-constraint"><b data-en="Constraint —" data-fa="محدودیت —">Constraint —</b><span data-en="This is a self-initiated concept, not a live product — there's no real payment gateway or backend behind it. The brief I set myself was narrower: can a payment form give live, reassuring feedback without ever feeling less secure?" data-fa="این یک مفهوم شخصی است، نه محصولی که منتشر شده باشد — هیچ درگاه پرداخت یا بک‌اند واقعی پشتش نیست. برنامه‌ای که برای خودم گذاشتم محدودتر بود: آیا یک فرم پرداخت می‌تواند بازخورد زنده و اطمینان‌بخش بدهد، بدون اینکه ذره‌ای کم‌امن‌تر به نظر برسد؟">This is a self-initiated concept, not a live product — there's no real payment gateway or backend behind it. The brief I set myself was narrower: can a payment form give live, reassuring feedback without ever feeling less secure?</span></div>
 
   <section class="cs-block" style="margin-top:0;">
-    <div class="cs-sl">01 · Context &amp; Problem</div>
-    <p class="cs-p">Most checkout forms are a static stack of inputs — a person types a card number and gets nothing back until the final "Pay" tap. Transaction details (who's being paid, how much, from where) also usually live outside the form entirely, so the person has to trust the page rather than verify what's in front of them. I designed a single checkout screen that tries to close both gaps at once.</p>
-    <div class="cs-features"><span class="cs-feature-chip">Live Card Preview</span><span class="cs-feature-chip">Glassmorphism on a Starfield Background</span><span class="cs-feature-chip">Transaction Summary Panel</span><span class="cs-feature-chip">Refreshable Security Code</span><span class="cs-feature-chip">Single-Page Checkout</span></div>
+    <div class="cs-sl" data-en="01 · Context &amp; Problem" data-fa="۰۱ · زمینه و مسئله">01 · Context &amp; Problem</div>
+    <p class="cs-p" data-en="Most checkout forms are a static stack of inputs — a person types a card number and gets nothing back until the final &quot;Pay&quot; tap. Transaction details (who's being paid, how much, from where) also usually live outside the form entirely, so the person has to trust the page rather than verify what's in front of them. I designed a single checkout screen that tries to close both gaps at once." data-fa="بیشتر فرم‌های پرداخت یک پشته ثابت از فیلدند — کاربر شماره کارت را وارد می‌کند و تا لحظه زدن دکمه «پرداخت» هیچ بازخوردی نمی‌گیرد. جزئیات تراکنش (پول به چه کسی می‌رود، چقدر، از کجا) هم معمولاً کاملاً بیرون از فرم‌اند، پس کاربر باید به صفحه اعتماد کند نه اینکه چیزی را که جلوی رویش است بررسی کند. یک صفحه پرداخت واحد طراحی کردم که سعی می‌کند هر دو شکاف را همزمان ببندد.">Most checkout forms are a static stack of inputs — a person types a card number and gets nothing back until the final "Pay" tap. Transaction details (who's being paid, how much, from where) also usually live outside the form entirely, so the person has to trust the page rather than verify what's in front of them. I designed a single checkout screen that tries to close both gaps at once.</p>
+    <div class="cs-features"><span class="cs-feature-chip" data-en="Live Card Preview" data-fa="پیش‌نمایش زنده کارت">Live Card Preview</span><span class="cs-feature-chip" data-en="Glassmorphism on a Starfield Background" data-fa="سبک شیشه‌ای روی زمینه ستاره‌ای">Glassmorphism on a Starfield Background</span><span class="cs-feature-chip" data-en="Transaction Summary Panel" data-fa="پنل خلاصه تراکنش">Transaction Summary Panel</span><span class="cs-feature-chip" data-en="Refreshable Security Code" data-fa="کد امنیتی قابل بازتولید">Refreshable Security Code</span><span class="cs-feature-chip" data-en="Single-Page Checkout" data-fa="پرداخت تک‌صفحه‌ای">Single-Page Checkout</span></div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">02 · Research &amp; Discovery</div>
+    <div class="cs-sl" data-en="02 · Research &amp; Discovery" data-fa="۰۲ · پژوهش و کشف">02 · Research &amp; Discovery</div>
     <div class="discovery-wrap">
-      <div class="discovery-method">Reviewed checkout patterns across common payment gateways and card-entry forms</div>
-      <div class="discovery-insight">Almost none of them reflect what's being typed back to the user in a recognizable form — the card stays an abstract set of fields until submission. And the "what am I actually paying for" details (store, amount, acceptor code) are usually tucked into a separate summary the user has to scroll to find, right when they're least willing to keep reading.</div>
+      <div class="discovery-method" data-en="Reviewed checkout patterns across common payment gateways and card-entry forms" data-fa="بررسی الگوهای پرداخت در درگاه‌های رایج و فرم‌های ورود اطلاعات کارت">Reviewed checkout patterns across common payment gateways and card-entry forms</div>
+      <div class="discovery-insight" data-en="Almost none of them reflect what's being typed back to the user in a recognizable form — the card stays an abstract set of fields until submission. And the &quot;what am I actually paying for&quot; details (store, amount, acceptor code) are usually tucked into a separate summary the user has to scroll to find, right when they're least willing to keep reading." data-fa="تقریباً هیچ‌کدامشان آنچه را کاربر تایپ می‌کند به شکلی قابل تشخیص به او برنمی‌گردانند — کارت تا لحظه ثبت، یک مجموعه انتزاعی از فیلدها باقی می‌ماند. و جزئیات «دقیقاً بابت چه چیزی پول می‌دهم» (فروشگاه، مبلغ، کد پذیرنده) معمولاً در یک خلاصه جدا پنهان شده که کاربر باید برای پیدا کردنش اسکرول کند، درست همان وقتی که کمترین حوصله خواندن را دارد.">Almost none of them reflect what's being typed back to the user in a recognizable form — the card stays an abstract set of fields until submission. And the "what am I actually paying for" details (store, amount, acceptor code) are usually tucked into a separate summary the user has to scroll to find, right when they're least willing to keep reading.</div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">03 · Process</div>
+    <div class="cs-sl" data-en="03 · Process" data-fa="۰۳ · روند کار">03 · Process</div>
     <div class="process-list">
-      <div class="process-item"><div class="process-num">01</div><div><div class="process-title">The card had to become the confirmation, not decoration</div><div class="process-text">Every field mirrors onto a live card face the moment it's typed — number, name, expiry, CVV — in the same layout it'll actually be charged with. The card stops being an illustration and starts being the user's own proof they typed it right.</div></div></div>
-      <div class="process-item"><div class="process-num">02</div><div><div class="process-title">Keeping the transaction in view, not buried in the form</div><div class="process-text">Store name, acceptor code, site address, and the final amount sit in their own block beside the card, so the person can sanity-check what they're paying for without hunting through form fields.</div></div></div>
-      <div class="process-item"><div class="process-num">03</div><div><div class="process-title">A security code that behaves like one</div><div class="process-text">The security-code block includes a refresh control, echoing how one-time codes behave elsewhere — a small signal that this step is protected, not just another static input.</div></div></div>
+      <div class="process-item"><div class="process-num">01</div><div><div class="process-title" data-en="The card had to become the confirmation, not decoration" data-fa="کارت باید خودِ تأیید می‌شد، نه تزئین">The card had to become the confirmation, not decoration</div><div class="process-text" data-en="Every field mirrors onto a live card face the moment it's typed — number, name, expiry, CVV — in the same layout it'll actually be charged with. The card stops being an illustration and starts being the user's own proof they typed it right." data-fa="هر فیلد همان لحظه تایپ، روی تصویر زنده کارت بازتاب پیدا می‌کند — شماره، نام، تاریخ انقضا، CVV — با همان چیدمانی که واقعاً از آن برداشت می‌شود. کارت دیگر یک تصویر تزئینی نیست و به سند خود کاربر تبدیل می‌شود که درست وارد کرده.">Every field mirrors onto a live card face the moment it's typed — number, name, expiry, CVV — in the same layout it'll actually be charged with. The card stops being an illustration and starts being the user's own proof they typed it right.</div></div></div>
+      <div class="process-item"><div class="process-num">02</div><div><div class="process-title" data-en="Keeping the transaction in view, not buried in the form" data-fa="تراکنش جلوی چشم بماند، نه دفن‌شده در فرم">Keeping the transaction in view, not buried in the form</div><div class="process-text" data-en="Store name, acceptor code, site address, and the final amount sit in their own block beside the card, so the person can sanity-check what they're paying for without hunting through form fields." data-fa="نام فروشگاه، کد پذیرنده، آدرس سایت و مبلغ نهایی در بلوک مخصوص خودشان کنار کارت می‌نشینند، تا کاربر بتواند بدون گشتن لای فیلدهای فرم بررسی کند بابت چه چیزی پول می‌دهد.">Store name, acceptor code, site address, and the final amount sit in their own block beside the card, so the person can sanity-check what they're paying for without hunting through form fields.</div></div></div>
+      <div class="process-item"><div class="process-num">03</div><div><div class="process-title" data-en="A security code that behaves like one" data-fa="کد امنیتی‌ای که واقعاً مثل کد امنیتی رفتار کند">A security code that behaves like one</div><div class="process-text" data-en="The security-code block includes a refresh control, echoing how one-time codes behave elsewhere — a small signal that this step is protected, not just another static input." data-fa="بلوک کد امنیتی یک دکمه بازتولید دارد، شبیه رفتار کدهای یک‌بارمصرف در جاهای دیگر — نشانه‌ای کوچک که این مرحله محافظت‌شده است، نه یک فیلد ثابت دیگر.">The security-code block includes a refresh control, echoing how one-time codes behave elsewhere — a small signal that this step is protected, not just another static input.</div></div></div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">04 · Solution</div>
-    <p class="cs-p">A single-screen checkout: card details on the left, a live card preview and transaction summary on the right, and one clear "Payment" action at the bottom.</p>
-    <p class="cs-p">The flagship interaction is the <b>live card preview</b> — the card fills in as the user types, in real time — paired with a <b>transaction panel</b> that keeps the store, acceptor code, and total price visible the entire time, so nothing about the payment is left for the person to take on faith.</p>
+    <div class="cs-sl" data-en="04 · Solution" data-fa="۰۴ · راه‌حل">04 · Solution</div>
+    <p class="cs-p" data-en="A single-screen checkout: card details on the left, a live card preview and transaction summary on the right, and one clear &quot;Payment&quot; action at the bottom." data-fa="یک پرداخت تک‌صفحه‌ای: اطلاعات کارت در سمت چپ، پیش‌نمایش زنده کارت و خلاصه تراکنش در سمت راست، و یک دکمه روشن «پرداخت» در پایین.">A single-screen checkout: card details on the left, a live card preview and transaction summary on the right, and one clear "Payment" action at the bottom.</p>
+    <p class="cs-p" data-html="true" data-en="The flagship interaction is the &lt;b&gt;live card preview&lt;/b&gt; — the card fills in as the user types, in real time — paired with a &lt;b&gt;transaction panel&lt;/b&gt; that keeps the store, acceptor code, and total price visible the entire time, so nothing about the payment is left for the person to take on faith." data-fa="تعامل شاخص این طراحی &lt;b&gt;پیش‌نمایش زنده کارت&lt;/b&gt; است: کارت همزمان با تایپ کاربر پر می‌شود. کنار آن یک &lt;b&gt;پنل تراکنش&lt;/b&gt; قرار دارد که فروشگاه، کد پذیرنده و مبلغ کل را در تمام مدت نشان می‌دهد، تا هیچ بخشی از پرداخت بر پایه‌ی اعتماد کورکورانه نماند.">The flagship interaction is the <b>live card preview</b> — the card fills in as the user types, in real time — paired with a <b>transaction panel</b> that keeps the store, acceptor code, and total price visible the entire time, so nothing about the payment is left for the person to take on faith.</p>
     <div class="mockup-grid">
       <div class="mockup-slot">
         <div class="mockup-chrome"><div class="dot" style="background:#ff5f57;"></div><div class="dot" style="background:#febc2e;"></div><div class="dot" style="background:#28c840;"></div><div class="urlbar"></div></div>
@@ -219,34 +232,35 @@ body{font-family:'Inter',sans-serif;}
                onload="this.style.opacity=1" onerror="this.style.opacity=0" style="opacity:1;"
                onclick="openLightbox(this.src,'Checkout — card form, live card preview &amp; transaction summary')">
         </div>
-        <div class="mockup-caption">Checkout — card form, live card preview &amp; transaction summary</div>
+        <div class="mockup-caption" data-en="Checkout — card form, live card preview &amp; transaction summary" data-fa="صفحه پرداخت — فرم کارت، پیش‌نمایش زنده کارت و خلاصه تراکنش">Checkout — card form, live card preview &amp; transaction summary</div>
       </div>
     </div>
   </section>
 
   <section class="cs-block">
-    <div class="cs-sl">05 · Impact &amp; Results</div>
-    <p class="cs-p">No usage metrics — this is a concept piece rather than a shipped product. What I can speak to are the interactions it was built to prove out, all working end-to-end:</p>
+    <div class="cs-sl" data-en="05 · Impact &amp; Results" data-fa="۰۵ · اثر و نتایج">05 · Impact &amp; Results</div>
+    <p class="cs-p" data-en="No usage metrics — this is a concept piece rather than a shipped product. What I can speak to are the interactions it was built to prove out, all working end-to-end:" data-fa="هیچ متریک استفاده‌ای در کار نیست — این یک مفهوم است نه محصولی که منتشر شده باشد. چیزی که می‌توانم از آن بگویم، تعامل‌هایی است که برای اثباتشان ساخته شد و همه کامل کار می‌کنند:">No usage metrics — this is a concept piece rather than a shipped product. What I can speak to are the interactions it was built to prove out, all working end-to-end:</p>
     <div class="metric-list">
-      <div class="metric-item">The card preview updates instantly as each field — number, name, expiry, CVV — is completed.</div>
-      <div class="metric-item">The transaction summary (store, acceptor code, site, amount) stays visible without any scrolling.</div>
-      <div class="metric-item">The security-code refresh control works as expected across repeated triggers.</div>
-      <div class="metric-item">The whole flow holds together as a single screen, with no intermediate steps before payment.</div>
+      <div class="metric-item" data-en="The card preview updates instantly as each field — number, name, expiry, CVV — is completed." data-fa="پیش‌نمایش کارت با کامل‌شدن هر فیلد — شماره، نام، تاریخ انقضا، CVV — بی‌درنگ به‌روز می‌شود.">The card preview updates instantly as each field — number, name, expiry, CVV — is completed.</div>
+      <div class="metric-item" data-en="The transaction summary (store, acceptor code, site, amount) stays visible without any scrolling." data-fa="خلاصه تراکنش (فروشگاه، کد پذیرنده، سایت، مبلغ) بدون هیچ اسکرولی دیده می‌شود.">The transaction summary (store, acceptor code, site, amount) stays visible without any scrolling.</div>
+      <div class="metric-item" data-en="The security-code refresh control works as expected across repeated triggers." data-fa="دکمه بازتولید کد امنیتی در فراخوانی‌های مکرر طبق انتظار کار می‌کند.">The security-code refresh control works as expected across repeated triggers.</div>
+      <div class="metric-item" data-en="The whole flow holds together as a single screen, with no intermediate steps before payment." data-fa="کل مسیر به‌صورت یک صفحه واحد جمع می‌شود، بدون هیچ مرحله میانی پیش از پرداخت.">The whole flow holds together as a single screen, with no intermediate steps before payment.</div>
     </div>
   </section>
 
   <section class="cs-block" style="margin-bottom:0;">
-    <div class="cs-sl">06 · Reflection</div>
+    <div class="cs-sl" data-en="06 · Reflection" data-fa="۰۶ · جمع‌بندی">06 · Reflection</div>
     <div class="cs-learnings">
-      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Making the card itself the feedback surface mattered more than any other single decision on this screen — it's the one thing that actually replaces the anxiety of "did I type that right?"</div></div>
-      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">Next round, I'd usability-test whether the refreshable security code reads as reassuring or just confusing to someone seeing it for the first time.</div></div>
-      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text">I'd also want to check the glass-and-starfield palette against contrast tools rather than my own eye alone, since a payment screen is exactly the wrong place for a legibility compromise.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Making the card itself the feedback surface mattered more than any other single decision on this screen — it's the one thing that actually replaces the anxiety of &quot;did I type that right?&quot;" data-fa="تبدیل‌کردن خود کارت به سطح بازخورد، از هر تصمیم دیگری در این صفحه مهم‌تر بود — تنها چیزی است که واقعاً جای اضطراب «درست وارد کردم؟» را می‌گیرد.">Making the card itself the feedback surface mattered more than any other single decision on this screen — it's the one thing that actually replaces the anxiety of "did I type that right?"</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="Next round, I'd usability-test whether the refreshable security code reads as reassuring or just confusing to someone seeing it for the first time." data-fa="در دور بعد، تست کاربری می‌کنم که کد امنیتی قابل بازتولید برای کسی که اولین بار می‌بیندش اطمینان‌بخش خوانده می‌شود یا فقط گیج‌کننده.">Next round, I'd usability-test whether the refreshable security code reads as reassuring or just confusing to someone seeing it for the first time.</div></div>
+      <div class="learn-item"><div class="learn-bullet"></div><div class="learn-text" data-en="I'd also want to check the glass-and-starfield palette against contrast tools rather than my own eye alone, since a payment screen is exactly the wrong place for a legibility compromise." data-fa="همچنین می‌خواهم پالت شیشه‌ای و ستاره‌ای را با ابزارهای سنجش کنتراست بررسی کنم نه فقط با چشم خودم، چون صفحه پرداخت دقیقاً جایی است که نباید سر خوانایی کوتاه آمد.">I'd also want to check the glass-and-starfield palette against contrast tools rather than my own eye alone, since a payment screen is exactly the wrong place for a legibility compromise.</div></div>
     </div>
   </section>
 
   <div class="cs-endcap">
-    <a class="cs-endcap-link" href="saveh.html">← Saveh Concert</a>
-    <a class="cs-endcap-link primary" href="pathofinder.html">PathoFinder →</a>
+    <a class="cs-endcap-link" href="saveh.html" rel="prev" data-en="← Saveh Concert" data-fa="→ کنسرت ساوه">← Saveh Concert</a>
+    <a class="cs-endcap-mid" href="../index.html#work" data-en="All Case Studies" data-fa="همه نمونه‌کارها">All Case Studies</a>
+    <a class="cs-endcap-link primary" href="nova.html" rel="next" data-en="Nova Store →" data-fa="← نوا استور">Nova Store →</a>
   </div>
 
 </main>
@@ -254,6 +268,7 @@ body{font-family:'Inter',sans-serif;}
 <button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
 <div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-scroll" id="lightboxScroll">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
     <img id="lightbox-img" src="" alt="">
@@ -286,5 +301,6 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLi
 })();
 </script>
 
+<script src="cs-shared.js?v=20261011"></script>
 </body>
 </html>
